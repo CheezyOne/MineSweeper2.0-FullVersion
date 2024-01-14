@@ -1,0 +1,440 @@
+{ "cat":"", "pid":12345, "tid":0, "ts":0, "ph":"M", "name":"process_name", "args": { "name":"bee_backend" } }
+,{ "pid":12345, "tid":0, "ts":1705132232075565, "dur":2008, "ph":"X", "name": "DriverInitData",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1705132232077582, "dur":76, "ph":"X", "name": "Tundra",  "args": { "detail":"RemoveStaleOutputs" }}
+,{ "pid":12345, "tid":0, "ts":1705132232077691, "dur":22, "ph":"X", "name": "Tundra",  "args": { "detail":"PrepareNodes" }}
+,{ "pid":12345, "tid":0, "ts":1705132232077713, "dur":251, "ph":"X", "name": "Tundra",  "args": { "detail":"BuildQueueInit" }}
+,{ "pid":12345, "tid":0, "ts":1705132232077996, "dur":812, "ph":"X", "name": "EnqueueRequestedNodes",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1705132232078808, "dur":2, "ph":"X", "name": "SortWorkingStack",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1705132235354599, "dur":112, "ph":"X", "name": "JoinBuildThread",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1705132235354711, "dur":23, "ph":"X", "name": "ThreadStateDestroy",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1705132235354734, "dur":20, "ph":"X", "name": "JoinBuildThread",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1705132235354754, "dur":14, "ph":"X", "name": "ThreadStateDestroy",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1705132235354769, "dur":2, "ph":"X", "name": "JoinBuildThread",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1705132235354771, "dur":8, "ph":"X", "name": "ThreadStateDestroy",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1705132235354779, "dur":2, "ph":"X", "name": "JoinBuildThread",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1705132235354781, "dur":9, "ph":"X", "name": "ThreadStateDestroy",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1705132235354790, "dur":0, "ph":"X", "name": "SharedResourceDestroy",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1705132235354810, "dur":3, "ph":"X", "name": "BuildQueueDestroyTail",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1705132235354837, "dur":2827, "ph":"X", "name": "Tundra",  "args": { "detail":"Write AllBuiltNodes" }}
+,{ "pid":12345, "tid":1, "ts":1705132232078732, "dur":84, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1705132232078820, "dur":7808, "ph":"X", "name": "CheckDagSignatures",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1705132232086646, "dur":2, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"WriteText Library/Bee/artifacts/WinPlayerBuildProgram/Data/app.info" }}
+,{ "pid":12345, "tid":1, "ts":1705132232086650, "dur":694, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1705132232087349, "dur":3, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/app.info" }}
+,{ "pid":12345, "tid":1, "ts":1705132232087357, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1705132232088772, "dur":4353, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/app.info" }}
+,{ "pid":12345, "tid":1, "ts":1705132232093132, "dur":168, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/MonoBleedingEdge/etc/mono/4.5/settings.map" }}
+,{ "pid":12345, "tid":1, "ts":1705132232093304, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1705132232093907, "dur":2031, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/MonoBleedingEdge/etc/mono/4.5/settings.map" }}
+,{ "pid":12345, "tid":1, "ts":1705132232096009, "dur":179, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/MonoBleedingEdge/etc/mono/4.5/DefaultWsdlHelpGenerator.aspx" }}
+,{ "pid":12345, "tid":1, "ts":1705132232096193, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1705132232096317, "dur":3306, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/MonoBleedingEdge/etc/mono/4.5/DefaultWsdlHelpGenerator.aspx" }}
+,{ "pid":12345, "tid":1, "ts":1705132232099695, "dur":188, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/MonoBleedingEdge/etc/mono/4.0/Browsers/Compat.browser" }}
+,{ "pid":12345, "tid":1, "ts":1705132232099887, "dur":2, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1705132232100656, "dur":2578, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/MonoBleedingEdge/etc/mono/4.0/Browsers/Compat.browser" }}
+,{ "pid":12345, "tid":1, "ts":1705132232103305, "dur":19440, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/MonoBleedingEdge/etc/mono/4.0/web.config" }}
+,{ "pid":12345, "tid":1, "ts":1705132232122752, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1705132232122867, "dur":3524, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/MonoBleedingEdge/etc/mono/4.0/web.config" }}
+,{ "pid":12345, "tid":1, "ts":1705132232126465, "dur":253, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/MonoBleedingEdge/etc/mono/2.0/settings.map" }}
+,{ "pid":12345, "tid":1, "ts":1705132232126722, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1705132232127074, "dur":3000, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/MonoBleedingEdge/etc/mono/2.0/settings.map" }}
+,{ "pid":12345, "tid":1, "ts":1705132232130144, "dur":1338, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/MonoBleedingEdge/etc/mono/2.0/DefaultWsdlHelpGenerator.aspx" }}
+,{ "pid":12345, "tid":1, "ts":1705132232131491, "dur":2, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1705132232131504, "dur":2359, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/MonoBleedingEdge/etc/mono/2.0/DefaultWsdlHelpGenerator.aspx" }}
+,{ "pid":12345, "tid":1, "ts":1705132232133942, "dur":169, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/MonoBleedingEdge/etc/mono/config" }}
+,{ "pid":12345, "tid":1, "ts":1705132232134114, "dur":2, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1705132232134126, "dur":2377, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/MonoBleedingEdge/etc/mono/config" }}
+,{ "pid":12345, "tid":1, "ts":1705132232136587, "dur":195, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/MonoBleedingEdge/etc/mono/browscap.ini" }}
+,{ "pid":12345, "tid":1, "ts":1705132232136787, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1705132232136798, "dur":2883, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/MonoBleedingEdge/etc/mono/browscap.ini" }}
+,{ "pid":12345, "tid":1, "ts":1705132232139755, "dur":309346, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/MonoBleedingEdge/EmbedRuntime/mono-2.0-bdwgc.dll" }}
+,{ "pid":12345, "tid":1, "ts":1705132232449108, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1705132232449219, "dur":11433, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/MonoBleedingEdge/EmbedRuntime/mono-2.0-bdwgc.dll" }}
+,{ "pid":12345, "tid":1, "ts":1705132232460724, "dur":55264, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.VFXModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1705132232515995, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1705132232516007, "dur":1492, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.VFXModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1705132232517619, "dur":191529, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.UnityWebRequestModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1705132232709156, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1705132232709169, "dur":1737, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.UnityWebRequestModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1705132232710981, "dur":53057, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.UnityCurlModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1705132232764045, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1705132232764057, "dur":1613, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.UnityCurlModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1705132232765739, "dur":41092, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.UnityAnalyticsCommonModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1705132232806839, "dur":2, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1705132232806850, "dur":5429, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.UnityAnalyticsCommonModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1705132232812346, "dur":32018, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.UmbraModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1705132232844371, "dur":4, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1705132232844384, "dur":1918, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.UmbraModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1705132232846428, "dur":52045, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.UIModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1705132232898481, "dur":2, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1705132232898492, "dur":1742, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.UIModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1705132232900295, "dur":196654, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.UI.dll" }}
+,{ "pid":12345, "tid":1, "ts":1705132233096957, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1705132233096969, "dur":1815, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.UI.dll" }}
+,{ "pid":12345, "tid":1, "ts":1705132233098857, "dur":75056, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.TextCoreFontEngineModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1705132233173921, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1705132233173933, "dur":1356, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.TextCoreFontEngineModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1705132233175345, "dur":43764, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.SubstanceModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1705132233219117, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1705132233219130, "dur":10522, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.SubstanceModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1705132233229720, "dur":33024, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.SpriteShapeModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1705132233262748, "dur":2, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1705132233262756, "dur":1693, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.SpriteShapeModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1705132233264512, "dur":28357, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1705132233292877, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1705132233292889, "dur":1889, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1705132233294841, "dur":65727, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.Physics2DModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1705132233360576, "dur":2, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1705132233360588, "dur":1910, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.Physics2DModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1705132233362563, "dur":49510, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.JSONSerializeModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1705132233412081, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1705132233412094, "dur":1674, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.JSONSerializeModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1705132233413828, "dur":28428, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.ImageConversionModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1705132233442265, "dur":2, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1705132233442277, "dur":1916, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.ImageConversionModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1705132233444264, "dur":29152, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.GridModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1705132233473422, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1705132233473433, "dur":3078, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.GridModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1705132233476574, "dur":41450, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.DSPGraphModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1705132233518032, "dur":4, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1705132233518045, "dur":2384, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.DSPGraphModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1705132233520496, "dur":70999, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.DirectorModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1705132233591512, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1705132233591524, "dur":1524, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.DirectorModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1705132233593119, "dur":57647, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.ClothModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1705132233650775, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1705132233650788, "dur":1604, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.ClothModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1705132233652454, "dur":48678, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.ARModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1705132233701142, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1705132233701154, "dur":5854, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.ARModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1705132233707091, "dur":257461, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.AndroidJNIModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1705132233964560, "dur":2, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1705132233964572, "dur":1481, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.AndroidJNIModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1705132233966109, "dur":420368, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/System.Xml.dll" }}
+,{ "pid":12345, "tid":1, "ts":1705132234386485, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1705132234386498, "dur":4481, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/System.Xml.dll" }}
+,{ "pid":12345, "tid":1, "ts":1705132234391050, "dur":52821, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/System.IO.Compression.FileSystem.dll" }}
+,{ "pid":12345, "tid":1, "ts":1705132234443895, "dur":2, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1705132234443907, "dur":2524, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/System.IO.Compression.FileSystem.dll" }}
+,{ "pid":12345, "tid":1, "ts":1705132234446684, "dur":296442, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/System.Drawing.dll" }}
+,{ "pid":12345, "tid":1, "ts":1705132234743134, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1705132234743147, "dur":1935, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/System.Drawing.dll" }}
+,{ "pid":12345, "tid":1, "ts":1705132234745143, "dur":165326, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/System.Configuration.dll" }}
+,{ "pid":12345, "tid":1, "ts":1705132234910477, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1705132234910490, "dur":5294, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/System.Configuration.dll" }}
+,{ "pid":12345, "tid":1, "ts":1705132234915843, "dur":213986, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/Assembly-CSharp.dll" }}
+,{ "pid":12345, "tid":1, "ts":1705132235129837, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1705132235129850, "dur":5224, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/Assembly-CSharp.dll" }}
+,{ "pid":12345, "tid":1, "ts":1705132235135137, "dur":219442, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1705132232078804, "dur":24, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1705132232078829, "dur":7805, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1705132232086646, "dur":18484, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/MonoBleedingEdge/etc/mono/4.5/web.config" }}
+,{ "pid":12345, "tid":2, "ts":1705132232105137, "dur":4, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1705132232105168, "dur":2248, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/MonoBleedingEdge/etc/mono/4.5/web.config" }}
+,{ "pid":12345, "tid":2, "ts":1705132232107567, "dur":202, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/MonoBleedingEdge/etc/mono/4.0/settings.map" }}
+,{ "pid":12345, "tid":2, "ts":1705132232107775, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1705132232107895, "dur":1953, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/MonoBleedingEdge/etc/mono/4.0/settings.map" }}
+,{ "pid":12345, "tid":2, "ts":1705132232109920, "dur":16016, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/MonoBleedingEdge/etc/mono/4.0/machine.config" }}
+,{ "pid":12345, "tid":2, "ts":1705132232125944, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1705132232125957, "dur":1682, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/MonoBleedingEdge/etc/mono/4.0/machine.config" }}
+,{ "pid":12345, "tid":2, "ts":1705132232127708, "dur":14488, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/MonoBleedingEdge/etc/mono/2.0/machine.config" }}
+,{ "pid":12345, "tid":2, "ts":1705132232142201, "dur":2, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1705132232142213, "dur":21312, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/MonoBleedingEdge/etc/mono/2.0/machine.config" }}
+,{ "pid":12345, "tid":2, "ts":1705132232163600, "dur":44073, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/UnityCrashHandler64.exe" }}
+,{ "pid":12345, "tid":2, "ts":1705132232207681, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1705132232207691, "dur":2314, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/UnityCrashHandler64.exe" }}
+,{ "pid":12345, "tid":2, "ts":1705132232210070, "dur":148, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Resources/unity default resources" }}
+,{ "pid":12345, "tid":2, "ts":1705132232210221, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1705132232210627, "dur":95050, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Resources/unity default resources" }}
+,{ "pid":12345, "tid":2, "ts":1705132232305741, "dur":97531, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.XRModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1705132232403280, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1705132232403414, "dur":1717, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.XRModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1705132232405198, "dur":56822, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.VirtualTexturingModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1705132232462028, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1705132232462040, "dur":1583, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.VirtualTexturingModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1705132232463684, "dur":30775, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.VehiclesModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1705132232494464, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1705132232494472, "dur":10137, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.VehiclesModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1705132232504669, "dur":52275, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.UnityWebRequestTextureModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1705132232556951, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1705132232556963, "dur":1581, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.UnityWebRequestTextureModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1705132232558609, "dur":181659, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.UnityWebRequestAssetBundleModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1705132232740276, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1705132232740288, "dur":1827, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.UnityWebRequestAssetBundleModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1705132232742198, "dur":109299, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.UnityAnalyticsModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1705132232851505, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1705132232851517, "dur":2196, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.UnityAnalyticsModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1705132232853775, "dur":72241, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.UIElementsNativeModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1705132232926024, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1705132232926036, "dur":1827, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.UIElementsNativeModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1705132232927933, "dur":42423, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.TLSModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1705132232970364, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1705132232970376, "dur":1576, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.TLSModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1705132232972009, "dur":50393, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.TilemapModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1705132233022411, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1705132233022424, "dur":1521, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.TilemapModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1705132233024003, "dur":58909, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.TextRenderingModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1705132233082920, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1705132233082932, "dur":1936, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.TextRenderingModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1705132233084927, "dur":135059, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.TextCoreTextEngineModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1705132233219994, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1705132233220007, "dur":1934, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.TextCoreTextEngineModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1705132233222009, "dur":29357, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.StreamingModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1705132233251374, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1705132233251387, "dur":4802, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.StreamingModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1705132233256254, "dur":32393, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.ScreenCaptureModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1705132233288655, "dur":4, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1705132233288668, "dur":1836, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.ScreenCaptureModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1705132233290571, "dur":65562, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.PhysicsModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1705132233356141, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1705132233356153, "dur":1578, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.PhysicsModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1705132233357788, "dur":34621, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.LocalizationModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1705132233392417, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1705132233392430, "dur":1957, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.LocalizationModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1705132233394460, "dur":51347, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.InputLegacyModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1705132233445815, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1705132233445827, "dur":1692, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.InputLegacyModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1705132233447579, "dur":25138, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.GIModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1705132233472725, "dur":4, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1705132233472738, "dur":7918, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.GIModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1705132233480710, "dur":48737, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.dll" }}
+,{ "pid":12345, "tid":2, "ts":1705132233529452, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1705132233529463, "dur":2656, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.dll" }}
+,{ "pid":12345, "tid":2, "ts":1705132233532186, "dur":32590, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.CrashReportingModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1705132233564783, "dur":4, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1705132233564796, "dur":1751, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.CrashReportingModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1705132233567547, "dur":31248, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.ClusterInputModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1705132233598801, "dur":2, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1705132233598812, "dur":25965, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.ClusterInputModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1705132233624841, "dur":57318, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.AssetBundleModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1705132233682167, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1705132233682179, "dur":1859, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.AssetBundleModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1705132233684099, "dur":59766, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.AnimationModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1705132233743872, "dur":4, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1705132233743885, "dur":1681, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.AnimationModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1705132233745630, "dur":67030, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/Unity.VisualScripting.State.dll" }}
+,{ "pid":12345, "tid":2, "ts":1705132233812667, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1705132233812680, "dur":1683, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/Unity.VisualScripting.State.dll" }}
+,{ "pid":12345, "tid":2, "ts":1705132233814454, "dur":126884, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/Unity.VisualScripting.Core.dll" }}
+,{ "pid":12345, "tid":2, "ts":1705132233941346, "dur":4, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1705132233941359, "dur":2680, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/Unity.VisualScripting.Core.dll" }}
+,{ "pid":12345, "tid":2, "ts":1705132233944095, "dur":122602, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/System.Xml.Linq.dll" }}
+,{ "pid":12345, "tid":2, "ts":1705132234066704, "dur":4, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1705132234066717, "dur":2001, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/System.Xml.Linq.dll" }}
+,{ "pid":12345, "tid":2, "ts":1705132234068778, "dur":132749, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/System.ServiceModel.Internals.dll" }}
+,{ "pid":12345, "tid":2, "ts":1705132234201535, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1705132234201548, "dur":1857, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/System.ServiceModel.Internals.dll" }}
+,{ "pid":12345, "tid":2, "ts":1705132234203461, "dur":218301, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/System.Runtime.Serialization.dll" }}
+,{ "pid":12345, "tid":2, "ts":1705132234421770, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1705132234421783, "dur":3551, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/System.Runtime.Serialization.dll" }}
+,{ "pid":12345, "tid":2, "ts":1705132234425399, "dur":57322, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/System.EnterpriseServices.dll" }}
+,{ "pid":12345, "tid":2, "ts":1705132234482729, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1705132234482742, "dur":1701, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/System.EnterpriseServices.dll" }}
+,{ "pid":12345, "tid":2, "ts":1705132234484501, "dur":260300, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/System.Data.dll" }}
+,{ "pid":12345, "tid":2, "ts":1705132234744808, "dur":2, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1705132234744820, "dur":4316, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/System.Data.dll" }}
+,{ "pid":12345, "tid":2, "ts":1705132234749212, "dur":179140, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/System.ComponentModel.Composition.dll" }}
+,{ "pid":12345, "tid":2, "ts":1705132234928360, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1705132234928373, "dur":1740, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/System.ComponentModel.Composition.dll" }}
+,{ "pid":12345, "tid":2, "ts":1705132234930183, "dur":54, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Resources/unity_builtin_extra" }}
+,{ "pid":12345, "tid":2, "ts":1705132234930240, "dur":2, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1705132234930299, "dur":1609, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Resources/unity_builtin_extra" }}
+,{ "pid":12345, "tid":2, "ts":1705132234931972, "dur":65, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/sharedassets0.resource" }}
+,{ "pid":12345, "tid":2, "ts":1705132234932040, "dur":2, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1705132234932050, "dur":1751, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/sharedassets0.resource" }}
+,{ "pid":12345, "tid":2, "ts":1705132234933858, "dur":61, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/sharedassets0.assets.resS" }}
+,{ "pid":12345, "tid":2, "ts":1705132234933923, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1705132234933931, "dur":14206, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/sharedassets0.assets.resS" }}
+,{ "pid":12345, "tid":2, "ts":1705132234948205, "dur":56, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/sharedassets0.assets" }}
+,{ "pid":12345, "tid":2, "ts":1705132234948264, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1705132234948273, "dur":2435, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/sharedassets0.assets" }}
+,{ "pid":12345, "tid":2, "ts":1705132234950768, "dur":189, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/ScriptingAssemblies.json" }}
+,{ "pid":12345, "tid":2, "ts":1705132234950961, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1705132234950970, "dur":1435, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/ScriptingAssemblies.json" }}
+,{ "pid":12345, "tid":2, "ts":1705132234952467, "dur":10585, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/RuntimeInitializeOnLoads.json" }}
+,{ "pid":12345, "tid":2, "ts":1705132234963059, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1705132234963072, "dur":1594, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/RuntimeInitializeOnLoads.json" }}
+,{ "pid":12345, "tid":2, "ts":1705132234964728, "dur":51, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/resources.assets.resS" }}
+,{ "pid":12345, "tid":2, "ts":1705132234964782, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1705132234964791, "dur":1754, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/resources.assets.resS" }}
+,{ "pid":12345, "tid":2, "ts":1705132234966607, "dur":55, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/resources.assets" }}
+,{ "pid":12345, "tid":2, "ts":1705132234966705, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1705132234966714, "dur":1627, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/resources.assets" }}
+,{ "pid":12345, "tid":2, "ts":1705132234968402, "dur":54, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/level0.resS" }}
+,{ "pid":12345, "tid":2, "ts":1705132234968459, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1705132234968468, "dur":1638, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/level0.resS" }}
+,{ "pid":12345, "tid":2, "ts":1705132234970172, "dur":53, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/level0" }}
+,{ "pid":12345, "tid":2, "ts":1705132234970228, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1705132234970238, "dur":1493, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/level0" }}
+,{ "pid":12345, "tid":2, "ts":1705132234971788, "dur":61, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/globalgamemanagers.assets" }}
+,{ "pid":12345, "tid":2, "ts":1705132234971852, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1705132234971861, "dur":1594, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/globalgamemanagers.assets" }}
+,{ "pid":12345, "tid":2, "ts":1705132234973519, "dur":57, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/globalgamemanagers" }}
+,{ "pid":12345, "tid":2, "ts":1705132234973579, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1705132234973588, "dur":3159, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/globalgamemanagers" }}
+,{ "pid":12345, "tid":2, "ts":1705132234976811, "dur":203, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/boot.config" }}
+,{ "pid":12345, "tid":2, "ts":1705132234977019, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1705132234977029, "dur":1450, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/boot.config" }}
+,{ "pid":12345, "tid":2, "ts":1705132234978540, "dur":376041, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1705132232078789, "dur":33, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1705132232078822, "dur":7810, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1705132232086646, "dur":219, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/MonoBleedingEdge/etc/mono/4.5/Browsers/Compat.browser" }}
+,{ "pid":12345, "tid":3, "ts":1705132232086877, "dur":2, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1705132232089341, "dur":3967, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/MonoBleedingEdge/etc/mono/4.5/Browsers/Compat.browser" }}
+,{ "pid":12345, "tid":3, "ts":1705132232093384, "dur":19109, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/MonoBleedingEdge/etc/mono/4.5/machine.config" }}
+,{ "pid":12345, "tid":3, "ts":1705132232112500, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1705132232112513, "dur":2124, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/MonoBleedingEdge/etc/mono/4.5/machine.config" }}
+,{ "pid":12345, "tid":3, "ts":1705132232114824, "dur":206, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/MonoBleedingEdge/etc/mono/4.0/DefaultWsdlHelpGenerator.aspx" }}
+,{ "pid":12345, "tid":3, "ts":1705132232115035, "dur":2, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1705132232115047, "dur":3705, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/MonoBleedingEdge/etc/mono/4.0/DefaultWsdlHelpGenerator.aspx" }}
+,{ "pid":12345, "tid":3, "ts":1705132232118819, "dur":175, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/MonoBleedingEdge/etc/mono/2.0/Browsers/Compat.browser" }}
+,{ "pid":12345, "tid":3, "ts":1705132232118998, "dur":2, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1705132232119581, "dur":2066, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/MonoBleedingEdge/etc/mono/2.0/Browsers/Compat.browser" }}
+,{ "pid":12345, "tid":3, "ts":1705132232121724, "dur":18600, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/MonoBleedingEdge/etc/mono/2.0/web.config" }}
+,{ "pid":12345, "tid":3, "ts":1705132232140330, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1705132232140343, "dur":1749, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/MonoBleedingEdge/etc/mono/2.0/web.config" }}
+,{ "pid":12345, "tid":3, "ts":1705132232142176, "dur":955356, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/UnityPlayer.dll" }}
+,{ "pid":12345, "tid":3, "ts":1705132233097538, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1705132233097548, "dur":30903, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/UnityPlayer.dll" }}
+,{ "pid":12345, "tid":3, "ts":1705132233128509, "dur":33207, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.TerrainPhysicsModule.dll" }}
+,{ "pid":12345, "tid":3, "ts":1705132233161723, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1705132233161735, "dur":8591, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.TerrainPhysicsModule.dll" }}
+,{ "pid":12345, "tid":3, "ts":1705132233170394, "dur":60762, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.SubsystemsModule.dll" }}
+,{ "pid":12345, "tid":3, "ts":1705132233231164, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1705132233231177, "dur":1611, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.SubsystemsModule.dll" }}
+,{ "pid":12345, "tid":3, "ts":1705132233232856, "dur":29721, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.SpriteMaskModule.dll" }}
+,{ "pid":12345, "tid":3, "ts":1705132233262622, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1705132233262635, "dur":3124, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.SpriteMaskModule.dll" }}
+,{ "pid":12345, "tid":3, "ts":1705132233265821, "dur":27564, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.ProfilerModule.dll" }}
+,{ "pid":12345, "tid":3, "ts":1705132233293391, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1705132233293403, "dur":5315, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.ProfilerModule.dll" }}
+,{ "pid":12345, "tid":3, "ts":1705132233298771, "dur":63581, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.ParticleSystemModule.dll" }}
+,{ "pid":12345, "tid":3, "ts":1705132233362360, "dur":2, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1705132233362401, "dur":9166, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.ParticleSystemModule.dll" }}
+,{ "pid":12345, "tid":3, "ts":1705132233371628, "dur":41813, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.InputModule.dll" }}
+,{ "pid":12345, "tid":3, "ts":1705132233413448, "dur":2, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1705132233413460, "dur":1321, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.InputModule.dll" }}
+,{ "pid":12345, "tid":3, "ts":1705132233414840, "dur":32491, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.HotReloadModule.dll" }}
+,{ "pid":12345, "tid":3, "ts":1705132233447338, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1705132233447351, "dur":2062, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.HotReloadModule.dll" }}
+,{ "pid":12345, "tid":3, "ts":1705132233449471, "dur":105191, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.GameCenterModule.dll" }}
+,{ "pid":12345, "tid":3, "ts":1705132233554670, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1705132233554682, "dur":1631, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.GameCenterModule.dll" }}
+,{ "pid":12345, "tid":3, "ts":1705132233556381, "dur":41603, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.ClusterRendererModule.dll" }}
+,{ "pid":12345, "tid":3, "ts":1705132233597992, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1705132233598005, "dur":1861, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.ClusterRendererModule.dll" }}
+,{ "pid":12345, "tid":3, "ts":1705132233599932, "dur":116071, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.AudioModule.dll" }}
+,{ "pid":12345, "tid":3, "ts":1705132233716011, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1705132233716023, "dur":1637, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.AudioModule.dll" }}
+,{ "pid":12345, "tid":3, "ts":1705132233717721, "dur":107928, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.AIModule.dll" }}
+,{ "pid":12345, "tid":3, "ts":1705132233825657, "dur":2, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1705132233825669, "dur":1396, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.AIModule.dll" }}
+,{ "pid":12345, "tid":3, "ts":1705132233827114, "dur":96516, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/Unity.VisualScripting.Antlr3.Runtime.dll" }}
+,{ "pid":12345, "tid":3, "ts":1705132233923638, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1705132233923651, "dur":5057, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/Unity.VisualScripting.Antlr3.Runtime.dll" }}
+,{ "pid":12345, "tid":3, "ts":1705132233928777, "dur":348456, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/Unity.TextMeshPro.dll" }}
+,{ "pid":12345, "tid":3, "ts":1705132234277242, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1705132234277255, "dur":2319, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/Unity.TextMeshPro.dll" }}
+,{ "pid":12345, "tid":3, "ts":1705132234279640, "dur":126197, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/System.Numerics.dll" }}
+,{ "pid":12345, "tid":3, "ts":1705132234405845, "dur":2, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1705132234405857, "dur":10316, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/System.Numerics.dll" }}
+,{ "pid":12345, "tid":3, "ts":1705132234416239, "dur":144710, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/System.IO.Compression.dll" }}
+,{ "pid":12345, "tid":3, "ts":1705132234560957, "dur":2, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1705132234560969, "dur":1876, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/System.IO.Compression.dll" }}
+,{ "pid":12345, "tid":3, "ts":1705132234563518, "dur":64135, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/System.Data.DataSetExtensions.dll" }}
+,{ "pid":12345, "tid":3, "ts":1705132234627660, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1705132234627673, "dur":1883, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/System.Data.DataSetExtensions.dll" }}
+,{ "pid":12345, "tid":3, "ts":1705132234629632, "dur":199840, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/System.Core.dll" }}
+,{ "pid":12345, "tid":3, "ts":1705132234829479, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1705132234829492, "dur":3259, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/System.Core.dll" }}
+,{ "pid":12345, "tid":3, "ts":1705132234832824, "dur":517022, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/mscorlib.dll" }}
+,{ "pid":12345, "tid":3, "ts":1705132235349853, "dur":2, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1705132235349865, "dur":4624, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/mscorlib.dll" }}
+,{ "pid":12345, "tid":3, "ts":1705132235354561, "dur":2, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"Player" }}
+,{ "pid":12345, "tid":3, "ts":1705132235354564, "dur":0, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1705132232078876, "dur":1, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1705132232078877, "dur":7754, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1705132232086646, "dur":46197, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/MonoBleedingEdge/etc/mono/mconfig/config.xml" }}
+,{ "pid":12345, "tid":4, "ts":1705132232132850, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1705132232136574, "dur":1925, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/MonoBleedingEdge/etc/mono/mconfig/config.xml" }}
+,{ "pid":12345, "tid":4, "ts":1705132232138573, "dur":37747, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/MonoBleedingEdge/EmbedRuntime/MonoPosixHelper.dll" }}
+,{ "pid":12345, "tid":4, "ts":1705132232176328, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1705132232176812, "dur":1757, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/MonoBleedingEdge/EmbedRuntime/MonoPosixHelper.dll" }}
+,{ "pid":12345, "tid":4, "ts":1705132232178630, "dur":157861, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0.exe" }}
+,{ "pid":12345, "tid":4, "ts":1705132232336499, "dur":2, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1705132232336509, "dur":2061, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0.exe" }}
+,{ "pid":12345, "tid":4, "ts":1705132232338646, "dur":46967, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.WindModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1705132232385621, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1705132232386028, "dur":1424, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.WindModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1705132232387512, "dur":30827, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.VRModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1705132232418381, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1705132232418393, "dur":5401, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.VRModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1705132232423858, "dur":70276, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.VideoModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1705132232494142, "dur":2, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1705132232494153, "dur":4568, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.VideoModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1705132232498791, "dur":48742, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.UnityWebRequestWWWModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1705132232547540, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1705132232547552, "dur":2069, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.UnityWebRequestWWWModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1705132232549688, "dur":106363, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.UnityWebRequestAudioModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1705132232656097, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1705132232656129, "dur":1633, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.UnityWebRequestAudioModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1705132232657834, "dur":69874, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.UnityTestProtocolModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1705132232727717, "dur":4, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1705132232727732, "dur":2699, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.UnityTestProtocolModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1705132232730500, "dur":48995, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.UnityConnectModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1705132232779536, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1705132232779549, "dur":10809, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.UnityConnectModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1705132232790440, "dur":105914, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.UNETModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1705132232896362, "dur":2, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1705132232896415, "dur":2245, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.UNETModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1705132232898718, "dur":251667, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.UIElementsModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1705132233150394, "dur":4, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1705132233150407, "dur":5666, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.UIElementsModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1705132233156133, "dur":80508, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.TerrainModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1705132233236649, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1705132233236662, "dur":2450, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.TerrainModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1705132233239178, "dur":57494, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.SharedInternalsModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1705132233296680, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1705132233296692, "dur":1931, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.SharedInternalsModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1705132233298681, "dur":30819, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.PerformanceReportingModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1705132233329508, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1705132233329522, "dur":1746, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.PerformanceReportingModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1705132233331336, "dur":64659, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.NVIDIAModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1705132233396003, "dur":2, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1705132233396014, "dur":1964, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.NVIDIAModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1705132233398041, "dur":130910, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.IMGUIModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1705132233528960, "dur":2, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1705132233528972, "dur":15037, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.IMGUIModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1705132233544079, "dur":176476, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.CoreModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1705132233720563, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1705132233720576, "dur":2726, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.CoreModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1705132233723362, "dur":38658, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.AccessibilityModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1705132233762059, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1705132233762072, "dur":1468, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/UnityEngine.AccessibilityModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1705132233763601, "dur":138455, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/Unity.VisualScripting.Flow.dll" }}
+,{ "pid":12345, "tid":4, "ts":1705132233902064, "dur":2, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1705132233902077, "dur":1797, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/Unity.VisualScripting.Flow.dll" }}
+,{ "pid":12345, "tid":4, "ts":1705132233903937, "dur":107436, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/Unity.Timeline.dll" }}
+,{ "pid":12345, "tid":4, "ts":1705132234011380, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1705132234011392, "dur":1517, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/Unity.Timeline.dll" }}
+,{ "pid":12345, "tid":4, "ts":1705132234012973, "dur":87280, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/System.Transactions.dll" }}
+,{ "pid":12345, "tid":4, "ts":1705132234100261, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1705132234100273, "dur":1838, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/System.Transactions.dll" }}
+,{ "pid":12345, "tid":4, "ts":1705132234102172, "dur":227409, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/System.Security.dll" }}
+,{ "pid":12345, "tid":4, "ts":1705132234329589, "dur":2, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1705132234329602, "dur":2109, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/System.Security.dll" }}
+,{ "pid":12345, "tid":4, "ts":1705132234331777, "dur":123861, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/System.Net.Http.dll" }}
+,{ "pid":12345, "tid":4, "ts":1705132234455645, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1705132234455659, "dur":1982, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/System.Net.Http.dll" }}
+,{ "pid":12345, "tid":4, "ts":1705132234457719, "dur":297479, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/System.dll" }}
+,{ "pid":12345, "tid":4, "ts":1705132234755207, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1705132234755219, "dur":6145, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/System.dll" }}
+,{ "pid":12345, "tid":4, "ts":1705132234761423, "dur":71510, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/netstandard.dll" }}
+,{ "pid":12345, "tid":4, "ts":1705132234832938, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1705132234832948, "dur":1692, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/netstandard.dll" }}
+,{ "pid":12345, "tid":4, "ts":1705132234834701, "dur":334296, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/Mono.Security.dll" }}
+,{ "pid":12345, "tid":4, "ts":1705132235169005, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1705132235169017, "dur":2697, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/Azerty/Desktop/YD/Minesweeper 2.0_Data/Managed/Mono.Security.dll" }}
+,{ "pid":12345, "tid":4, "ts":1705132235171786, "dur":182809, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1705132235360135, "dur":2876, "ph":"X", "name": "ProfilerWriteOutput" }
+,
