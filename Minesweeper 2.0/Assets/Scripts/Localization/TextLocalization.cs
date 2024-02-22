@@ -34,7 +34,17 @@ public class TextLocalization : MonoBehaviour
                     MyTMP.text = Texts[0];
                     break;
                 }
+            case "en":
+                {
+                    MyTMP.text = Texts[0];
+                    break;
+                }
             case "Russian":
+                {
+                    MyTMP.text = Texts[1];
+                    break;
+                }
+            case "ru":
                 {
                     MyTMP.text = Texts[1];
                     break;

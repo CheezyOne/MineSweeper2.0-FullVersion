@@ -21,6 +21,7 @@ ScriptsOnlyBuild:
     - MovingCamera
     - ShowTrails
     - SmileyFlip
+    - SoundButtons
     - Sounds
     - StartingSequence
     - TextLocalization
@@ -151,14 +152,20 @@ ScriptsOnlyBuild:
     fullTypeName: GameModesSystem
     methodName: Bariers
   - assembly: Assembly-CSharp
-    fullTypeName: ButtonsInMenu
+    fullTypeName: SoundButtons
     methodName: SoundsButtonFun
   - assembly: Assembly-CSharp
-    fullTypeName: ButtonsInMenu
+    fullTypeName: SoundButtons
     methodName: MusicButtonFun
   - assembly: Assembly-CSharp
     fullTypeName: ButtonsInMenu
     methodName: PlayButton
+  - assembly: Assembly-CSharp
+    fullTypeName: SoundButtons
+    methodName: MusicButtonFun
+  - assembly: Assembly-CSharp
+    fullTypeName: SoundButtons
+    methodName: SoundsButtonFun
   - assembly: Assembly-CSharp
     fullTypeName: FieldSizeMenu
     methodName: EditEndStringsSize
@@ -247,41 +254,43 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2180}
     - Class: 114
-      Script: {instanceID: 2580}
+      Script: {instanceID: 2578}
     - Class: 114
-      Script: {instanceID: 2702}
+      Script: {instanceID: 2700}
     - Class: 114
-      Script: {instanceID: 2782}
+      Script: {instanceID: 2780}
     - Class: 114
-      Script: {instanceID: 2792}
+      Script: {instanceID: 2790}
+    - Class: 114
+      Script: {instanceID: 2978}
     - Class: 114
       Script: {instanceID: 2980}
     - Class: 114
-      Script: {instanceID: 2982}
+      Script: {instanceID: 3454}
     - Class: 114
-      Script: {instanceID: 3456}
+      Script: {instanceID: 3482}
     - Class: 114
-      Script: {instanceID: 3484}
+      Script: {instanceID: 3608}
     - Class: 114
-      Script: {instanceID: 3610}
+      Script: {instanceID: 3820}
     - Class: 114
-      Script: {instanceID: 3822}
+      Script: {instanceID: 3996}
     - Class: 114
-      Script: {instanceID: 3998}
+      Script: {instanceID: 4028}
     - Class: 114
-      Script: {instanceID: 4030}
+      Script: {instanceID: 4042}
     - Class: 114
-      Script: {instanceID: 4044}
+      Script: {instanceID: 4288}
     - Class: 114
-      Script: {instanceID: 4290}
+      Script: {instanceID: 4710}
     - Class: 114
-      Script: {instanceID: 4712}
+      Script: {instanceID: 4788}
     - Class: 114
-      Script: {instanceID: 4790}
+      Script: {instanceID: 4906}
     - Class: 114
-      Script: {instanceID: 4908}
+      Script: {instanceID: 4964}
     - Class: 114
-      Script: {instanceID: 4966}
+      Script: {instanceID: 4998}
     - Class: 114
       Script: {instanceID: 5156}
     - Class: 114
@@ -413,7 +422,7 @@ ScriptsOnlyBuild:
     className: Selectable
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: 6196e720523ee547a711906d3f93c863
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: VictoryHandler
@@ -425,7 +434,7 @@ ScriptsOnlyBuild:
     className: Shadow
   - hash:
       serializedVersion: 2
-      Hash: a31a383a174e705692d338ff6e32c1e8
+      Hash: 38d2ac3b4eab0217c2aecf2a847ecb8b
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ButtonsInMenu
@@ -695,7 +704,7 @@ ScriptsOnlyBuild:
     className: UnityOnControllerColliderHitMessageListener
   - hash:
       serializedVersion: 2
-      Hash: e644573df51d30761600363b654d7211
+      Hash: 7e2d4e88be3fc89736cd3474463f4973
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Cell
@@ -881,7 +890,7 @@ ScriptsOnlyBuild:
     className: UnityOnEndDragMessageListener
   - hash:
       serializedVersion: 2
-      Hash: b202fdfcfe83f09f8c058e2ba149c272
+      Hash: 6873c8422cfe2aabad9869d4fff33fb5
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: FieldSizeMenu
@@ -939,6 +948,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_FontAsset
+  - hash:
+      serializedVersion: 2
+      Hash: f717efe09ac5e3e83572722f2c5f9d6e
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SoundButtons
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -1272,4 +1287,5 @@ ScriptsOnlyBuild:
   platform: 19
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: C:/Users/Azerty/Desktop/YD/Minesweeper 2.0.exe
+  playerPath: "C:/Users/Azerty/Desktop/YD/\u0422\u0435\u0441\u0442 \u0441\u0430\u043F\u0451\u0440\u0430/Third
+    try/Minesweeper 2.0.exe"

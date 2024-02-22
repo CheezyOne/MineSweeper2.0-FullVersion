@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class FieldGeneration : MonoBehaviour
 {
-    public static string FieldType = "Square";
+    public static string FieldType = "Normal";
     [SerializeField] private GameObject Cell, Field, Barier;
     private Vector3 PositionFromField = Vector3.zero;
     public int ColomnsSize = 10, StringsSize = 10;
@@ -41,7 +41,7 @@ public class FieldGeneration : MonoBehaviour
         SpecialFormsCounter = 0;
         switch (FieldType)
         {
-            case "Square":
+            case "Normal":
                 {
                     ApplyComponent.FieldSize = ColomnsSize * StringsSize;
                     for (float i=0;i< ColomnsSize; i++)
@@ -251,10 +251,7 @@ public class FieldGeneration : MonoBehaviour
         List<Vector3> AllBariersPositions = new List<Vector3>(); 
         bool ShouldRotate, ShallNotProceed = false;
         int TriesCounter = 0;
-        if (BariersCount < ApplyComponent.FieldSize / 5)
-            BariersCount = ApplyComponent.FieldSize / 5;
-        else if (BariersCount > ApplyComponent.FieldSize * 2)
-            BariersCount = ApplyComponent.FieldSize * 2;
+        BariersCount = ApplyComponent.FieldSize / 5;
         // BariersCount = 1;
         List<GameObject> AllCubes = new List<GameObject>();
         for(int i=0;i<FieldGeneration.AllCubes.Count;i++)

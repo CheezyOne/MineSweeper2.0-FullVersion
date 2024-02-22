@@ -34,6 +34,20 @@ public class GameModesSystem : MonoBehaviour
         }
     }
     
+    public void LyingCells()
+    {
+        PlaySound?.Invoke();
+        if (Check.activeSelf)
+        {
+            Check.SetActive(false);
+            Cell.ShouldLie = false;
+        }
+        else
+        {
+            Check.SetActive(true);
+            Cell.ShouldLie = true;
+        }
+    }
     public void Bariers()
     {
         PlaySound?.Invoke();

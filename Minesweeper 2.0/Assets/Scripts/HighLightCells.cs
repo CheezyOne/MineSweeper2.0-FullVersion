@@ -6,6 +6,7 @@ public class HighLightCells : MonoBehaviour
 {
     [SerializeField] private Material PointedMaterial, NormalMaterial;
     private GameObject PointedCube;
+    public static bool IsMobile;
     private void Update()
     {
         if (!ClickRegister.isGameOn)
@@ -18,7 +19,12 @@ public class HighLightCells : MonoBehaviour
             }
             return;
         }
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Ray ray;
+        if (IsMobile && Input.touchCount>0)
+
+            ray = Camera.main.ScreenPointToRay(Input.touches[0].position);
+        else
+            ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
         if (Physics.Raycast(ray, out hit))

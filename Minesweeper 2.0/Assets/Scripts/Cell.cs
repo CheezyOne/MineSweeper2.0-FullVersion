@@ -9,9 +9,10 @@ public class Cell : MonoBehaviour
 {
     public static Action onEmptyCellClicked, onGameLose, PlaySound;
     public static Action<int> onGameLoseSmiley;
+    public static bool ShouldLie = false;
     public bool HasBlueBomb = false, HasRedBomb = false, HasBeenTouched=false;
     private bool HasBarierUp = false, HasBarierDown = false, HasBarierRight = false, HasBarierLeft = false;
-    public GameObject NumberAboutBombs;
+    public GameObject NumberAboutBombs, Flag;
     public int NumberOfRedBombsAround = 0, NumberOfBlueBombsAround=0;
     private Collider[] hitColliders;
     [SerializeField] private Material[] AllMaterials;
@@ -36,23 +37,23 @@ public class Cell : MonoBehaviour
     {
         if (HasRedBomb||HasBlueBomb)
         {
-            if (GetComponent<MeshRenderer>().material.name != "Bomb (Instance)")
-            {
+            if(GetComponent<MeshRenderer>().material.name!="Bomb (Instance)")
                 GetComponent<MeshRenderer>().material = AllMaterials[2];
-            }
             GameObject Explosion = Instantiate(ExplosionEffect, new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z), Quaternion.identity);
             Destroy(Explosion, 2f);
         }
     }
     private void ShowIfTheBombTextureIsRight()
     {
-        if(GetComponent<MeshRenderer>().material.name == "Bomb (Instance)")
+        if(Flag.activeSelf)
         {
+            GetComponent<MeshRenderer>().material = AllMaterials[2];
             if (!HasRedBomb&&!HasBlueBomb)
                 GetComponent<MeshRenderer>().material.color = Color.red;
             else
                 GetComponent<MeshRenderer>().material.color = Color.green;
         }
+        Flag.SetActive(false);
     }
     public List<GameObject> GetAllNeighbours()
     {
@@ -166,7 +167,21 @@ public class Cell : MonoBehaviour
                 }
             }
         }
-        NumberAboutBombs.GetComponent<TextMeshPro>().text = Convert.ToString(NumberOfRedBombsAround);
+        if (ShouldLie)
+        {
+            NumberAboutBombs.GetComponent<TextMeshPro>().text = Convert.ToString(LyingNumber(NumberOfRedBombsAround));
+        }
+        else
+            NumberAboutBombs.GetComponent<TextMeshPro>().text = Convert.ToString(NumberOfRedBombsAround);
+    }
+    private int LyingNumber(int RealNumber)
+    {
+        if (RealNumber == 0)
+            return 1;
+        if (UnityEngine.Random.Range(0, 100) > 50)
+            return RealNumber + 1;
+        else
+            return RealNumber - 1;
     }
     public void RevealAllSurroundingNonBombs()
     {
@@ -179,9 +194,9 @@ public class Cell : MonoBehaviour
         {
             if (collider.gameObject == gameObject || collider.transform.name != "Cell(Clone)")
                 continue;
-
-            if (collider.GetComponent<MeshRenderer>().material.name == "Bomb (Instance)")
-                BombsCounter++;
+            if(collider.transform.name == "Cell(Clone)")
+                if (collider.transform.GetChild(1).gameObject.activeSelf)
+                    BombsCounter++;
             else
             {
                 NonBombs.Add(collider);
@@ -192,13 +207,22 @@ public class Cell : MonoBehaviour
         {
             foreach (Collider collider in NonBombs)
             {
-                collider.GetComponent<Cell>().WasClicked();
+                if(!IsBehindABarier(collider))
+                    collider.GetComponent<Cell>().WasClicked();
             }
         }
 
     }
     public void WasClicked()
     {
+        if (HasBeenTouched)
+            return;
+        if (Flag.activeSelf)
+        {
+            InGameBombsCounter.PlayersBombsCount--;
+            Flag.SetActive(false);
+        }
+
         HasBeenTouched = true;
         if (HasRedBomb||HasBlueBomb)
         {
@@ -214,13 +238,24 @@ public class Cell : MonoBehaviour
             NumberAboutBombs.SetActive(true);
             if (NumberOfRedBombsAround > 0 && NumberOfBlueBombsAround > 0)
             {
-                NumberAboutBombs.GetComponent<TextMeshPro>().color = Color.red;
+
             }
             else if (NumberOfRedBombsAround > 0)
-                NumberAboutBombs.GetComponent<TextMeshPro>().text = Convert.ToString(NumberOfRedBombsAround);
+            {
+                if (ShouldLie)
+                {
+                    NumberAboutBombs.GetComponent<TextMeshPro>().text = Convert.ToString(LyingNumber(NumberOfRedBombsAround));
+                }
+                else
+                    NumberAboutBombs.GetComponent<TextMeshPro>().text = Convert.ToString(NumberOfRedBombsAround);
+            }
             else if (NumberOfBlueBombsAround > 0)
             {
                 NumberAboutBombs.GetComponent<TextMeshPro>().color = Color.red;
+                if (ShouldLie)
+                {
+                    NumberAboutBombs.GetComponent<TextMeshPro>().text = Convert.ToString(LyingNumber(NumberOfBlueBombsAround));
+                }
                 NumberAboutBombs.GetComponent<TextMeshPro>().text = Convert.ToString(NumberOfBlueBombsAround);
             }
         }
@@ -233,8 +268,6 @@ public class Cell : MonoBehaviour
                 Cell CellComponent = collider.GetComponent<Cell>();
                 if (CellComponent != null)
                 {
-                    if (CellComponent.HasBeenTouched)
-                        continue;
                     if (IsBehindABarier(collider))
                         continue;
                     CellComponent.WasClicked();
@@ -249,7 +282,19 @@ public class Cell : MonoBehaviour
     }
     public void WasRightClicked()
     {
-        string CurrentMaterial = GetComponent<MeshRenderer>().material.name ;
+        if (GetComponent<MeshRenderer>().material.name == "Touched cube (Instance)")
+            return;
+        if (Flag.activeSelf)
+        {
+            Flag.SetActive(false);
+            InGameBombsCounter.PlayersBombsCount--;
+        }
+        else
+        {
+            Flag.SetActive(true);
+            InGameBombsCounter.PlayersBombsCount++;
+        }
+        /*
         switch (CurrentMaterial)
         {
             case "Normal cube (Instance)":
@@ -274,7 +319,7 @@ public class Cell : MonoBehaviour
                 {
                     break;
                 }
-        }
+        }*/
     }
     private void CheckIfBombsShouldChange()
     {
@@ -287,19 +332,27 @@ public class Cell : MonoBehaviour
             return;
         if (IsShowingRedBombs)
         {
-            NumberAboutBombs.GetComponent<TextMeshPro>().text = Convert.ToString(NumberOfBlueBombsAround);
+            if(ShouldLie)
+            {
+                NumberAboutBombs.GetComponent<TextMeshPro>().text = Convert.ToString(LyingNumber(NumberOfBlueBombsAround));
+            }
+            else
+                NumberAboutBombs.GetComponent<TextMeshPro>().text = Convert.ToString(NumberOfBlueBombsAround);
             NumberAboutBombs.GetComponent<TextMeshPro>().color = Color.red;
             IsShowingRedBombs = false;
         }
         else
         {
+            if (ShouldLie)
+            {
+                NumberAboutBombs.GetComponent<TextMeshPro>().text = Convert.ToString(LyingNumber(NumberOfRedBombsAround));
+            }
+            else
+                NumberAboutBombs.GetComponent<TextMeshPro>().text = Convert.ToString(NumberOfRedBombsAround);
             IsShowingRedBombs = true;
-            NumberAboutBombs.GetComponent<TextMeshPro>().text = Convert.ToString(NumberOfRedBombsAround);
             NumberAboutBombs.GetComponent<TextMeshPro>().color = Color.blue;
         }
-
     }
-
     public void ShowTrails()
     {
         StartCoroutine(SpawnTrailsToNearbyCell());

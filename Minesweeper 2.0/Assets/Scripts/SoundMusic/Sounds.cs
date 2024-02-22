@@ -7,10 +7,10 @@ public class Sounds : MonoBehaviour
     public AudioClip[] AllSounds;
     private AudioSource _audioSource => GetComponent<AudioSource>();
 
+    private const float CellVolume = 0.7f, SmileyVolume = 0.5f, ExplosionVolume =0.55f, ButtonOverVolume = 0.6f, ButtonClick=0.6f, VictoryVolume=0.8f;
     private void Awake()
     {
-        //Подписаться на всё
-        StartingSequence.onAllCubesFall += PlaySmiley;
+        StartingSequence.onCubesFallSmiley += PlaySmiley;
         VictoryHandler.onGameWon += PlayVictory;
         Cell.PlaySound += PlayExplosion;
         GameModesSystem.PlaySound += PlayOnMouseOverButton;
@@ -19,39 +19,33 @@ public class Sounds : MonoBehaviour
         ButtonsInMenu.PlaySound += PlayOnButtonClick;
         LanguageController.PlaySound += PlayOnButtonClick;
         InfoAboutModes.PlaySound += PlayOnButtonClick;
-        StartCoroutine(FuckMeSideways());
+        SoundButtons.PlaySound += PlayOnButtonClick;
     }
-    private IEnumerator FuckMeSideways()
-    {
-        yield return new WaitForSeconds(1f);
-        Debug.Log("Fuck me sideways");
-        _audioSource.Play();
-        _audioSource.Play();
-        yield return FuckMeSideways();
-    }
+
     private void PlayOnMouseOverButton()
     {
-        PlaySound(AllSounds[1]);
+        PlaySound(AllSounds[1], ButtonOverVolume);
     }
     private void PlayOnButtonClick()
     {
-        PlaySound(AllSounds[3]);
+        PlaySound(AllSounds[3], ButtonClick);
     }
     private void PlayOnCellClick()
     {
-        PlaySound(AllSounds[2]);
+        PlaySound(AllSounds[2], CellVolume);
     }
     private void PlayExplosion()
     {
-        PlaySound(AllSounds[0]);
+        PlaySound(AllSounds[0], ExplosionVolume);
     }
     private void PlayVictory()
     {
-        PlaySound(AllSounds[4]);
+        PlaySound(AllSounds[4], VictoryVolume);
     }
-    private void PlaySmiley()
+    private void PlaySmiley(int i)
     {
-        PlaySound(AllSounds[5], Delay:0.5f);
+        if(i==2)//i checks smiley 
+            PlaySound(AllSounds[5], SmileyVolume);
     }
     private void PlaySound(AudioClip Clip, float Volume = 1f, float Pitch1 = 0.9f, float Pitch2 = 1.1f, float Delay = 0)
     {

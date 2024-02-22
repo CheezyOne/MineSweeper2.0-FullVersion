@@ -10,6 +10,7 @@ public class TwoTypesOfBombsChanger : MonoBehaviour
     private float _timerForChange = 1f;
     private void ChangeBombs()
     {
+
         onBombsChange?.Invoke();
     }
     private void Update()

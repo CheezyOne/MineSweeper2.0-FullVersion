@@ -37,7 +37,7 @@ public class InfoAboutModes : MonoBehaviour
         isToBeShrinked = true;
         isToBeExpanded = false;
     }
-    private void Update()
+    private void FixedUpdate()
     {
         if (isToBeExpanded)
         {

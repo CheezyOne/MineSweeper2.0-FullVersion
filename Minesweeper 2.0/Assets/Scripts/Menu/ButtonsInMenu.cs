@@ -8,53 +8,24 @@ using UnityEngine.UI;
 public class ButtonsInMenu : MonoBehaviour
 {
     public static Action onPlayButtonPress, PlaySound;
-    private string[] EnglishMapNames = new string[] { "Square", "Cross", "4 Sides", "Hole", "Diamond" };
-    private string[] RussianMapNames = new string[] { "Квадрат", "Крест", "4 Стороны", "Дыра", "Ромб" };
-    private string[] MapNames = new string[] { "Square", "Cross", "4 Sides", "Hole", "Diamond" };
-    [SerializeField] private Sprite MutedMusic, UnMutedMusic, MutedSound, UnMutedSound;
-    [SerializeField] private GameObject MapNameText, MapNameChangeRight, MapNameChangeLeft, InGameMenu, SmileyPosition, TwoInput, FullInput, MusicHandler, MusicButton, SoundsHandler, SoundButton;
+    private readonly string[] EnglishMapNames = new string[] { "Normal", "Cross", "4 Sides", "Hole", "Diamond" };
+    private readonly string[] RussianMapNames = new string[] { "Обычный", "Крест", "4 Стороны", "Дыра", "Ромб" };
+    private string[] MapNames = new string[] { "Normal", "Cross", "4 Sides", "Hole", "Diamond" };
+    [SerializeField] private GameObject MapNameText, MapNameChangeRight, MapNameChangeLeft, InGameMenu, SmileyPosition, TwoInput, FullInput;
     private static int MapNameNumber = 0;
-
     private void Awake()
     {
         LanguageController.onLanguageChange += ChangeLanguage;
         ChangeLanguage();
     }
-    public void SoundsButtonFun()
-    {
-        PlaySound?.Invoke();
-        if (SoundsHandler.activeSelf)
-        {
-            SoundButton.GetComponent<Image>().sprite = MutedSound;
-            SoundsHandler.SetActive(false);
-        }
-        else
-        {
-            SoundButton.GetComponent<Image>().sprite = UnMutedSound;
-            SoundsHandler.SetActive(true);
-        }
-    }
-    public void MusicButtonFun()
-    {
-        PlaySound?.Invoke();
-        if (MusicHandler.activeSelf)
-        {
-            MusicButton.GetComponent<Image>().sprite = MutedMusic;
-            MusicHandler.SetActive(false);
-        }
-        else
-        {
-            MusicButton.GetComponent<Image>().sprite = UnMutedMusic;
-            MusicHandler.SetActive(true);
-        }
-    }
+
     private void ChangeLanguage()
     {
-        if(LanguageController.CurrentLanguage=="English")
+        if(LanguageController.CurrentLanguage=="English"|| LanguageController.CurrentLanguage == "en")
         {
             MapNames = EnglishMapNames;
         }
-        else if(LanguageController.CurrentLanguage == "Russian")
+        else if(LanguageController.CurrentLanguage == "Russian" || LanguageController.CurrentLanguage == "ru")
         { 
             MapNames = RussianMapNames;
         }
@@ -64,7 +35,7 @@ public class ButtonsInMenu : MonoBehaviour
     {
         PlaySound?.Invoke();
         Camera.main.transform.Rotate(90, 0, 0);
-        Camera.main.transform.position = new Vector3(FieldGeneration.StaticStringsSize * 1.1f - (FieldGeneration.StaticStringsSize * 1.1f / 2) - 5.6f, 10.5f, FieldGeneration.StaticColomsSize * 1.1f - 2);
+        Camera.main.transform.position = new Vector3(FieldGeneration.StaticStringsSize * 1.1f - (FieldGeneration.StaticStringsSize * 1.1f / 2) - 5.6f, 10.5f, FieldGeneration.StaticColomsSize * 1.1f - 6);
         //SmileyPosition.transform.position= new Vector3(FieldGeneration.StaticStringsSize * 1.1f - (FieldGeneration.StaticStringsSize * 1.1f / 2) - 5.6f, 0, FieldGeneration.StaticColomsSize * 1.1f);
         SmileyPosition.SetActive(true);
         onPlayButtonPress?.Invoke();
