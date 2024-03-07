@@ -10,6 +10,9 @@ public class ClickRegister : MonoBehaviour
     public static Action onFirstCubeTouch, PlaySound;
     private GameObject touchedCube;
 
+    private const float constTouchedTime=0.7f;//Specifically for mobile gameplay;
+    private float touchedTime = 0f;
+    private bool isTouchingCube = false, shouldNotClick = false;
     //These Actions are for smileys
     public static Action<int> onCubeTouch, onCubeRelease;
 
@@ -22,6 +25,12 @@ public class ClickRegister : MonoBehaviour
         isGameOn = false;
         theFirstCube = true;
     }
+    private void NullTouchingVariables()
+    {
+        touchedTime = 0;
+        isTouchingCube = false;
+        onCubeRelease?.Invoke(0);
+    }
     private void Update()
     {
         if (!isGameOn)
@@ -30,10 +39,12 @@ public class ClickRegister : MonoBehaviour
         }
         if(isMobile)
         {
-            if (Input.touchCount == 0)
+            if (Input.touchCount != 1)//Should be tested next time i play
             {
+                touchedTime = 0f;
                 return;
             }
+
             Touch touch = Input.GetTouch(0);
             if (touch.phase == TouchPhase.Began)
             {
@@ -44,14 +55,21 @@ public class ClickRegister : MonoBehaviour
                 {
                     if (hit.transform.TryGetComponent<Cell>(out Cell CellComponent))
                     {
+                        isTouchingCube = true;
                         touchedCube = hit.transform.gameObject;
-                        if(!setBombs)
+                        if(!setBombs && !CellComponent.HasBeenTouched)
                             onCubeTouch?.Invoke(3);
                     }
                 }
             }
             else if (touch.phase == TouchPhase.Ended)
             {
+                if(shouldNotClick)
+                {
+                    shouldNotClick = false;
+                    return;
+                }
+                NullTouchingVariables();
                 Ray ray = Camera.main.ScreenPointToRay(touch.position);
                 RaycastHit hit;
 
@@ -63,7 +81,10 @@ public class ClickRegister : MonoBehaviour
                         {
                             if (setBombs)
                             {
-                                CellComponent.WasRightClicked();
+                                if (CellComponent.HasBeenTouched)
+                                    CellComponent.RevealAllSurroundingNonBombs();
+                                else
+                                    CellComponent.WasRightClicked();
                             }
                             else
                             {
@@ -74,14 +95,38 @@ public class ClickRegister : MonoBehaviour
                                     onFirstCubeTouch?.Invoke();
                                 }
                                 PlaySound?.Invoke();
-                                hit.transform.GetComponent<Cell>().WasClicked();
-                                hit.transform.GetComponent<Cell>().RevealAllSurroundingNonBombs();
+                                if (CellComponent.HasBeenTouched)
+                                    CellComponent.RevealAllSurroundingNonBombs();
+                                if (!CellComponent.Flag.activeSelf)
+                                    CellComponent.WasClicked();
                             }
                         }
                     }
                 }
-                onCubeRelease?.Invoke(0);
+            }
+            if(isTouchingCube)
+            {
+                touchedTime += Time.deltaTime;
+                Ray ray = Camera.main.ScreenPointToRay(touch.position);
+                RaycastHit hit;
 
+                if (Physics.Raycast(ray, out hit))
+                {
+                    if (hit.transform == null)
+                    {
+                        NullTouchingVariables();
+                    }
+                    if(touchedCube != hit.transform.gameObject)
+                    {
+                        NullTouchingVariables();
+                    }
+                    if(touchedTime>=constTouchedTime)
+                    {
+                        shouldNotClick = true;
+                        hit.transform.GetComponent<Cell>().WasRightClicked();
+                        NullTouchingVariables();
+                    }
+                }
             }
         }
         else
@@ -104,8 +149,10 @@ public class ClickRegister : MonoBehaviour
                                 onFirstCubeTouch?.Invoke();
                             }
                             PlaySound?.Invoke();
-                            hit.transform.GetComponent<Cell>().WasClicked();
-                            hit.transform.GetComponent<Cell>().RevealAllSurroundingNonBombs();
+                            if (CellComponent.HasBeenTouched)
+                                CellComponent.RevealAllSurroundingNonBombs();
+                            if(!CellComponent.Flag.activeSelf)
+                                CellComponent.WasClicked();
                         }
                     }
                 }
@@ -121,7 +168,8 @@ public class ClickRegister : MonoBehaviour
                     if (hit.transform.TryGetComponent<Cell>(out Cell CellComponent))
                     {
                         touchedCube = hit.transform.gameObject;
-                        onCubeTouch?.Invoke(3);
+                        if(!CellComponent.HasBeenTouched)
+                            onCubeTouch?.Invoke(3);
                     }
                 }
             }

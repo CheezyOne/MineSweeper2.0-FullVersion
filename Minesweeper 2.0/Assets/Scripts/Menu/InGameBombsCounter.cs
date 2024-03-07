@@ -7,15 +7,19 @@ public class InGameBombsCounter : MonoBehaviour
 {
     public static int BombsCount=0, PlayersBombsCount=0;
     [SerializeField] private TMP_Text BombsCountText;
-    // Start is called before the first frame update
-    private void Awake()
+    private void OnEnable()
     {
         InGameButtons.onGameExit += NullTheCounter;
+    }
+    private void OnDisable()
+    {
+        InGameButtons.onGameExit -= NullTheCounter;
     }
     private void NullTheCounter()
     {
         InGameBombsCounter.BombsCount = 0;
         InGameBombsCounter.PlayersBombsCount = 0;
+        BombsCountText.text = PlayersBombsCount + "/" + BombsCount;
     }
     private void Update()
     {

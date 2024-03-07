@@ -144,6 +144,7 @@ class ParticleSystem; template <> void RegisterUnityClass<ParticleSystem>(const 
 class ParticleSystemRenderer; template <> void RegisterUnityClass<ParticleSystemRenderer>(const char*);
 class BoxCollider; template <> void RegisterUnityClass<BoxCollider>(const char*);
 class Collider; template <> void RegisterUnityClass<Collider>(const char*);
+class MeshCollider; template <> void RegisterUnityClass<MeshCollider>(const char*);
 class PhysicsManager; template <> void RegisterUnityClass<PhysicsManager>(const char*);
 class Rigidbody; template <> void RegisterUnityClass<Rigidbody>(const char*);
 class BoxCollider2D; template <> void RegisterUnityClass<BoxCollider2D>(const char*);
@@ -158,7 +159,7 @@ void RegisterAllClasses()
 {
 void RegisterBuiltinTypes();
 RegisterBuiltinTypes();
-	//Total: 80 non stripped classes
+	//Total: 81 non stripped classes
 	//0. Animator
 	RegisterUnityClass<Animator>("Animation");
 	//1. AnimatorController
@@ -301,23 +302,25 @@ RegisterBuiltinTypes();
 	RegisterUnityClass<BoxCollider>("Physics");
 	//70. Collider
 	RegisterUnityClass<Collider>("Physics");
-	//71. PhysicsManager
+	//71. MeshCollider
+	RegisterUnityClass<MeshCollider>("Physics");
+	//72. PhysicsManager
 	RegisterUnityClass<PhysicsManager>("Physics");
-	//72. Rigidbody
+	//73. Rigidbody
 	RegisterUnityClass<Rigidbody>("Physics");
-	//73. BoxCollider2D
+	//74. BoxCollider2D
 	RegisterUnityClass<BoxCollider2D>("Physics2D");
-	//74. Collider2D
+	//75. Collider2D
 	RegisterUnityClass<Collider2D>("Physics2D");
-	//75. Physics2DSettings
+	//76. Physics2DSettings
 	RegisterUnityClass<Physics2DSettings>("Physics2D");
-	//76. Font
+	//77. Font
 	RegisterUnityClass<TextRendering::Font>("TextRendering");
-	//77. Canvas
+	//78. Canvas
 	RegisterUnityClass<UI::Canvas>("UI");
-	//78. CanvasGroup
+	//79. CanvasGroup
 	RegisterUnityClass<UI::CanvasGroup>("UI");
-	//79. CanvasRenderer
+	//80. CanvasRenderer
 	RegisterUnityClass<UI::CanvasRenderer>("UI");
 
 }

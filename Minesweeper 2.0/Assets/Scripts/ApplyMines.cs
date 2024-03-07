@@ -25,8 +25,7 @@ public class ApplyMines : MonoBehaviour//Red bombs and blue bombs are vise-versa
     }
     private void DecideBombCount()
     {
-
-        RedBombCount = FieldSize / 10 + FieldSize / 20;
+        RedBombCount = BombsAmountMenu.RememberBombs;
         if(ApplyBlueBombs)
         {
             if(RedBombCount>1)

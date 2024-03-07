@@ -1,14 +1,13 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FieldSizeMenu : MonoBehaviour
 {
+    public static Action onSizeChange;
     [SerializeField] private GameObject _fieldGenerator;
     private FieldGeneration _fGComponent;
-    private static int _rememberString=7, _rememberColomn=7;
+    public static int RememberString=10, RememberColomn=10;
     [SerializeField] private int SizeIndex;//string, colomn
     private void Awake()
     {
@@ -16,15 +15,87 @@ public class FieldSizeMenu : MonoBehaviour
     }
     private void OnEnable()
     {
-        _fGComponent.ColomnsSize = _rememberColomn;
-        _fGComponent.StringsSize = _rememberString;
-        if (SizeIndex == 0)
-            GetComponent<TMP_InputField>().text = Convert.ToString(_rememberString);
-        else if(SizeIndex==1)
-            GetComponent<TMP_InputField>().text = Convert.ToString(_rememberColomn);
+        SetupNumbers();
+        MobileCanvasSwapper.onCanvasSwap += SetupNumbers;
+        PlusMinusButtons.onFieldSizeChange += SetupNumbers;
     }
-    public void ChangeBoth(string Size)
+    private void OnDisable()
     {
+        MobileCanvasSwapper.onCanvasSwap -= SetupNumbers;
+        PlusMinusButtons.onFieldSizeChange -= SetupNumbers;
+    }
+
+    public static void ChangeSize(string Dimension, bool IsPositive)
+    {
+        switch (Dimension)
+        {
+            case "string":
+                {
+                    if (IsPositive)
+                    {
+                        if (RememberString >= 50)
+                            return;
+                        RememberString++;
+                    }
+                    else
+                    {
+                        if (RememberString <= 7)
+                            return;
+                        RememberString--;
+                    }
+                    break;
+                }
+            case "colomn":
+                {
+                    if (IsPositive)
+                    {
+                        if (RememberColomn >= 50)
+                            return;
+                        RememberColomn++;
+                    }
+                    else
+                    {
+                        if (RememberColomn <= 7)
+                            return;
+                        RememberColomn--;
+                    }
+                    break;
+                }
+            case "both":
+                {
+                    if (IsPositive)
+                    {
+                        if (RememberString < 50)
+                            RememberString++;
+                        RememberColomn = RememberString;
+                    }
+                    else
+                    {
+                        if (RememberString>7)
+                            RememberString--;
+                        RememberColomn = RememberString;
+                    }
+                    break;
+                }
+        }
+        onSizeChange?.Invoke();
+    }
+    private void SetupNumbers()
+    {
+        _fGComponent.ColomnsSize = RememberColomn;
+        _fGComponent.StringsSize = RememberString;
+        if (SizeIndex == 0)
+        {
+            GetComponent<InputField>().text = Convert.ToString(RememberString);
+        }
+        else if (SizeIndex == 1)
+        {
+            GetComponent<InputField>().text = Convert.ToString(RememberColomn);
+        }        
+    }
+    public void ChangeBoth(string Helper)
+    {
+        string Size = GetComponent<InputField>().text;
         if (Size == "")
         {
             return;
@@ -32,69 +103,77 @@ public class FieldSizeMenu : MonoBehaviour
         int IntSize = Convert.ToInt32(Size);
         _fGComponent.ColomnsSize = IntSize;
         _fGComponent.StringsSize = IntSize;
-        _rememberString = IntSize;
-        _rememberColomn = IntSize;
-        GetComponent<TMP_InputField>().text = Convert.ToString(IntSize);
+        RememberString = IntSize;
+        RememberColomn = IntSize;
+        GetComponent<InputField>().text = Convert.ToString(IntSize);
     }
-    public void EditEndBoth(string Size)
+    public void EditEndBoth(string Helper)
     {
+        string Size = GetComponent<InputField>().text;
         if (Size == "")
         {
-            Size = "7";
+            Size = "10";
         }
         int IntSize = Convert.ToInt32(Size);
         IntSize = ConstrainInt(IntSize);
         _fGComponent.ColomnsSize = IntSize;
         _fGComponent.StringsSize = IntSize;
-        _rememberString = IntSize;
-        _rememberColomn = IntSize;
-        GetComponent<TMP_InputField>().text = Convert.ToString(IntSize);
+        RememberString = IntSize;
+        RememberColomn = IntSize;
+        onSizeChange?.Invoke();
+        GetComponent<InputField>().text = Convert.ToString(IntSize);
     }
-    public void ChangeColomnsSize(string ColomnsSize)
+    public void ChangeColomnsSize(string Helper)
     {
-        if(ColomnsSize=="")
+        string ColomnsSize = GetComponent<InputField>().text;
+        if (ColomnsSize=="")
         {
             return;
         }
         int IntColomnSize = Convert.ToInt32(ColomnsSize);
         _fGComponent.ColomnsSize = IntColomnSize;
-        _rememberColomn = IntColomnSize;
-        GetComponent<TMP_InputField>().text =Convert.ToString(IntColomnSize);
+        RememberColomn = IntColomnSize;
+        GetComponent<InputField>().text =Convert.ToString(IntColomnSize);
     }
-    public void EditEndColomnsSize(string ColomnsSize)
+    public void EditEndColomnsSize(string Helper)
     {
+        string ColomnsSize = GetComponent<InputField>().text;
         if (ColomnsSize == "")
         {
-            ColomnsSize = "7";
+            ColomnsSize = "10";
         }
         int IntColomnSize = Convert.ToInt32(ColomnsSize);
         IntColomnSize = ConstrainInt(IntColomnSize);
         _fGComponent.ColomnsSize = IntColomnSize;
-        _rememberColomn = IntColomnSize;
-        GetComponent<TMP_InputField>().text = Convert.ToString(IntColomnSize);
+        RememberColomn = IntColomnSize;
+        onSizeChange?.Invoke();
+        GetComponent<InputField>().text = Convert.ToString(IntColomnSize);
     }
-    public void ChangeStringsSize(string StringsSize)
+    public void ChangeStringsSize(string Helper)
     {
+        string StringsSize = GetComponent<InputField>().text;
         if (StringsSize == "")
         {
             return;
         }
         int IntStringsSize = Convert.ToInt32(StringsSize);
         _fGComponent.StringsSize = IntStringsSize;
-        _rememberString = IntStringsSize;
-        GetComponent<TMP_InputField>().text = Convert.ToString(IntStringsSize);
+        RememberString = IntStringsSize;
+        GetComponent<InputField>().text = Convert.ToString(IntStringsSize);
     }
-    public void EditEndStringsSize(string StringsSize)
+    public void EditEndStringsSize(string Helper)
     {
+        string StringsSize = GetComponent<InputField>().text;
         if (StringsSize == "")
         {
-            StringsSize = "7";
+            StringsSize = "10";
         }
         int IntStringsSize = Convert.ToInt32(StringsSize);
         IntStringsSize = ConstrainInt(IntStringsSize);
         _fGComponent.StringsSize = IntStringsSize;
-        _rememberString = IntStringsSize;
-        GetComponent<TMP_InputField>().text = Convert.ToString(IntStringsSize);
+        RememberString = IntStringsSize;
+        onSizeChange?.Invoke();
+        GetComponent<InputField>().text = Convert.ToString(IntStringsSize);
     }
     private int ConstrainInt(int CurrentNumber)
     {

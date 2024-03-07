@@ -11,10 +11,11 @@ public class MovingCamera : MonoBehaviour
     private const float LeftBorder=-5.5f, LowerBorder=-2.2f;
     private Vector3 DragStartPosition;
 
+
     public float movementSpeed = 0.1f; // —корость движени€ камеры
 
-    private Vector2 initialTouchPosition;
-    private Vector2 previousTouchPosition;
+    private Vector2 previousTouchPosition2;
+    private Vector2 previousTouchPosition1;
 
     private Transform MainCamTransform;
     private void OnEnable()
@@ -60,29 +61,39 @@ public class MovingCamera : MonoBehaviour
             if (transform.position.z < LowerBorder && delta.y > 0 || transform.position.z > FieldGeneration.StaticColomsSize * 1.1f - 2 && delta.y < 0)
                 delta.y = 0;
             delta /= 1.5f;
+            float ClampFloat=12f;
+            delta = new (Mathf.Clamp(delta.x, -ClampFloat, ClampFloat), Mathf.Clamp(delta.y, -ClampFloat, ClampFloat), Mathf.Clamp(delta.z, -ClampFloat, ClampFloat));
             MainCamTransform.Translate(-delta * Time.deltaTime); // ѕеремещаем камеру в противоположном направлении от движени€ мыши
             DragStartPosition = touch.position; 
         }
-        else if (Input.touchCount == 2)
+        else if (Input.touchCount == 2 && isAbleToBackScrollCamera)
         {
-            DragStartPosition = Vector3.zero;
-            Touch touch0 = Input.GetTouch(0);
-            Touch touch1 = Input.GetTouch(1);
+            Touch touch1 = Input.GetTouch(0);
+            Touch touch2 = Input.GetTouch(1);
 
-            if (touch0.phase == TouchPhase.Began || touch1.phase == TouchPhase.Began)
+            if (touch1.phase == TouchPhase.Moved && touch2.phase == TouchPhase.Moved)
             {
-                initialTouchPosition = (touch0.position + touch1.position) / 2f;
-                previousTouchPosition = initialTouchPosition;
+                Vector2 currentTouchPosition1 = touch1.position;
+                Vector2 currentTouchPosition2 = touch2.position;
+
+                float previousTouchDelta = Vector2.Distance(previousTouchPosition1, previousTouchPosition2);
+                float currentTouchDelta = Vector2.Distance(currentTouchPosition1, currentTouchPosition2);
+
+                float deltaDifference = currentTouchDelta - previousTouchDelta;
+
+                Vector3 cameraPosition = transform.position;
+                deltaDifference = Mathf.Clamp(deltaDifference, -25, 25);
+                if (!(transform.position.y<=3&&deltaDifference>0|| transform.position.y >= 50 && deltaDifference <0))
+                    cameraPosition.y -= deltaDifference * Time.deltaTime;
+                transform.position = cameraPosition;
+
+                previousTouchPosition1 = currentTouchPosition1;
+                previousTouchPosition2 = currentTouchPosition2;
             }
-            else if (touch0.phase == TouchPhase.Moved && touch1.phase == TouchPhase.Moved)
+            else if (touch1.phase == TouchPhase.Began || touch2.phase == TouchPhase.Began)
             {
-                Vector2 currentTouchPosition = (touch0.position + touch1.position) / 2f;
-                float deltaY = currentTouchPosition.y - previousTouchPosition.y;
-
-                Vector3 cameraNewPosition = transform.position + new Vector3(0f, deltaY * movementSpeed, 0f);
-                transform.position = cameraNewPosition;
-
-                previousTouchPosition = currentTouchPosition;
+                previousTouchPosition1 = touch1.position;
+                previousTouchPosition2 = touch2.position;
             }
         }
     }

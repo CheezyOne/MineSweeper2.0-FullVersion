@@ -12,7 +12,6 @@ public class InfoAboutModes : MonoBehaviour
     private bool isToBeExpanded = false, isToBeShrinked = false, isToRevealText = false;
     [SerializeField] private GameObject Tip;
     private CanvasGroup TipCG;
-    //6.25
     [SerializeField] private float XScale, YScale;
     [SerializeField] private Vector3 TargetPosition;
     [SerializeField] private float ScaleExpandSpeed, ScaleShinkSpeed, PositionSpeed, TextRevealSpeed;

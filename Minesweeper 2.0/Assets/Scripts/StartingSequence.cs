@@ -15,7 +15,7 @@ public class StartingSequence : MonoBehaviour
     private float FallSpeed=15f;
     private int HowManyCubesFallSimultaneously = 1;
 
-    public static Action onAllCubesFall;
+    public static Action onAllCubesFall, getBariersToWork;
     public static Action<int> onCubesFallSmiley;
     private void Awake()
     {
@@ -113,20 +113,27 @@ public class StartingSequence : MonoBehaviour
             {
                 if (FallingCubes[FallingCubes.Count - 1].transform.position == AllEndPositions[FallingCubes.Count - 1])
                 {
-                    ClickRegister.isGameOn = true;
-                    CubesShouldFall =false;
-                    onCubesFallSmiley?.Invoke(2);
-                    StartCoroutine(SmileyCor());
-                    NullAllVariables();
+                    StartCoroutine(WaitForBariersToDetect());
                 }
             } 
         }
     }
+    private IEnumerator WaitForBariersToDetect()
+    {
+        getBariersToWork?.Invoke();
+        yield return new WaitForSeconds(0.1f);
+        ClickRegister.isGameOn = true;
+        CubesShouldFall = false;
+        onCubesFallSmiley?.Invoke(2);
+        StartCoroutine(SmileyCor());
+        NullAllVariables();
+        yield break;
+    }
     private IEnumerator SmileyCor()
-    { 
+    {
         yield return new WaitForSeconds(1f);
         onCubesFallSmiley?.Invoke(0);
         onAllCubesFall?.Invoke();
-        StopCoroutine(SmileyCor());
+        yield break;
     }
 }

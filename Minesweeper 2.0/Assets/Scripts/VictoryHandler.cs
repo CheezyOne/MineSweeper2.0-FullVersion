@@ -9,7 +9,7 @@ public class VictoryHandler : MonoBehaviour
     private int ClickedCellsCount = 0;
     public static Action<int> onVictorySmiley;
     public static Action onGameWon;
-    [SerializeField] private GameObject CongratsText;
+    [SerializeField] private GameObject CongratsTextDesktop, CongratsTextMobile;
     private void Awake()
     {
         Cell.onEmptyCellClicked += NewCellClicked;
@@ -19,7 +19,8 @@ public class VictoryHandler : MonoBehaviour
     private void NullCounter()
     {
         ClickedCellsCount = 0;
-        CongratsText.SetActive(false);
+        CongratsTextDesktop.SetActive(false);
+        CongratsTextMobile.SetActive(false);
     }
     private void NewCellClicked()
     {
@@ -34,6 +35,7 @@ public class VictoryHandler : MonoBehaviour
         onVictorySmiley?.Invoke(5);
         onGameWon?.Invoke();
         NullCounter();
-        CongratsText.SetActive(true);
+        CongratsTextDesktop.SetActive(true);
+        CongratsTextMobile.SetActive(true);
     }
 }

@@ -7,18 +7,43 @@ using UnityEngine.UI;
 
 public class ButtonsInMenu : MonoBehaviour
 {
-    public static Action onPlayButtonPress, PlaySound;
+    public static Action onPlayButtonPress, PlaySound, onMapChange;
     private readonly string[] EnglishMapNames = new string[] { "Normal", "Cross", "4 Sides", "Hole", "Diamond" };
     private readonly string[] RussianMapNames = new string[] { "Обычный", "Крест", "4 Стороны", "Дыра", "Ромб" };
     private string[] MapNames = new string[] { "Normal", "Cross", "4 Sides", "Hole", "Diamond" };
     [SerializeField] private GameObject MapNameText, MapNameChangeRight, MapNameChangeLeft, InGameMenu, SmileyPosition, TwoInput, FullInput;
-    private static int MapNameNumber = 0;
-    private void Awake()
+    private static int MapNameNumber=0;
+    private void Start()
     {
-        LanguageController.onLanguageChange += ChangeLanguage;
+        SetInputsAfterSwap();
         ChangeLanguage();
     }
-
+    private void OnEnable()
+    {
+        ChangeLanguage();
+        MobileCanvasSwapper.onCanvasSwap += SetMapNameText;
+        MobileCanvasSwapper.onCanvasSwap += SetInputsAfterSwap;
+    }
+    private void OnDisable()
+    {
+        MobileCanvasSwapper.onCanvasSwap -= SetMapNameText;
+        MobileCanvasSwapper.onCanvasSwap -= SetInputsAfterSwap;
+    }
+    private void SetInputsAfterSwap()
+    {
+        if (MapNameNumber == 0)
+        {
+            MapNameChangeLeft.SetActive(false);
+        }
+        else
+            MapNameChangeLeft.SetActive(true);
+        if (MapNameNumber == MapNames.Length - 1)
+        {
+            MapNameChangeRight.SetActive(false);
+        }
+        else
+            MapNameChangeRight.SetActive(true);
+    }
     private void ChangeLanguage()
     {
         if(LanguageController.CurrentLanguage=="English"|| LanguageController.CurrentLanguage == "en")
@@ -56,6 +81,7 @@ public class ButtonsInMenu : MonoBehaviour
                 MapNameChangeLeft.SetActive(false);
             }
         }
+        onMapChange?.Invoke();
     }
     private void SetInputs(bool DoubleInput)
     {
@@ -92,5 +118,6 @@ public class ButtonsInMenu : MonoBehaviour
                 MapNameChangeRight.SetActive(false);
             }
         }
+        onMapChange?.Invoke();
     }
 }

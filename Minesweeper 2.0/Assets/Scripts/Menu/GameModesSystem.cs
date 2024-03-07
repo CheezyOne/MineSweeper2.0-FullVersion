@@ -11,9 +11,12 @@ public class GameModesSystem : MonoBehaviour
     [SerializeField] private GameObject MovingBombsCheck;
 
     public static Action PlaySound;
-    public void TwoBombTypes()
+    public void PlayButtonSound()
     {
         PlaySound?.Invoke();
+    }
+    public void TwoBombTypes()
+    {
         if (MovingBombsCheck.activeSelf)
             MovingBombs();
         TwoBombTypesFun();
@@ -36,7 +39,6 @@ public class GameModesSystem : MonoBehaviour
     
     public void LyingCells()
     {
-        PlaySound?.Invoke();
         if (Check.activeSelf)
         {
             Check.SetActive(false);
@@ -50,7 +52,6 @@ public class GameModesSystem : MonoBehaviour
     }
     public void Bariers()
     {
-        PlaySound?.Invoke();
         if (Check.activeSelf)
         {
             Check.SetActive(false);
@@ -60,20 +61,6 @@ public class GameModesSystem : MonoBehaviour
         {
             Check.SetActive(true);
             FieldGeneration.ApplyBariers = true;
-        }
-    }
-    public void ConnectedBombs()
-    {
-        PlaySound?.Invoke();
-        if (Check.activeSelf)
-        {
-            Check.SetActive(false);
-            ApplyMines.ApplyConnectedBombs = false;
-        }
-        else
-        {
-            Check.SetActive(true);
-            ApplyMines.ApplyConnectedBombs = true;
         }
     }
     private void MovingBombsFun()
@@ -91,7 +78,6 @@ public class GameModesSystem : MonoBehaviour
     }
     public void MovingBombs()
     {
-        PlaySound?.Invoke();
         if (TwoBombsCheck.activeSelf)
             TwoBombTypesFun();
         MovingBombsFun();

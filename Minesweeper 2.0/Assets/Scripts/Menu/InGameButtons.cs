@@ -18,6 +18,34 @@ public class InGameButtons : MonoBehaviour
     [SerializeField] private GameObject Cursor;
 
     public static Action PlaySound;
+
+    private void OnEnable()
+    {
+        MobileCanvasSwapper.onCanvasSwap += TryBottomButtonsSwap;
+    }
+    private void OnDisable()
+    {
+        MobileCanvasSwapper.onCanvasSwap -= TryBottomButtonsSwap;
+    }
+    private void TryBottomButtonsSwap()
+    {
+        if (ClickRegister.setBombs)
+        {
+            CellsCheck.SetActive(false);
+            BombsCheck.SetActive(true);
+            Flag.GetComponent<Renderer>().material = TouhedCubeMaterail;
+            Cursor.GetComponent<Image>().color = Color.white;
+        }
+        else
+        {
+            CellsCheck.SetActive(true);
+            BombsCheck.SetActive(false);
+            Flag.GetComponent<Renderer>().material = FlagMaterial;
+            Cursor.GetComponent<Image>().color = Color.grey;
+        }
+
+    }
+
     public void SetBombs()
     {
         CellsCheck.SetActive(false);

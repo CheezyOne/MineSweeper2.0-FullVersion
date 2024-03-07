@@ -251,7 +251,7 @@ public class FieldGeneration : MonoBehaviour
         List<Vector3> AllBariersPositions = new List<Vector3>(); 
         bool ShouldRotate, ShallNotProceed = false;
         int TriesCounter = 0;
-        BariersCount = ApplyComponent.FieldSize / 5;
+        BariersCount = ApplyComponent.FieldSize / 10;
         // BariersCount = 1;
         List<GameObject> AllCubes = new List<GameObject>();
         for(int i=0;i<FieldGeneration.AllCubes.Count;i++)

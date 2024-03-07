@@ -4,7 +4,8 @@ using UnityEngine.UI;
 public class SoundButtons : MonoBehaviour
 {
     public static Action PlaySound;
-    [SerializeField] private GameObject MusicHandler, MusicButton, MusicButton1, SoundsHandler, SoundButton, SoundButton1;
+    [SerializeField] private GameObject MusicHandler, SoundsHandler;
+    [SerializeField] private GameObject[] MusicButtonsArr, SoundButtonsArr;
     [SerializeField] private Sprite MutedMusic, UnMutedMusic, MutedSound, UnMutedSound;
     private const float MusicVolume = 0.1f;
     public void MusicButtonFun()
@@ -13,14 +14,18 @@ public class SoundButtons : MonoBehaviour
         PlaySound?.Invoke();
         if (AS.volume != 0)
         {
-            MusicButton.GetComponent<Image>().sprite = MutedMusic;
-            MusicButton1.GetComponent<Image>().sprite = MutedMusic;
+            for (int i = 0; i< MusicButtonsArr.Length;i++)
+            {
+                MusicButtonsArr[i].GetComponent<Image>().sprite = MutedMusic;
+            }
             AS.volume = 0;
         }
         else
         {
-            MusicButton.GetComponent<Image>().sprite = UnMutedMusic;
-            MusicButton1.GetComponent<Image>().sprite = UnMutedMusic;
+            for (int i = 0; i < MusicButtonsArr.Length; i++)
+            {
+                MusicButtonsArr[i].GetComponent<Image>().sprite = UnMutedMusic;
+            }
             AS.volume = MusicVolume;
         }
     }
@@ -29,14 +34,18 @@ public class SoundButtons : MonoBehaviour
         PlaySound?.Invoke();
         if (SoundsHandler.activeSelf)
         {
-            SoundButton.GetComponent<Image>().sprite = MutedSound;
-            SoundButton1.GetComponent<Image>().sprite = MutedSound;
+            for (int i = 0; i < SoundButtonsArr.Length; i++)
+            {
+                SoundButtonsArr[i].GetComponent<Image>().sprite = MutedSound;
+            }
             SoundsHandler.SetActive(false);
         }
         else
         {
-            SoundButton.GetComponent<Image>().sprite = UnMutedSound;
-            SoundButton1.GetComponent<Image>().sprite = UnMutedSound;
+            for (int i = 0; i < SoundButtonsArr.Length; i++)
+            {
+                SoundButtonsArr[i].GetComponent<Image>().sprite = UnMutedSound;
+            }
             SoundsHandler.SetActive(true);
         }
     }
