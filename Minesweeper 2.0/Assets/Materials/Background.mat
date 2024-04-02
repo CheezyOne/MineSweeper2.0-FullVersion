@@ -9,6 +9,8 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Background
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _EMISSION
   - _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
@@ -19,6 +21,7 @@ Material:
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -78,5 +81,5 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 0.42338347, g: 0.40943396, b: 1, a: 1}
-    - _EmissionColor: {r: 0, g: 0.025157208, b: 0.2924528, a: 1}
+    - _EmissionColor: {r: 0, g: 0.025157208, b: 0.29411766, a: 1}
   m_BuildTextureStacks: []

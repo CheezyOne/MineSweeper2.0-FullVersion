@@ -5,23 +5,50 @@ using UnityEngine;
 
 public class ApplyMines : MonoBehaviour//Red bombs and blue bombs are vise-versa in the code
 {
-    [SerializeField] private GameObject MineField;
+    [SerializeField] private Transform MineField;
     public static GameObject CantBeBomb;
     public int FieldSize = 0;
-    private int RedBombCount, BlueBombCount, CantBeBombNumber;
-    private List<int> RedBombCells = new List<int>(), BlueBombCells = new List<int>();
+    public int RedBombCount, BlueBombCount;
+    private List<int> RedBombCells = new(), BlueBombCells = new();
+    private List<int> AllCellsForRed = new(), AllCellsForBlue = new();
     public static Action onAllBombsApply;
     public static bool ApplyBlueBombs = false, ApplyConnectedBombs = false;
-    private void Awake()
+    private int NonBombsCounter=0;
+    private bool FirstNonBomb = true;
+    private void OnEnable()
     {
         ClickRegister.onFirstCubeTouch += ApplyBombCells;
+        BombsInGameChanger.onBombsMove += ApplyBombsCount;
+        BombsInGameChanger.onBombsMove += ApplyBombsCount;
+    }
+    private void OnDisable()
+    {
+        ClickRegister.onFirstCubeTouch -= ApplyBombCells;
+        BombsInGameChanger.onBombsMove -= ApplyBombsCount;
+        BombsInGameChanger.onBombsMove -= ApplyBombsCount;
     }
     private void NullAllVariables()
     {
         RedBombCells = new List<int>();
         BlueBombCells = new List<int>();
+        AllCellsForRed = new List<int>();
+        AllCellsForBlue = new List<int>();
         BlueBombCount = 0;
         RedBombCount = 0;
+        NonBombsCounter = 0;
+        FirstNonBomb = true;
+    }
+
+    private void GetAllCells()
+    {
+        for (int i = 0; i < MineField.childCount; i++)
+        {
+            if (MineField.GetChild(i).name == "Cell(Clone)")
+            {
+                AllCellsForRed.Add(i);
+                AllCellsForBlue.Add(i);
+            }
+        }
     }
     private void DecideBombCount()
     {
@@ -32,106 +59,56 @@ public class ApplyMines : MonoBehaviour//Red bombs and blue bombs are vise-versa
                 RedBombCount /= 2;
             BlueBombCount = RedBombCount;
         }
-
-        //RedBombCount = FieldSize-2;
     }
-    private int GetRandomNumber(List<int> BombCells)
+    private int GetRandomNumber(List<int> AllCells)
     {
-        int RandomNumber;
-        do
-        {
-            RandomNumber = UnityEngine.Random.Range(0, FieldSize);
-        }
-        while (RandomNumber== CantBeBombNumber);
-        foreach(int Number in BombCells)
-        {
-            if(RandomNumber==Number)
-            {
-                RandomNumber = GetRandomNumber(BombCells);
-            }
-        }
-        return RandomNumber;
+        int RandomNumber = UnityEngine.Random.Range(0, AllCells.Count);
+        int ReturnNumber = AllCells[RandomNumber];
+        AllCells.RemoveAt(RandomNumber);
+        return ReturnNumber;
     }
-    private int GetNoBombNumber() 
+    private void GetNoBombNumber(GameObject NotBomb)
     {
-        for (int i=0;i< MineField.transform.childCount;i++)
+        if (!FirstNonBomb)
         {
-            if (CantBeBomb == MineField.transform.GetChild(i).gameObject)
+            if (RedBombCount + BlueBombCount + NonBombsCounter >= FieldSize - 3)//-3 дл€ того, чтобы не абузить первый клик
             {
-                return i;
+                return;
             }
         }
-        return -1;
+        FirstNonBomb = false;
+        for (int i=0;i<MineField.childCount;i++)
+        {
+            if (MineField.GetChild(i).gameObject == NotBomb)
+            {
+                AllCellsForRed.Remove(i);
+                AllCellsForBlue.Remove(i);
+                NonBombsCounter++;
+                break;
+            }
+        }
     }
-    private int GetCellNumber(GameObject Cell)
-    {
-        for (int i = 0; i < MineField.transform.childCount; i++)
-        {
-            if (Cell == MineField.transform.GetChild(i).gameObject)
-            {
-                return i;
-            }
-        }
-        return -1;
-    }
-    private GameObject FindASpotForANewConnectedRedBomb(int BombNumberToApply)
-    {
-        GameObject NeighbourBomb = MineField.transform.GetChild(RedBombCells[BombNumberToApply]).GetComponent<Cell>().GetRandomNeighbour();
-        for (int i = 0; i < RedBombCells.Count; i++)
-        {
-            if (GetCellNumber(NeighbourBomb) == RedBombCells[i] || CantBeBomb == NeighbourBomb)
-            {
-                return null;
-            }
-        }
-        return NeighbourBomb;
-    }
-    private GameObject FindASpotForANewConnectedBlueBomb(int BombNumberToApply)
-    {
-        GameObject NeighbourBomb = MineField.transform.GetChild(BlueBombCells[BombNumberToApply]).GetComponent<Cell>().GetRandomNeighbour();
-        for (int i = 0; i < BlueBombCells.Count; i++)
-        {
-            if (GetCellNumber(NeighbourBomb) == BlueBombCells[i] || CantBeBomb == NeighbourBomb)
-            {
-                return null;
-            }
-        }
-        return NeighbourBomb;
-    }
-    private void ApplyConnectedBombsFun()
-    {
-        int BombNumberToApply;
-        for (int j = 0; j < RedBombCount; j++)
-        {
-            GameObject NeighbourBomb = null;
-            while (NeighbourBomb==null)
-            {
-                BombNumberToApply=UnityEngine.Random.Range(0,RedBombCells.Count);
-                NeighbourBomb = FindASpotForANewConnectedRedBomb(BombNumberToApply);
-            }
-            RedBombCells.Add(GetCellNumber(NeighbourBomb));
-        }
-        for (int j = 0; j < BlueBombCount; j++)
-        {
-            GameObject NeighbourBomb = null;
-            while (NeighbourBomb == null)
-            {
-                BombNumberToApply = UnityEngine.Random.Range(0, BlueBombCells.Count);
-                NeighbourBomb = FindASpotForANewConnectedBlueBomb(BombNumberToApply);
-            }
-            BlueBombCells.Add(GetCellNumber(NeighbourBomb));
-        }
-    }    
     private void ApplyNormalBombs()
     {
         for (int i = 0; i < RedBombCount; i++)
         {
-            RedBombCells.Add(GetRandomNumber(RedBombCells));
+            RedBombCells.Add(GetRandomNumber(AllCellsForRed));
         }
-        for (int i = 0; i < BlueBombCount; i++)
+        if (ApplyBlueBombs)
         {
-            BlueBombCells.Add(GetRandomNumber(BlueBombCells));
+            for (int i = 0; i < BlueBombCount; i++)
+            {
+                BlueBombCells.Add(GetRandomNumber(AllCellsForBlue));
+            }
         }
+    }
+    private void ApplyBombsCount()
+    {
+        if (ApplyBlueBombs)
+            VictoryHandler.EmptyCellsCount = FieldSize - RedBombCount - BlueBombCount + BothBlueAndRed();//ѕрисваиваетс€ дважды, но это фиксит баг
+        else
+            VictoryHandler.EmptyCellsCount = FieldSize - RedBombCount;
+        InGameBombsCounter.BombsCount = FieldSize - VictoryHandler.EmptyCellsCount;
     }
     private int BothBlueAndRed()
     {
@@ -148,25 +125,20 @@ public class ApplyMines : MonoBehaviour//Red bombs and blue bombs are vise-versa
     public void ApplyBombCells()
     {
         NullAllVariables();
-        CantBeBombNumber = GetNoBombNumber();
-        if (CantBeBombNumber == -1)
-            Debug.Log("It's impossible");
+        GetAllCells();
+        GetNoBombNumber(CantBeBomb);
         DecideBombCount();
+        foreach (GameObject Cell in CantBeBomb.GetComponent<Cell>().GetAllNeighbours())
+        {
+            GetNoBombNumber(Cell);
+        }
 
-
-
-
-        RedBombCells.Add(GetRandomNumber(RedBombCells));
+        RedBombCells.Add(GetRandomNumber(AllCellsForRed));
         if (ApplyBlueBombs)
-            BlueBombCells.Add(GetRandomNumber(BlueBombCells));
-        if(ApplyConnectedBombs)
-             ApplyConnectedBombsFun();
-        else
-            ApplyNormalBombs();
-        if (ApplyBlueBombs)
-            VictoryHandler.EmptyCellsCount = FieldSize - RedBombCount - BlueBombCount + BothBlueAndRed();//ѕрисваиваетс€ дважды, но это фиксит баг
-        else
-            VictoryHandler.EmptyCellsCount = FieldSize - RedBombCount;
+            BlueBombCells.Add(GetRandomNumber(AllCellsForBlue));
+
+        ApplyNormalBombs();
+        ApplyBombsCount();
         for (int i=0;i< RedBombCount; i++)
         {
             MineField.transform.GetChild(RedBombCells[i]).GetComponent<Cell>().HasRedBomb = true;
@@ -175,12 +147,7 @@ public class ApplyMines : MonoBehaviour//Red bombs and blue bombs are vise-versa
         {
             MineField.transform.GetChild(BlueBombCells[i]).GetComponent<Cell>().HasBlueBomb = true;
         }
-        if (ApplyBlueBombs)
-            VictoryHandler.EmptyCellsCount = FieldSize - RedBombCount - BlueBombCount + BothBlueAndRed();//ѕрисваиваетс€ дважды, но это фиксит баг
-        else
-            VictoryHandler.EmptyCellsCount = FieldSize - RedBombCount;
-
-        InGameBombsCounter.BombsCount = FieldSize - VictoryHandler.EmptyCellsCount;
+        ApplyBombsCount();
         onAllBombsApply?.Invoke();
     }
 }

@@ -14,19 +14,17 @@ public class LoseHandler : MonoBehaviour
     private void OnEnable()
     {
         InGameButtons.onGameExit += StopShaking;
+        Cell.onGameLose += GameLose;
     }
     private void OnDisable()
     {
         InGameButtons.onGameExit -= StopShaking;
+        Cell.onGameLose -= GameLose;
     }
     private void StopShaking()
     {
         StopShakingBool = true;
         StopAllCoroutines();
-    }
-    private void Awake()
-    {
-        Cell.onGameLose += GameLose;
     }
     private void GameLose()
     {

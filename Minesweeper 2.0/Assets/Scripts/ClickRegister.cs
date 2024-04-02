@@ -82,9 +82,9 @@ public class ClickRegister : MonoBehaviour
                             if (setBombs)
                             {
                                 if (CellComponent.HasBeenTouched)
-                                    CellComponent.RevealAllSurroundingNonBombs();
-                                else
-                                    CellComponent.WasRightClicked();
+                                        CellComponent.RevealAllSurroundingNonBombs();
+                                    else
+                                        CellComponent.WasRightClicked();
                             }
                             else
                             {
@@ -98,7 +98,7 @@ public class ClickRegister : MonoBehaviour
                                 if (CellComponent.HasBeenTouched)
                                     CellComponent.RevealAllSurroundingNonBombs();
                                 if (!CellComponent.Flag.activeSelf)
-                                    CellComponent.WasClicked();
+                                    CellComponent.WasClicked(0f);
                             }
                         }
                     }
@@ -123,7 +123,18 @@ public class ClickRegister : MonoBehaviour
                     if(touchedTime>=constTouchedTime)
                     {
                         shouldNotClick = true;
-                        hit.transform.GetComponent<Cell>().WasRightClicked();
+                        if (setBombs)
+                        {
+                            if (theFirstCube)
+                            {
+                                theFirstCube = false;
+                                ApplyMines.CantBeBomb = hit.transform.gameObject;
+                                onFirstCubeTouch?.Invoke();
+                            }
+                            hit.transform.GetComponent<Cell>().WasClicked(0f);
+                        }
+                        else
+                            hit.transform.GetComponent<Cell>().WasRightClicked();
                         NullTouchingVariables();
                     }
                 }
@@ -151,8 +162,10 @@ public class ClickRegister : MonoBehaviour
                             PlaySound?.Invoke();
                             if (CellComponent.HasBeenTouched)
                                 CellComponent.RevealAllSurroundingNonBombs();
-                            if(!CellComponent.Flag.activeSelf)
-                                CellComponent.WasClicked();
+                            if (!CellComponent.Flag.activeSelf)
+                            {
+                                CellComponent.WasClicked(0f);
+                            }
                         }
                     }
                 }

@@ -102,8 +102,10 @@
 -define:ENABLE_LEGACY_INPUT_MANAGER
 -define:TEXTCORE_FONT_ENGINE_1_5_OR_NEWER
 -define:YG_PLUGIN_YANDEX_GAME
+-define:DOTWEEN
 -define:CSHARP_7_OR_LATER
 -define:CSHARP_7_3_OR_NEWER
+-r:"Assets/Plugins/Demigiant/DOTween/DOTween.dll"
 -r:"C:/Users/Azerty/Unity/2022.3.16f1/Editor/Data/Managed/UnityEngine/UnityEditor.CoreModule.dll"
 -r:"C:/Users/Azerty/Unity/2022.3.16f1/Editor/Data/Managed/UnityEngine/UnityEditor.DeviceSimulatorModule.dll"
 -r:"C:/Users/Azerty/Unity/2022.3.16f1/Editor/Data/Managed/UnityEngine/UnityEditor.DiagnosticsModule.dll"
@@ -312,6 +314,7 @@
 -r:"Library/PackageCache/com.unity.nuget.newtonsoft-json@3.2.1/Runtime/Newtonsoft.Json.dll"
 -r:"Library/PackageCache/com.unity.testtools.codecoverage@1.2.4/lib/ReportGenerator/ReportGeneratorMerged.dll"
 -r:"Library/PackageCache/com.unity.visualscripting@1.9.1/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll"
+-r:"Library/Bee/artifacts/2000b0aE.dag/Assembly-CSharp-firstpass.ref.dll"
 -r:"Library/Bee/artifacts/2000b0aE.dag/Unity.AI.Navigation.Editor.ConversionSystem.ref.dll"
 -r:"Library/Bee/artifacts/2000b0aE.dag/Unity.AI.Navigation.Editor.ref.dll"
 -r:"Library/Bee/artifacts/2000b0aE.dag/Unity.AI.Navigation.ref.dll"
@@ -374,8 +377,8 @@
 "Assets/Scripts/SoundMusic/Sounds.cs"
 "Assets/Scripts/StartingSequence.cs"
 "Assets/Scripts/Test.cs"
-"Assets/Scripts/TwoTypesOfBombsChanger.cs"
 "Assets/Scripts/VictoryHandler.cs"
+"Assets/Scripts/YandexLB.cs"
 "Assets/YandexGame/DebuggingMode/Scripts/DebuggingModeYG.cs"
 "Assets/YandexGame/ScriptsYG/ActivityOnAuthorizationYG.cs"
 "Assets/YandexGame/ScriptsYG/AdNotificationYG.cs"

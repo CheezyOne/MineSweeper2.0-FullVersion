@@ -30,11 +30,13 @@ ScriptsOnlyBuild:
     - Sounds
     - StartingSequence
     - TextLocalization
-    - TwoTypesOfBombsChanger
     - VictoryHandler
     - YG.InfoYG
     - YG.ViewingAdsYG
     - YG.YandexGame
+    - YandexLB
+    DOTween.dll:
+    - DG.Tweening.Core.DOTweenSettings
     Unity.Recorder.Editor.dll:
     - UnityEditor.Recorder.MovieRecorderEditor
     - UnityEditor.Recorder.MovieRecorderSettings
@@ -50,14 +52,11 @@ ScriptsOnlyBuild:
     - TMPro.TMP_StyleSheet
     Unity.TextMeshPro.dll:
     - TMPro.TMP_FontAsset
+    - TMPro.TMP_Settings
+    - TMPro.TMP_SpriteAsset
+    - TMPro.TMP_StyleSheet
     - TMPro.TextMeshPro
     - TMPro.TextMeshProUGUI
-    UnityEditor.Graphs.dll:
-    - UnityEditor.Graphs.AnimationBlendTree.Graph
-    - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.Graph
-    - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -86,6 +85,9 @@ ScriptsOnlyBuild:
     - YG.Utils.Pay.Purchase
     - YG.ViewingAdsYG/ClosingADValues
     - YG.ViewingAdsYG/CustomEvents
+    DOTween:
+    - DG.Tweening.Core.DOTweenSettings/ModulesSetup
+    - DG.Tweening.Core.DOTweenSettings/SafeModeOptions
     Unity.TextMeshPro:
     - TMPro.FaceInfo_Legacy
     - TMPro.FontAssetCreationSettings
@@ -147,6 +149,12 @@ ScriptsOnlyBuild:
     fullTypeName: InfoAboutModes
     methodName: OnQuestionExit
   - assembly: Assembly-CSharp
+    fullTypeName: InfoAboutModes
+    methodName: OnQuestionOver
+  - assembly: Assembly-CSharp
+    fullTypeName: InfoAboutModes
+    methodName: OnQuestionExit
+  - assembly: Assembly-CSharp
     fullTypeName: InGameButtons
     methodName: GameExit
   - assembly: Assembly-CSharp
@@ -170,6 +178,12 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: GameModesSystem
     methodName: TwoBombTypes
+  - assembly: Assembly-CSharp
+    fullTypeName: GameModesSystem
+    methodName: PlayButtonSound
+  - assembly: Assembly-CSharp
+    fullTypeName: GameModesSystem
+    methodName: Timer
   - assembly: Assembly-CSharp
     fullTypeName: GameModesSystem
     methodName: PlayButtonSound
@@ -215,6 +229,12 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: LanguageController
     methodName: ChangeLanguageButton
+  - assembly: Assembly-CSharp
+    fullTypeName: GameModesSystem
+    methodName: Timer
+  - assembly: Assembly-CSharp
+    fullTypeName: GameModesSystem
+    methodName: PlayButtonSound
   - assembly: Assembly-CSharp
     fullTypeName: ButtonsInMenu
     methodName: ChangeMapNameLeft
@@ -302,6 +322,12 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: InGameButtons
     methodName: ClickOnCells
+  - assembly: Assembly-CSharp
+    fullTypeName: InfoAboutModes
+    methodName: OnQuestionOver
+  - assembly: Assembly-CSharp
+    fullTypeName: InfoAboutModes
+    methodName: OnQuestionExit
   - assembly: Assembly-CSharp
     fullTypeName: InfoAboutModes
     methodName: OnQuestionOver
@@ -477,63 +503,65 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 18432}
     - Class: 114
-      Script: {instanceID: 18748}
+      Script: {instanceID: 18676}
     - Class: 114
-      Script: {instanceID: 18780}
+      Script: {instanceID: 18756}
     - Class: 114
-      Script: {instanceID: 18918}
+      Script: {instanceID: 18788}
     - Class: 114
-      Script: {instanceID: 19148}
+      Script: {instanceID: 18926}
     - Class: 114
-      Script: {instanceID: 19344}
+      Script: {instanceID: 19156}
     - Class: 114
-      Script: {instanceID: 19390}
+      Script: {instanceID: 19356}
     - Class: 114
-      Script: {instanceID: 19658}
+      Script: {instanceID: 19404}
     - Class: 114
-      Script: {instanceID: 20128}
+      Script: {instanceID: 19672}
     - Class: 114
-      Script: {instanceID: 20346}
+      Script: {instanceID: 20142}
     - Class: 114
-      Script: {instanceID: 20410}
+      Script: {instanceID: 20360}
     - Class: 114
-      Script: {instanceID: 20450}
+      Script: {instanceID: 20408}
     - Class: 114
-      Script: {instanceID: 20480}
+      Script: {instanceID: 20426}
     - Class: 114
-      Script: {instanceID: 20646}
+      Script: {instanceID: 20466}
     - Class: 114
-      Script: {instanceID: 20702}
+      Script: {instanceID: 20496}
     - Class: 114
-      Script: {instanceID: 20828}
+      Script: {instanceID: 20662}
     - Class: 114
-      Script: {instanceID: 21008}
+      Script: {instanceID: 20718}
     - Class: 114
-      Script: {instanceID: 21164}
+      Script: {instanceID: 20844}
     - Class: 114
-      Script: {instanceID: 21182}
+      Script: {instanceID: 21032}
     - Class: 114
-      Script: {instanceID: 21406}
+      Script: {instanceID: 21188}
     - Class: 114
-      Script: {instanceID: 21538}
+      Script: {instanceID: 21206}
     - Class: 114
-      Script: {instanceID: 21734}
+      Script: {instanceID: 21430}
     - Class: 114
-      Script: {instanceID: 21798}
+      Script: {instanceID: 21562}
     - Class: 114
-      Script: {instanceID: 21832}
+      Script: {instanceID: 21758}
     - Class: 114
-      Script: {instanceID: 21980}
+      Script: {instanceID: 21822}
     - Class: 114
-      Script: {instanceID: 22094}
+      Script: {instanceID: 21856}
     - Class: 114
-      Script: {instanceID: 22310}
+      Script: {instanceID: 22004}
     - Class: 114
-      Script: {instanceID: 23072}
+      Script: {instanceID: 22118}
     - Class: 114
-      Script: {instanceID: 23138}
+      Script: {instanceID: 22334}
     - Class: 114
-      Script: {instanceID: 23306}
+      Script: {instanceID: 23166}
+    - Class: 114
+      Script: {instanceID: 23336}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -909,7 +937,7 @@ ScriptsOnlyBuild:
     className: UnityOnMouseDragMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 11278cdad894a2efdd98db7644f5ec2d
+      Hash: 9509d3bacdf67d71ef82a39c3395f2fe
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: OptionsHandler
@@ -957,6 +985,18 @@ ScriptsOnlyBuild:
     className: PlayerQuitHandler
   - hash:
       serializedVersion: 2
+      Hash: 2a4bf9bfa4fc85b7c3fd76767f844af6
+    assemblyName: DOTween.dll
+    namespaceName: DG.Tweening.Core
+    className: DOTweenComponent
+  - hash:
+      serializedVersion: 2
+      Hash: 4f1dec93fa2a0b0e7b8b47518da31b1c
+    assemblyName: DOTween.dll
+    namespaceName: DG.Tweening.Core
+    className: DOTweenSettings
+  - hash:
+      serializedVersion: 2
       Hash: cf32d98954e63b8e30e9334b152e9b8e
     assemblyName: UnityEngine.UI
     namespaceName: UnityEngine.EventSystems
@@ -969,7 +1009,7 @@ ScriptsOnlyBuild:
     className: UnityOnControllerColliderHitMessageListener
   - hash:
       serializedVersion: 2
-      Hash: c7408297012b6e36c65d8c0f9b34fab3
+      Hash: bd9852a4486d9f5876cfe884121c84be
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: Cell
@@ -1005,7 +1045,7 @@ ScriptsOnlyBuild:
     className: UnityOnCollisionExit2DMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 2c9c8a71c841101acaf5a450a197bba2
+      Hash: 86efa1dde721d409c2be50448f1255f3
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: ApplyMines
@@ -1251,7 +1291,7 @@ ScriptsOnlyBuild:
     className: GetPlayerYG
   - hash:
       serializedVersion: 2
-      Hash: 4e11764990ce6d998e779823443d9bb4
+      Hash: 587a449ca5944a160b831108ba9187d3
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: InGameTimer
@@ -1267,6 +1307,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnTriggerExitMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: 01fa754511c1881f60d42da84de11191
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: YandexLB
   - hash:
       serializedVersion: 2
       Hash: 17f82e3e7d8f8b07a270a4aad9bfe79d
@@ -1689,12 +1735,6 @@ ScriptsOnlyBuild:
     className: UnityOnMouseUpMessageListener
   - hash:
       serializedVersion: 2
-      Hash: c4f677ca5550dc222ca6ab00db91c1f6
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: TwoTypesOfBombsChanger
-  - hash:
-      serializedVersion: 2
       Hash: 1553f209ae0b2d5d3a35685fca55f9c3
     assemblyName: Unity.TextMeshPro
     namespaceName: TMPro
@@ -1756,4 +1796,4 @@ ScriptsOnlyBuild:
   platform: 20
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: C:/Users/Azerty/Desktop/MineSweeperYG/39
+  playerPath: C:/Users/Azerty/Desktop/MineSweeperYG/62

@@ -1,7 +1,7 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Pool;
 
 public class FieldGeneration : MonoBehaviour
 {
@@ -20,6 +20,13 @@ public class FieldGeneration : MonoBehaviour
     private void OnEnable()
     {
         InGameButtons.onGameExit += DestroyField;
+        ButtonsInMenu.onPlayButtonPress += GenerateAField;
+    }
+
+    private void OnDisable()
+    {
+        InGameButtons.onGameExit -= DestroyField;
+        ButtonsInMenu.onPlayButtonPress -= GenerateAField;
     }
     private void DestroyField()
     {
@@ -325,7 +332,6 @@ public class FieldGeneration : MonoBehaviour
     }
     private void Awake()
     {
-        ButtonsInMenu.onPlayButtonPress += GenerateAField;
         ApplyComponent = GetComponent<ApplyMines>();
     }
 }

@@ -61,7 +61,7 @@ public class MovingCamera : MonoBehaviour
             if (transform.position.z < LowerBorder && delta.y > 0 || transform.position.z > FieldGeneration.StaticColomsSize * 1.1f - 2 && delta.y < 0)
                 delta.y = 0;
             delta /= 1.5f;
-            float ClampFloat=12f;
+            float ClampFloat=19f;
             delta = new (Mathf.Clamp(delta.x, -ClampFloat, ClampFloat), Mathf.Clamp(delta.y, -ClampFloat, ClampFloat), Mathf.Clamp(delta.z, -ClampFloat, ClampFloat));
             MainCamTransform.Translate(-delta * Time.deltaTime); // Перемещаем камеру в противоположном направлении от движения мыши
             DragStartPosition = touch.position; 
@@ -82,7 +82,7 @@ public class MovingCamera : MonoBehaviour
                 float deltaDifference = currentTouchDelta - previousTouchDelta;
 
                 Vector3 cameraPosition = transform.position;
-                deltaDifference = Mathf.Clamp(deltaDifference, -25, 25);
+                deltaDifference = Mathf.Clamp(deltaDifference, -50, 50);
                 if (!(transform.position.y<=3&&deltaDifference>0|| transform.position.y >= 50 && deltaDifference <0))
                     cameraPosition.y -= deltaDifference * Time.deltaTime;
                 transform.position = cameraPosition;

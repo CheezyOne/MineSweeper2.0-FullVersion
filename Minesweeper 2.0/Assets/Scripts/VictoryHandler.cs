@@ -1,7 +1,6 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using YG;
 
 public class VictoryHandler : MonoBehaviour
 {
@@ -10,11 +9,16 @@ public class VictoryHandler : MonoBehaviour
     public static Action<int> onVictorySmiley;
     public static Action onGameWon;
     [SerializeField] private GameObject CongratsTextDesktop, CongratsTextMobile;
-    private void Awake()
+
+    private void OnEnable()
     {
         Cell.onEmptyCellClicked += NewCellClicked;
         InGameButtons.onGameExit += NullCounter;
-       
+    }
+    private void OnDisable()
+    {
+        Cell.onEmptyCellClicked -= NewCellClicked;
+        InGameButtons.onGameExit -= NullCounter;
     }
     private void NullCounter()
     {
@@ -25,10 +29,9 @@ public class VictoryHandler : MonoBehaviour
     private void NewCellClicked()
     {
         ClickedCellsCount++;
-       //Debug.Log(ClickedCellsCount);
         if (ClickedCellsCount == EmptyCellsCount)
             Victory();
-    }    
+    }
     private void Victory()
     {
         ClickRegister.isGameOn = false;

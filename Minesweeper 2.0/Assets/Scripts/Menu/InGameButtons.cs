@@ -21,6 +21,7 @@ public class InGameButtons : MonoBehaviour
 
     private void OnEnable()
     {
+        TryBottomButtonsSwap();
         MobileCanvasSwapper.onCanvasSwap += TryBottomButtonsSwap;
     }
     private void OnDisable()

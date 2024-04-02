@@ -24,6 +24,7 @@ public class MobileCanvasSwapper : MonoBehaviour
             return;
         if (!IsNowDesktop && (Screen.orientation == ScreenOrientation.LandscapeLeft || Screen.orientation == ScreenOrientation.LandscapeRight))
         {
+            SmileyController.localScale = NormalSmileyScale;
             SoundManager.SetActive(false);
             IsNowDesktop = true;
             if (MainVerticalCanvas[0].activeSelf)
@@ -31,7 +32,7 @@ public class MobileCanvasSwapper : MonoBehaviour
             else if (InGameVerticalCanvas[0].activeSelf)
                 ToInGameDesktopCanvasSwap();
             SoundManager.SetActive(true);
-            for (int i=0;i<4;i++)
+            for (int i=0;i<5;i++)
             {
                 if (MainVerticalCanvas[i+1].transform.GetChild(0).gameObject.activeSelf)
                     DesktopChecks[i].SetActive(true);//And setup checks in case of swapping in options
@@ -39,6 +40,7 @@ public class MobileCanvasSwapper : MonoBehaviour
         }
         else if (IsNowDesktop && Screen.orientation == ScreenOrientation.Portrait)
         {
+            SmileyController.localScale = MobileSmileyScale;
             SoundManager.SetActive(false);
             IsNowDesktop = false;
             if (MainDesktopCanvas[0].activeSelf)
@@ -46,7 +48,7 @@ public class MobileCanvasSwapper : MonoBehaviour
             else if (InGameDesktopCanvas[0].activeSelf)
                 ToInGameMobileCanvasSwap();
             SoundManager.SetActive(true);
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < 5; i++)
             {
                 if (MainDesktopCanvas[i + 1].transform.GetChild(0).gameObject.activeSelf)
                     MobileChecks[i].SetActive(true);//And setup checks in case of swapping in options
@@ -62,7 +64,6 @@ public class MobileCanvasSwapper : MonoBehaviour
             InGameDesktopCanvas[1].SetActive(false);
             InGameVerticalCanvas[1].SetActive(true);
         }
-        SmileyController.localScale = MobileSmileyScale;
         onCanvasSwap?.Invoke();
     }
     private void ToInGameDesktopCanvasSwap()
@@ -74,14 +75,13 @@ public class MobileCanvasSwapper : MonoBehaviour
             InGameDesktopCanvas[1].SetActive(true);
             InGameVerticalCanvas[1].SetActive(false);
         }
-        SmileyController.localScale = NormalSmileyScale;
         onCanvasSwap?.Invoke();
     }
     private void ToMainDesktopCanvasSwap()
     {
         MainVerticalCanvas[0].SetActive(false);
         MainDesktopCanvas[0].SetActive(true);//Canvas first
-        for(int i=1;i<5;i++)
+        for(int i=1;i<6;i++)
         {
             if (MainVerticalCanvas[i].transform.GetChild(0).gameObject.activeSelf)//Then its checkboxes
             {
@@ -89,14 +89,13 @@ public class MobileCanvasSwapper : MonoBehaviour
                 MainDesktopCanvas[i].GetComponent<Button>().onClick.Invoke();
             }
         }
-        SmileyController.localScale = NormalSmileyScale;
         onCanvasSwap?.Invoke();
     }
     private void ToMainMobileCanvasSwap()
     {
         MainVerticalCanvas[0].SetActive(true);
         MainDesktopCanvas[0].SetActive(false);
-        for (int i = 1; i < 5; i++)
+        for (int i = 1; i < 6; i++)
         {
             if (MainDesktopCanvas[i].transform.GetChild(0).gameObject.activeSelf)//Then its checkboxes
             {
@@ -105,7 +104,6 @@ public class MobileCanvasSwapper : MonoBehaviour
                 MobileChecks[i - 1].SetActive(true);//And setup checks in case of swapping in options
             }
         }
-        SmileyController.localScale = MobileSmileyScale;
         onCanvasSwap?.Invoke();
     }
 }

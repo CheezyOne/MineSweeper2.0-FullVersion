@@ -1,73 +1,81 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class BombsInGameChanger : MonoBehaviour
 {
     [SerializeField] private GameObject MineField;
-    private List<GameObject> Bombs = new List<GameObject>(), Neighbours = new List<GameObject>(), BombsToClear = new List<GameObject>();
-    private float Timer=2f,TimeHolder=2f;
+    private List<Cell>  RedNeighbours = new(), BlueNeighbours = new(), RedBombsToClear = new(),BlueBombsToClear = new();
+    private List<GameObject> RedBombs = new(), BlueBombs = new();
+    private float Timer = 2f;
+    private const float TimeHolder=2f;
     public static Action onBombsMove;
-    private void Awake()
+    private void OnEnable()
     {
         ApplyMines.onAllBombsApply += ApplyBombs;
         ApplyMines.onAllBombsApply += GetANeighbour;
     }
-
+    private void OnDisable()
+    {
+        ApplyMines.onAllBombsApply -= ApplyBombs;
+        ApplyMines.onAllBombsApply -= GetANeighbour;
+    }
     private void ApplyBombs()
     {
-        Bombs=new List<GameObject>();
+        RedBombs = new List<GameObject>();
+        BlueBombs = new List<GameObject>();
         for (int i=0;i<MineField.transform.childCount;i++)
         {
-            if(MineField.transform.GetChild(i).GetComponent<Cell>()==null)
+            Transform Cell = MineField.transform.GetChild(i);
+            if (Cell.TryGetComponent<Cell>(out Cell CellComponent))
             {
-                continue;
-            }
-            if (MineField.transform.GetChild(i).GetComponent<Cell>().HasRedBomb)
-            {
-                Bombs.Add(MineField.transform.GetChild(i).gameObject);
+                if (CellComponent.HasRedBomb)
+                {
+                    RedBombs.Add(Cell.gameObject);
+                }
+                else if (CellComponent.HasBlueBomb)
+                {
+                    BlueBombs.Add(Cell.gameObject);
+                }
             }
         }
     }
     private void GetANeighbour()
     {
-        bool isNull = false;
-        Neighbours= new List<GameObject>();
-        BombsToClear = new List<GameObject>();
-        List<GameObject> AllNeighbours = new List<GameObject>();
-        for(int i=0;i<Bombs.Count;i++)
+        RedNeighbours = new List<Cell>();
+        RedBombsToClear = new List<Cell>();
+        BlueNeighbours = new List<Cell>();
+        BlueBombsToClear = new List<Cell>();
+        for (int i=0;i<RedBombs.Count;i++)
         {
-            AllNeighbours= Bombs[i].GetComponent<Cell>().GetAllNeighbours();
-            for(int j=0;j< AllNeighbours.Count;j++)
+            List<GameObject> Neighbours = RedBombs[i].GetComponent<Cell>().GetAllNeighbours();
+            for (int j = 0; j < Neighbours.Count;j++)
             {
-                if (AllNeighbours[j].GetComponent<Cell>() == null)
+                if (Neighbours[j].GetComponent<Cell>().HasBeenTouched)
                     continue;
-                if (!AllNeighbours[j].GetComponent<Cell>().HasRedBomb && AllNeighbours[j].GetComponent<MeshRenderer>().material.name!= "Touched cube (Instance)")
-                {
-                    for(int o=0;o<Neighbours.Count;o++)
-                    {
-                        if(Neighbours[o] == AllNeighbours[j])
-                        {
-                            Neighbours.Add(null);
-                            BombsToClear.Add(null);
-                            isNull = true;
-                            break;
-                            //Non-bomb is occupied
-                        }
-                    }
-                    if (!isNull)
-                    {
-                        BombsToClear.Add(Bombs[i]);
-                        Neighbours.Add(AllNeighbours[j]);
-                    }
-                    else
-                    {
-                        isNull = false;
-                        continue;
-                    }
-                    break;
-                }
+                if (Neighbours[j].GetComponent<Cell>().HasRedBomb)
+                    continue;
+                if (RedNeighbours.Contains(Neighbours[j].GetComponent<Cell>()))
+                    continue;
+                RedNeighbours.Add(Neighbours[j].GetComponent<Cell>());
+                RedBombsToClear.Add(RedBombs[i].GetComponent<Cell>());
+                break;
+            }
+        }
+        for (int i = 0; i < BlueBombs.Count; i++)
+        {
+            List<GameObject> Neighbours = BlueBombs[i].GetComponent<Cell>().GetAllNeighbours();
+            for (int j = 0; j < Neighbours.Count; j++)
+            {
+                if (Neighbours[j].GetComponent<Cell>().HasBeenTouched)
+                    continue;
+                if (Neighbours[j].GetComponent<Cell>().HasBlueBomb)
+                    continue;
+                if (RedNeighbours.Contains(Neighbours[j].GetComponent<Cell>()))
+                    continue;
+                BlueNeighbours.Add(Neighbours[j].GetComponent<Cell>());
+                BlueBombsToClear.Add(BlueBombs[i].GetComponent<Cell>());
+                break;
             }
         }
     }
@@ -76,6 +84,11 @@ public class BombsInGameChanger : MonoBehaviour
         if (!ClickRegister.isGameOn)
             return;
         Timer -= Time.deltaTime;
+        if (!Cell.CubesAreOpened)
+        {
+            Timer = 0.5f;
+            return;
+        }
         if (Timer < 0)
         {
             Timer = TimeHolder;
@@ -85,21 +98,36 @@ public class BombsInGameChanger : MonoBehaviour
     private void MoveAllBombs()
     {
         
-        for (int i = 0; i < Neighbours.Count; i++)
+        for (int i = 0; i < RedNeighbours.Count; i++)
         {
-            if (Neighbours[i] != null)
+            if (RedNeighbours[i] == null)
             {
-                if (Neighbours[i].GetComponent<MeshRenderer>().material.name != "Touched cube (Instance)")
-                {
-                    Neighbours[i].GetComponent<Cell>().HasRedBomb = true;
-                    BombsToClear[i].GetComponent<Cell>().HasRedBomb = false;
-                }
+                continue;
+            }
+            if (!RedNeighbours[i].HasBeenTouched)
+            {
+                RedNeighbours[i].HasRedBomb = true;
+                RedBombsToClear[i].HasRedBomb = false;
             }
         }
-        List<GameObject> Helper = new List<GameObject>();
-        Helper = Neighbours;
-        Neighbours = BombsToClear;
-        BombsToClear = Helper;
+        for (int i = 0; i < BlueNeighbours.Count; i++)
+        {
+            if (BlueNeighbours[i] == null)
+            {
+                continue;
+            }
+            if (!BlueNeighbours[i].HasBeenTouched)
+            {
+                BlueNeighbours[i].HasBlueBomb = true;
+                BlueBombsToClear[i].HasBlueBomb = false;
+            }
+        }
+        List<Cell> Helper = RedNeighbours;
+        RedNeighbours = RedBombsToClear;
+        RedBombsToClear = Helper;
+        Helper = BlueNeighbours;
+        BlueNeighbours = BlueBombsToClear;
+        BlueBombsToClear = Helper;
         onBombsMove?.Invoke();
     }
 }

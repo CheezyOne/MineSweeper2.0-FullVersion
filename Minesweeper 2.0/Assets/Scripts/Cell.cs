@@ -1,9 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Threading;
 using TMPro;
 using UnityEngine;
+using DG.Tweening;
 
 public class Cell : MonoBehaviour
 {
@@ -12,28 +12,31 @@ public class Cell : MonoBehaviour
     public static bool ShouldLie = false;
     public bool HasBlueBomb = false, HasRedBomb = false, HasBeenTouched=false;
     private bool HasBarierUp = false, HasBarierDown = false, HasBarierRight = false, HasBarierLeft = false;
-    public GameObject NumberAboutBombs, Flag;
+    public GameObject NumberAboutBombs, Flag, DoubleNumberAboutBombs, Bomb;
     public int NumberOfRedBombsAround = 0, NumberOfBlueBombsAround=0;
     private Collider[] hitColliders;
     [SerializeField] private Material[] AllMaterials;
     [SerializeField] private GameObject ExplosionEffect, TrailingSphere;
-    private List<GameObject> ExcludeCubes = new List<GameObject>();
-    private bool IsShowingRedBombs=true;
+    private List<GameObject> ExcludeCubes = new ();
     private bool HasLiedOnceRed = false, IsToLieHighRed = false, HasLiedOnceBlue = false, IsToLieHighBlue = false;
-    private GameObject ColoredString => transform.GetChild(1).GetChild(0).gameObject;
+    private GameObject OneColoredString, TwoColoredString;
+    public bool Test;
+    public static GameObject MainOpeningCube;
+    private bool OnceWasMainOpeningCube=false;
+    public static bool CubesAreOpened;
     private bool CanHaveTwoBombs => ApplyMines.ApplyBlueBombs;
-    private void Awake()
+    private void OnEnable()
     {
-        TwoTypesOfBombsChanger.onBombsChange += CheckIfBombsShouldChange;
         BombsInGameChanger.onBombsMove += GetSurroundingCubesInfo;
         StartingSequence.getBariersToWork += FindBariers;//This event should be called ASAP and then we give the player ability to click
         ApplyMines.onAllBombsApply += GetSurroundingCubesInfo;
         onGameLose += ShowIfTheBombTextureIsRight;
         onGameLose += SpawnExplosion;
+        OneColoredString = transform.GetChild(2).GetChild(0).gameObject;
+        TwoColoredString = transform.GetChild(2).GetChild(1).gameObject;
     }
     private void OnDisable()
     {
-        TwoTypesOfBombsChanger.onBombsChange -= CheckIfBombsShouldChange;
         BombsInGameChanger.onBombsMove -= GetSurroundingCubesInfo;
         StartingSequence.getBariersToWork -= FindBariers;
         ApplyMines.onAllBombsApply -= GetSurroundingCubesInfo;
@@ -44,8 +47,9 @@ public class Cell : MonoBehaviour
     {
         if (HasRedBomb||HasBlueBomb)
         {
-            if(GetComponent<MeshRenderer>().material.name!="Bomb (Instance)")
-                GetComponent<MeshRenderer>().material = AllMaterials[2];
+            Bomb.SetActive(true);
+            GetComponent<MeshRenderer>().enabled = false;
+            NumberAboutBombs.SetActive(false);
             GameObject Explosion = Instantiate(ExplosionEffect, new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z), Quaternion.identity);
             Destroy(Explosion, 2f);
         }
@@ -54,17 +58,25 @@ public class Cell : MonoBehaviour
     {
         if(Flag.activeSelf)
         {
-            GetComponent<MeshRenderer>().material = AllMaterials[2];
-            if (!HasRedBomb&&!HasBlueBomb)
-                GetComponent<MeshRenderer>().material.color = Color.red;
+            Bomb.SetActive(true);
+            GetComponent<MeshRenderer>().enabled = false;
+            NumberAboutBombs.SetActive(false);
+            if (!HasRedBomb && !HasBlueBomb)
+            {
+                Bomb.transform.GetChild(0).GetComponent<MeshRenderer>().material.color = new Color(0.47f, 0, 0);
+                Bomb.transform.GetChild(1).GetComponent<MeshRenderer>().material.color = new Color(0.47f, 0, 0);
+            }
             else
-                GetComponent<MeshRenderer>().material.color = Color.green;
+            {
+                Bomb.transform.GetChild(0).GetComponent<MeshRenderer>().material.color = new Color(0, 0.47f, 0);
+                Bomb.transform.GetChild(1).GetComponent<MeshRenderer>().material.color = new Color(0, 0.47f, 0);
+            }
         }
         Flag.SetActive(false);
     }
     public List<GameObject> GetAllNeighbours()
     {
-        List<GameObject> Neighbours = new List<GameObject>();
+        List<GameObject> Neighbours = new();
         hitColliders = Physics.OverlapSphere(transform.position, 1f);
         for (int i = 0;i<hitColliders.Length;i++)
         {
@@ -203,15 +215,13 @@ public class Cell : MonoBehaviour
                 }
             }
         }
-        if (ShouldLie)
-        {
-            NumberAboutBombs.GetComponent<TextMeshPro>().text = Convert.ToString(LyingNumber(NumberOfRedBombsAround, true));
-        }
-        else
-            NumberAboutBombs.GetComponent<TextMeshPro>().text = Convert.ToString(NumberOfRedBombsAround);
+        if(HasBeenTouched)
+            SetupNumbers();
     }
     private int LyingNumber(int RealNumber, bool RedNumber)
     {
+        if (!ShouldLie)
+            return RealNumber;
         if (RealNumber == 0)
             return 1;
         if (RedNumber)
@@ -249,19 +259,66 @@ public class Cell : MonoBehaviour
             return RealNumber - 1;
         }
     }
+    private void SetupNumbers()
+    {
+        if (NumberOfRedBombsAround <= 0 && NumberOfBlueBombsAround <= 0)
+        {
+            if (NumberAboutBombs.activeSelf || DoubleNumberAboutBombs.activeSelf)
+            {
+                NumberAboutBombs.GetComponent<TextMeshPro>().color = Color.blue;//I dont like red numbers, so red bombs are blue
+                NumberAboutBombs.GetComponent<TextMeshPro>().text = Convert.ToString(LyingNumber(NumberOfRedBombsAround, true));
+                NumberAboutBombs.SetActive(true);
+                DoubleNumberAboutBombs.SetActive(false);
+            }
+            return;
+        }
+        if (NumberOfRedBombsAround > 0 && NumberOfBlueBombsAround > 0)
+        {
+            NumberAboutBombs.SetActive(false);
+            DoubleNumberAboutBombs.SetActive(true);
+            DoubleNumberAboutBombs.transform.GetChild(1).GetComponent<TextMeshPro>().text = Convert.ToString(LyingNumber(NumberOfBlueBombsAround, false));
+            DoubleNumberAboutBombs.transform.GetChild(0).GetComponent<TextMeshPro>().text = Convert.ToString(LyingNumber(NumberOfRedBombsAround, true));
+        }
+        else
+        {
+            NumberAboutBombs.SetActive(true);
+            DoubleNumberAboutBombs.SetActive(false);
+            if (NumberOfRedBombsAround > 0)
+            {
+                NumberAboutBombs.GetComponent<TextMeshPro>().color = Color.blue;//I dont like red numbers, so red bombs are blue
+                NumberAboutBombs.GetComponent<TextMeshPro>().text = Convert.ToString(LyingNumber(NumberOfRedBombsAround, true));
+            }
+            else if (NumberOfBlueBombsAround > 0)
+            {
+                NumberAboutBombs.GetComponent<TextMeshPro>().color = Color.red;
+                NumberAboutBombs.GetComponent<TextMeshPro>().text = Convert.ToString(LyingNumber(NumberOfBlueBombsAround, false));
+            }
+        }
+    }
     public void RevealAllSurroundingNonBombs()
     {
         if (HasBlueBomb || HasRedBomb)
             return;
         int BombsCounter=0;
-        List<Collider> NonBombs = new List<Collider>();
+        List<Collider> NonBombs = new();
         Collider[] SurroundingColliders = Physics.OverlapSphere(transform.position, 1f);
         foreach (Collider collider in SurroundingColliders)
         {
             if (collider.gameObject == gameObject || collider.transform.name != "Cell(Clone)"|| IsBehindABarier(collider))
                 continue;
-            if (collider.transform.GetChild(1).gameObject.activeSelf)
+            GameObject Flag = collider.transform.GetChild(2).gameObject;
+            if (Flag.activeSelf)
+            {
+                if(CanHaveTwoBombs)
+                {
+                    if (Flag.transform.GetChild(0).gameObject.activeSelf)
+                        BombsCounter++;
+                    else if (Flag.transform.GetChild(1).gameObject.activeSelf)
+                        BombsCounter += 2;
+                }
+                else
                     BombsCounter++;
+            }
             else
             {
                 NonBombs.Add(collider);
@@ -270,54 +327,51 @@ public class Cell : MonoBehaviour
         }
         if (BombsCounter == NumberOfBlueBombsAround + NumberOfRedBombsAround)
         {
+            if(ShouldLie)
+            {
+                return;
+            }
             foreach (Collider collider in NonBombs)
             {
                 if(!IsBehindABarier(collider))
-                    collider.GetComponent<Cell>().WasClicked();
+                    collider.GetComponent<Cell>().WasClicked(0f);
             }
         }
 
     }
-    public void WasClicked()
+    private IEnumerator ClickWait(float ClickDelay)
+    {
+        if (ClickDelay > 0f)
+            yield return new WaitForSeconds(ClickDelay);
+        if (MainOpeningCube == gameObject)
+            CubesAreOpened = true;
+        Click();
+        yield return new WaitForSeconds(0.2f);
+            RevealAllSurroundingNonBombs();
+    }
+    private void Click()
     {
         if (HasBeenTouched)
             return;
-        Flag.SetActive(false);
+        if (Flag.activeSelf)
+        {
+            InGameBombsCounter.PlayersBombsCount--;
+            Flag.SetActive(false);
+        }
+        Sequence MoveToOpen = DOTween.Sequence();
+        MoveToOpen.Append(transform.DOMoveY(transform.position.y + 0.3f, 0.2f));
+        MoveToOpen.Append(transform.DOMoveY(transform.position.y, 0.2f));
         HasBeenTouched = true;
-        if (HasRedBomb||HasBlueBomb)
+        if (HasRedBomb || HasBlueBomb)
         {
             PlaySound?.Invoke();
             onGameLose?.Invoke();
             onGameLoseSmiley?.Invoke(7);
             return;
         }
-        else if (NumberOfRedBombsAround > 0|| NumberOfBlueBombsAround>0)
+        if (NumberOfRedBombsAround > 0 || NumberOfBlueBombsAround > 0)
         {
-
-            NumberAboutBombs.SetActive(true);
-            if (NumberOfRedBombsAround > 0 && NumberOfBlueBombsAround > 0)
-            {
-
-            }
-            else if (NumberOfRedBombsAround > 0)
-            {
-                if (ShouldLie)
-                {
-                    NumberAboutBombs.GetComponent<TextMeshPro>().text = Convert.ToString(LyingNumber(NumberOfRedBombsAround, true));
-                }
-                else
-                    NumberAboutBombs.GetComponent<TextMeshPro>().text = Convert.ToString(NumberOfRedBombsAround);
-            }
-            else if (NumberOfBlueBombsAround > 0)
-            {
-                NumberAboutBombs.GetComponent<TextMeshPro>().color = Color.red;
-                if (ShouldLie)
-                {
-                    NumberAboutBombs.GetComponent<TextMeshPro>().text = Convert.ToString(LyingNumber(NumberOfBlueBombsAround, false));
-                }
-                else
-                    NumberAboutBombs.GetComponent<TextMeshPro>().text = Convert.ToString(NumberOfBlueBombsAround);
-            }
+            SetupNumbers();
         }
         else
         {
@@ -330,15 +384,27 @@ public class Cell : MonoBehaviour
                 {
                     if (IsBehindABarier(collider))
                         continue;
-                    CellComponent.WasClicked();
+                    CellComponent.WasClicked(0.1f);
                 }
             }
         }
-        if(GetComponent<MeshRenderer>().material.name == "Normal cube (Instance)" || GetComponent<MeshRenderer>().material.name == "Pointed cube (Instance)")
+        if (GetComponent<MeshRenderer>().material.name == "Normal cube (Instance)" || GetComponent<MeshRenderer>().material.name == "Pointed cube (Instance)")
         {
             onEmptyCellClicked?.Invoke();
         }
-            GetComponent<MeshRenderer>().material = AllMaterials[1];
+        GetComponent<MeshRenderer>().material = AllMaterials[1];
+    }    
+    public void WasClicked(float Delay)
+    {
+        if (HasBeenTouched|| !ClickRegister.isGameOn)
+            return;
+        if (!OnceWasMainOpeningCube)
+        {
+            OnceWasMainOpeningCube = true;
+            CubesAreOpened = false;
+            MainOpeningCube = gameObject;
+        }
+        StartCoroutine(ClickWait(Delay));
     }
     public void WasRightClicked()
     {
@@ -346,8 +412,8 @@ public class Cell : MonoBehaviour
             return;
         if (CanHaveTwoBombs)
         {
-            ColoredString.SetActive(true);
-            SpriteRenderer StringMesh = ColoredString.GetComponent<SpriteRenderer>();
+            OneColoredString.SetActive(true);
+            SpriteRenderer StringMesh = OneColoredString.GetComponent<SpriteRenderer>();
             if (!Flag.activeSelf)
             {
                 InGameBombsCounter.PlayersBombsCount++;
@@ -356,8 +422,14 @@ public class Cell : MonoBehaviour
             }
             else if (StringMesh.material.color == Color.blue)
                 StringMesh.material.color = Color.red;
+            else if (!TwoColoredString.activeSelf)
+            {
+                OneColoredString.SetActive(false);
+                TwoColoredString.SetActive(true);
+            }
             else
             {
+                TwoColoredString.SetActive(false);
                 Flag.SetActive(false);
                 InGameBombsCounter.PlayersBombsCount--;
             }
@@ -374,38 +446,6 @@ public class Cell : MonoBehaviour
                 Flag.SetActive(true);
                 InGameBombsCounter.PlayersBombsCount++;
             }
-        }
-    }
-    private void CheckIfBombsShouldChange()
-    {
-        if (NumberOfBlueBombsAround>0 && NumberOfRedBombsAround>0)
-            ChangeBombNumbers();
-    }    
-    private void ChangeBombNumbers()
-    {
-        if (this == null)
-            return;
-        if (IsShowingRedBombs)
-        {
-            if(ShouldLie)
-            {
-                NumberAboutBombs.GetComponent<TextMeshPro>().text = Convert.ToString(LyingNumber(NumberOfBlueBombsAround, false));
-            }
-            else
-                NumberAboutBombs.GetComponent<TextMeshPro>().text = Convert.ToString(NumberOfBlueBombsAround);
-            NumberAboutBombs.GetComponent<TextMeshPro>().color = Color.red;
-            IsShowingRedBombs = false;
-        }
-        else
-        {
-            if (ShouldLie)
-            {
-                NumberAboutBombs.GetComponent<TextMeshPro>().text = Convert.ToString(LyingNumber(NumberOfRedBombsAround, true));
-            }
-            else
-                NumberAboutBombs.GetComponent<TextMeshPro>().text = Convert.ToString(NumberOfRedBombsAround);
-            IsShowingRedBombs = true;
-            NumberAboutBombs.GetComponent<TextMeshPro>().color = Color.blue;
         }
     }
     public void ShowTrails()

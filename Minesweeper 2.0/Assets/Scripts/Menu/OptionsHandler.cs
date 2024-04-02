@@ -5,14 +5,14 @@ using UnityEngine;
 public class OptionsHandler : MonoBehaviour
 {
     [SerializeField] private GameObject MainDesktopCanvas, MainMobileCanvas;
-    [SerializeField] private GameObject OptionsCanvas;
+    [SerializeField] private GameObject Canvas;
     public void EscapeButton()
     {
         if (MobileCanvasSwapper.IsNowDesktop)
             MainDesktopCanvas.SetActive(true);
         else
             MainMobileCanvas.SetActive(true);
-        OptionsCanvas.SetActive(false);
+        Canvas.SetActive(false);
     }
     public void OpenOptions()
     {
@@ -20,7 +20,7 @@ public class OptionsHandler : MonoBehaviour
             MainDesktopCanvas.SetActive(false);
         else
             MainMobileCanvas.SetActive(false);
-        OptionsCanvas.SetActive(true);
+        Canvas.SetActive(true);
     }
     private void Update()
     {

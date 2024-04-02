@@ -169,9 +169,16 @@ public class BombsAmountMenu : MonoBehaviour
         {
             ConstraintNumber = 1;
         }
-        else if (ConstraintNumber >= _fieldSize-1)
+        else
         {
-            ConstraintNumber = _fieldSize-2;
+            if (ConstraintNumber >= _fieldSize - 2 && _fieldSize<=100)
+            {
+                ConstraintNumber = _fieldSize - 3;
+            }
+            else if(ConstraintNumber >= Convert.ToDouble(_fieldSize) *0.99f)
+            {
+                ConstraintNumber =Convert.ToInt32(Convert.ToDouble(_fieldSize) * 0.99f)-2;
+            }
         }
         return ConstraintNumber;
     }
