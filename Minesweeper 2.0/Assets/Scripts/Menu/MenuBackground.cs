@@ -1,8 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class MenuBackground : MonoBehaviour
@@ -54,10 +50,9 @@ public class MenuBackground : MonoBehaviour
     }
     private void SpawnACube()
     {
-        int RandomNumber = UnityEngine.Random.Range(0, 3);
-        //RandomNumber = 0;
+        int RandomNumber = UnityEngine.Random.Range(0, 4);
         Vector3 RandomPosition = GetNewCubePosition();
-        GameObject NewCube = Instantiate(Cubes[RandomNumber], RandomPosition, Quaternion.identity);
+        MenuCubes NewCube = Instantiate(Cubes[RandomNumber], RandomPosition, Quaternion.identity).GetComponent<MenuCubes>();
         switch (RandomNumber)
         {
             case 0:
@@ -67,10 +62,7 @@ public class MenuBackground : MonoBehaviour
             case 1:
                 {
                     int RandomNumberOnCube = UnityEngine.Random.Range(0, 9);
-                    for (int i=0;i<NewCube.transform.childCount;i++)
-                    {
-                        NewCube.transform.GetChild(i).GetComponent<TextMeshPro>().text = Convert.ToString(RandomNumberOnCube);
-                    }
+                    NewCube.SetNumbers(RandomNumberOnCube.ToString());
                     break;
                 }
             case 2:
@@ -78,11 +70,11 @@ public class MenuBackground : MonoBehaviour
                     int RandomColorNumber = UnityEngine.Random.Range(0, 10);
                     if(RandomColorNumber<3)
                     {
-                        NewCube.GetComponent<MeshRenderer>().material.color = Color.red;
+                        NewCube.MeshRenderer.material.color = Color.red;
                     }
                     else if (RandomColorNumber > 7)
                     {
-                        NewCube.GetComponent<MeshRenderer>().material.color = Color.green;
+                        NewCube.MeshRenderer.material.color = Color.green;
                     }
                     break;
                 }

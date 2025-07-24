@@ -1,5 +1,5 @@
 {
-    "idSave": 4,
+    "idSave": 6,
     "isFirstSession": false,
     "language": "ru",
     "promptDone": false,
@@ -10,5 +10,5 @@
         true,
         false
     ],
-    "highScore": 162
+    "highScore": 192
 }

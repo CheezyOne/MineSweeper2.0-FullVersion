@@ -1,18 +1,15 @@
 using System;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class FieldSizeMenu : MonoBehaviour
 {
     public static Action onSizeChange;
-    [SerializeField] private GameObject _fieldGenerator;
-    private FieldGeneration _fGComponent;
+    [SerializeField] private FieldGeneration _fGComponent;
     public static int RememberString=10, RememberColomn=10;
     [SerializeField] private int SizeIndex;//string, colomn
-    private void Awake()
-    {
-        _fGComponent = _fieldGenerator.GetComponent<FieldGeneration>();
-    }
+    [SerializeField] private TMP_InputField _inputField;
+
     private void OnEnable()
     {
         SetupNumbers();
@@ -86,16 +83,16 @@ public class FieldSizeMenu : MonoBehaviour
         _fGComponent.StringsSize = RememberString;
         if (SizeIndex == 0)
         {
-            GetComponent<InputField>().text = Convert.ToString(RememberString);
+            _inputField.text = Convert.ToString(RememberString);
         }
         else if (SizeIndex == 1)
         {
-            GetComponent<InputField>().text = Convert.ToString(RememberColomn);
+            _inputField.text = Convert.ToString(RememberColomn);
         }        
     }
     public void ChangeBoth(string Helper)
     {
-        string Size = GetComponent<InputField>().text;
+        string Size = _inputField.text;
         if (Size == "")
         {
             return;
@@ -105,11 +102,11 @@ public class FieldSizeMenu : MonoBehaviour
         _fGComponent.StringsSize = IntSize;
         RememberString = IntSize;
         RememberColomn = IntSize;
-        GetComponent<InputField>().text = Convert.ToString(IntSize);
+        _inputField.text = Convert.ToString(IntSize);
     }
     public void EditEndBoth(string Helper)
     {
-        string Size = GetComponent<InputField>().text;
+        string Size = _inputField.text;
         if (Size == "")
         {
             Size = "10";
@@ -121,11 +118,11 @@ public class FieldSizeMenu : MonoBehaviour
         RememberString = IntSize;
         RememberColomn = IntSize;
         onSizeChange?.Invoke();
-        GetComponent<InputField>().text = Convert.ToString(IntSize);
+        _inputField.text = Convert.ToString(IntSize);
     }
     public void ChangeColomnsSize(string Helper)
     {
-        string ColomnsSize = GetComponent<InputField>().text;
+        string ColomnsSize = _inputField.text;
         if (ColomnsSize=="")
         {
             return;
@@ -133,11 +130,11 @@ public class FieldSizeMenu : MonoBehaviour
         int IntColomnSize = Convert.ToInt32(ColomnsSize);
         _fGComponent.ColomnsSize = IntColomnSize;
         RememberColomn = IntColomnSize;
-        GetComponent<InputField>().text =Convert.ToString(IntColomnSize);
+        _inputField.text =Convert.ToString(IntColomnSize);
     }
     public void EditEndColomnsSize(string Helper)
     {
-        string ColomnsSize = GetComponent<InputField>().text;
+        string ColomnsSize = _inputField.text;
         if (ColomnsSize == "")
         {
             ColomnsSize = "10";
@@ -147,11 +144,11 @@ public class FieldSizeMenu : MonoBehaviour
         _fGComponent.ColomnsSize = IntColomnSize;
         RememberColomn = IntColomnSize;
         onSizeChange?.Invoke();
-        GetComponent<InputField>().text = Convert.ToString(IntColomnSize);
+        _inputField.text = Convert.ToString(IntColomnSize);
     }
     public void ChangeStringsSize(string Helper)
     {
-        string StringsSize = GetComponent<InputField>().text;
+        string StringsSize = _inputField.text;
         if (StringsSize == "")
         {
             return;
@@ -159,11 +156,11 @@ public class FieldSizeMenu : MonoBehaviour
         int IntStringsSize = Convert.ToInt32(StringsSize);
         _fGComponent.StringsSize = IntStringsSize;
         RememberString = IntStringsSize;
-        GetComponent<InputField>().text = Convert.ToString(IntStringsSize);
+        _inputField.text = Convert.ToString(IntStringsSize);
     }
     public void EditEndStringsSize(string Helper)
     {
-        string StringsSize = GetComponent<InputField>().text;
+        string StringsSize = _inputField.text;
         if (StringsSize == "")
         {
             StringsSize = "10";
@@ -173,7 +170,7 @@ public class FieldSizeMenu : MonoBehaviour
         _fGComponent.StringsSize = IntStringsSize;
         RememberString = IntStringsSize;
         onSizeChange?.Invoke();
-        GetComponent<InputField>().text = Convert.ToString(IntStringsSize);
+        _inputField.text = Convert.ToString(IntStringsSize);
     }
     private int ConstrainInt(int CurrentNumber)
     {

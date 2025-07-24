@@ -1,5 +1,3 @@
-
-using System.Threading;
 using UnityEngine;
 
 public class MovingCamera : MonoBehaviour
@@ -109,10 +107,10 @@ public class MovingCamera : MonoBehaviour
         //mouse scroll
         if (isAbleToBackScrollCamera)
         {
-            Vector3 CamPos = Camera.main.transform.position;
+            Vector3 CamPos = MainCamTransform.position;
             if (!((CamPos.y <= 3 && Input.mouseScrollDelta.y > 0) || (CamPos.y > 50 && Input.mouseScrollDelta.y < 0)))
                 CamPos.y -= Input.mouseScrollDelta.y;
-            Camera.main.transform.position = CamPos;
+            MainCamTransform.position = CamPos;
         }
 
         //Stop the camera 

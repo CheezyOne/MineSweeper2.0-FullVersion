@@ -1,27 +1,16 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Security.Cryptography;
-using System.Xml.Linq;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.UIElements;
 
 public class InfoAboutModes : MonoBehaviour
 {
     private bool isToBeExpanded = false, isToBeShrinked = false, isToRevealText = false;
     [SerializeField] private GameObject Tip;
-    private CanvasGroup TipCG;
+    [SerializeField] private CanvasGroup TipCG;
     [SerializeField] private float XScale, YScale;
     [SerializeField] private Vector3 TargetPosition;
     [SerializeField] private float ScaleExpandSpeed, ScaleShinkSpeed, PositionSpeed, TextRevealSpeed;
 
     public static Action PlaySound;
-
-    private void Start()
-    {
-        TipCG = Tip.GetComponent<CanvasGroup>();
-    }
 
     public void OnQuestionOver()
     {

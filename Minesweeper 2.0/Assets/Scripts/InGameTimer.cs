@@ -6,6 +6,8 @@ using UnityEngine;
 public class InGameTimer : MonoBehaviour
 {
     [SerializeField] private GameObject TimerObj1, TimerObj2, MinesApplier, MovingBombsHandler;
+    [SerializeField] private TMP_Text _firstTimer;
+    [SerializeField] private TMP_Text _secondTimer;
     public static Action onTimeDeplete;
     public static bool IsToDecrease = false;
     private static int DecreaseSeconds, DecreaseMinutes;
@@ -44,8 +46,8 @@ public class InGameTimer : MonoBehaviour
                 else
                     SecondsText = Convert.ToString(DecreaseSeconds);
                 Debug.Log(SecondsText);
-                TimerObj1.GetComponent<TMP_Text>().text = (DecreaseMinutes + ":" + SecondsText);
-                TimerObj2.GetComponent<TMP_Text>().text = (DecreaseMinutes + ":" + SecondsText);
+                _firstTimer.text = (DecreaseMinutes + ":" + SecondsText);
+                _secondTimer.text = (DecreaseMinutes + ":" + SecondsText);
             }
             else
             {
@@ -54,14 +56,14 @@ public class InGameTimer : MonoBehaviour
                 else
                     SecondsText = Convert.ToString(Seconds);
 
-                TimerObj1.GetComponent<TMP_Text>().text = (Minutes + ":" + SecondsText);
-                TimerObj2.GetComponent<TMP_Text>().text = (Minutes + ":" + SecondsText);
+                _firstTimer.text = (Minutes + ":" + SecondsText);
+                _secondTimer.text = (Minutes + ":" + SecondsText);
             }
         }
         else
         {
-                TimerObj1.GetComponent<TMP_Text>().text = "0:00";
-                TimerObj2.GetComponent<TMP_Text>().text = "0:00";
+            _firstTimer.text = "0:00";
+            _secondTimer.text = "0:00";
         }
     }
     private void CalculateTimer()
@@ -120,8 +122,8 @@ public class InGameTimer : MonoBehaviour
         StartCoroutine(TimerCourotine());
         if (!IsToDecrease)
         {
-            TimerObj2.GetComponent<TMP_Text>().text = "0:00";
-            TimerObj1.GetComponent<TMP_Text>().text = "0:00";
+            _secondTimer.text = "0:00";
+            _firstTimer.text = "0:00";
         }
         else
         {
@@ -129,8 +131,8 @@ public class InGameTimer : MonoBehaviour
                 SecondsText = "0" + Convert.ToString(DecreaseSeconds);
             else
                 SecondsText = Convert.ToString(DecreaseSeconds);
-            TimerObj1.GetComponent<TMP_Text>().text = (DecreaseMinutes + ":" + SecondsText);
-            TimerObj2.GetComponent<TMP_Text>().text = (DecreaseMinutes + ":" + SecondsText);
+            _firstTimer.text = (DecreaseMinutes + ":" + SecondsText);
+            _secondTimer.text = (DecreaseMinutes + ":" + SecondsText);
         }
         TimerIsActive = true;
     }
@@ -148,8 +150,8 @@ public class InGameTimer : MonoBehaviour
             SecondsText = Convert.ToString(Seconds);
         if (TimerIsActive)
         {
-            TimerObj1.GetComponent<TMP_Text>().text = (Minutes + ":" + SecondsText);
-            TimerObj2.GetComponent<TMP_Text>().text = (Minutes + ":" + SecondsText);
+            _firstTimer.text = (Minutes + ":" + SecondsText);
+            _secondTimer.text = (Minutes + ":" + SecondsText);
         }
     }
     private void TimeDecrement()
@@ -166,8 +168,8 @@ public class InGameTimer : MonoBehaviour
             SecondsText = Convert.ToString(DecreaseSeconds);
         if (TimerIsActive)
         {
-            TimerObj1.GetComponent<TMP_Text>().text = (DecreaseMinutes + ":" + SecondsText);
-            TimerObj2.GetComponent<TMP_Text>().text = (DecreaseMinutes + ":" + SecondsText);
+            _firstTimer.text = (DecreaseMinutes + ":" + SecondsText);
+            _secondTimer.text = (DecreaseMinutes + ":" + SecondsText);
         }
         if (DecreaseSeconds <= 0 && DecreaseMinutes<=0)
         {
@@ -201,7 +203,7 @@ public class InGameTimer : MonoBehaviour
                     SecondsText = "0" + Convert.ToString(DecreaseSeconds);
                 else
                     SecondsText = Convert.ToString(DecreaseSeconds);
-                TimerObj1.GetComponent<TMP_Text>().text = (DecreaseMinutes + ":" + SecondsText);
+                _firstTimer.text = (DecreaseMinutes + ":" + SecondsText);
                 NullTimerOnce = false;
             }
             if (!TimerObj2.activeSelf)
@@ -210,7 +212,7 @@ public class InGameTimer : MonoBehaviour
                     SecondsText = "0" + Convert.ToString(DecreaseSeconds);
                 else
                     SecondsText = Convert.ToString(DecreaseSeconds);
-                TimerObj2.GetComponent<TMP_Text>().text = (DecreaseMinutes + ":" + SecondsText);
+                _secondTimer.text = (DecreaseMinutes + ":" + SecondsText);
                 NullTimerOnce = false;
             }
         }
@@ -218,12 +220,12 @@ public class InGameTimer : MonoBehaviour
         {
             if (!TimerObj1.activeSelf)
             {
-                TimerObj1.GetComponent<TMP_Text>().text = "0:00";
+                _firstTimer.text = "0:00";
                 NullTimerOnce = false;
             }
             if (!TimerObj2.activeSelf)
             {
-                TimerObj2.GetComponent<TMP_Text>().text = "0:00";
+                _secondTimer.text = "0:00";
                 NullTimerOnce = false;
             }
         }

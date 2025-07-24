@@ -1486,6 +1486,10 @@ void RegisterAllStrippedInternalCalls()
 		void Register_UnityEngine_Input_GetTouch_Injected();
 		Register_UnityEngine_Input_GetTouch_Injected();
 
+		//System.Void UnityEngine.Input::ResetInputAxes()
+		void Register_UnityEngine_Input_ResetInputAxes();
+		Register_UnityEngine_Input_ResetInputAxes();
+
 		//System.Void UnityEngine.Input::get_compositionCursorPos_Injected(UnityEngine.Vector2&)
 		void Register_UnityEngine_Input_get_compositionCursorPos_Injected();
 		Register_UnityEngine_Input_get_compositionCursorPos_Injected();
@@ -3559,6 +3563,14 @@ void RegisterAllStrippedInternalCalls()
 		Register_UnityEngine_UISystemProfilerApi_EndSample();
 
 	//End Registrations for type : UnityEngine.UISystemProfilerApi
+
+	//Start Registrations for type : UnityEngine.WebGLInput
+
+		//System.Void UnityEngine.WebGLInput::set_captureAllKeyboardInput(System.Boolean)
+		void Register_UnityEngine_WebGLInput_set_captureAllKeyboardInput();
+		Register_UnityEngine_WebGLInput_set_captureAllKeyboardInput();
+
+	//End Registrations for type : UnityEngine.WebGLInput
 
 	//Start Registrations for type : UnityEngine.Yoga.Native
 

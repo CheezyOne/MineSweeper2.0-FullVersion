@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Pool;
 
 public class FieldGeneration : MonoBehaviour
 {
@@ -11,7 +10,7 @@ public class FieldGeneration : MonoBehaviour
     public int ColomnsSize = 10, StringsSize = 10;
     public static int StaticColomsSize, StaticStringsSize;
     private int Counter = 0, SpecialFormsCounter=0;
-    private ApplyMines ApplyComponent;
+    [SerializeField] private ApplyMines ApplyComponent;
     public static List <GameObject> AllCubes = new List<GameObject>(), AllBariers=new List<GameObject>();
     public static Action onFieldGenerated;
     public static bool ApplyBariers = false;
@@ -247,7 +246,7 @@ public class FieldGeneration : MonoBehaviour
                     break;
                 }
         }
-        FieldGeneration.AllBariers.Clear();
+        AllBariers.Clear();
         if (ApplyBariers)
             CreateBariers();
         onFieldGenerated?.Invoke();
@@ -297,6 +296,7 @@ public class FieldGeneration : MonoBehaviour
                 {
                     BarierPosition = new Vector3(AllCubes[RandomInt].transform.position.x, YPosition, AllCubes[RandomInt].transform.position.z  + 0.55f);
                 }
+                else//HERE
                 {
                     ShouldRotate = true;
                     BarierPosition = new Vector3(AllCubes[RandomInt].transform.position.x  - 0.55f, YPosition, AllCubes[RandomInt].transform.position.z);
@@ -323,15 +323,11 @@ public class FieldGeneration : MonoBehaviour
             }
             GameObject NewBarier = Instantiate(Barier, BarierPosition,Quaternion.identity);//Rotate if on the left and right
             NewBarier.transform.SetParent(Field.transform);
-            FieldGeneration.AllBariers.Add(NewBarier);
+            AllBariers.Add(NewBarier);
             AllBariersPositions.Add(BarierPosition);
             if (ShouldRotate)
                 NewBarier.transform.Rotate(0, 90f, 0);
             AllCubes.RemoveAt(RandomInt);
         }
-    }
-    private void Awake()
-    {
-        ApplyComponent = GetComponent<ApplyMines>();
     }
 }

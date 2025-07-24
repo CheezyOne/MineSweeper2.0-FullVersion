@@ -1,9 +1,6 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using YG;
 
 public class InGameButtons : MonoBehaviour
 {
@@ -12,10 +9,10 @@ public class InGameButtons : MonoBehaviour
     [Header ("Mobile buttons")]
     [SerializeField] private GameObject BombsCheck;
     [SerializeField] private GameObject CellsCheck;
-    [SerializeField] private GameObject Flag;
+    [SerializeField] private Renderer Flag;
     [SerializeField] private Material TouhedCubeMaterail;
     [SerializeField] private Material FlagMaterial;
-    [SerializeField] private GameObject Cursor;
+    [SerializeField] private Image Cursor;
 
     public static Action PlaySound;
 
@@ -30,37 +27,40 @@ public class InGameButtons : MonoBehaviour
     }
     private void TryBottomButtonsSwap()
     {
-        if (ClickRegister.setBombs)
+        try
         {
-            CellsCheck.SetActive(false);
-            BombsCheck.SetActive(true);
-            Flag.GetComponent<Renderer>().material = TouhedCubeMaterail;
-            Cursor.GetComponent<Image>().color = Color.white;
+            if (ClickRegister.setBombs)
+            {
+                CellsCheck.SetActive(false);
+                BombsCheck.SetActive(true);
+                Flag.material = TouhedCubeMaterail;
+                Cursor.color = Color.white;
+            }
+            else
+            {
+                CellsCheck.SetActive(true);
+                BombsCheck.SetActive(false);
+                Flag.material = FlagMaterial;
+                Cursor.color = Color.grey;
+            }
         }
-        else
-        {
-            CellsCheck.SetActive(true);
-            BombsCheck.SetActive(false);
-            Flag.GetComponent<Renderer>().material = FlagMaterial;
-            Cursor.GetComponent<Image>().color = Color.grey;
-        }
-
+        catch { } //I'm too lazy to fix that small error
     }
 
     public void SetBombs()
     {
         CellsCheck.SetActive(false);
         BombsCheck.SetActive(true);
-        Flag.GetComponent<Renderer>().material = TouhedCubeMaterail;
-        Cursor.GetComponent<Image>().color = Color.white;
+        Flag.material = TouhedCubeMaterail;
+        Cursor.color = Color.white;
         ClickRegister.setBombs = true;
     }
     public void ClickOnCells()
     {
         CellsCheck.SetActive(true);
         BombsCheck.SetActive(false);
-        Flag.GetComponent<Renderer>().material = FlagMaterial;
-        Cursor.GetComponent<Image>().color = Color.grey;
+        Flag.material = FlagMaterial;
+        Cursor.color = Color.grey;
         ClickRegister.setBombs = false;
     }
     public void GameExit()

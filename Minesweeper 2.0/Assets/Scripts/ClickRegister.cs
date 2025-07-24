@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ClickRegister : MonoBehaviour
@@ -16,10 +14,23 @@ public class ClickRegister : MonoBehaviour
     //These Actions are for smileys
     public static Action<int> onCubeTouch, onCubeRelease;
 
-    private void Start()
+    private Camera _mainCamera;
+
+    private void Awake()
+    {
+        _mainCamera = Camera.main;
+    }
+
+    private void OnEnable()
     {
         InGameButtons.onGameExit += NullAllVariables;
     }
+
+    private void OnDisable()
+    {
+        InGameButtons.onGameExit -= NullAllVariables;
+    }
+
     private void NullAllVariables()
     {
         isGameOn = false;
@@ -48,10 +59,9 @@ public class ClickRegister : MonoBehaviour
             Touch touch = Input.GetTouch(0);
             if (touch.phase == TouchPhase.Began)
             {
-                Ray ray = Camera.main.ScreenPointToRay(touch.position);
-                RaycastHit hit;
+                Ray ray = _mainCamera.ScreenPointToRay(touch.position);
 
-                if (Physics.Raycast(ray, out hit))
+                if (Physics.Raycast(ray, out RaycastHit hit))
                 {
                     if (hit.transform.TryGetComponent<Cell>(out Cell CellComponent))
                     {
@@ -70,10 +80,9 @@ public class ClickRegister : MonoBehaviour
                     return;
                 }
                 NullTouchingVariables();
-                Ray ray = Camera.main.ScreenPointToRay(touch.position);
-                RaycastHit hit;
+                Ray ray = _mainCamera.ScreenPointToRay(touch.position);
 
-                if (Physics.Raycast(ray, out hit))
+                if (Physics.Raycast(ray, out RaycastHit hit))
                 {
                     if (hit.transform.TryGetComponent<Cell>(out Cell CellComponent))
                     {
@@ -107,10 +116,9 @@ public class ClickRegister : MonoBehaviour
             if(isTouchingCube)
             {
                 touchedTime += Time.deltaTime;
-                Ray ray = Camera.main.ScreenPointToRay(touch.position);
-                RaycastHit hit;
+                Ray ray = _mainCamera.ScreenPointToRay(touch.position);
 
-                if (Physics.Raycast(ray, out hit))
+                if (Physics.Raycast(ray, out RaycastHit hit))
                 {
                     if (hit.transform == null)
                     {
@@ -144,10 +152,9 @@ public class ClickRegister : MonoBehaviour
         {
             if (Input.GetMouseButtonUp(0))
             {
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                RaycastHit hit;
+                Ray ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
 
-                if (Physics.Raycast(ray, out hit))
+                if (Physics.Raycast(ray, out RaycastHit hit))
                 {
                     if (hit.transform.TryGetComponent<Cell>(out Cell CellComponent))
                     {
@@ -173,10 +180,9 @@ public class ClickRegister : MonoBehaviour
             }
             if (Input.GetMouseButtonDown(0)) // 0 is the left mouse button
             {
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                RaycastHit hit;
+                Ray ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
 
-                if (Physics.Raycast(ray, out hit))
+                if (Physics.Raycast(ray, out RaycastHit hit))
                 {
                     if (hit.transform.TryGetComponent<Cell>(out Cell CellComponent))
                     {
@@ -188,10 +194,9 @@ public class ClickRegister : MonoBehaviour
             }
             else if (Input.GetMouseButtonDown(1)) // 1 is the right mouse button
             {
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                RaycastHit hit;
+                Ray ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
 
-                if (Physics.Raycast(ray, out hit))
+                if (Physics.Raycast(ray, out RaycastHit hit))
                 {
                     if (hit.transform.TryGetComponent<Cell>(out Cell CellComponent))
                     {

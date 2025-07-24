@@ -47,7 +47,7 @@ public class StartingSequence : MonoBehaviour
     private void ApplyCubes()
     {
         AllCubes = FieldGeneration.AllCubes.Concat(FieldGeneration.AllBariers).ToList();
-        HowManyCubesFallSimultaneously = AllCubes.Count / 75;
+        HowManyCubesFallSimultaneously = AllCubes.Count / 10;
         if (HowManyCubesFallSimultaneously < 1)
             HowManyCubesFallSimultaneously = 1;
     }
@@ -74,7 +74,7 @@ public class StartingSequence : MonoBehaviour
     }
     private IEnumerator AddNewCubesFalling()
     {
-        yield return new WaitForEndOfFrame();
+        yield return new WaitForSeconds(0.075f);
         for (int i = 0; i < HowManyCubesFallSimultaneously; i++)
         {
             GameObject RandomCube = PickRandomCube();
@@ -104,7 +104,7 @@ public class StartingSequence : MonoBehaviour
         AllStartingPositions = new List<Vector3>();
         AllEndPositions = new List<Vector3>();
 }    
-    void Update()
+    private void Update()
     {
         if (CubesShouldFall)
         {

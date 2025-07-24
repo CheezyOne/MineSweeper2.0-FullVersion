@@ -1227,6 +1227,14 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool Input_GetMouseButtonUp_mBE89CC9C69BBEA9A
 	bool icallRetVal = _il2cpp_icall_func(___0_button);
 	return icallRetVal;
 }
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Input_ResetInputAxes_mB5A22E8AFB4F27164387B5AAE8EFBF796B06EF8C (const RuntimeMethod* method) 
+{
+	typedef void (*Input_ResetInputAxes_mB5A22E8AFB4F27164387B5AAE8EFBF796B06EF8C_ftn) ();
+	static Input_ResetInputAxes_mB5A22E8AFB4F27164387B5AAE8EFBF796B06EF8C_ftn _il2cpp_icall_func;
+	if (!_il2cpp_icall_func)
+	_il2cpp_icall_func = (Input_ResetInputAxes_mB5A22E8AFB4F27164387B5AAE8EFBF796B06EF8C_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.Input::ResetInputAxes()");
+	_il2cpp_icall_func();
+}
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Touch_t03E51455ED508492B3F278903A0114FA0E87B417 Input_GetTouch_m75D99FE801A94279874FA8DC6B6ADAD35F5123B1 (int32_t ___0_index, const RuntimeMethod* method) 
 {
 	Touch_t03E51455ED508492B3F278903A0114FA0E87B417 V_0;

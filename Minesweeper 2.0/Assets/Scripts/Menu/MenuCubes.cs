@@ -1,12 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
+using TMPro;
 
 public class MenuCubes : MonoBehaviour
 {
     private float RandomX, RandomY, RandomZ;
     private Vector3 EndPosition, Rotation;
+
+    [SerializeField] private MeshRenderer _meshRenderer;
+    [SerializeField] private TMP_Text[] _numbers;
+    [SerializeField] private Rigidbody _rigidbody;
+
+    public MeshRenderer MeshRenderer => _meshRenderer;
+
+    public void SetNumbers(string number)
+    {
+        for (int i =0;i<number.Length;i++)
+        {
+            _numbers[i].text = number;
+        }
+    }
+
     private void Awake()
     {
         Destroy(gameObject, 25f);
@@ -16,12 +29,8 @@ public class MenuCubes : MonoBehaviour
         RandomX = Random.Range(-10, 10) ;
         RandomY = Random.Range(-10, 10) ;
         RandomZ = Random.Range(-10, 10) ;
-        GetComponent<Rigidbody>().AddForce(EndPosition, ForceMode.Impulse);
-        Rotation=new Vector3 (RandomX, RandomY, RandomZ);   
-        GetComponent<Rigidbody>().AddTorque(Rotation);
-    }
-    void Update()
-    {
-      
+        _rigidbody.AddForce(EndPosition, ForceMode.Impulse);
+        Rotation=new Vector3 (RandomX, RandomY, RandomZ);
+        _rigidbody.AddTorque(Rotation);
     }
 }

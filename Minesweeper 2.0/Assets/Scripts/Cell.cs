@@ -12,8 +12,11 @@ public class Cell : MonoBehaviour
     public static bool ShouldLie = false;
     public bool HasBlueBomb = false, HasRedBomb = false, HasBeenTouched=false;
     private bool HasBarierUp = false, HasBarierDown = false, HasBarierRight = false, HasBarierLeft = false;
-    public GameObject NumberAboutBombs, Flag, DoubleNumberAboutBombs, Bomb;
-    public int NumberOfRedBombsAround = 0, NumberOfBlueBombsAround=0;
+    public GameObject Flag, DoubleNumberAboutBombs, Bomb;
+    [SerializeField] private TMP_Text NumberAboutBombs;
+    [SerializeField] private TMP_Text _firstDoubleNumber;
+    [SerializeField] private TMP_Text _secondDoubleNumber;
+    public int NumberOfRedBombsAround = 0, NumberOfBlueBombsAround = 0;
     private Collider[] hitColliders;
     [SerializeField] private Material[] AllMaterials;
     [SerializeField] private GameObject ExplosionEffect, TrailingSphere;
@@ -23,8 +26,19 @@ public class Cell : MonoBehaviour
     public bool Test;
     public static GameObject MainOpeningCube;
     private bool OnceWasMainOpeningCube=false;
+    [SerializeField] private MeshRenderer _meshRenderer; 
     public static bool CubesAreOpened;
+    private Transform _mainCamera;
     private bool CanHaveTwoBombs => ApplyMines.ApplyBlueBombs;
+
+    public MeshRenderer MeshRenderer => _meshRenderer;
+
+
+    private void Awake()
+    {
+        _mainCamera = Camera.main.transform;
+    }
+
     private void OnEnable()
     {
         BombsInGameChanger.onBombsMove += GetSurroundingCubesInfo;
@@ -43,13 +57,19 @@ public class Cell : MonoBehaviour
         onGameLose -= ShowIfTheBombTextureIsRight;
         onGameLose -= SpawnExplosion;
     }
+
+    public void ApplyMaterial(Material material)
+    {
+        _meshRenderer.material = material;
+    }
+
     private void SpawnExplosion()
     {
         if (HasRedBomb||HasBlueBomb)
         {
             Bomb.SetActive(true);
-            GetComponent<MeshRenderer>().enabled = false;
-            NumberAboutBombs.SetActive(false);
+            _meshRenderer.enabled = false;
+            NumberAboutBombs.gameObject.SetActive(false);
             GameObject Explosion = Instantiate(ExplosionEffect, new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z), Quaternion.identity);
             Destroy(Explosion, 2f);
         }
@@ -59,8 +79,8 @@ public class Cell : MonoBehaviour
         if(Flag.activeSelf)
         {
             Bomb.SetActive(true);
-            GetComponent<MeshRenderer>().enabled = false;
-            NumberAboutBombs.SetActive(false);
+            _meshRenderer.enabled = false;
+            NumberAboutBombs.gameObject.SetActive(false);
             if (!HasRedBomb && !HasBlueBomb)
             {
                 Bomb.transform.GetChild(0).GetComponent<MeshRenderer>().material.color = new Color(0.47f, 0, 0);
@@ -77,7 +97,8 @@ public class Cell : MonoBehaviour
     public List<GameObject> GetAllNeighbours()
     {
         List<GameObject> Neighbours = new();
-        hitColliders = Physics.OverlapSphere(transform.position, 1f);
+        Physics.OverlapSphereNonAlloc(transform.position, 1f, hitColliders);
+        //hitColliders = Physics.OverlapSphere(transform.position, 1f);
         for (int i = 0;i<hitColliders.Length;i++)
         {
             if (hitColliders[i] != gameObject && hitColliders[i].transform.name=="Cell(Clone)")
@@ -111,19 +132,20 @@ public class Cell : MonoBehaviour
     {
         float ObjectX = Object.transform.position.x, ObjectZ = Object.transform.position.z;
         float TransformX = transform.position.x, TransformZ = transform.position.z;
-        if (ObjectX - TransformX > 0.1f && (HasBarierRight || Object.GetComponent<Cell>().HasBarierLeft))
+        Cell ObjectCell = Object.GetComponent<Cell>();
+        if (ObjectX - TransformX > 0.1f && (HasBarierRight || ObjectCell.HasBarierLeft))
         {
             return true;
         }
-        if (TransformX - ObjectX > 0.1f && (HasBarierLeft || Object.GetComponent<Cell>().HasBarierRight))
+        if (TransformX - ObjectX > 0.1f && (HasBarierLeft || ObjectCell.HasBarierRight))
         {
             return true;
         }
-        if (ObjectZ - TransformZ >0.1f && (HasBarierUp || Object.GetComponent<Cell>().HasBarierDown))
+        if (ObjectZ - TransformZ >0.1f && (HasBarierUp || ObjectCell.HasBarierDown))
         {
             return true;
         }
-        if (TransformZ - ObjectZ >0.1f && (HasBarierDown || Object.GetComponent<Cell>().HasBarierUp))
+        if (TransformZ - ObjectZ >0.1f && (HasBarierDown || ObjectCell.HasBarierUp))
         {
             return true;
         }
@@ -133,19 +155,20 @@ public class Cell : MonoBehaviour
     {
         float ObjectX = Object.transform.position.x, ObjectZ = Object.transform.position.z;
         float TransformX = transform.position.x, TransformZ = transform.position.z;
-        if (ObjectX - TransformX > 0.1f && (HasBarierRight || Object.GetComponent<Cell>().HasBarierLeft))
+        Cell ObjectCell = Object.GetComponent<Cell>();
+        if (ObjectX - TransformX > 0.1f && (HasBarierRight || ObjectCell.HasBarierLeft))
         {
             return true;
         }
-        if (TransformX - ObjectX > 0.1f && (HasBarierLeft || Object.GetComponent<Cell>().HasBarierRight))
+        if (TransformX - ObjectX > 0.1f && (HasBarierLeft || ObjectCell.HasBarierRight))
         {
             return true;
         }
-        if (ObjectZ - TransformZ > 0.1f && (HasBarierUp || Object.GetComponent<Cell>().HasBarierDown))
+        if (ObjectZ - TransformZ > 0.1f && (HasBarierUp || ObjectCell.HasBarierDown))
         {
             return true;
         }
-        if (TransformZ - ObjectZ > 0.1f && (HasBarierDown || Object.GetComponent<Cell>().HasBarierUp))
+        if (TransformZ - ObjectZ > 0.1f && (HasBarierDown || ObjectCell.HasBarierUp))
         {
             return true;
         }
@@ -154,6 +177,7 @@ public class Cell : MonoBehaviour
     private void FindBariers()
     {
         hitColliders = Physics.OverlapSphere(transform.position, 1f);
+        
         foreach (Collider collider in hitColliders)
         {
             if (collider.gameObject == gameObject)
@@ -188,7 +212,7 @@ public class Cell : MonoBehaviour
     }
     public void GetSurroundingCubesInfo()
     {
-        hitColliders = Physics.OverlapSphere(transform.position, 1f);
+        Physics.OverlapSphereNonAlloc(transform.position, 1f, hitColliders);
         //FindBariers();
         ExcludeCubes.Clear();
         FunExcludeCubes();
@@ -263,35 +287,35 @@ public class Cell : MonoBehaviour
     {
         if (NumberOfRedBombsAround <= 0 && NumberOfBlueBombsAround <= 0)
         {
-            if (NumberAboutBombs.activeSelf || DoubleNumberAboutBombs.activeSelf)
+            if (NumberAboutBombs.gameObject.activeSelf || DoubleNumberAboutBombs.activeSelf)
             {
-                NumberAboutBombs.GetComponent<TextMeshPro>().color = Color.blue;//I dont like red numbers, so red bombs are blue
-                NumberAboutBombs.GetComponent<TextMeshPro>().text = Convert.ToString(LyingNumber(NumberOfRedBombsAround, true));
-                NumberAboutBombs.SetActive(true);
+                NumberAboutBombs.color = Color.blue;//I dont like red numbers, so red bombs are blue
+                NumberAboutBombs.text = Convert.ToString(LyingNumber(NumberOfRedBombsAround, true));
+                NumberAboutBombs.gameObject.SetActive(true);
                 DoubleNumberAboutBombs.SetActive(false);
             }
             return;
         }
         if (NumberOfRedBombsAround > 0 && NumberOfBlueBombsAround > 0)
         {
-            NumberAboutBombs.SetActive(false);
+            NumberAboutBombs.gameObject.gameObject.SetActive(false);
             DoubleNumberAboutBombs.SetActive(true);
-            DoubleNumberAboutBombs.transform.GetChild(1).GetComponent<TextMeshPro>().text = Convert.ToString(LyingNumber(NumberOfBlueBombsAround, false));
-            DoubleNumberAboutBombs.transform.GetChild(0).GetComponent<TextMeshPro>().text = Convert.ToString(LyingNumber(NumberOfRedBombsAround, true));
+            _secondDoubleNumber.text = Convert.ToString(LyingNumber(NumberOfBlueBombsAround, false));
+            _firstDoubleNumber.text = Convert.ToString(LyingNumber(NumberOfRedBombsAround, true));
         }
         else
         {
-            NumberAboutBombs.SetActive(true);
+            NumberAboutBombs.gameObject.SetActive(true);
             DoubleNumberAboutBombs.SetActive(false);
             if (NumberOfRedBombsAround > 0)
             {
-                NumberAboutBombs.GetComponent<TextMeshPro>().color = Color.blue;//I dont like red numbers, so red bombs are blue
-                NumberAboutBombs.GetComponent<TextMeshPro>().text = Convert.ToString(LyingNumber(NumberOfRedBombsAround, true));
+                NumberAboutBombs.color = Color.blue;//I dont like red numbers, so red bombs are blue
+                NumberAboutBombs.text = Convert.ToString(LyingNumber(NumberOfRedBombsAround, true));
             }
             else if (NumberOfBlueBombsAround > 0)
             {
-                NumberAboutBombs.GetComponent<TextMeshPro>().color = Color.red;
-                NumberAboutBombs.GetComponent<TextMeshPro>().text = Convert.ToString(LyingNumber(NumberOfBlueBombsAround, false));
+                NumberAboutBombs.color = Color.red;
+                NumberAboutBombs.text = Convert.ToString(LyingNumber(NumberOfBlueBombsAround, false));
             }
         }
     }
@@ -388,11 +412,11 @@ public class Cell : MonoBehaviour
                 }
             }
         }
-        if (GetComponent<MeshRenderer>().material.name == "Normal cube (Instance)" || GetComponent<MeshRenderer>().material.name == "Pointed cube (Instance)")
+        if (_meshRenderer.material.name == "Normal cube (Instance)" || _meshRenderer.material.name == "Pointed cube (Instance)")
         {
             onEmptyCellClicked?.Invoke();
         }
-        GetComponent<MeshRenderer>().material = AllMaterials[1];
+        _meshRenderer.material = AllMaterials[1];
     }    
     public void WasClicked(float Delay)
     {
@@ -408,7 +432,7 @@ public class Cell : MonoBehaviour
     }
     public void WasRightClicked()
     {
-        if (GetComponent<MeshRenderer>().material.name == "Touched cube (Instance)")
+        if (_meshRenderer.material.name == "Touched cube (Instance)")
             return;
         if (CanHaveTwoBombs)
         {
@@ -458,7 +482,7 @@ public class Cell : MonoBehaviour
     }
     private IEnumerator SpawnTrailsToNearbyCell()
     {
-        Vector3 CameraAdjast = (Camera.main.transform.position- transform.position);
+        Vector3 CameraAdjast = (_mainCamera.position- transform.position);
         CameraAdjast.Normalize();
         CameraAdjast /= 1.3f;
         yield return new WaitForSeconds(0.3f);

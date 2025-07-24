@@ -1,9 +1,6 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class ButtonsInMenu : MonoBehaviour
 {
@@ -11,7 +8,8 @@ public class ButtonsInMenu : MonoBehaviour
     private readonly string[] EnglishMapNames = new string[] { "Normal", "Cross", "4 Sides", "Hole", "Diamond" };
     private readonly string[] RussianMapNames = new string[] { "Обычный", "Крест", "4 Стороны", "Дыра", "Ромб" };
     private string[] MapNames = new string[] { "Normal", "Cross", "4 Sides", "Hole", "Diamond" };
-    [SerializeField] private GameObject MapNameText, MapNameChangeRight, MapNameChangeLeft, InGameMenu, SmileyPosition, TwoInput, FullInput;
+    [SerializeField] private GameObject MapNameChangeRight, MapNameChangeLeft, InGameMenu, SmileyPosition, TwoInput, FullInput;
+    [SerializeField] private TMP_Text _mapNameText;
     private static int MapNameNumber=0;
     private void Start()
     {
@@ -98,7 +96,7 @@ public class ButtonsInMenu : MonoBehaviour
     }
     private void SetMapNameText()
     {
-        MapNameText.GetComponent<TextMeshProUGUI>().text = MapNames[MapNameNumber];
+        _mapNameText.text = MapNames[MapNameNumber];
         FieldGeneration.FieldType = EnglishMapNames[MapNameNumber];
         if (MapNames[MapNameNumber] == "4 Sides" || MapNames[MapNameNumber] == "Diamond"|| MapNames[MapNameNumber] == "4 Стороны" || MapNames[MapNameNumber] == "Ромб")
             SetInputs(false);

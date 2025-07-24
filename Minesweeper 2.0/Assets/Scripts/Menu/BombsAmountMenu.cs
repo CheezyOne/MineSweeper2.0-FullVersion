@@ -1,16 +1,18 @@
 using System;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class BombsAmountMenu : MonoBehaviour
 {
     public static int RememberBombs;
     [SerializeField] private ApplyMines ApplyMinesComponent;
-    private InputField _inputField => GetComponent<InputField>();
+    [SerializeField] private TMP_InputField _inputField;
+
     private string _fieldType=> FieldGeneration.FieldType;
     private int _fieldString => FieldSizeMenu.RememberString;
     private int _fieldColomn=> FieldSizeMenu.RememberColomn;
     private int _fieldSize;
+
     private void Awake()
     {
         GetFieldSize();
@@ -137,9 +139,9 @@ public class BombsAmountMenu : MonoBehaviour
     {
          _inputField.text = Convert.ToString(DecideBombsCount());
     }
-    public void ChangeColomnsSize(string Helper)
+    public void ChangeBombs(string Helper)
     {
-        string ColomnsSize = GetComponent<InputField>().text;
+        string ColomnsSize = _inputField.text;
         if (ColomnsSize == "")
         {
             return;
@@ -147,11 +149,11 @@ public class BombsAmountMenu : MonoBehaviour
         int IntColomnSize = Convert.ToInt32(ColomnsSize);
         //_fGComponent.ColomnsSize = IntColomnSize;
         RememberBombs = IntColomnSize;
-        GetComponent<InputField>().text = Convert.ToString(IntColomnSize);
+        _inputField.text = Convert.ToString(IntColomnSize);
     }
-    public void EditEndColomnsSize(string Helper)
+    public void EditEndBombs(string Helper)
     {
-        string ColomnsSize = GetComponent<InputField>().text;
+        string ColomnsSize = _inputField.text;
         if (ColomnsSize == "")
         {
             ColomnsSize = Convert.ToString(DecideBombsCount());
@@ -160,7 +162,7 @@ public class BombsAmountMenu : MonoBehaviour
         IntColomnSize = ConstrainInt(IntColomnSize);
         //_fGComponent.ColomnsSize = IntColomnSize;
         RememberBombs = IntColomnSize;
-        GetComponent<InputField>().text = Convert.ToString(IntColomnSize);
+        _inputField.text = Convert.ToString(IntColomnSize);
     }
     private int ConstrainInt(int CurrentNumber)
     {

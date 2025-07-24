@@ -1,7 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class LoseHandler : MonoBehaviour
 {
@@ -10,6 +8,12 @@ public class LoseHandler : MonoBehaviour
     private Vector3 NormalCameraPosition;
     [SerializeField] private float ShakeForce = 0.3f, TimeBetweenShakes=0.04f;
     private bool StopShakingBool;
+    private Transform _mainCamera;
+
+    private void Awake()
+    {
+        _mainCamera = Camera.main.transform;
+    }
 
     private void OnEnable()
     {
@@ -30,7 +34,7 @@ public class LoseHandler : MonoBehaviour
     {
         StopShakingBool = false;
         CameraShakeCounter = 0;
-        NormalCameraPosition = Camera.main.transform.position;
+        NormalCameraPosition = _mainCamera.position;
         StartCoroutine(CameraShake());
         ClickRegister.isGameOn = false;
     }
@@ -57,10 +61,10 @@ public class LoseHandler : MonoBehaviour
             Random.Range(-ShakeForce, ShakeForce),
             Random.Range(-ShakeForce, ShakeForce),
             Random.Range(-ShakeForce, ShakeForce));
-        Camera.main.transform.position = NormalCameraPosition + AddingCameraPosition;
+        _mainCamera.position = NormalCameraPosition + AddingCameraPosition;
     }
     private void SetCameraPositionToNormal()
     {
-        Camera.main.transform.position = NormalCameraPosition;
+        _mainCamera.position = NormalCameraPosition;
     }
 }

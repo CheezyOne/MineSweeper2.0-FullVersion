@@ -4811,6 +4811,7 @@ inline TextInputBase_t0D5056EFC1F0EE9F3ABEC383BD112983341D267C* TextInputBaseFie
 	return ((  TextInputBase_t0D5056EFC1F0EE9F3ABEC383BD112983341D267C* (*) (TextInputBaseField_1_tB92AF7223ADFB610C49A05AC45918DC385A4D840*, const RuntimeMethod*))TextInputBaseField_1_get_textInputBase_m4348E5C6BFC5A22731A892CCC01BA1146EADA012_gshared_inline)(__this, method);
 }
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR TextInput_tF032266EE50DE61B43894D5ECB51D05C6EB6C283* TextField_get_textInput_mCBE98631D0D1A9D6BE6638E2F8A629A36F990178 (TextField_tDB34369F9468D7F02670087D9444EC23115827D9* __this, const RuntimeMethod* method) ;
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool TextInput_get_multiline_m1911139B0F0F327DFCCB9783EE378F02EB1ECF15 (TextInput_tF032266EE50DE61B43894D5ECB51D05C6EB6C283* __this, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TextInput_set_multiline_m9A49CC0087F963BB8BE797421389E6B54542E589 (TextInput_tF032266EE50DE61B43894D5ECB51D05C6EB6C283* __this, bool ___0_value, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TextField__ctor_mA01610FEEAC80BEA4D372BA93AA3CCC77575A941 (TextField_tDB34369F9468D7F02670087D9444EC23115827D9* __this, String_t* ___0_label, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TextField__ctor_m3C6D7442D8B29A0A093BC91F8333C144A73DED93 (TextField_tDB34369F9468D7F02670087D9444EC23115827D9* __this, String_t* ___0_label, int32_t ___1_maxLength, bool ___2_multiline, bool ___3_isPasswordField, Il2CppChar ___4_maskChar, const RuntimeMethod* method) ;
@@ -6303,6 +6304,24 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR TextInput_tF032266EE50DE61B43894D5ECB51D05C6E
 		return ((TextInput_tF032266EE50DE61B43894D5ECB51D05C6EB6C283*)CastclassClass((RuntimeObject*)L_0, TextInput_tF032266EE50DE61B43894D5ECB51D05C6EB6C283_il2cpp_TypeInfo_var));
 	}
 }
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool TextField_get_multiline_m193211C16330CF23AADAEB23F7C47354133A357C (TextField_tDB34369F9468D7F02670087D9444EC23115827D9* __this, const RuntimeMethod* method) 
+{
+	bool V_0 = false;
+	{
+		TextInput_tF032266EE50DE61B43894D5ECB51D05C6EB6C283* L_0;
+		L_0 = TextField_get_textInput_mCBE98631D0D1A9D6BE6638E2F8A629A36F990178(__this, NULL);
+		bool L_1;
+		L_1 = TextInput_get_multiline_m1911139B0F0F327DFCCB9783EE378F02EB1ECF15(L_0, NULL);
+		V_0 = L_1;
+		goto IL_000f;
+	}
+
+IL_000f:
+	{
+		bool L_2 = V_0;
+		return L_2;
+	}
+}
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TextField_set_multiline_m5016F44BC4B53856BB0405DC9F30DB226CE775B2 (TextField_tDB34369F9468D7F02670087D9444EC23115827D9* __this, bool ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -6745,6 +6764,31 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void UxmlTraits__cctor_mF7C7A4FBC8D45A87BADD7
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool TextInput_get_multiline_m1911139B0F0F327DFCCB9783EE378F02EB1ECF15 (TextInput_tF032266EE50DE61B43894D5ECB51D05C6EB6C283* __this, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ITextEdition_tCCF2749F0A6AEE80B6AEFCDC5D03F4CA7AFBE18C_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&TextInputBase_get_textEdition_m0C5933AB94CD9487E16B114E8CE9C98785A98D80_RuntimeMethod_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	bool V_0 = false;
+	{
+		RuntimeObject* L_0;
+		L_0 = TextInputBase_get_textEdition_m0C5933AB94CD9487E16B114E8CE9C98785A98D80(__this, TextInputBase_get_textEdition_m0C5933AB94CD9487E16B114E8CE9C98785A98D80_RuntimeMethod_var);
+		bool L_1;
+		L_1 = InterfaceFuncInvoker0< bool >::Invoke(0, ITextEdition_tCCF2749F0A6AEE80B6AEFCDC5D03F4CA7AFBE18C_il2cpp_TypeInfo_var, L_0);
+		V_0 = L_1;
+		goto IL_000f;
+	}
+
+IL_000f:
+	{
+		bool L_2 = V_0;
+		return L_2;
+	}
+}
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TextInput_set_multiline_m9A49CC0087F963BB8BE797421389E6B54542E589 (TextInput_tF032266EE50DE61B43894D5ECB51D05C6EB6C283* __this, bool ___0_value, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;

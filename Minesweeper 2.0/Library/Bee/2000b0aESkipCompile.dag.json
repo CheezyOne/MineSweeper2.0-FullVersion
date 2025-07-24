@@ -24,10 +24,10 @@
     {
       "Annotation": "BuildPlayerDataGenerator Library/BuildPlayerData/Editor/TypeDb-All.json",
       "DisplayName": "BuildPlayerDataGenerator TypeDb-All",
-      "Action": "\"C:/Users/Azerty/Unity/2022.3.16f1/Editor/Data\\Tools\\netcorerun\\netcorerun.exe\" \"C:/Users/Azerty/Unity/2022.3.16f1/Editor/Data/Tools/BuildPlayerDataGenerator/BuildPlayerDataGenerator.exe\" -a=\"C:\\Users\\Azerty\\Documents\\GitHub\\POp\\MineSweeper2.0\\Minesweeper 2.0\\Assets\\Plugins\\Demigiant\\DOTween\\DOTween.dll\" -a=\"C:\\Users\\Azerty\\Documents\\GitHub\\POp\\MineSweeper2.0\\Minesweeper 2.0\\Library\\ScriptAssemblies\\Assembly-CSharp.dll\" -a=\"C:\\Users\\Azerty\\Documents\\GitHub\\POp\\MineSweeper2.0\\Minesweeper 2.0\\Library\\ScriptAssemblies\\Assembly-CSharp-firstpass.dll\" -a=\"C:\\Users\\Azerty\\Documents\\GitHub\\POp\\MineSweeper2.0\\Minesweeper 2.0\\Library\\ScriptAssemblies\\Unity.AI.Navigation.dll\" -a=\"C:\\Users\\Azerty\\Documents\\GitHub\\POp\\MineSweeper2.0\\Minesweeper 2.0\\Library\\ScriptAssemblies\\Unity.Recorder.Base.dll\" -a=\"C:\\Users\\Azerty\\Documents\\GitHub\\POp\\MineSweeper2.0\\Minesweeper 2.0\\Library\\ScriptAssemblies\\Unity.Recorder.dll\" -a=\"C:\\Users\\Azerty\\Documents\\GitHub\\POp\\MineSweeper2.0\\Minesweeper 2.0\\Library\\ScriptAssemblies\\Unity.TextMeshPro.dll\" -a=\"C:\\Users\\Azerty\\Documents\\GitHub\\POp\\MineSweeper2.0\\Minesweeper 2.0\\Library\\ScriptAssemblies\\Unity.Timeline.dll\" -a=\"C:\\Users\\Azerty\\Documents\\GitHub\\POp\\MineSweeper2.0\\Minesweeper 2.0\\Library\\ScriptAssemblies\\Unity.VisualScripting.Core.dll\" -a=\"C:\\Users\\Azerty\\Documents\\GitHub\\POp\\MineSweeper2.0\\Minesweeper 2.0\\Library\\ScriptAssemblies\\Unity.VisualScripting.Flow.dll\" -a=\"C:\\Users\\Azerty\\Documents\\GitHub\\POp\\MineSweeper2.0\\Minesweeper 2.0\\Library\\ScriptAssemblies\\Unity.VisualScripting.State.dll\" -a=\"C:\\Users\\Azerty\\Documents\\GitHub\\POp\\MineSweeper2.0\\Minesweeper 2.0\\Library\\ScriptAssemblies\\UnityEngine.TestRunner.dll\" -a=\"C:\\Users\\Azerty\\Documents\\GitHub\\POp\\MineSweeper2.0\\Minesweeper 2.0\\Library\\ScriptAssemblies\\UnityEngine.UI.dll\" -a=\"C:\\Users\\Azerty\\Documents\\GitHub\\POp\\MineSweeper2.0\\Minesweeper 2.0\\Library\\PackageCache\\com.unity.ext.nunit@1.0.6\\net35\\unity-custom\\nunit.framework.dll\" -a=\"C:\\Users\\Azerty\\Documents\\GitHub\\POp\\MineSweeper2.0\\Minesweeper 2.0\\Library\\PackageCache\\com.unity.nuget.newtonsoft-json@3.2.1\\Runtime\\Newtonsoft.Json.dll\" -a=\"C:\\Users\\Azerty\\Documents\\GitHub\\POp\\MineSweeper2.0\\Minesweeper 2.0\\Library\\PackageCache\\com.unity.testtools.codecoverage@1.2.4\\lib\\ReportGenerator\\ReportGeneratorMerged.dll\" -a=\"C:\\Users\\Azerty\\Documents\\GitHub\\POp\\MineSweeper2.0\\Minesweeper 2.0\\Library\\PackageCache\\com.unity.visualscripting@1.9.1\\Runtime\\VisualScripting.Flow\\Dependencies\\NCalc\\Unity.VisualScripting.Antlr3.Runtime.dll\" -s=\"C:\\Users\\Azerty\\Documents\\GitHub\\POp\\MineSweeper2.0\\Minesweeper 2.0\\Assets\\Plugins\\Demigiant\\DOTween\" -s=\"C:\\Users\\Azerty\\Unity\\2022.3.16f1\\Editor\\Data\\Managed\\UnityEngine\" -s=\"C:\\Users\\Azerty\\Unity\\2022.3.16f1\\Editor\\Data\\NetStandard\\compat\\2.1.0\\shims\\netfx\" -s=\"C:\\Users\\Azerty\\Unity\\2022.3.16f1\\Editor\\Data\\NetStandard\\compat\\2.1.0\\shims\\netstandard\" -s=\"C:\\Users\\Azerty\\Unity\\2022.3.16f1\\Editor\\Data\\NetStandard\\Extensions\\2.0.0\" -s=\"C:\\Users\\Azerty\\Unity\\2022.3.16f1\\Editor\\Data\\NetStandard\\ref\\2.1.0\" -s=\"C:\\Users\\Azerty\\Unity\\2022.3.16f1\\Editor\\Data\\PlaybackEngines\\WebGLSupport\\Managed\" -s=\"C:\\Users\\Azerty\\Documents\\GitHub\\POp\\MineSweeper2.0\\Minesweeper 2.0\\Library\\ScriptAssemblies\" -s=\"C:\\Users\\Azerty\\Documents\\GitHub\\POp\\MineSweeper2.0\\Minesweeper 2.0\\Library\\PackageCache\\com.unity.ext.nunit@1.0.6\\net35\\unity-custom\" -s=\"C:\\Users\\Azerty\\Documents\\GitHub\\POp\\MineSweeper2.0\\Minesweeper 2.0\\Library\\PackageCache\\com.unity.nuget.newtonsoft-json@3.2.1\\Runtime\" -s=\"C:\\Users\\Azerty\\Documents\\GitHub\\POp\\MineSweeper2.0\\Minesweeper 2.0\\Library\\PackageCache\\com.unity.testtools.codecoverage@1.2.4\\lib\\ReportGenerator\" -s=\"C:\\Users\\Azerty\\Documents\\GitHub\\POp\\MineSweeper2.0\\Minesweeper 2.0\\Library\\PackageCache\\com.unity.visualscripting@1.9.1\\Runtime\\VisualScripting.Flow\\Dependencies\\NCalc\" -o=\"Library/BuildPlayerData/Editor\" -rn=\"\" -tn=\"TypeDb-All.json\"",
+      "Action": "\"B:/unity/2022.3.16f1/Editor/Data\\Tools\\netcorerun\\netcorerun.exe\" \"B:/unity/2022.3.16f1/Editor/Data/Tools/BuildPlayerDataGenerator/BuildPlayerDataGenerator.exe\" -a=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Assets\\Plugins\\Demigiant\\DOTween\\DOTween.dll\" -a=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\ScriptAssemblies\\Assembly-CSharp.dll\" -a=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\ScriptAssemblies\\Assembly-CSharp-firstpass.dll\" -a=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\ScriptAssemblies\\Unity.AI.Navigation.dll\" -a=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\ScriptAssemblies\\Unity.Recorder.Base.dll\" -a=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\ScriptAssemblies\\Unity.Recorder.dll\" -a=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\ScriptAssemblies\\Unity.TextMeshPro.dll\" -a=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\ScriptAssemblies\\Unity.Timeline.dll\" -a=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\ScriptAssemblies\\Unity.VisualScripting.Core.dll\" -a=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\ScriptAssemblies\\Unity.VisualScripting.Flow.dll\" -a=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\ScriptAssemblies\\Unity.VisualScripting.State.dll\" -a=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\ScriptAssemblies\\UnityEngine.TestRunner.dll\" -a=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\ScriptAssemblies\\UnityEngine.UI.dll\" -a=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\ScriptAssemblies\\WebGLInput.dll\" -a=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\PackageCache\\com.unity.ext.nunit@1.0.6\\net35\\unity-custom\\nunit.framework.dll\" -a=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\PackageCache\\com.unity.nuget.newtonsoft-json@3.2.1\\Runtime\\Newtonsoft.Json.dll\" -a=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\PackageCache\\com.unity.testtools.codecoverage@1.2.4\\lib\\ReportGenerator\\ReportGeneratorMerged.dll\" -a=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\PackageCache\\com.unity.visualscripting@1.9.1\\Runtime\\VisualScripting.Flow\\Dependencies\\NCalc\\Unity.VisualScripting.Antlr3.Runtime.dll\" -s=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Assets\\Plugins\\Demigiant\\DOTween\" -s=\"B:\\unity\\2022.3.16f1\\Editor\\Data\\Managed\\UnityEngine\" -s=\"B:\\unity\\2022.3.16f1\\Editor\\Data\\NetStandard\\compat\\2.1.0\\shims\\netfx\" -s=\"B:\\unity\\2022.3.16f1\\Editor\\Data\\NetStandard\\compat\\2.1.0\\shims\\netstandard\" -s=\"B:\\unity\\2022.3.16f1\\Editor\\Data\\NetStandard\\Extensions\\2.0.0\" -s=\"B:\\unity\\2022.3.16f1\\Editor\\Data\\NetStandard\\ref\\2.1.0\" -s=\"B:\\unity\\2022.3.16f1\\Editor\\Data\\PlaybackEngines\\WebGLSupport\\Managed\" -s=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\ScriptAssemblies\" -s=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\PackageCache\\com.unity.ext.nunit@1.0.6\\net35\\unity-custom\" -s=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\PackageCache\\com.unity.nuget.newtonsoft-json@3.2.1\\Runtime\" -s=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\PackageCache\\com.unity.testtools.codecoverage@1.2.4\\lib\\ReportGenerator\" -s=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\PackageCache\\com.unity.visualscripting@1.9.1\\Runtime\\VisualScripting.Flow\\Dependencies\\NCalc\" -o=\"Library/BuildPlayerData/Editor\" -rn=\"\" -tn=\"TypeDb-All.json\"",
       "Inputs": [
-        "C:/Users/Azerty/Unity/2022.3.16f1/Editor/Data/Tools/netcorerun/netcorerun.exe",
-        "C:/Users/Azerty/Unity/2022.3.16f1/Editor/Data/Tools/BuildPlayerDataGenerator/BuildPlayerDataGenerator.exe",
+        "B:/unity/2022.3.16f1/Editor/Data/Tools/netcorerun/netcorerun.exe",
+        "B:/unity/2022.3.16f1/Editor/Data/Tools/BuildPlayerDataGenerator/BuildPlayerDataGenerator.exe",
         "Assets/Plugins/Demigiant/DOTween/DOTween.dll",
         "Library/ScriptAssemblies/Assembly-CSharp.dll",
         "Library/ScriptAssemblies/Assembly-CSharp-firstpass.dll",
@@ -41,6 +41,7 @@
         "Library/ScriptAssemblies/Unity.VisualScripting.State.dll",
         "Library/ScriptAssemblies/UnityEngine.TestRunner.dll",
         "Library/ScriptAssemblies/UnityEngine.UI.dll",
+        "Library/ScriptAssemblies/WebGLInput.dll",
         "Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll",
         "Library/PackageCache/com.unity.nuget.newtonsoft-json@3.2.1/Runtime/Newtonsoft.Json.dll",
         "Library/PackageCache/com.unity.testtools.codecoverage@1.2.4/lib/ReportGenerator/ReportGeneratorMerged.dll",
@@ -68,106 +69,106 @@
   ],
   "FileSignatures": [
     {
-      "File": "C:/Users/Azerty/Unity/2022.3.16f1/Editor/Data/Tools/BuildPipeline/Bee.BuildTools.dll"
+      "File": "B:/unity/2022.3.16f1/Editor/Data/Tools/BuildPipeline/Bee.BuildTools.dll"
     },
     {
-      "File": "C:/Users/Azerty/Unity/2022.3.16f1/Editor/Data/Tools/BuildPipeline/Bee.Core.dll"
+      "File": "B:/unity/2022.3.16f1/Editor/Data/Tools/BuildPipeline/Bee.Core.dll"
     },
     {
-      "File": "C:/Users/Azerty/Unity/2022.3.16f1/Editor/Data/Tools/BuildPipeline/Bee.CSharpSupport.dll"
+      "File": "B:/unity/2022.3.16f1/Editor/Data/Tools/BuildPipeline/Bee.CSharpSupport.dll"
     },
     {
-      "File": "C:/Users/Azerty/Unity/2022.3.16f1/Editor/Data/Tools/BuildPipeline/Bee.DotNet.dll"
+      "File": "B:/unity/2022.3.16f1/Editor/Data/Tools/BuildPipeline/Bee.DotNet.dll"
     },
     {
-      "File": "C:/Users/Azerty/Unity/2022.3.16f1/Editor/Data/Tools/BuildPipeline/Bee.NativeProgramSupport.dll"
+      "File": "B:/unity/2022.3.16f1/Editor/Data/Tools/BuildPipeline/Bee.NativeProgramSupport.dll"
     },
     {
-      "File": "C:/Users/Azerty/Unity/2022.3.16f1/Editor/Data/Tools/BuildPipeline/Bee.Stevedore.Program.exe"
+      "File": "B:/unity/2022.3.16f1/Editor/Data/Tools/BuildPipeline/Bee.Stevedore.Program.exe"
     },
     {
-      "File": "C:/Users/Azerty/Unity/2022.3.16f1/Editor/Data/Tools/BuildPipeline/Bee.TinyProfiler2.dll"
+      "File": "B:/unity/2022.3.16f1/Editor/Data/Tools/BuildPipeline/Bee.TinyProfiler2.dll"
     },
     {
-      "File": "C:/Users/Azerty/Unity/2022.3.16f1/Editor/Data/Tools/BuildPipeline/Bee.Toolchain.GNU.dll"
+      "File": "B:/unity/2022.3.16f1/Editor/Data/Tools/BuildPipeline/Bee.Toolchain.GNU.dll"
     },
     {
-      "File": "C:/Users/Azerty/Unity/2022.3.16f1/Editor/Data/Tools/BuildPipeline/Bee.Toolchain.LLVM.dll"
+      "File": "B:/unity/2022.3.16f1/Editor/Data/Tools/BuildPipeline/Bee.Toolchain.LLVM.dll"
     },
     {
-      "File": "C:/Users/Azerty/Unity/2022.3.16f1/Editor/Data/Tools/BuildPipeline/Bee.Toolchain.VisualStudio.dll"
+      "File": "B:/unity/2022.3.16f1/Editor/Data/Tools/BuildPipeline/Bee.Toolchain.VisualStudio.dll"
     },
     {
-      "File": "C:/Users/Azerty/Unity/2022.3.16f1/Editor/Data/Tools/BuildPipeline/Bee.Toolchain.Xcode.dll"
+      "File": "B:/unity/2022.3.16f1/Editor/Data/Tools/BuildPipeline/Bee.Toolchain.Xcode.dll"
     },
     {
-      "File": "C:/Users/Azerty/Unity/2022.3.16f1/Editor/Data/Tools/BuildPipeline/Bee.Tools.dll"
+      "File": "B:/unity/2022.3.16f1/Editor/Data/Tools/BuildPipeline/Bee.Tools.dll"
     },
     {
-      "File": "C:/Users/Azerty/Unity/2022.3.16f1/Editor/Data/Tools/BuildPipeline/Bee.TundraBackend.dll"
+      "File": "B:/unity/2022.3.16f1/Editor/Data/Tools/BuildPipeline/Bee.TundraBackend.dll"
     },
     {
-      "File": "C:/Users/Azerty/Unity/2022.3.16f1/Editor/Data/Tools/BuildPipeline/Bee.VisualStudioSolution.dll"
+      "File": "B:/unity/2022.3.16f1/Editor/Data/Tools/BuildPipeline/Bee.VisualStudioSolution.dll"
     },
     {
-      "File": "C:/Users/Azerty/Unity/2022.3.16f1/Editor/Data/Tools/BuildPipeline/BeeBuildProgramCommon.Data.dll"
+      "File": "B:/unity/2022.3.16f1/Editor/Data/Tools/BuildPipeline/BeeBuildProgramCommon.Data.dll"
     },
     {
-      "File": "C:/Users/Azerty/Unity/2022.3.16f1/Editor/Data/Tools/BuildPipeline/BeeBuildProgramCommon.dll"
+      "File": "B:/unity/2022.3.16f1/Editor/Data/Tools/BuildPipeline/BeeBuildProgramCommon.dll"
     },
     {
-      "File": "C:/Users/Azerty/Unity/2022.3.16f1/Editor/Data/Tools/BuildPipeline/BeeLocalCacheTool.exe"
+      "File": "B:/unity/2022.3.16f1/Editor/Data/Tools/BuildPipeline/BeeLocalCacheTool.exe"
     },
     {
-      "File": "C:/Users/Azerty/Unity/2022.3.16f1/Editor/Data/Tools/BuildPipeline/Newtonsoft.Json.dll"
+      "File": "B:/unity/2022.3.16f1/Editor/Data/Tools/BuildPipeline/Newtonsoft.Json.dll"
     },
     {
-      "File": "C:/Users/Azerty/Unity/2022.3.16f1/Editor/Data/Tools/BuildPipeline/NiceIO.dll"
+      "File": "B:/unity/2022.3.16f1/Editor/Data/Tools/BuildPipeline/NiceIO.dll"
     },
     {
-      "File": "C:/Users/Azerty/Unity/2022.3.16f1/Editor/Data/Tools/BuildPipeline/PlayerBuildProgramLibrary.Data.dll"
+      "File": "B:/unity/2022.3.16f1/Editor/Data/Tools/BuildPipeline/PlayerBuildProgramLibrary.Data.dll"
     },
     {
-      "File": "C:/Users/Azerty/Unity/2022.3.16f1/Editor/Data/Tools/BuildPipeline/PlayerBuildProgramLibrary.dll"
+      "File": "B:/unity/2022.3.16f1/Editor/Data/Tools/BuildPipeline/PlayerBuildProgramLibrary.dll"
     },
     {
-      "File": "C:/Users/Azerty/Unity/2022.3.16f1/Editor/Data/Tools/BuildPipeline/ScriptCompilationBuildProgram.Data.dll"
+      "File": "B:/unity/2022.3.16f1/Editor/Data/Tools/BuildPipeline/ScriptCompilationBuildProgram.Data.dll"
     },
     {
-      "File": "C:/Users/Azerty/Unity/2022.3.16f1/Editor/Data/Tools/BuildPipeline/ScriptCompilationBuildProgram.exe"
+      "File": "B:/unity/2022.3.16f1/Editor/Data/Tools/BuildPipeline/ScriptCompilationBuildProgram.exe"
     },
     {
-      "File": "C:/Users/Azerty/Unity/2022.3.16f1/Editor/Data/Tools/BuildPipeline/SharpYaml.dll"
+      "File": "B:/unity/2022.3.16f1/Editor/Data/Tools/BuildPipeline/SharpYaml.dll"
     },
     {
-      "File": "C:/Users/Azerty/Unity/2022.3.16f1/Editor/Data/Tools/BuildPipeline/Unity.Api.Attributes.dll"
+      "File": "B:/unity/2022.3.16f1/Editor/Data/Tools/BuildPipeline/Unity.Api.Attributes.dll"
     },
     {
-      "File": "C:/Users/Azerty/Unity/2022.3.16f1/Editor/Data/Tools/BuildPipeline/Unity.Cecil.dll"
+      "File": "B:/unity/2022.3.16f1/Editor/Data/Tools/BuildPipeline/Unity.Cecil.dll"
     },
     {
-      "File": "C:/Users/Azerty/Unity/2022.3.16f1/Editor/Data/Tools/BuildPipeline/Unity.Cecil.Mdb.dll"
+      "File": "B:/unity/2022.3.16f1/Editor/Data/Tools/BuildPipeline/Unity.Cecil.Mdb.dll"
     },
     {
-      "File": "C:/Users/Azerty/Unity/2022.3.16f1/Editor/Data/Tools/BuildPipeline/Unity.Cecil.Pdb.dll"
+      "File": "B:/unity/2022.3.16f1/Editor/Data/Tools/BuildPipeline/Unity.Cecil.Pdb.dll"
     },
     {
-      "File": "C:/Users/Azerty/Unity/2022.3.16f1/Editor/Data/Tools/BuildPipeline/Unity.Cecil.Rocks.dll"
+      "File": "B:/unity/2022.3.16f1/Editor/Data/Tools/BuildPipeline/Unity.Cecil.Rocks.dll"
     },
     {
-      "File": "C:/Users/Azerty/Unity/2022.3.16f1/Editor/Data/Tools/BuildPipeline/Unity.IL2CPP.Api.dll"
+      "File": "B:/unity/2022.3.16f1/Editor/Data/Tools/BuildPipeline/Unity.IL2CPP.Api.dll"
     },
     {
-      "File": "C:/Users/Azerty/Unity/2022.3.16f1/Editor/Data/Tools/BuildPipeline/Unity.IL2CPP.Bee.BuildLogic.dll"
+      "File": "B:/unity/2022.3.16f1/Editor/Data/Tools/BuildPipeline/Unity.IL2CPP.Bee.BuildLogic.dll"
     },
     {
-      "File": "C:/Users/Azerty/Unity/2022.3.16f1/Editor/Data/Tools/BuildPipeline/Unity.IL2CPP.Bee.IL2CPPExeCompileCppBuildProgram.Data.dll"
+      "File": "B:/unity/2022.3.16f1/Editor/Data/Tools/BuildPipeline/Unity.IL2CPP.Bee.IL2CPPExeCompileCppBuildProgram.Data.dll"
     },
     {
-      "File": "C:/Users/Azerty/Unity/2022.3.16f1/Editor/Data/Tools/BuildPipeline/Unity.Linker.Api.dll"
+      "File": "B:/unity/2022.3.16f1/Editor/Data/Tools/BuildPipeline/Unity.Linker.Api.dll"
     },
     {
-      "File": "C:/Users/Azerty/Unity/2022.3.16f1/Editor/Data/Tools/BuildPipeline/Unity.Options.dll"
+      "File": "B:/unity/2022.3.16f1/Editor/Data/Tools/BuildPipeline/Unity.Options.dll"
     },
     {
       "File": "Library/Bee/2000b0aESkipCompile-inputdata.json"
@@ -233,11 +234,14 @@
     },
     {
       "File": "Library/ScriptAssemblies/UnityEngine.UI.dll"
+    },
+    {
+      "File": "Library/ScriptAssemblies/WebGLInput.dll"
     }
   ],
   "GlobSignatures": [
     {
-      "Path": "C:/Users/Azerty/Unity/2022.3.16f1/Editor/Data/Tools/BuildPipeline"
+      "Path": "B:/unity/2022.3.16f1/Editor/Data/Tools/BuildPipeline"
     }
   ],
   "ContentDigestExtensions": [
@@ -267,6 +271,6 @@
   "SharedResources": [],
   "Scanners": [],
   "Identifier": "Library/Bee/2000b0aESkipCompile.dag.json",
-  "PayloadsFile": "C:/Users/Azerty/Documents/GitHub/POp/MineSweeper2.0/Minesweeper 2.0/Library/Bee/2000b0aESkipCompile.dag.payloads",
+  "PayloadsFile": "B:/MyGames/MineSweeper/MineSweeper2.0-FullVersion/Minesweeper 2.0/Library/Bee/2000b0aESkipCompile.dag.payloads",
   "RelativePathToRoot": "../.."
 }

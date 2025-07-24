@@ -333,10 +333,12 @@ MonoBehaviour:
   HasBlueBomb: 0
   HasRedBomb: 0
   HasBeenTouched: 0
-  NumberAboutBombs: {fileID: 8817188047221473009}
   Flag: {fileID: 4106179228041910396}
   DoubleNumberAboutBombs: {fileID: 7846978272415881789}
   Bomb: {fileID: 5744377998350232825}
+  NumberAboutBombs: {fileID: 8817188047221472911}
+  _firstDoubleNumber: {fileID: 732940635285092392}
+  _secondDoubleNumber: {fileID: 8562819318674617933}
   NumberOfRedBombsAround: 0
   NumberOfBlueBombsAround: 0
   AllMaterials:
@@ -345,6 +347,7 @@ MonoBehaviour:
   ExplosionEffect: {fileID: 7300390215380364495, guid: 7d2d047723aabff43979c8b63972dc8a, type: 3}
   TrailingSphere: {fileID: 7422256345674717143, guid: 86ea28903ba6858479b2ec51f7650574, type: 3}
   Test: 0
+  _meshRenderer: {fileID: 7644414610344576649}
 --- !u!1 &4106179228041910396
 GameObject:
   m_ObjectHideFlags: 0

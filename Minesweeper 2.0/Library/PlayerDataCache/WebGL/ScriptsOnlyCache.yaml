@@ -37,12 +37,6 @@ ScriptsOnlyBuild:
     - YandexLB
     DOTween.dll:
     - DG.Tweening.Core.DOTweenSettings
-    Unity.Recorder.Editor.dll:
-    - UnityEditor.Recorder.MovieRecorderEditor
-    - UnityEditor.Recorder.MovieRecorderSettings
-    - UnityEditor.Recorder.RecorderControllerSettings
-    - UnityEditor.Recorder.RecorderSettingsPrefsEditor
-    - UnityEditor.Recorder.RecorderWindow
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     Unity.TextMeshPro:
@@ -52,6 +46,7 @@ ScriptsOnlyBuild:
     - TMPro.TMP_StyleSheet
     Unity.TextMeshPro.dll:
     - TMPro.TMP_FontAsset
+    - TMPro.TMP_InputField
     - TMPro.TMP_Settings
     - TMPro.TMP_SpriteAsset
     - TMPro.TMP_StyleSheet
@@ -70,7 +65,12 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
     - UnityEngine.UI.InputField
+    - UnityEngine.UI.LayoutElement
+    - UnityEngine.UI.RectMask2D
     - UnityEngine.UI.Text
+    WebGLInput.dll:
+    - WebGLSupport.WebGLInput
+    - WebGLSupport.WebGLInputMobile
   serializedClasses:
     Assembly-CSharp:
     - YG.InfoYG/CSVTranslate
@@ -98,6 +98,11 @@ ScriptsOnlyBuild:
     - TMPro.TMP_GlyphAdjustmentRecord
     - TMPro.TMP_GlyphPairAdjustmentRecord
     - TMPro.TMP_GlyphValueRecord
+    - TMPro.TMP_InputField/OnChangeEvent
+    - TMPro.TMP_InputField/SelectionEvent
+    - TMPro.TMP_InputField/SubmitEvent
+    - TMPro.TMP_InputField/TextSelectionEvent
+    - TMPro.TMP_InputField/TouchScreenKeyboardEvent
     - TMPro.TMP_Sprite
     - TMPro.TMP_SpriteCharacter
     - TMPro.TMP_SpriteGlyph
@@ -251,6 +256,18 @@ ScriptsOnlyBuild:
     fullTypeName: GameModesSystem
     methodName: PlayButtonSound
   - assembly: Assembly-CSharp
+    fullTypeName: FieldSizeMenu
+    methodName: EditEndStringsSize
+  - assembly: Assembly-CSharp
+    fullTypeName: FieldSizeMenu
+    methodName: EditEndStringsSize
+  - assembly: Assembly-CSharp
+    fullTypeName: FieldSizeMenu
+    methodName: EditEndStringsSize
+  - assembly: Assembly-CSharp
+    fullTypeName: FieldSizeMenu
+    methodName: ChangeStringsSize
+  - assembly: Assembly-CSharp
     fullTypeName: InGameButtons
     methodName: RestartButton
   - assembly: Assembly-CSharp
@@ -371,6 +388,18 @@ ScriptsOnlyBuild:
     fullTypeName: GameModesSystem
     methodName: PlayButtonSound
   - assembly: Assembly-CSharp
+    fullTypeName: FieldSizeMenu
+    methodName: EditEndColomnsSize
+  - assembly: Assembly-CSharp
+    fullTypeName: FieldSizeMenu
+    methodName: EditEndColomnsSize
+  - assembly: Assembly-CSharp
+    fullTypeName: FieldSizeMenu
+    methodName: EditEndColomnsSize
+  - assembly: Assembly-CSharp
+    fullTypeName: FieldSizeMenu
+    methodName: ChangeColomnsSize
+  - assembly: Assembly-CSharp
     fullTypeName: InGameButtons
     methodName: YesButton
   - assembly: Assembly-CSharp
@@ -473,6 +502,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 16740}
     - Class: 114
+      Script: {instanceID: 16862}
+    - Class: 114
       Script: {instanceID: 16928}
     - Class: 114
       Script: {instanceID: 16946}
@@ -515,11 +546,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 19356}
     - Class: 114
+      Script: {instanceID: 19388}
+    - Class: 114
       Script: {instanceID: 19404}
     - Class: 114
       Script: {instanceID: 19672}
     - Class: 114
       Script: {instanceID: 20142}
+    - Class: 114
+      Script: {instanceID: 20224}
     - Class: 114
       Script: {instanceID: 20360}
     - Class: 114
@@ -562,6 +597,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 23166}
     - Class: 114
       Script: {instanceID: 23336}
+    - Class: 114
+      Script: {instanceID: 53876}
+    - Class: 114
+      Script: {instanceID: 53900}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -751,7 +790,7 @@ ScriptsOnlyBuild:
     className: UnityOnDropMessageListener
   - hash:
       serializedVersion: 2
-      Hash: c203698439fedbec376cfc8a57e3da67
+      Hash: 66777d838db999f6e3e90b1d41f2abed
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: SmileyFlip
@@ -887,12 +926,6 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.TestRunner
     namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
     className: TestResultRendererCallback
-  - hash:
-      serializedVersion: 2
-      Hash: 4001f3727b45ffa51ecc45ba969b4108
-    assemblyName: Unity.Recorder
-    namespaceName: UnityEngine.Recorder
-    className: RecorderBindings
   - hash:
       serializedVersion: 2
       Hash: b98001682cba83786775c9e415b89a61
@@ -1225,7 +1258,7 @@ ScriptsOnlyBuild:
     className: UnityOnEndDragMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 7bbe82dfac87cd69af8392b9846b3c67
+      Hash: 87877ee18257d9a8f16410fc26a43ebf
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: FieldSizeMenu
@@ -1793,7 +1826,25 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnSliderValueChangedMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: 33733d8a9d833566f080f4c110ba3228
+    assemblyName: WebGLInput
+    namespaceName: WebGLSupport
+    className: WebGLInputMobile
+  - hash:
+      serializedVersion: 2
+      Hash: fe916c3ab7c54bcc71ee669e0fbf1073
+    assemblyName: WebGLInput
+    namespaceName: WebGLSupport
+    className: WebGLUIToolkitTextField
+  - hash:
+      serializedVersion: 2
+      Hash: 678eb00b122f254da80ed9fc806a3c81
+    assemblyName: WebGLInput
+    namespaceName: WebGLSupport
+    className: WebGLInput
   platform: 20
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: C:/Users/Azerty/Desktop/MineSweeperYG/62
+  playerPath: B:/MyGames/Test

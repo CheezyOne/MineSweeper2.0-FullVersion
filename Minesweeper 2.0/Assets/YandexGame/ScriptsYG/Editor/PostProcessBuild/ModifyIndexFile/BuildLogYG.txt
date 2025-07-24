@@ -1,2 +1,2 @@
-Build path: C:/Users/Azerty/Desktop/MineSweeperYG/64
-Build number: 206
+Build path: B:/MyGames/Test
+Build number: 210
