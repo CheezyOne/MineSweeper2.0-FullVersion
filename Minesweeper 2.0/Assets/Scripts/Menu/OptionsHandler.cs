@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class OptionsHandler : MonoBehaviour
@@ -8,6 +6,8 @@ public class OptionsHandler : MonoBehaviour
     [SerializeField] private GameObject Canvas;
     public void EscapeButton()
     {
+        EventBus.OnButtonClick?.Invoke();
+        
         if (MobileCanvasSwapper.IsNowDesktop)
             MainDesktopCanvas.SetActive(true);
         else
@@ -16,6 +16,8 @@ public class OptionsHandler : MonoBehaviour
     }
     public void OpenOptions()
     {
+        EventBus.OnButtonClick?.Invoke();
+
         if (MobileCanvasSwapper.IsNowDesktop)
             MainDesktopCanvas.SetActive(false);
         else
@@ -24,8 +26,9 @@ public class OptionsHandler : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !ClickRegister.isGameOn)
         {
+            EventBus.OnButtonClick?.Invoke();
             EscapeButton();
         }
     }

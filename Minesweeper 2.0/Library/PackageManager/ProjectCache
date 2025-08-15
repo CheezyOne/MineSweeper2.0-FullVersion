@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638889585517605066
-    m_Hash: 3620167159
+      ticks: 638901871194551290
+    m_Hash: 2058254613
   m_LockFileStatus:
     m_FilePath: B:/MyGames/MineSweeper/MineSweeper2.0-FullVersion/Minesweeper 2.0/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638889585520300353
-    m_Hash: 2286197699
+      ticks: 638901871194841083
+    m_Hash: 3964385632
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:
@@ -755,6 +755,7 @@ m_ResolvedPackages:
     - 1.1.4
     - 1.1.5
     - 1.1.6
+    - 1.1.7
     compatible:
     - 1.1.0
     - 1.1.1
@@ -763,7 +764,8 @@ m_ResolvedPackages:
     - 1.1.4
     - 1.1.5
     - 1.1.6
-    recommended: 1.1.6
+    - 1.1.7
+    recommended: 1.1.7
     deprecated: []
   dependencies:
   - name: com.unity.burst
@@ -906,12 +908,12 @@ m_ResolvedPackages:
     deprecationMessage: 
   isDeprecated: 0
   deprecationMessage: 
-- packageId: com.unity.recorder@4.0.2
+- packageId: com.unity.recorder@4.0.3
   testable: 0
   isDirectDependency: 1
-  version: 4.0.2
+  version: 4.0.3
   source: 1
-  resolvedPath: B:\MyGames\MineSweeper\MineSweeper2.0-FullVersion\Minesweeper 2.0\Library\PackageCache\com.unity.recorder@4.0.2
+  resolvedPath: B:\MyGames\MineSweeper\MineSweeper2.0-FullVersion\Minesweeper 2.0\Library\PackageCache\com.unity.recorder@4.0.3
   assetPath: Packages/com.unity.recorder
   name: com.unity.recorder
   displayName: Recorder
@@ -1007,13 +1009,13 @@ m_ResolvedPackages:
     configSource: 0
   hideInEditor: 1
   isAssetStorePackage: 0
-  datePublishedTicks: 638351473610000000
+  datePublishedTicks: 638531089740000000
   documentationUrl: https://docs.unity3d.com/Packages/com.unity.recorder@4.0/manual/index.html
   hasRepository: 1
   repository:
     type: git
     url: https://github.cds.internal.unity3d.com/unity/com.unity.recorder.git
-    revision: c86a3d9e57541ce2ccff8ece1fd8f140bbe5e772
+    revision: d42db7a3a1c4a580ea4aecf19ca57659c965c89d
     path: 
   unityLifecycle:
     version: 4.0.2
@@ -1472,6 +1474,7 @@ m_ResolvedPackages:
     - 1.8.6
     - 1.8.7
     - 1.8.8
+    - 1.8.9
     compatible:
     - 1.7.6
     - 1.7.7
@@ -1484,6 +1487,7 @@ m_ResolvedPackages:
     - 1.8.6
     - 1.8.7
     - 1.8.8
+    - 1.8.9
     recommended: 1.7.7
     deprecated: []
   dependencies:
@@ -3850,6 +3854,7 @@ m_ResolvedPackages:
     - 1.8.21
     - 1.8.22
     - 1.8.23
+    - 1.8.24
     compatible:
     - 1.8.11
     - 1.8.12
@@ -3864,7 +3869,8 @@ m_ResolvedPackages:
     - 1.8.21
     - 1.8.22
     - 1.8.23
-    recommended: 1.8.23
+    - 1.8.24
+    recommended: 1.8.24
     deprecated: []
   dependencies:
   - name: com.unity.mathematics

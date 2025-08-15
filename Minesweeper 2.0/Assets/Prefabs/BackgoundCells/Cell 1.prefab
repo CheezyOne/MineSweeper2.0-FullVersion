@@ -127,6 +127,14 @@ MonoBehaviour:
   _meshRenderer: {fileID: 0}
   _numbers: []
   _rigidbody: {fileID: 9081688731107880823}
+  _torqueForce: 3
+  _minPushForce: 1
+  _maxPushForce: 4
+  _lifeTime: 40
+  _horizontalMinPositionChange: 30
+  _horizontalMaxPositionChange: 50
+  _verticalMinPositionChange: 20
+  _verticalMaxPositionChange: 30
 --- !u!54 &9081688731107880823
 Rigidbody:
   m_ObjectHideFlags: 0

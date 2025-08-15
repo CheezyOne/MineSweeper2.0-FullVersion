@@ -40,5 +40,6 @@ public class VictoryHandler : MonoBehaviour
         NullCounter();
         CongratsTextDesktop.SetActive(true);
         CongratsTextMobile.SetActive(true);
+        YGMetrics.ReportToYandexMetrika("Victory");
     }
 }

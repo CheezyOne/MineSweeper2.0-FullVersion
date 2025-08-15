@@ -146,6 +146,14 @@ void RegisterAllStrippedInternalCalls()
 		void Register_UnityEngine_Animator_get_hasBoundPlayables();
 		Register_UnityEngine_Animator_get_hasBoundPlayables();
 
+		//System.Int32 UnityEngine.Animator::StringToHash(System.String)
+		void Register_UnityEngine_Animator_StringToHash();
+		Register_UnityEngine_Animator_StringToHash();
+
+		//System.Void UnityEngine.Animator::Play(System.Int32,System.Int32,System.Single)
+		void Register_UnityEngine_Animator_Play();
+		Register_UnityEngine_Animator_Play();
+
 		//System.Void UnityEngine.Animator::ResetTriggerString(System.String)
 		void Register_UnityEngine_Animator_ResetTriggerString();
 		Register_UnityEngine_Animator_ResetTriggerString();
@@ -177,6 +185,14 @@ void RegisterAllStrippedInternalCalls()
 		//System.String UnityEngine.Application::get_absoluteURL()
 		void Register_UnityEngine_Application_get_absoluteURL();
 		Register_UnityEngine_Application_get_absoluteURL();
+
+		//System.String UnityEngine.Application::get_productName()
+		void Register_UnityEngine_Application_get_productName();
+		Register_UnityEngine_Application_get_productName();
+
+		//System.Void UnityEngine.Application::Internal_ExternalCall(System.String)
+		void Register_UnityEngine_Application_Internal_ExternalCall();
+		Register_UnityEngine_Application_Internal_ExternalCall();
 
 		//System.Void UnityEngine.Application::OpenURL(System.String)
 		void Register_UnityEngine_Application_OpenURL();
@@ -229,10 +245,6 @@ void RegisterAllStrippedInternalCalls()
 		//System.Void UnityEngine.AudioSource::SetPitch(UnityEngine.AudioSource,System.Single)
 		void Register_UnityEngine_AudioSource_SetPitch();
 		Register_UnityEngine_AudioSource_SetPitch();
-
-		//System.Void UnityEngine.AudioSource::set_clip(UnityEngine.AudioClip)
-		void Register_UnityEngine_AudioSource_set_clip();
-		Register_UnityEngine_AudioSource_set_clip();
 
 		//System.Void UnityEngine.AudioSource::set_volume(System.Single)
 		void Register_UnityEngine_AudioSource_set_volume();
@@ -2261,6 +2273,10 @@ void RegisterAllStrippedInternalCalls()
 		//System.Int32 UnityEngine.PhysicsScene::Internal_RaycastNonAlloc_Injected(UnityEngine.PhysicsScene&,UnityEngine.Ray&,UnityEngine.RaycastHit[],System.Single,System.Int32,UnityEngine.QueryTriggerInteraction)
 		void Register_UnityEngine_PhysicsScene_Internal_RaycastNonAlloc_Injected();
 		Register_UnityEngine_PhysicsScene_Internal_RaycastNonAlloc_Injected();
+
+		//System.Int32 UnityEngine.PhysicsScene::OverlapSphereNonAlloc_Internal_Injected(UnityEngine.PhysicsScene&,UnityEngine.Vector3&,System.Single,UnityEngine.Collider[],System.Int32,UnityEngine.QueryTriggerInteraction)
+		void Register_UnityEngine_PhysicsScene_OverlapSphereNonAlloc_Internal_Injected();
+		Register_UnityEngine_PhysicsScene_OverlapSphereNonAlloc_Internal_Injected();
 
 	//End Registrations for type : UnityEngine.PhysicsScene
 

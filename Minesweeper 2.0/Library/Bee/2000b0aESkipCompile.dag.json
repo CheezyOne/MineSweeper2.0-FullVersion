@@ -24,14 +24,20 @@
     {
       "Annotation": "BuildPlayerDataGenerator Library/BuildPlayerData/Editor/TypeDb-All.json",
       "DisplayName": "BuildPlayerDataGenerator TypeDb-All",
-      "Action": "\"B:/unity/2022.3.16f1/Editor/Data\\Tools\\netcorerun\\netcorerun.exe\" \"B:/unity/2022.3.16f1/Editor/Data/Tools/BuildPlayerDataGenerator/BuildPlayerDataGenerator.exe\" -a=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Assets\\Plugins\\Demigiant\\DOTween\\DOTween.dll\" -a=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\ScriptAssemblies\\Assembly-CSharp.dll\" -a=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\ScriptAssemblies\\Assembly-CSharp-firstpass.dll\" -a=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\ScriptAssemblies\\Unity.AI.Navigation.dll\" -a=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\ScriptAssemblies\\Unity.Recorder.Base.dll\" -a=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\ScriptAssemblies\\Unity.Recorder.dll\" -a=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\ScriptAssemblies\\Unity.TextMeshPro.dll\" -a=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\ScriptAssemblies\\Unity.Timeline.dll\" -a=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\ScriptAssemblies\\Unity.VisualScripting.Core.dll\" -a=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\ScriptAssemblies\\Unity.VisualScripting.Flow.dll\" -a=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\ScriptAssemblies\\Unity.VisualScripting.State.dll\" -a=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\ScriptAssemblies\\UnityEngine.TestRunner.dll\" -a=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\ScriptAssemblies\\UnityEngine.UI.dll\" -a=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\ScriptAssemblies\\WebGLInput.dll\" -a=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\PackageCache\\com.unity.ext.nunit@1.0.6\\net35\\unity-custom\\nunit.framework.dll\" -a=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\PackageCache\\com.unity.nuget.newtonsoft-json@3.2.1\\Runtime\\Newtonsoft.Json.dll\" -a=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\PackageCache\\com.unity.testtools.codecoverage@1.2.4\\lib\\ReportGenerator\\ReportGeneratorMerged.dll\" -a=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\PackageCache\\com.unity.visualscripting@1.9.1\\Runtime\\VisualScripting.Flow\\Dependencies\\NCalc\\Unity.VisualScripting.Antlr3.Runtime.dll\" -s=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Assets\\Plugins\\Demigiant\\DOTween\" -s=\"B:\\unity\\2022.3.16f1\\Editor\\Data\\Managed\\UnityEngine\" -s=\"B:\\unity\\2022.3.16f1\\Editor\\Data\\NetStandard\\compat\\2.1.0\\shims\\netfx\" -s=\"B:\\unity\\2022.3.16f1\\Editor\\Data\\NetStandard\\compat\\2.1.0\\shims\\netstandard\" -s=\"B:\\unity\\2022.3.16f1\\Editor\\Data\\NetStandard\\Extensions\\2.0.0\" -s=\"B:\\unity\\2022.3.16f1\\Editor\\Data\\NetStandard\\ref\\2.1.0\" -s=\"B:\\unity\\2022.3.16f1\\Editor\\Data\\PlaybackEngines\\WebGLSupport\\Managed\" -s=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\ScriptAssemblies\" -s=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\PackageCache\\com.unity.ext.nunit@1.0.6\\net35\\unity-custom\" -s=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\PackageCache\\com.unity.nuget.newtonsoft-json@3.2.1\\Runtime\" -s=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\PackageCache\\com.unity.testtools.codecoverage@1.2.4\\lib\\ReportGenerator\" -s=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\PackageCache\\com.unity.visualscripting@1.9.1\\Runtime\\VisualScripting.Flow\\Dependencies\\NCalc\" -o=\"Library/BuildPlayerData/Editor\" -rn=\"\" -tn=\"TypeDb-All.json\"",
+      "Action": "\"B:/unity/2022.3.16f1/Editor/Data\\Tools\\netcorerun\\netcorerun.exe\" \"B:/unity/2022.3.16f1/Editor/Data/Tools/BuildPlayerDataGenerator/BuildPlayerDataGenerator.exe\" -a=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Assets\\Amazing Assets\\Resize Pro\\Scripts\\AmazingAssets.ResizePro.dll\" -a=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Assets\\Plugins\\Demigiant\\DOTween\\DOTween.dll\" -a=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\ScriptAssemblies\\Assembly-CSharp.dll\" -a=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\ScriptAssemblies\\Assembly-CSharp-firstpass.dll\" -a=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\ScriptAssemblies\\Unity.AI.Navigation.dll\" -a=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\ScriptAssemblies\\Unity.Burst.dll\" -a=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\ScriptAssemblies\\Unity.Collections.dll\" -a=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\ScriptAssemblies\\Unity.Mathematics.dll\" -a=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\ScriptAssemblies\\Unity.MemoryProfiler.dll\" -a=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\ScriptAssemblies\\Unity.Profiling.Core.dll\" -a=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\ScriptAssemblies\\Unity.Recorder.Base.dll\" -a=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\ScriptAssemblies\\Unity.Recorder.dll\" -a=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\ScriptAssemblies\\Unity.TextMeshPro.dll\" -a=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\ScriptAssemblies\\Unity.Timeline.dll\" -a=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\ScriptAssemblies\\Unity.VisualScripting.Core.dll\" -a=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\ScriptAssemblies\\Unity.VisualScripting.Flow.dll\" -a=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\ScriptAssemblies\\Unity.VisualScripting.State.dll\" -a=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\ScriptAssemblies\\UnityEngine.TestRunner.dll\" -a=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\ScriptAssemblies\\UnityEngine.UI.dll\" -a=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\ScriptAssemblies\\WebGLInput.dll\" -a=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\PackageCache\\com.unity.burst@1.8.11\\Unity.Burst.CodeGen\\Unity.Burst.Cecil.dll\" -a=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\PackageCache\\com.unity.burst@1.8.11\\Unity.Burst.CodeGen\\Unity.Burst.Cecil.Mdb.dll\" -a=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\PackageCache\\com.unity.burst@1.8.11\\Unity.Burst.CodeGen\\Unity.Burst.Cecil.Pdb.dll\" -a=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\PackageCache\\com.unity.burst@1.8.11\\Unity.Burst.CodeGen\\Unity.Burst.Cecil.Rocks.dll\" -a=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\PackageCache\\com.unity.burst@1.8.11\\Unity.Burst.Unsafe.dll\" -a=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\PackageCache\\com.unity.collections@1.2.4\\Unity.Collections.LowLevel.ILSupport\\Unity.Collections.LowLevel.ILSupport.dll\" -a=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\PackageCache\\com.unity.ext.nunit@1.0.6\\net35\\unity-custom\\nunit.framework.dll\" -a=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\PackageCache\\com.unity.nuget.newtonsoft-json@3.2.1\\Runtime\\Newtonsoft.Json.dll\" -a=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\PackageCache\\com.unity.testtools.codecoverage@1.2.4\\lib\\ReportGenerator\\ReportGeneratorMerged.dll\" -a=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\PackageCache\\com.unity.visualscripting@1.9.1\\Runtime\\VisualScripting.Flow\\Dependencies\\NCalc\\Unity.VisualScripting.Antlr3.Runtime.dll\" -s=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Assets\\Amazing Assets\\Resize Pro\\Scripts\" -s=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Assets\\Plugins\\Demigiant\\DOTween\" -s=\"B:\\unity\\2022.3.16f1\\Editor\\Data\\Managed\\UnityEngine\" -s=\"B:\\unity\\2022.3.16f1\\Editor\\Data\\NetStandard\\compat\\2.1.0\\shims\\netfx\" -s=\"B:\\unity\\2022.3.16f1\\Editor\\Data\\NetStandard\\compat\\2.1.0\\shims\\netstandard\" -s=\"B:\\unity\\2022.3.16f1\\Editor\\Data\\NetStandard\\Extensions\\2.0.0\" -s=\"B:\\unity\\2022.3.16f1\\Editor\\Data\\NetStandard\\ref\\2.1.0\" -s=\"B:\\unity\\2022.3.16f1\\Editor\\Data\\PlaybackEngines\\WebGLSupport\\Managed\" -s=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\ScriptAssemblies\" -s=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\PackageCache\\com.unity.burst@1.8.11\" -s=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\PackageCache\\com.unity.burst@1.8.11\\Unity.Burst.CodeGen\" -s=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\PackageCache\\com.unity.collections@1.2.4\\Unity.Collections.LowLevel.ILSupport\" -s=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\PackageCache\\com.unity.ext.nunit@1.0.6\\net35\\unity-custom\" -s=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\PackageCache\\com.unity.nuget.newtonsoft-json@3.2.1\\Runtime\" -s=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\PackageCache\\com.unity.testtools.codecoverage@1.2.4\\lib\\ReportGenerator\" -s=\"B:\\MyGames\\MineSweeper\\MineSweeper2.0-FullVersion\\Minesweeper 2.0\\Library\\PackageCache\\com.unity.visualscripting@1.9.1\\Runtime\\VisualScripting.Flow\\Dependencies\\NCalc\" -o=\"Library/BuildPlayerData/Editor\" -rn=\"\" -tn=\"TypeDb-All.json\"",
       "Inputs": [
         "B:/unity/2022.3.16f1/Editor/Data/Tools/netcorerun/netcorerun.exe",
         "B:/unity/2022.3.16f1/Editor/Data/Tools/BuildPlayerDataGenerator/BuildPlayerDataGenerator.exe",
+        "Assets/Amazing Assets/Resize Pro/Scripts/AmazingAssets.ResizePro.dll",
         "Assets/Plugins/Demigiant/DOTween/DOTween.dll",
         "Library/ScriptAssemblies/Assembly-CSharp.dll",
         "Library/ScriptAssemblies/Assembly-CSharp-firstpass.dll",
         "Library/ScriptAssemblies/Unity.AI.Navigation.dll",
+        "Library/ScriptAssemblies/Unity.Burst.dll",
+        "Library/ScriptAssemblies/Unity.Collections.dll",
+        "Library/ScriptAssemblies/Unity.Mathematics.dll",
+        "Library/ScriptAssemblies/Unity.MemoryProfiler.dll",
+        "Library/ScriptAssemblies/Unity.Profiling.Core.dll",
         "Library/ScriptAssemblies/Unity.Recorder.Base.dll",
         "Library/ScriptAssemblies/Unity.Recorder.dll",
         "Library/ScriptAssemblies/Unity.TextMeshPro.dll",
@@ -42,6 +48,12 @@
         "Library/ScriptAssemblies/UnityEngine.TestRunner.dll",
         "Library/ScriptAssemblies/UnityEngine.UI.dll",
         "Library/ScriptAssemblies/WebGLInput.dll",
+        "Library/PackageCache/com.unity.burst@1.8.11/Unity.Burst.CodeGen/Unity.Burst.Cecil.dll",
+        "Library/PackageCache/com.unity.burst@1.8.11/Unity.Burst.CodeGen/Unity.Burst.Cecil.Mdb.dll",
+        "Library/PackageCache/com.unity.burst@1.8.11/Unity.Burst.CodeGen/Unity.Burst.Cecil.Pdb.dll",
+        "Library/PackageCache/com.unity.burst@1.8.11/Unity.Burst.CodeGen/Unity.Burst.Cecil.Rocks.dll",
+        "Library/PackageCache/com.unity.burst@1.8.11/Unity.Burst.Unsafe.dll",
+        "Library/PackageCache/com.unity.collections@1.2.4/Unity.Collections.LowLevel.ILSupport/Unity.Collections.LowLevel.ILSupport.dll",
         "Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll",
         "Library/PackageCache/com.unity.nuget.newtonsoft-json@3.2.1/Runtime/Newtonsoft.Json.dll",
         "Library/PackageCache/com.unity.testtools.codecoverage@1.2.4/lib/ReportGenerator/ReportGeneratorMerged.dll",
@@ -176,6 +188,9 @@
   ],
   "StatSignatures": [
     {
+      "File": "Assets/Amazing Assets/Resize Pro/Scripts/AmazingAssets.ResizePro.dll"
+    },
+    {
       "File": "Assets/csc.rsp"
     },
     {
@@ -186,6 +201,24 @@
     },
     {
       "File": "Library/Bee/2000b0aESkipCompile-inputdata.json"
+    },
+    {
+      "File": "Library/PackageCache/com.unity.burst@1.8.11/Unity.Burst.CodeGen/Unity.Burst.Cecil.dll"
+    },
+    {
+      "File": "Library/PackageCache/com.unity.burst@1.8.11/Unity.Burst.CodeGen/Unity.Burst.Cecil.Mdb.dll"
+    },
+    {
+      "File": "Library/PackageCache/com.unity.burst@1.8.11/Unity.Burst.CodeGen/Unity.Burst.Cecil.Pdb.dll"
+    },
+    {
+      "File": "Library/PackageCache/com.unity.burst@1.8.11/Unity.Burst.CodeGen/Unity.Burst.Cecil.Rocks.dll"
+    },
+    {
+      "File": "Library/PackageCache/com.unity.burst@1.8.11/Unity.Burst.Unsafe.dll"
+    },
+    {
+      "File": "Library/PackageCache/com.unity.collections@1.2.4/Unity.Collections.LowLevel.ILSupport/Unity.Collections.LowLevel.ILSupport.dll"
     },
     {
       "File": "Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll"
@@ -207,6 +240,21 @@
     },
     {
       "File": "Library/ScriptAssemblies/Unity.AI.Navigation.dll"
+    },
+    {
+      "File": "Library/ScriptAssemblies/Unity.Burst.dll"
+    },
+    {
+      "File": "Library/ScriptAssemblies/Unity.Collections.dll"
+    },
+    {
+      "File": "Library/ScriptAssemblies/Unity.Mathematics.dll"
+    },
+    {
+      "File": "Library/ScriptAssemblies/Unity.MemoryProfiler.dll"
+    },
+    {
+      "File": "Library/ScriptAssemblies/Unity.Profiling.Core.dll"
     },
     {
       "File": "Library/ScriptAssemblies/Unity.Recorder.Base.dll"

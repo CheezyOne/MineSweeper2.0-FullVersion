@@ -5,7 +5,10 @@ using YG;
 public class YandexLB : MonoBehaviour
 {
     [SerializeField] private GameObject MinesApplier, MovingBombsHandler;
+    [SerializeField] private string _leaderboardName;
+
     private int HighScore;
+    
     private void OnEnable()
     {
         VictoryHandler.onGameWon += AddScoreToLeaderboard;
@@ -64,6 +67,6 @@ public class YandexLB : MonoBehaviour
         HighScore += Convert.ToInt32(CountScore());
         YandexGame.savesData.highScore = HighScore;
         YandexGame.SaveProgress();
-        YandexGame.NewLeaderboardScores("Leaderboard", HighScore);
+        YandexGame.NewLeaderboardScores(_leaderboardName, HighScore);
     }
 }

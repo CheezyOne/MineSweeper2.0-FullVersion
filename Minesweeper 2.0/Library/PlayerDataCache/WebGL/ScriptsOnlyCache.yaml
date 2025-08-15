@@ -7,6 +7,7 @@ ScriptsOnlyBuild:
     - ButtonsInMenu
     - Cell
     - ClickRegister
+    - ContinueWindow
     - FieldGeneration
     - FieldSizeMenu
     - GameModesSystem
@@ -22,6 +23,7 @@ ScriptsOnlyBuild:
     - MobileButtonsSet
     - MobileCanvasSwapper
     - MovingCamera
+    - OptionsCanvas
     - OptionsHandler
     - PlusMinusButtons
     - ShowTrails
@@ -30,10 +32,15 @@ ScriptsOnlyBuild:
     - Sounds
     - StartingSequence
     - TextLocalization
+    - TutorialHand
+    - TutorialWindow
     - VictoryHandler
+    - WindowsManager
     - YG.InfoYG
     - YG.ViewingAdsYG
     - YG.YandexGame
+    - YGMetrics
+    - YGRewardedAd
     - YandexLB
     DOTween.dll:
     - DG.Tweening.Core.DOTweenSettings
@@ -66,11 +73,12 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Image
     - UnityEngine.UI.InputField
     - UnityEngine.UI.LayoutElement
+    - UnityEngine.UI.RawImage
     - UnityEngine.UI.RectMask2D
     - UnityEngine.UI.Text
+    - UnityEngine.UI.Toggle
     WebGLInput.dll:
     - WebGLSupport.WebGLInput
-    - WebGLSupport.WebGLInputMobile
   serializedClasses:
     Assembly-CSharp:
     - YG.InfoYG/CSVTranslate
@@ -131,11 +139,30 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.MaskableGraphic/CullStateChangedEvent
     - UnityEngine.UI.Navigation
     - UnityEngine.UI.SpriteState
+    - UnityEngine.UI.Toggle/ToggleEvent
   methodsToPreserve:
+  - assembly: Assembly-CSharp
+    fullTypeName: TutorialWindow
+    methodName: NextTutorial
+  - assembly: Assembly-CSharp
+    fullTypeName: TutorialWindow
+    methodName: NextTutorial
+  - assembly: Assembly-CSharp
+    fullTypeName: ContinueWindow
+    methodName: OnNoButton
+  - assembly: Assembly-CSharp
+    fullTypeName: ContinueWindow
+    methodName: OnYesButton
   - assembly: Assembly-CSharp
     fullTypeName: OptionsHandler
     methodName: EscapeButton
   - assembly: Assembly-CSharp
+    fullTypeName: InfoAboutModes
+    methodName: OnQuestionOver
+  - assembly: Assembly-CSharp
+    fullTypeName: InfoAboutModes
+    methodName: OnQuestionExit
+  - assembly: Assembly-CSharp
     fullTypeName: ButtonsInMenu
     methodName: PlayButton
   - assembly: Assembly-CSharp
@@ -168,6 +195,18 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: GameModesSystem
     methodName: PlayButtonSound
+  - assembly: Assembly-CSharp
+    fullTypeName: FieldSizeMenu
+    methodName: EditEndStringsSize
+  - assembly: Assembly-CSharp
+    fullTypeName: FieldSizeMenu
+    methodName: EditEndStringsSize
+  - assembly: Assembly-CSharp
+    fullTypeName: FieldSizeMenu
+    methodName: EditEndStringsSize
+  - assembly: Assembly-CSharp
+    fullTypeName: FieldSizeMenu
+    methodName: ChangeStringsSize
   - assembly: Assembly-CSharp
     fullTypeName: InGameButtons
     methodName: GameExit
@@ -202,11 +241,38 @@ ScriptsOnlyBuild:
     fullTypeName: ButtonsInMenu
     methodName: ChangeMapNameRight
   - assembly: Assembly-CSharp
+    fullTypeName: FieldSizeMenu
+    methodName: EditEndBoth
+  - assembly: Assembly-CSharp
+    fullTypeName: FieldSizeMenu
+    methodName: EditEndBoth
+  - assembly: Assembly-CSharp
+    fullTypeName: FieldSizeMenu
+    methodName: EditEndBoth
+  - assembly: Assembly-CSharp
+    fullTypeName: FieldSizeMenu
+    methodName: ChangeBoth
+  - assembly: Assembly-CSharp
     fullTypeName: InGameButtons
     methodName: SetBombs
   - assembly: Assembly-CSharp
     fullTypeName: SoundButtons
     methodName: SoundsButtonFun
+  - assembly: Assembly-CSharp
+    fullTypeName: OptionsCanvas
+    methodName: OnAdOfferingToggle
+  - assembly: Assembly-CSharp
+    fullTypeName: BombsAmountMenu
+    methodName: EditEndBombs
+  - assembly: Assembly-CSharp
+    fullTypeName: BombsAmountMenu
+    methodName: EditEndBombs
+  - assembly: Assembly-CSharp
+    fullTypeName: BombsAmountMenu
+    methodName: EditEndBombs
+  - assembly: Assembly-CSharp
+    fullTypeName: BombsAmountMenu
+    methodName: ChangeBombs
   - assembly: Assembly-CSharp
     fullTypeName: GameModesSystem
     methodName: LyingCells
@@ -223,6 +289,12 @@ ScriptsOnlyBuild:
     fullTypeName: FieldSizeMenu
     methodName: ChangeBoth
   - assembly: Assembly-CSharp
+    fullTypeName: GameModesSystem
+    methodName: Bariers
+  - assembly: Assembly-CSharp
+    fullTypeName: GameModesSystem
+    methodName: PlayButtonSound
+  - assembly: Assembly-CSharp
     fullTypeName: InfoAboutModes
     methodName: OnQuestionOver
   - assembly: Assembly-CSharp
@@ -232,8 +304,20 @@ ScriptsOnlyBuild:
     fullTypeName: OptionsHandler
     methodName: OpenOptions
   - assembly: Assembly-CSharp
+    fullTypeName: GameModesSystem
+    methodName: Timer
+  - assembly: Assembly-CSharp
+    fullTypeName: GameModesSystem
+    methodName: PlayButtonSound
+  - assembly: Assembly-CSharp
     fullTypeName: LanguageController
     methodName: ChangeLanguageButton
+  - assembly: Assembly-CSharp
+    fullTypeName: GameModesSystem
+    methodName: LyingCells
+  - assembly: Assembly-CSharp
+    fullTypeName: GameModesSystem
+    methodName: PlayButtonSound
   - assembly: Assembly-CSharp
     fullTypeName: GameModesSystem
     methodName: Timer
@@ -243,6 +327,12 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: ButtonsInMenu
     methodName: ChangeMapNameLeft
+  - assembly: Assembly-CSharp
+    fullTypeName: InfoAboutModes
+    methodName: OnQuestionOver
+  - assembly: Assembly-CSharp
+    fullTypeName: InfoAboutModes
+    methodName: OnQuestionExit
   - assembly: Assembly-CSharp
     fullTypeName: InGameButtons
     methodName: RestartButton
@@ -268,6 +358,18 @@ ScriptsOnlyBuild:
     fullTypeName: FieldSizeMenu
     methodName: ChangeStringsSize
   - assembly: Assembly-CSharp
+    fullTypeName: BombsAmountMenu
+    methodName: EditEndBombs
+  - assembly: Assembly-CSharp
+    fullTypeName: BombsAmountMenu
+    methodName: EditEndBombs
+  - assembly: Assembly-CSharp
+    fullTypeName: BombsAmountMenu
+    methodName: EditEndBombs
+  - assembly: Assembly-CSharp
+    fullTypeName: BombsAmountMenu
+    methodName: ChangeBombs
+  - assembly: Assembly-CSharp
     fullTypeName: InGameButtons
     methodName: RestartButton
   - assembly: Assembly-CSharp
@@ -276,6 +378,24 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: SoundButtons
     methodName: MusicButtonFun
+  - assembly: Assembly-CSharp
+    fullTypeName: InfoAboutModes
+    methodName: OnQuestionOver
+  - assembly: Assembly-CSharp
+    fullTypeName: InfoAboutModes
+    methodName: OnQuestionExit
+  - assembly: Assembly-CSharp
+    fullTypeName: FieldSizeMenu
+    methodName: EditEndBoth
+  - assembly: Assembly-CSharp
+    fullTypeName: FieldSizeMenu
+    methodName: EditEndBoth
+  - assembly: Assembly-CSharp
+    fullTypeName: FieldSizeMenu
+    methodName: EditEndBoth
+  - assembly: Assembly-CSharp
+    fullTypeName: FieldSizeMenu
+    methodName: ChangeBoth
   - assembly: Assembly-CSharp
     fullTypeName: GameModesSystem
     methodName: LyingCells
@@ -313,8 +433,17 @@ ScriptsOnlyBuild:
     fullTypeName: ButtonsInMenu
     methodName: ChangeMapNameLeft
   - assembly: Assembly-CSharp
+    fullTypeName: GameModesSystem
+    methodName: MovingBombs
+  - assembly: Assembly-CSharp
+    fullTypeName: GameModesSystem
+    methodName: PlayButtonSound
+  - assembly: Assembly-CSharp
     fullTypeName: SoundButtons
     methodName: MusicButtonFun
+  - assembly: Assembly-CSharp
+    fullTypeName: ButtonsInMenu
+    methodName: OpenTutorial
   - assembly: Assembly-CSharp
     fullTypeName: SoundButtons
     methodName: SoundsButtonFun
@@ -376,6 +505,18 @@ ScriptsOnlyBuild:
     fullTypeName: GameModesSystem
     methodName: PlayButtonSound
   - assembly: Assembly-CSharp
+    fullTypeName: FieldSizeMenu
+    methodName: EditEndColomnsSize
+  - assembly: Assembly-CSharp
+    fullTypeName: FieldSizeMenu
+    methodName: EditEndColomnsSize
+  - assembly: Assembly-CSharp
+    fullTypeName: FieldSizeMenu
+    methodName: EditEndColomnsSize
+  - assembly: Assembly-CSharp
+    fullTypeName: FieldSizeMenu
+    methodName: ChangeColomnsSize
+  - assembly: Assembly-CSharp
     fullTypeName: GameModesSystem
     methodName: Bariers
   - assembly: Assembly-CSharp
@@ -387,6 +528,12 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: GameModesSystem
     methodName: PlayButtonSound
+  - assembly: Assembly-CSharp
+    fullTypeName: InfoAboutModes
+    methodName: OnQuestionOver
+  - assembly: Assembly-CSharp
+    fullTypeName: InfoAboutModes
+    methodName: OnQuestionExit
   - assembly: Assembly-CSharp
     fullTypeName: FieldSizeMenu
     methodName: EditEndColomnsSize
@@ -406,14 +553,11 @@ ScriptsOnlyBuild:
     fullTypeName: YG.YandexGame
     methodName: _FullscreenShow
   - assembly: Assembly-CSharp
-    fullTypeName: BombsAmountMenu
-    methodName: EditEndColomnsSize
+    fullTypeName: InfoAboutModes
+    methodName: OnQuestionOver
   - assembly: Assembly-CSharp
-    fullTypeName: BombsAmountMenu
-    methodName: EditEndColomnsSize
-  - assembly: Assembly-CSharp
-    fullTypeName: BombsAmountMenu
-    methodName: ChangeColomnsSize
+    fullTypeName: InfoAboutModes
+    methodName: OnQuestionExit
   - assembly: Assembly-CSharp
     fullTypeName: InfoAboutModes
     methodName: OnQuestionOver
@@ -421,14 +565,14 @@ ScriptsOnlyBuild:
     fullTypeName: InfoAboutModes
     methodName: OnQuestionExit
   - assembly: Assembly-CSharp
-    fullTypeName: BombsAmountMenu
-    methodName: EditEndColomnsSize
+    fullTypeName: GameModesSystem
+    methodName: TwoBombTypes
   - assembly: Assembly-CSharp
-    fullTypeName: BombsAmountMenu
-    methodName: EditEndColomnsSize
+    fullTypeName: GameModesSystem
+    methodName: PlayButtonSound
   - assembly: Assembly-CSharp
-    fullTypeName: BombsAmountMenu
-    methodName: ChangeColomnsSize
+    fullTypeName: ButtonsInMenu
+    methodName: OpenTutorial
   - assembly: Assembly-CSharp
     fullTypeName: FieldSizeMenu
     methodName: EditEndStringsSize
@@ -477,13 +621,21 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 65
       Script: {instanceID: 0}
+    - Class: 74
+      Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
     - Class: 82
       Script: {instanceID: 0}
     - Class: 83
       Script: {instanceID: 0}
+    - Class: 84
+      Script: {instanceID: 0}
     - Class: 89
+      Script: {instanceID: 0}
+    - Class: 91
+      Script: {instanceID: 0}
+    - Class: 95
       Script: {instanceID: 0}
     - Class: 96
       Script: {instanceID: 0}
@@ -492,115 +644,131 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 16656}
+      Script: {instanceID: 16672}
     - Class: 114
-      Script: {instanceID: 16658}
+      Script: {instanceID: 16674}
     - Class: 114
-      Script: {instanceID: 16682}
+      Script: {instanceID: 16676}
     - Class: 114
-      Script: {instanceID: 16714}
+      Script: {instanceID: 16702}
     - Class: 114
-      Script: {instanceID: 16740}
+      Script: {instanceID: 16744}
     - Class: 114
-      Script: {instanceID: 16862}
+      Script: {instanceID: 16774}
     - Class: 114
-      Script: {instanceID: 16928}
+      Script: {instanceID: 16910}
     - Class: 114
-      Script: {instanceID: 16946}
+      Script: {instanceID: 16956}
     - Class: 114
-      Script: {instanceID: 16952}
+      Script: {instanceID: 16992}
     - Class: 114
-      Script: {instanceID: 17050}
+      Script: {instanceID: 17016}
     - Class: 114
-      Script: {instanceID: 17350}
+      Script: {instanceID: 17022}
     - Class: 114
-      Script: {instanceID: 17358}
+      Script: {instanceID: 17140}
     - Class: 114
-      Script: {instanceID: 17366}
+      Script: {instanceID: 17154}
     - Class: 114
-      Script: {instanceID: 17792}
+      Script: {instanceID: 17504}
     - Class: 114
-      Script: {instanceID: 17926}
+      Script: {instanceID: 17512}
     - Class: 114
-      Script: {instanceID: 18006}
+      Script: {instanceID: 17524}
     - Class: 114
-      Script: {instanceID: 18020}
+      Script: {instanceID: 18038}
     - Class: 114
-      Script: {instanceID: 18058}
+      Script: {instanceID: 18202}
     - Class: 114
-      Script: {instanceID: 18232}
+      Script: {instanceID: 18302}
     - Class: 114
-      Script: {instanceID: 18234}
+      Script: {instanceID: 18318}
     - Class: 114
-      Script: {instanceID: 18432}
+      Script: {instanceID: 18358}
     - Class: 114
-      Script: {instanceID: 18676}
+      Script: {instanceID: 18562}
     - Class: 114
-      Script: {instanceID: 18756}
+      Script: {instanceID: 18568}
     - Class: 114
-      Script: {instanceID: 18788}
+      Script: {instanceID: 18588}
     - Class: 114
-      Script: {instanceID: 18926}
+      Script: {instanceID: 18802}
     - Class: 114
-      Script: {instanceID: 19156}
+      Script: {instanceID: 19120}
     - Class: 114
-      Script: {instanceID: 19356}
+      Script: {instanceID: 19220}
     - Class: 114
-      Script: {instanceID: 19388}
+      Script: {instanceID: 19254}
     - Class: 114
-      Script: {instanceID: 19404}
+      Script: {instanceID: 19416}
     - Class: 114
-      Script: {instanceID: 19672}
+      Script: {instanceID: 19696}
     - Class: 114
-      Script: {instanceID: 20142}
+      Script: {instanceID: 19932}
     - Class: 114
-      Script: {instanceID: 20224}
+      Script: {instanceID: 19968}
     - Class: 114
-      Script: {instanceID: 20360}
+      Script: {instanceID: 19988}
     - Class: 114
-      Script: {instanceID: 20408}
+      Script: {instanceID: 20306}
     - Class: 114
-      Script: {instanceID: 20426}
+      Script: {instanceID: 20690}
     - Class: 114
-      Script: {instanceID: 20466}
+      Script: {instanceID: 20860}
     - Class: 114
-      Script: {instanceID: 20496}
+      Script: {instanceID: 20958}
     - Class: 114
-      Script: {instanceID: 20662}
+      Script: {instanceID: 21038}
     - Class: 114
-      Script: {instanceID: 20718}
+      Script: {instanceID: 21062}
     - Class: 114
-      Script: {instanceID: 20844}
+      Script: {instanceID: 21142}
     - Class: 114
-      Script: {instanceID: 21032}
+      Script: {instanceID: 21202}
     - Class: 114
-      Script: {instanceID: 21188}
+      Script: {instanceID: 21224}
     - Class: 114
-      Script: {instanceID: 21206}
+      Script: {instanceID: 21272}
     - Class: 114
-      Script: {instanceID: 21430}
+      Script: {instanceID: 21308}
     - Class: 114
-      Script: {instanceID: 21562}
+      Script: {instanceID: 21486}
     - Class: 114
-      Script: {instanceID: 21758}
+      Script: {instanceID: 21546}
     - Class: 114
-      Script: {instanceID: 21822}
+      Script: {instanceID: 21698}
     - Class: 114
-      Script: {instanceID: 21856}
+      Script: {instanceID: 21922}
     - Class: 114
-      Script: {instanceID: 22004}
+      Script: {instanceID: 22116}
     - Class: 114
-      Script: {instanceID: 22118}
+      Script: {instanceID: 22134}
     - Class: 114
-      Script: {instanceID: 22334}
+      Script: {instanceID: 22398}
     - Class: 114
-      Script: {instanceID: 23166}
+      Script: {instanceID: 22516}
     - Class: 114
-      Script: {instanceID: 23336}
+      Script: {instanceID: 22556}
     - Class: 114
-      Script: {instanceID: 53876}
+      Script: {instanceID: 22798}
     - Class: 114
-      Script: {instanceID: 53900}
+      Script: {instanceID: 22870}
+    - Class: 114
+      Script: {instanceID: 22906}
+    - Class: 114
+      Script: {instanceID: 23074}
+    - Class: 114
+      Script: {instanceID: 23196}
+    - Class: 114
+      Script: {instanceID: 23294}
+    - Class: 114
+      Script: {instanceID: 23446}
+    - Class: 114
+      Script: {instanceID: 23998}
+    - Class: 114
+      Script: {instanceID: 24474}
+    - Class: 114
+      Script: {instanceID: 24678}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -630,6 +798,8 @@ ScriptsOnlyBuild:
     - Class: 243
       Script: {instanceID: 0}
     - Class: 245
+      Script: {instanceID: 0}
+    - Class: 328
       Script: {instanceID: 0}
   scriptHashData:
   - hash:
@@ -724,6 +894,12 @@ ScriptsOnlyBuild:
     className: Selectable
   - hash:
       serializedVersion: 2
+      Hash: eead7ea968dc30a51032d7def1103c2b
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: OptionsCanvas
+  - hash:
+      serializedVersion: 2
       Hash: 231b192de296c66e6d27791f43d70f11
     assemblyName: Assembly-CSharp
     namespaceName: 
@@ -736,7 +912,7 @@ ScriptsOnlyBuild:
     className: Shadow
   - hash:
       serializedVersion: 2
-      Hash: b01320b56c5e776eea7e9f1cac3a0d69
+      Hash: e1d1b6be0ed49468d764de8f660bf017
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: ButtonsInMenu
@@ -748,7 +924,7 @@ ScriptsOnlyBuild:
     className: UnityOnCollisionStayMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 9609b16d44ded0da4bde2fb3a062c576
+      Hash: 435f7873fe7a4d1d905a801aeadc1653
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: BombsAmountMenu
@@ -760,10 +936,22 @@ ScriptsOnlyBuild:
     className: UnityOnMouseExitMessageListener
   - hash:
       serializedVersion: 2
+      Hash: 678eb00b122f254da80ed9fc806a3c81
+    assemblyName: WebGLInput
+    namespaceName: WebGLSupport
+    className: WebGLInput
+  - hash:
+      serializedVersion: 2
       Hash: 51350bc0677d2e0d8fdca603acca3672
     assemblyName: Assembly-CSharp
     namespaceName: YG
     className: InfoYG
+  - hash:
+      serializedVersion: 2
+      Hash: 10d643bace0304e5c13a1413279d2a9f
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: EventBus
   - hash:
       serializedVersion: 2
       Hash: b12640dfdb5966813e9dd838893e6c4a
@@ -838,16 +1026,16 @@ ScriptsOnlyBuild:
     className: TMP_Dropdown
   - hash:
       serializedVersion: 2
-      Hash: f295412bc00b58b9095a71e9764cc886
-    assemblyName: Unity.Timeline
-    namespaceName: UnityEngine.Timeline
-    className: AudioTrack
-  - hash:
-      serializedVersion: 2
       Hash: 04b6685b6f724c0d6024e6b6f96c8202
     assemblyName: Unity.Timeline
     namespaceName: UnityEngine.Timeline
     className: TimelineAsset
+  - hash:
+      serializedVersion: 2
+      Hash: f295412bc00b58b9095a71e9764cc886
+    assemblyName: Unity.Timeline
+    namespaceName: UnityEngine.Timeline
+    className: AudioTrack
   - hash:
       serializedVersion: 2
       Hash: ada873da50974d1e7ce247ffb296b0f3
@@ -886,7 +1074,7 @@ ScriptsOnlyBuild:
     className: GraphicRaycaster
   - hash:
       serializedVersion: 2
-      Hash: 61d2c01e71054429d927cbfca6af58a6
+      Hash: 6b172b6e2c160e60d8cf2d08d04ccc2d
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: InGameButtons
@@ -928,6 +1116,12 @@ ScriptsOnlyBuild:
     className: TestResultRendererCallback
   - hash:
       serializedVersion: 2
+      Hash: 4001f3727b45ffa51ecc45ba969b4108
+    assemblyName: Unity.Recorder
+    namespaceName: UnityEngine.Recorder
+    className: RecorderBindings
+  - hash:
+      serializedVersion: 2
       Hash: b98001682cba83786775c9e415b89a61
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
@@ -940,10 +1134,16 @@ ScriptsOnlyBuild:
     className: MovingCamera
   - hash:
       serializedVersion: 2
-      Hash: 8fdf02f5381428af3020b1b654a8d983
+      Hash: 66a467ed55bfc41b37028e2b392267f9
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: FieldGeneration
+  - hash:
+      serializedVersion: 2
+      Hash: fd8d44ff36014d5099843f079804b267
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: YGRewardedAd
   - hash:
       serializedVersion: 2
       Hash: a1ac4c50e55874de16eee3db71aa9784
@@ -952,16 +1152,16 @@ ScriptsOnlyBuild:
     className: ToggleGroup
   - hash:
       serializedVersion: 2
-      Hash: d90629714fa6b0145fcaffc87f5c6559
-    assemblyName: Unity.VisualScripting.Core
-    namespaceName: Unity.VisualScripting
-    className: UnityOnInputFieldValueChangedMessageListener
-  - hash:
-      serializedVersion: 2
       Hash: bb8d968ef4474e71aaad4a4dce279f90
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnMouseDownMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: d90629714fa6b0145fcaffc87f5c6559
+    assemblyName: Unity.VisualScripting.Core
+    namespaceName: Unity.VisualScripting
+    className: UnityOnInputFieldValueChangedMessageListener
   - hash:
       serializedVersion: 2
       Hash: b6307dfc54cca9ba44f47185c578b0ce
@@ -1042,7 +1242,7 @@ ScriptsOnlyBuild:
     className: UnityOnControllerColliderHitMessageListener
   - hash:
       serializedVersion: 2
-      Hash: bd9852a4486d9f5876cfe884121c84be
+      Hash: b8f940764adac949fe29602054635c73
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: Cell
@@ -1108,7 +1308,7 @@ ScriptsOnlyBuild:
     className: Mask
   - hash:
       serializedVersion: 2
-      Hash: 116f48af49c5b822410beb7663f7ea95
+      Hash: 968341f83acddda8cd981b51932549d4
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: InfoAboutModes
@@ -1222,6 +1422,12 @@ ScriptsOnlyBuild:
     className: LBPlayerDataYG
   - hash:
       serializedVersion: 2
+      Hash: 7fed9f7ad497448352a97fbf329a14e2
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: TutorialHand
+  - hash:
+      serializedVersion: 2
       Hash: 0b63f6d3335e11939ce8790b904c8691
     assemblyName: Unity.Timeline
     namespaceName: UnityEngine.Timeline
@@ -1306,6 +1512,12 @@ ScriptsOnlyBuild:
     className: Toggle
   - hash:
       serializedVersion: 2
+      Hash: d7c66ba673981fcdd3ca5e9cf62637a2
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: ContinueWindow
+  - hash:
+      serializedVersion: 2
       Hash: 522f6865b4ec12522e602206785309f8
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
@@ -1324,16 +1536,10 @@ ScriptsOnlyBuild:
     className: GetPlayerYG
   - hash:
       serializedVersion: 2
-      Hash: 587a449ca5944a160b831108ba9187d3
+      Hash: 54f7678dcf2388fb5f9460714d781295
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: InGameTimer
-  - hash:
-      serializedVersion: 2
-      Hash: 191cd500c627cd6682ef6f70b8e47f2c
-    assemblyName: Unity.VisualScripting.Core
-    namespaceName: Unity.VisualScripting
-    className: UnityOnCollisionEnter2DMessageListener
   - hash:
       serializedVersion: 2
       Hash: 0c0b64d103fe555d830e8ca206abd12a
@@ -1342,7 +1548,13 @@ ScriptsOnlyBuild:
     className: UnityOnTriggerExitMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 01fa754511c1881f60d42da84de11191
+      Hash: 191cd500c627cd6682ef6f70b8e47f2c
+    assemblyName: Unity.VisualScripting.Core
+    namespaceName: Unity.VisualScripting
+    className: UnityOnCollisionEnter2DMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: b12164660a11c410a965a0bc07770475
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: YandexLB
@@ -1486,7 +1698,7 @@ ScriptsOnlyBuild:
     className: UnityOnMouseUpAsButtonMessageListener
   - hash:
       serializedVersion: 2
-      Hash: c40ccfec2866496f797c8fbe701dbf9f
+      Hash: f67d27181028b983bb20dc380545ce1f
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: Sounds
@@ -1496,6 +1708,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnTriggerStay2DMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: 63e3dd464cdc00bc6ed7c1e74c1f7cb9
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: YGMetrics
   - hash:
       serializedVersion: 2
       Hash: 9104447b683bf70406fa01f12ecb564a
@@ -1606,7 +1824,7 @@ ScriptsOnlyBuild:
     className: UnityOnTriggerEnter2DMessageListener
   - hash:
       serializedVersion: 2
-      Hash: bc228db7670f57fcbd616287620cf2f8
+      Hash: 8ac687369d7c480eb05ac0f73180e530
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: MenuCubes
@@ -1636,10 +1854,22 @@ ScriptsOnlyBuild:
     className: PlayModeRunnerCallback
   - hash:
       serializedVersion: 2
+      Hash: 33733d8a9d833566f080f4c110ba3228
+    assemblyName: WebGLInput
+    namespaceName: WebGLSupport
+    className: WebGLInputMobile
+  - hash:
+      serializedVersion: 2
       Hash: afb7b65d28d5a7423e69a1b076be0064
     assemblyName: UnityEngine.UI
     namespaceName: UnityEngine.UI
     className: PositionAsUV1
+  - hash:
+      serializedVersion: 2
+      Hash: 47f2a05dfc08449321c0ae03e26f5a24
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: TutorialWindow
   - hash:
       serializedVersion: 2
       Hash: 6a0b5b415c00f783202fd1ae2d556cb2
@@ -1726,10 +1956,22 @@ ScriptsOnlyBuild:
     className: ForVisualScriptYG
   - hash:
       serializedVersion: 2
+      Hash: 73e387584436d38c4d79dc196ec587e2
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: WindowsManager
+  - hash:
+      serializedVersion: 2
       Hash: 3202a3103561317463dd43264d2ab0bb
     assemblyName: Assembly-CSharp
     namespaceName: YG
     className: PaymentsCatalogYG
+  - hash:
+      serializedVersion: 2
+      Hash: fe916c3ab7c54bcc71ee669e0fbf1073
+    assemblyName: WebGLInput
+    namespaceName: WebGLSupport
+    className: WebGLUIToolkitTextField
   - hash:
       serializedVersion: 2
       Hash: 9a174471d4db2c0c6d3ac47d2f818db1
@@ -1826,24 +2068,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnSliderValueChangedMessageListener
-  - hash:
-      serializedVersion: 2
-      Hash: 33733d8a9d833566f080f4c110ba3228
-    assemblyName: WebGLInput
-    namespaceName: WebGLSupport
-    className: WebGLInputMobile
-  - hash:
-      serializedVersion: 2
-      Hash: fe916c3ab7c54bcc71ee669e0fbf1073
-    assemblyName: WebGLInput
-    namespaceName: WebGLSupport
-    className: WebGLUIToolkitTextField
-  - hash:
-      serializedVersion: 2
-      Hash: 678eb00b122f254da80ed9fc806a3c81
-    assemblyName: WebGLInput
-    namespaceName: WebGLSupport
-    className: WebGLInput
   platform: 20
   scenePathNames:
   - Assets/Scenes/SampleScene.unity

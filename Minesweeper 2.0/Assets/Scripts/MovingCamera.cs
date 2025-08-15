@@ -16,12 +16,20 @@ public class MovingCamera : MonoBehaviour
     private Vector2 previousTouchPosition1;
 
     private Transform MainCamTransform;
+
     private void OnEnable()
     {
         MainCamTransform = Camera.main.transform;
         InGameButtons.onGameExit += LockTheCamera;
-        StartingSequence.onAllCubesFall += LetTheScroll;
+        EventBus.OnAllCubesFall += LetTheScroll;
     }
+
+    private void OnDisable()
+    {
+        InGameButtons.onGameExit -= LockTheCamera;
+        EventBus.OnAllCubesFall -= LetTheScroll;
+    }
+
     private void MouseCamDrag()
     {
         if (Input.GetMouseButtonDown(0)) // Проверяем нажатие ЛКМ
@@ -41,11 +49,11 @@ public class MovingCamera : MonoBehaviour
             DragStartPosition = Input.mousePosition; // Обновляем позицию мыши
         }
     }
+
     private void TouchCamDrag()
     {
         if (Input.touchCount == 1)
         {
-
             // Обработка движения камеры по скрину
             Touch touch = Input.GetTouch(0);
             if (touch.phase == TouchPhase.Began)
@@ -58,8 +66,9 @@ public class MovingCamera : MonoBehaviour
                 delta.x = 0;
             if (transform.position.z < LowerBorder && delta.y > 0 || transform.position.z > FieldGeneration.StaticColomsSize * 1.1f - 2 && delta.y < 0)
                 delta.y = 0;
+
             delta /= 1.5f;
-            float ClampFloat=19f;
+            float ClampFloat = 19f;
             delta = new (Mathf.Clamp(delta.x, -ClampFloat, ClampFloat), Mathf.Clamp(delta.y, -ClampFloat, ClampFloat), Mathf.Clamp(delta.z, -ClampFloat, ClampFloat));
             MainCamTransform.Translate(-delta * Time.deltaTime); // Перемещаем камеру в противоположном направлении от движения мыши
             DragStartPosition = touch.position; 
@@ -81,7 +90,7 @@ public class MovingCamera : MonoBehaviour
 
                 Vector3 cameraPosition = transform.position;
                 deltaDifference = Mathf.Clamp(deltaDifference, -50, 50);
-                if (!(transform.position.y<=3&&deltaDifference>0|| transform.position.y >= 50 && deltaDifference <0))
+                if (!(transform.position.y<=7&&deltaDifference>0|| transform.position.y >= 50 && deltaDifference <0))
                     cameraPosition.y -= deltaDifference * Time.deltaTime;
                 transform.position = cameraPosition;
 
@@ -95,6 +104,7 @@ public class MovingCamera : MonoBehaviour
             }
         }
     }
+
     private void MouseWASD()
     {
         //Take the axises
@@ -108,7 +118,7 @@ public class MovingCamera : MonoBehaviour
         if (isAbleToBackScrollCamera)
         {
             Vector3 CamPos = MainCamTransform.position;
-            if (!((CamPos.y <= 3 && Input.mouseScrollDelta.y > 0) || (CamPos.y > 50 && Input.mouseScrollDelta.y < 0)))
+            if (!((CamPos.y <= 7 && Input.mouseScrollDelta.y > 0) || (CamPos.y > 50 && Input.mouseScrollDelta.y < 0)))
                 CamPos.y -= Input.mouseScrollDelta.y;
             MainCamTransform.position = CamPos;
         }
@@ -120,10 +130,12 @@ public class MovingCamera : MonoBehaviour
             vertical = 0;
         transform.position += new Vector3(horizontal, 0, vertical) * MouseSpeed * Time.deltaTime;
     }
+
     private void LetTheScroll()
     {
         isAbleToBackScrollCamera = true;
     }
+
     private void LockTheCamera()
     {
         isAbleToMove = false;
@@ -132,6 +144,7 @@ public class MovingCamera : MonoBehaviour
         Timer = 0.5f;
         MouseSpeed = 8;
     }
+
     private void BringCameraBack()
     {
         if (MainCamTransform.position.x < LeftBorder)
@@ -142,9 +155,9 @@ public class MovingCamera : MonoBehaviour
             MainCamTransform.position = Vector3.Lerp(MainCamTransform.position, new Vector3(RightBorder, MainCamTransform.position.y, MainCamTransform.position.z), Time.deltaTime * 3);
         if (MainCamTransform.position.z > UpperBorder)
             MainCamTransform.position = Vector3.Lerp(MainCamTransform.position, new Vector3(MainCamTransform.position.x, MainCamTransform.position.y, UpperBorder), Time.deltaTime * 3);
-
     }
-    void Update()
+
+    private void Update()
     {
         if(!isAbleToMove)
         {
@@ -173,5 +186,4 @@ public class MovingCamera : MonoBehaviour
         }
         BringCameraBack();
     }
-
 }

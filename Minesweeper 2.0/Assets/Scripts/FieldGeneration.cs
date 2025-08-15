@@ -247,8 +247,12 @@ public class FieldGeneration : MonoBehaviour
                 }
         }
         AllBariers.Clear();
+        
         if (ApplyBariers)
+        {
             CreateBariers();
+        }
+
         onFieldGenerated?.Invoke();
     }
     private void CreateBariers()

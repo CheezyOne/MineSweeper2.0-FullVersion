@@ -339,6 +339,7 @@ MonoBehaviour:
   NumberAboutBombs: {fileID: 8817188047221472911}
   _firstDoubleNumber: {fileID: 732940635285092392}
   _secondDoubleNumber: {fileID: 8562819318674617933}
+  _continueWindow: {fileID: 6907673142303308802, guid: bd16bce2285b7ce48963a6a142311cc9, type: 3}
   NumberOfRedBombsAround: 0
   NumberOfBlueBombsAround: 0
   AllMaterials:
@@ -348,6 +349,7 @@ MonoBehaviour:
   TrailingSphere: {fileID: 7422256345674717143, guid: 86ea28903ba6858479b2ec51f7650574, type: 3}
   Test: 0
   _meshRenderer: {fileID: 7644414610344576649}
+  _surroundingCellsOpenTime: 0.05
 --- !u!1 &4106179228041910396
 GameObject:
   m_ObjectHideFlags: 0

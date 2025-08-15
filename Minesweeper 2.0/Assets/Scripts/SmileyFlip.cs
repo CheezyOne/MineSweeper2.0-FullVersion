@@ -12,6 +12,7 @@ public class SmileyFlip : MonoBehaviour
     {
         ClickRegister.onCubeTouch += GetNextSmileyIndex;
         ClickRegister.onCubeRelease += GetNextSmileyIndex;
+        EventBus.OnChangeSmiley += GetNextSmileyIndex;
         Cell.onGameLoseSmiley += GetNextSmileyIndex;
         VictoryHandler.onVictorySmiley += GetNextSmileyIndex;
         StartingSequence.onCubesFallSmiley+= GetNextSmileyIndex;
@@ -19,12 +20,12 @@ public class SmileyFlip : MonoBehaviour
     
     private void GetNextSmileyIndex(int SmileyIndex)
     {
+        TimerOfSmiley = _timeForSleepingSmiley;
+
         if (!ClickRegister.isGameOn && SmileyIndex!=7 && SmileyIndex!=5)
             return;
         if ((CurrentSmileyIndex == 1 || CurrentSmileyIndex == 0) && SmileyIndex == 0)
             return;
-
-        TimerOfSmiley = _timeForSleepingSmiley;
         
         if (Random.Range(0,100)>50)
         {

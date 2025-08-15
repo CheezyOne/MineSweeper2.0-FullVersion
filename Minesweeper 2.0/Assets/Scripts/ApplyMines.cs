@@ -14,18 +14,29 @@ public class ApplyMines : MonoBehaviour//Red bombs and blue bombs are vise-versa
     public static bool ApplyBlueBombs = false, ApplyConnectedBombs = false;
     private int NonBombsCounter=0;
     private bool FirstNonBomb = true;
+    private bool _canChangeNumber;
+
     private void OnEnable()
     {
+        EventBus.OnAllCubesFall += NullHelper;
         ClickRegister.onFirstCubeTouch += ApplyBombCells;
         BombsInGameChanger.onBombsMove += ApplyBombsCount;
         BombsInGameChanger.onBombsMove += ApplyBombsCount;
     }
+
     private void OnDisable()
     {
+        EventBus.OnAllCubesFall -= NullHelper;
         ClickRegister.onFirstCubeTouch -= ApplyBombCells;
         BombsInGameChanger.onBombsMove -= ApplyBombsCount;
         BombsInGameChanger.onBombsMove -= ApplyBombsCount;
     }
+
+    private void NullHelper()
+    {
+        _canChangeNumber = false;
+    }
+
     private void NullAllVariables()
     {
         RedBombCells = new List<int>();
@@ -49,6 +60,7 @@ public class ApplyMines : MonoBehaviour//Red bombs and blue bombs are vise-versa
             }
         }
     }
+
     private void DecideBombCount()
     {
         RedBombCount = BombsAmountMenu.RememberBombs;
@@ -59,6 +71,7 @@ public class ApplyMines : MonoBehaviour//Red bombs and blue bombs are vise-versa
             BlueBombCount = RedBombCount;
         }
     }
+
     private int GetRandomNumber(List<int> AllCells)
     {
         int RandomNumber = UnityEngine.Random.Range(0, AllCells.Count);
@@ -66,6 +79,7 @@ public class ApplyMines : MonoBehaviour//Red bombs and blue bombs are vise-versa
         AllCells.RemoveAt(RandomNumber);
         return ReturnNumber;
     }
+
     private void GetNoBombNumber(GameObject NotBomb)
     {
         if (!FirstNonBomb)
@@ -87,6 +101,7 @@ public class ApplyMines : MonoBehaviour//Red bombs and blue bombs are vise-versa
             }
         }
     }
+
     private void ApplyNormalBombs()
     {
         for (int i = 0; i < RedBombCount; i++)
@@ -101,14 +116,19 @@ public class ApplyMines : MonoBehaviour//Red bombs and blue bombs are vise-versa
             }
         }
     }
+
     private void ApplyBombsCount()
     {
+        if (!_canChangeNumber)
+            return;
+
         if (ApplyBlueBombs)
             VictoryHandler.EmptyCellsCount = FieldSize - RedBombCount - BlueBombCount + BothBlueAndRed();//Присваивается дважды, но это фиксит баг
         else
             VictoryHandler.EmptyCellsCount = FieldSize - RedBombCount;
         InGameBombsCounter.BombsCount = FieldSize - VictoryHandler.EmptyCellsCount;
     }
+
     private int BothBlueAndRed()
     {
         int BlueRedBombs = 0;
@@ -121,31 +141,40 @@ public class ApplyMines : MonoBehaviour//Red bombs and blue bombs are vise-versa
         }
         return BlueRedBombs;
     }
+
     public void ApplyBombCells()
     {
+        _canChangeNumber = true;
         NullAllVariables();
         GetAllCells();
         GetNoBombNumber(CantBeBomb);
         DecideBombCount();
+
         foreach (GameObject Cell in CantBeBomb.GetComponent<Cell>().GetAllNeighbours())
         {
             GetNoBombNumber(Cell);
         }
 
         RedBombCells.Add(GetRandomNumber(AllCellsForRed));
+
         if (ApplyBlueBombs)
+        {
             BlueBombCells.Add(GetRandomNumber(AllCellsForBlue));
+        }
 
         ApplyNormalBombs();
         ApplyBombsCount();
+
         for (int i=0;i< RedBombCount; i++)
         {
             MineField.transform.GetChild(RedBombCells[i]).GetComponent<Cell>().HasRedBomb = true;
         }
+
         for (int i = 0; i < BlueBombCount; i++)
         {
             MineField.transform.GetChild(BlueBombCells[i]).GetComponent<Cell>().HasBlueBomb = true;
         }
+
         ApplyBombsCount();
         onAllBombsApply?.Invoke();
     }

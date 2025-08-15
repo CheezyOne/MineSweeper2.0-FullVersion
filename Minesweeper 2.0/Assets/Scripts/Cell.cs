@@ -7,7 +7,7 @@ using DG.Tweening;
 
 public class Cell : MonoBehaviour
 {
-    public static Action onEmptyCellClicked, onGameLose, PlaySound;
+    public static Action onEmptyCellClicked;
     public static Action<int> onGameLoseSmiley;
     public static bool ShouldLie = false;
     public bool HasBlueBomb = false, HasRedBomb = false, HasBeenTouched=false;
@@ -16,6 +16,7 @@ public class Cell : MonoBehaviour
     [SerializeField] private TMP_Text NumberAboutBombs;
     [SerializeField] private TMP_Text _firstDoubleNumber;
     [SerializeField] private TMP_Text _secondDoubleNumber;
+    [SerializeField] private ContinueWindow _continueWindow;
     public int NumberOfRedBombsAround = 0, NumberOfBlueBombsAround = 0;
     private Collider[] hitColliders;
     [SerializeField] private Material[] AllMaterials;
@@ -29,7 +30,11 @@ public class Cell : MonoBehaviour
     [SerializeField] private MeshRenderer _meshRenderer; 
     public static bool CubesAreOpened;
     private Transform _mainCamera;
+    [SerializeField] private float _surroundingCellsOpenTime = 0.1f;
+    private Coroutine _trailRoutine;
     private bool CanHaveTwoBombs => ApplyMines.ApplyBlueBombs;
+
+    private static bool _hasLostOnce;
 
     public MeshRenderer MeshRenderer => _meshRenderer;
 
@@ -37,6 +42,7 @@ public class Cell : MonoBehaviour
     private void Awake()
     {
         _mainCamera = Camera.main.transform;
+        _hasLostOnce = false;
     }
 
     private void OnEnable()
@@ -44,8 +50,8 @@ public class Cell : MonoBehaviour
         BombsInGameChanger.onBombsMove += GetSurroundingCubesInfo;
         StartingSequence.getBariersToWork += FindBariers;//This event should be called ASAP and then we give the player ability to click
         ApplyMines.onAllBombsApply += GetSurroundingCubesInfo;
-        onGameLose += ShowIfTheBombTextureIsRight;
-        onGameLose += SpawnExplosion;
+        EventBus.OnGameLose += ShowIfTheBombTextureIsRight;
+        EventBus.OnGameLose += SpawnExplosion;
         OneColoredString = transform.GetChild(2).GetChild(0).gameObject;
         TwoColoredString = transform.GetChild(2).GetChild(1).gameObject;
     }
@@ -54,8 +60,8 @@ public class Cell : MonoBehaviour
         BombsInGameChanger.onBombsMove -= GetSurroundingCubesInfo;
         StartingSequence.getBariersToWork -= FindBariers;
         ApplyMines.onAllBombsApply -= GetSurroundingCubesInfo;
-        onGameLose -= ShowIfTheBombTextureIsRight;
-        onGameLose -= SpawnExplosion;
+        EventBus.OnGameLose -= ShowIfTheBombTextureIsRight;
+        EventBus.OnGameLose -= SpawnExplosion;
     }
 
     public void ApplyMaterial(Material material)
@@ -323,17 +329,20 @@ public class Cell : MonoBehaviour
     {
         if (HasBlueBomb || HasRedBomb)
             return;
+
         int BombsCounter=0;
         List<Collider> NonBombs = new();
         Collider[] SurroundingColliders = Physics.OverlapSphere(transform.position, 1f);
+
         foreach (Collider collider in SurroundingColliders)
         {
             if (collider.gameObject == gameObject || collider.transform.name != "Cell(Clone)"|| IsBehindABarier(collider))
                 continue;
+
             GameObject Flag = collider.transform.GetChild(2).gameObject;
             if (Flag.activeSelf)
             {
-                if(CanHaveTwoBombs)
+                if (CanHaveTwoBombs)
                 {
                     if (Flag.transform.GetChild(0).gameObject.activeSelf)
                         BombsCounter++;
@@ -341,23 +350,26 @@ public class Cell : MonoBehaviour
                         BombsCounter += 2;
                 }
                 else
+                {
                     BombsCounter++;
+                }
             }
             else
             {
                 NonBombs.Add(collider);
             }
-
         }
+
         if (BombsCounter == NumberOfBlueBombsAround + NumberOfRedBombsAround)
         {
             if(ShouldLie)
             {
                 return;
             }
+
             foreach (Collider collider in NonBombs)
             {
-                if(!IsBehindABarier(collider))
+                if (!IsBehindABarier(collider))
                     collider.GetComponent<Cell>().WasClicked(0f);
             }
         }
@@ -370,29 +382,41 @@ public class Cell : MonoBehaviour
         if (MainOpeningCube == gameObject)
             CubesAreOpened = true;
         Click();
-        yield return new WaitForSeconds(0.2f);
-            RevealAllSurroundingNonBombs();
+        yield return new WaitForSeconds(_surroundingCellsOpenTime);
+        RevealAllSurroundingNonBombs();
     }
     private void Click()
     {
         if (HasBeenTouched)
             return;
+
         if (Flag.activeSelf)
         {
             InGameBombsCounter.PlayersBombsCount--;
             Flag.SetActive(false);
         }
+        
+        if (HasRedBomb || HasBlueBomb)
+        {
+            if (!_hasLostOnce && !ContinueWindow.DontShowAgain)
+            {
+                WindowsManager.Instance.OpenWindow(_continueWindow);
+                _hasLostOnce = true;
+            }
+            else
+            {
+                EventBus.OnGameLose?.Invoke();
+                onGameLoseSmiley?.Invoke(7);
+            }
+
+            return;
+        }
+
+        HasBeenTouched = true;
         Sequence MoveToOpen = DOTween.Sequence();
         MoveToOpen.Append(transform.DOMoveY(transform.position.y + 0.3f, 0.2f));
         MoveToOpen.Append(transform.DOMoveY(transform.position.y, 0.2f));
-        HasBeenTouched = true;
-        if (HasRedBomb || HasBlueBomb)
-        {
-            PlaySound?.Invoke();
-            onGameLose?.Invoke();
-            onGameLoseSmiley?.Invoke(7);
-            return;
-        }
+
         if (NumberOfRedBombsAround > 0 || NumberOfBlueBombsAround > 0)
         {
             SetupNumbers();
@@ -408,7 +432,7 @@ public class Cell : MonoBehaviour
                 {
                     if (IsBehindABarier(collider))
                         continue;
-                    CellComponent.WasClicked(0.1f);
+                    CellComponent.WasClicked(_surroundingCellsOpenTime); 
                 }
             }
         }
@@ -422,12 +446,14 @@ public class Cell : MonoBehaviour
     {
         if (HasBeenTouched|| !ClickRegister.isGameOn)
             return;
+        
         if (!OnceWasMainOpeningCube)
         {
             OnceWasMainOpeningCube = true;
             CubesAreOpened = false;
             MainOpeningCube = gameObject;
         }
+
         StartCoroutine(ClickWait(Delay));
     }
     public void WasRightClicked()
@@ -474,11 +500,11 @@ public class Cell : MonoBehaviour
     }
     public void ShowTrails()
     {
-        StartCoroutine(SpawnTrailsToNearbyCell());
+        _trailRoutine = StartCoroutine(SpawnTrailsToNearbyCell());
     }
     public void StopTheTrails()
     {
-        StopAllCoroutines();
+        StopCoroutine(_trailRoutine);
     }
     private IEnumerator SpawnTrailsToNearbyCell()
     {

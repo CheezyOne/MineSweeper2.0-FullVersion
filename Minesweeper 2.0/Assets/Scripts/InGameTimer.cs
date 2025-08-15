@@ -19,7 +19,7 @@ public class InGameTimer : MonoBehaviour
     {
         ApplyMines.onAllBombsApply += CalculateTimer;
         ApplyMines.onAllBombsApply += StartTimer;
-        Cell.onGameLose += StopTheTimer;
+        EventBus.OnGameLose += StopTheTimer;
         VictoryHandler.onGameWon += StopTheTimer;
         InGameButtons.onGameExit += StopTheTimer;
         InGameButtons.onGameExit += SetUpTime;
@@ -29,7 +29,7 @@ public class InGameTimer : MonoBehaviour
     {
         ApplyMines.onAllBombsApply -= CalculateTimer;
         ApplyMines.onAllBombsApply -= StartTimer;
-        Cell.onGameLose -= StopTheTimer;
+        EventBus.OnGameLose -= StopTheTimer;
         VictoryHandler.onGameWon -= StopTheTimer;
         InGameButtons.onGameExit -= StopTheTimer;
         InGameButtons.onGameExit -= SetUpTime;
@@ -77,6 +77,7 @@ public class InGameTimer : MonoBehaviour
             BombRercentage = 0.5;
         BombRercentage *= 4;
         double Multiplier= APComponent.FieldSize / 1.5f ;
+
         if (ApplyMines.ApplyBlueBombs)
         {
             MultiplierCounter++;
@@ -84,6 +85,7 @@ public class InGameTimer : MonoBehaviour
         }
         if (Cell.ShouldLie)
         {
+
             MultiplierCounter++;
             Multiplier *= 1.4;
         }
@@ -173,14 +175,15 @@ public class InGameTimer : MonoBehaviour
         }
         if (DecreaseSeconds <= 0 && DecreaseMinutes<=0)
         {
-            Cell.PlaySound?.Invoke();
-            Cell.onGameLose?.Invoke();
+            EventBus.OnGameLose?.Invoke();
             Cell.onGameLoseSmiley?.Invoke(7);
         }
     }
     private IEnumerator TimerCourotine()
     {
         yield return new WaitForSeconds(1f);
+        if(!ClickRegister.isGameOn)
+            yield return TimerCourotine();
         if (!TimerIsActive)
             yield break;
         if (!IsToDecrease)

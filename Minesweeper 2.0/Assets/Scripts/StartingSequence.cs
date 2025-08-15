@@ -1,8 +1,6 @@
 using System.Collections;
 using System;
 using System.Collections.Generic;
-using System.Xml.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 using System.Linq;
 
@@ -14,8 +12,9 @@ public class StartingSequence : MonoBehaviour
     private bool CubesShouldFall = false;
     private float FallSpeed=15f;
     private int HowManyCubesFallSimultaneously = 1;
+    private Coroutine _waitForBariersToDetect;
 
-    public static Action onAllCubesFall, getBariersToWork;
+    public static Action getBariersToWork;
     public static Action<int> onCubesFallSmiley;
     private void Awake()
     {
@@ -25,8 +24,7 @@ public class StartingSequence : MonoBehaviour
         FieldGeneration.onFieldGenerated += StartFallingCoroutine;
         InGameButtons.onGameExit += CubesShouldFallFalse;
         InGameButtons.onGameExit += StopFallingCoroutine;
-        InGameButtons.onGameExit+=NullAllVariables;
-
+        InGameButtons.onGameExit += NullAllVariables;
     }
     private void CubesShouldFallTrue()
     {
@@ -113,7 +111,8 @@ public class StartingSequence : MonoBehaviour
             {
                 if (FallingCubes[FallingCubes.Count - 1].transform.position == AllEndPositions[FallingCubes.Count - 1])
                 {
-                    StartCoroutine(WaitForBariersToDetect());
+                    if(_waitForBariersToDetect==null)
+                        _waitForBariersToDetect = StartCoroutine(WaitForBariersToDetect());
                 }
             } 
         }
@@ -125,6 +124,8 @@ public class StartingSequence : MonoBehaviour
         ClickRegister.isGameOn = true;
         CubesShouldFall = false;
         onCubesFallSmiley?.Invoke(2);
+        EventBus.OnAllCubesFall?.Invoke();
+        _waitForBariersToDetect = null;
         StartCoroutine(SmileyCor());
         NullAllVariables();
         yield break;
@@ -133,7 +134,6 @@ public class StartingSequence : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         onCubesFallSmiley?.Invoke(0);
-        onAllCubesFall?.Invoke();
         yield break;
     }
 }

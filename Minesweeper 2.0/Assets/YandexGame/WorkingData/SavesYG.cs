@@ -18,6 +18,9 @@ namespace YG
 
         // Ваши сохранения
         public int highScore;
+        public bool startedFirstGame;
+        public int playTimes;
+        public bool hasSeenTutorial;
         // ...
 
         // Поля (сохранения) можно удалять и создавать новые. При обновлении игры сохранения ломаться не должны

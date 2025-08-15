@@ -111,7 +111,7 @@
             height: 100%;
         }
     </style>
-
+    <script src="https://yandex.ru/games/sdk/v2"></script>
 </head>
 <body class="{{{ SPLASH_SCREEN_STYLE.toLowerCase() }}}">
 
@@ -796,6 +796,21 @@
         // Additional script modules:
 
         document.body.appendChild(script);
+    </script>
+    <script>
+        (function (m, e, t, r, i, k, a) {
+            m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+            m[i].l = 1 * new Date();
+            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+        })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+        ym(103478279, "init", {
+            clickmap: true,
+            trackLinks: true,
+            accurateTrackBounce: true,
+            webvisor: true,
+            childIframe: true  // Обязательно для игр в iframe!
+        });
     </script>
 </body>
 </html>

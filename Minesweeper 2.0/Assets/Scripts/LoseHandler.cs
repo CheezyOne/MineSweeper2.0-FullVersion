@@ -18,12 +18,12 @@ public class LoseHandler : MonoBehaviour
     private void OnEnable()
     {
         InGameButtons.onGameExit += StopShaking;
-        Cell.onGameLose += GameLose;
+        EventBus.OnGameLose += GameLose;
     }
     private void OnDisable()
     {
         InGameButtons.onGameExit -= StopShaking;
-        Cell.onGameLose -= GameLose;
+        EventBus.OnGameLose -= GameLose;
     }
     private void StopShaking()
     {
@@ -37,6 +37,7 @@ public class LoseHandler : MonoBehaviour
         NormalCameraPosition = _mainCamera.position;
         StartCoroutine(CameraShake());
         ClickRegister.isGameOn = false;
+        YGMetrics.ReportToYandexMetrika("Lose");
     }
     private IEnumerator CameraShake()
     {

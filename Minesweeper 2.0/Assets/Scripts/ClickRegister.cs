@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using YG;
 
 public class ClickRegister : MonoBehaviour
 {

@@ -309,6 +309,14 @@ MonoBehaviour:
   - {fileID: 9202700171723389440}
   - {fileID: 6145791300716257359}
   _rigidbody: {fileID: 2092883358716152123}
+  _torqueForce: 3
+  _minPushForce: 1
+  _maxPushForce: 4
+  _lifeTime: 40
+  _horizontalMinPositionChange: 30
+  _horizontalMaxPositionChange: 50
+  _verticalMinPositionChange: 20
+  _verticalMaxPositionChange: 30
 --- !u!54 &2092883358716152123
 Rigidbody:
   m_ObjectHideFlags: 0

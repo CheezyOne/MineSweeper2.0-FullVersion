@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
+using YG;
 
 public class InGameButtons : MonoBehaviour
 {
@@ -71,11 +72,12 @@ public class InGameButtons : MonoBehaviour
             AssurenceFrame.SetActive(true);
             return;
         }
+
+        YandexGame.FullscreenShow();
         Exit();
     }
     private void Exit()
     {
-
         onGameExit?.Invoke();
         Camera.main.transform.Rotate(-90, 0, 0);
         Camera.main.transform.position = new Vector3(0, 10.5f, 0);
@@ -91,6 +93,7 @@ public class InGameButtons : MonoBehaviour
     public void NoButton() 
     {
         AssurenceFrame.SetActive(false);
+        YandexGame.FullscreenShow();
         PlaySound?.Invoke();
     }
     public void RestartButton()
@@ -100,6 +103,7 @@ public class InGameButtons : MonoBehaviour
         Camera.main.transform.position = new Vector3(FieldGeneration.StaticStringsSize * 1.1f - (FieldGeneration.StaticStringsSize * 1.1f / 2) - 5.6f, 10.5f, FieldGeneration.StaticColomsSize * 1.1f - 6);
         ButtonsInMenu.onPlayButtonPress?.Invoke();
         MovingCamera.isAbleToMove = true;
+        YandexGame.FullscreenShow();
     }
     private void Update()
     {

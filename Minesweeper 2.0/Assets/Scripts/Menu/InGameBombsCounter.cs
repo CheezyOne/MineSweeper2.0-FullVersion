@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -17,8 +15,8 @@ public class InGameBombsCounter : MonoBehaviour
     }
     private void NullTheCounter()
     {
-        InGameBombsCounter.BombsCount = 0;
-        InGameBombsCounter.PlayersBombsCount = 0;
+        BombsCount = 0;
+        PlayersBombsCount = 0;
         BombsCountText.text = PlayersBombsCount + "/" + BombsCount;
     }
     private void Update()

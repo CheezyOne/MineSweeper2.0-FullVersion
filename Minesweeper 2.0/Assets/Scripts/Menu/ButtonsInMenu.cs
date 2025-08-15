@@ -1,6 +1,7 @@
 using System;
 using TMPro;
 using UnityEngine;
+using YG;
 
 public class ButtonsInMenu : MonoBehaviour
 {
@@ -10,12 +11,28 @@ public class ButtonsInMenu : MonoBehaviour
     private string[] MapNames = new string[] { "Normal", "Cross", "4 Sides", "Hole", "Diamond" };
     [SerializeField] private GameObject MapNameChangeRight, MapNameChangeLeft, InGameMenu, SmileyPosition, TwoInput, FullInput;
     [SerializeField] private TMP_Text _mapNameText;
+    [SerializeField] private TutorialWindow _tutorialWindow;
     private static int MapNameNumber=0;
     private void Start()
     {
         SetInputsAfterSwap();
         ChangeLanguage();
+
+        if(!YandexGame.savesData.hasSeenTutorial)
+            OpenTutorial();
     }
+
+    public void OnOpenTutorialButton()
+    {
+        EventBus.OnButtonClick?.Invoke();
+        OpenTutorial();
+    }
+
+    private void OpenTutorial()
+    {
+        WindowsManager.Instance.OpenWindow(_tutorialWindow);
+    }
+
     private void OnEnable()
     {
         ChangeLanguage();
@@ -59,7 +76,6 @@ public class ButtonsInMenu : MonoBehaviour
         PlaySound?.Invoke();
         Camera.main.transform.Rotate(90, 0, 0);
         Camera.main.transform.position = new Vector3(FieldGeneration.StaticStringsSize * 1.1f - (FieldGeneration.StaticStringsSize * 1.1f / 2) - 5.6f, 10.5f, FieldGeneration.StaticColomsSize * 1.1f - 6);
-        //SmileyPosition.transform.position= new Vector3(FieldGeneration.StaticStringsSize * 1.1f - (FieldGeneration.StaticStringsSize * 1.1f / 2) - 5.6f, 0, FieldGeneration.StaticColomsSize * 1.1f);
         SmileyPosition.SetActive(true);
         onPlayButtonPress?.Invoke();
         gameObject.SetActive(false);

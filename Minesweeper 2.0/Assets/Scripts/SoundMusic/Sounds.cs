@@ -10,11 +10,12 @@ public class Sounds : MonoBehaviour
     {
         StartingSequence.onCubesFallSmiley += PlaySmiley;
         VictoryHandler.onGameWon += PlayVictory;
-        Cell.PlaySound += PlayExplosion;
+        EventBus.OnGameLose += PlayExplosion;
         GameModesSystem.PlaySound += PlayOnMouseOverButton;
         ClickRegister.PlaySound += PlayOnCellClick;
         InGameButtons.PlaySound += PlayOnButtonClick;
         ButtonsInMenu.PlaySound += PlayOnButtonClick;
+        EventBus.OnButtonClick += PlayOnButtonClick;
         LanguageController.PlaySound += PlayOnButtonClick;
         InfoAboutModes.PlaySound += PlayOnButtonClick;
         SoundButtons.PlaySound += PlayOnButtonClick;
