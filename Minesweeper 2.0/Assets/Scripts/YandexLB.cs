@@ -13,14 +13,17 @@ public class YandexLB : MonoBehaviour
     {
         VictoryHandler.onGameWon += AddScoreToLeaderboard;
     }
+
     private void OnDisable()
     {
         VictoryHandler.onGameWon -= AddScoreToLeaderboard;
     }
+
     private void Start()
     {
         HighScore =YandexGame.savesData.highScore;
     }
+
     private float CountScore()
     {
         int ChallengeCount = 0;
@@ -62,6 +65,7 @@ public class YandexLB : MonoBehaviour
             AddScore /= ChallengeCount;
         return AddScore;
     }
+
     private void AddScoreToLeaderboard()
     {
         HighScore += Convert.ToInt32(CountScore());

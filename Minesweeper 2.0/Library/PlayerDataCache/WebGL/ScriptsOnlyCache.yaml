@@ -31,6 +31,7 @@ ScriptsOnlyBuild:
     - SoundButtons
     - Sounds
     - StartingSequence
+    - Test
     - TextLocalization
     - TutorialHand
     - TutorialWindow
@@ -44,6 +45,8 @@ ScriptsOnlyBuild:
     - YandexLB
     DOTween.dll:
     - DG.Tweening.Core.DOTweenSettings
+    Unity.Recorder.Editor.dll:
+    - UnityEditor.Recorder.RecorderPreferencesSettings
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     Unity.TextMeshPro:
@@ -54,9 +57,6 @@ ScriptsOnlyBuild:
     Unity.TextMeshPro.dll:
     - TMPro.TMP_FontAsset
     - TMPro.TMP_InputField
-    - TMPro.TMP_Settings
-    - TMPro.TMP_SpriteAsset
-    - TMPro.TMP_StyleSheet
     - TMPro.TextMeshPro
     - TMPro.TextMeshProUGUI
     UnityEditor.TestRunner.dll:
@@ -142,6 +142,15 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Toggle/ToggleEvent
   methodsToPreserve:
   - assembly: Assembly-CSharp
+    fullTypeName: YGRewardedAd
+    methodName: OnOpenVideo
+  - assembly: Assembly-CSharp
+    fullTypeName: YGRewardedAd
+    methodName: OnCloseVideo
+  - assembly: Assembly-CSharp
+    fullTypeName: YGRewardedAd
+    methodName: DenyReward
+  - assembly: Assembly-CSharp
     fullTypeName: TutorialWindow
     methodName: NextTutorial
   - assembly: Assembly-CSharp
@@ -216,6 +225,9 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: InfoAboutModes
     methodName: OnQuestionExit
+  - assembly: Assembly-CSharp
+    fullTypeName: InGameButtons
+    methodName: RestartButton
   - assembly: Assembly-CSharp
     fullTypeName: InGameButtons
     methodName: RestartButton
@@ -421,9 +433,6 @@ ScriptsOnlyBuild:
     fullTypeName: InGameButtons
     methodName: YesButton
   - assembly: Assembly-CSharp
-    fullTypeName: YG.YandexGame
-    methodName: _FullscreenShow
-  - assembly: Assembly-CSharp
     fullTypeName: SoundButtons
     methodName: MusicButtonFun
   - assembly: Assembly-CSharp
@@ -443,7 +452,7 @@ ScriptsOnlyBuild:
     methodName: MusicButtonFun
   - assembly: Assembly-CSharp
     fullTypeName: ButtonsInMenu
-    methodName: OpenTutorial
+    methodName: OnOpenTutorialButton
   - assembly: Assembly-CSharp
     fullTypeName: SoundButtons
     methodName: SoundsButtonFun
@@ -489,6 +498,9 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: InfoAboutModes
     methodName: OnQuestionExit
+  - assembly: Assembly-CSharp
+    fullTypeName: InGameButtons
+    methodName: RestartButton
   - assembly: Assembly-CSharp
     fullTypeName: FieldSizeMenu
     methodName: EditEndStringsSize
@@ -550,9 +562,6 @@ ScriptsOnlyBuild:
     fullTypeName: InGameButtons
     methodName: YesButton
   - assembly: Assembly-CSharp
-    fullTypeName: YG.YandexGame
-    methodName: _FullscreenShow
-  - assembly: Assembly-CSharp
     fullTypeName: InfoAboutModes
     methodName: OnQuestionOver
   - assembly: Assembly-CSharp
@@ -572,7 +581,7 @@ ScriptsOnlyBuild:
     methodName: PlayButtonSound
   - assembly: Assembly-CSharp
     fullTypeName: ButtonsInMenu
-    methodName: OpenTutorial
+    methodName: OnOpenTutorialButton
   - assembly: Assembly-CSharp
     fullTypeName: FieldSizeMenu
     methodName: EditEndStringsSize
@@ -699,6 +708,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 19220}
     - Class: 114
       Script: {instanceID: 19254}
+    - Class: 114
+      Script: {instanceID: 19260}
     - Class: 114
       Script: {instanceID: 19416}
     - Class: 114
@@ -1242,7 +1253,7 @@ ScriptsOnlyBuild:
     className: UnityOnControllerColliderHitMessageListener
   - hash:
       serializedVersion: 2
-      Hash: b8f940764adac949fe29602054635c73
+      Hash: 085d5f837135ff541a8457677d0d5345
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: Cell
@@ -1254,7 +1265,7 @@ ScriptsOnlyBuild:
     className: TextMeshPro
   - hash:
       serializedVersion: 2
-      Hash: c2f1c85639ef00b41c000b619ad79041
+      Hash: d49c0561daac2021844ffab0790e17b7
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: Test
@@ -1824,7 +1835,7 @@ ScriptsOnlyBuild:
     className: UnityOnTriggerEnter2DMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 8ac687369d7c480eb05ac0f73180e530
+      Hash: a1a6c7daaf4c3d2c140641d63787e669
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: MenuCubes
