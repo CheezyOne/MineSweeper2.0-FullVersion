@@ -147,26 +147,29 @@ public class BombsAmountMenu : MonoBehaviour
             return;
         }
         int IntColomnSize = Convert.ToInt32(ColomnsSize);
-        //_fGComponent.ColomnsSize = IntColomnSize;
         RememberBombs = IntColomnSize;
         _inputField.text = Convert.ToString(IntColomnSize);
     }
+
     public void EditEndBombs(string Helper)
     {
         string ColomnsSize = _inputField.text;
+
         if (ColomnsSize == "")
         {
             ColomnsSize = Convert.ToString(DecideBombsCount());
         }
+
         int IntColomnSize = Convert.ToInt32(ColomnsSize);
         IntColomnSize = ConstrainInt(IntColomnSize);
-        //_fGComponent.ColomnsSize = IntColomnSize;
         RememberBombs = IntColomnSize;
         _inputField.text = Convert.ToString(IntColomnSize);
     }
+
     private int ConstrainInt(int CurrentNumber)
     {
         int ConstraintNumber = CurrentNumber;
+
         if (ConstraintNumber < 1)
         {
             ConstraintNumber = 1;
@@ -177,10 +180,11 @@ public class BombsAmountMenu : MonoBehaviour
             {
                 ConstraintNumber = _fieldSize - 3;
             }
-            else if(ConstraintNumber >= Convert.ToDouble(_fieldSize) *0.99f)
+            else if(ConstraintNumber >= Convert.ToDouble(_fieldSize) * 0.99f - 2)
             {
-                ConstraintNumber =Convert.ToInt32(Convert.ToDouble(_fieldSize) * 0.99f)-2;
+                ConstraintNumber = Convert.ToInt32(Convert.ToDouble(_fieldSize) * 0.99f)-2;
             }
+
         }
         return ConstraintNumber;
     }

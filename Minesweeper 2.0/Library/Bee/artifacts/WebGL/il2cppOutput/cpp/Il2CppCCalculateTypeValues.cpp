@@ -6114,7 +6114,7 @@ struct U3COnFinishSubmitU3Ed__9_t55620C8613B09E9D27E197A064B9C249B6F13164  : pub
 struct U3CU3Ec_tC91356F4CB32E0A0C2FFCB36B7E2C51A6CFAC05F  : public RuntimeObject
 {
 };
-struct U3CClickWaitU3Ed__61_t255D387F685C5CCF07779CD829F9CF6C2F35AF91  : public RuntimeObject
+struct U3CClickWaitU3Ed__62_t02BC639E62AD16668C70DEDF4CA12F37297699E4  : public RuntimeObject
 {
 	int32_t ___U3CU3E1__state;
 	RuntimeObject* ___U3CU3E2__current;
@@ -20980,7 +20980,7 @@ struct Unit_tAE478BD661DB092BBD04163BD94D5868EB99666F
 {
 	int32_t ___value__;
 };
-struct U3CSpawnTrailsToNearbyCellU3Ed__67_tAF01CAB5A8DACC6A124037DC256C5D771928B9E3  : public RuntimeObject
+struct U3CSpawnTrailsToNearbyCellU3Ed__68_t8F9A37CD24052468B3E7B14C78DDCFD2893F4B58  : public RuntimeObject
 {
 	int32_t ___U3CU3E1__state;
 	RuntimeObject* ___U3CU3E2__current;
@@ -32264,6 +32264,7 @@ struct Cell_t88832599049D1ADACE41CE1CF9C147304CF76D5A  : public MonoBehaviour_t5
 	MeshRenderer_t4B7747212F0B88244BB7790C61AE124BFC15BAAE* ____meshRenderer;
 	Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* ____mainCamera;
 	float ____surroundingCellsOpenTime;
+	WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3* ____surroundingCellsWait;
 	Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B* ____trailRoutine;
 };
 struct ClickEvent_t30651949F0BA68E61187B63F5D325323E92CC318  : public PointerEventBase_1_tE7FD0B460EEC808CA9256F0071D67C920B0E1124
@@ -47593,9 +47594,9 @@ const Il2CppTypeDefinitionSizes g_typeDefinitionSize3841 = { sizeof(ApplyMines_t
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize3842;
 const Il2CppTypeDefinitionSizes g_typeDefinitionSize3842 = { sizeof(BombsInGameChanger_tAC2193E7AE0559F6DEFE330151EA6D8F7529512E), -1, sizeof(BombsInGameChanger_tAC2193E7AE0559F6DEFE330151EA6D8F7529512E_StaticFields), 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize3843;
-const Il2CppTypeDefinitionSizes g_typeDefinitionSize3843 = { sizeof(U3CClickWaitU3Ed__61_t255D387F685C5CCF07779CD829F9CF6C2F35AF91), -1, 0, 0 };
+const Il2CppTypeDefinitionSizes g_typeDefinitionSize3843 = { sizeof(U3CClickWaitU3Ed__62_t02BC639E62AD16668C70DEDF4CA12F37297699E4), -1, 0, 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize3844;
-const Il2CppTypeDefinitionSizes g_typeDefinitionSize3844 = { sizeof(U3CSpawnTrailsToNearbyCellU3Ed__67_tAF01CAB5A8DACC6A124037DC256C5D771928B9E3), -1, 0, 0 };
+const Il2CppTypeDefinitionSizes g_typeDefinitionSize3844 = { sizeof(U3CSpawnTrailsToNearbyCellU3Ed__68_t8F9A37CD24052468B3E7B14C78DDCFD2893F4B58), -1, 0, 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize3845;
 const Il2CppTypeDefinitionSizes g_typeDefinitionSize3845 = { sizeof(Cell_t88832599049D1ADACE41CE1CF9C147304CF76D5A), -1, sizeof(Cell_t88832599049D1ADACE41CE1CF9C147304CF76D5A_StaticFields), 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize3846;

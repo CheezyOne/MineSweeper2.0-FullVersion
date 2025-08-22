@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -22,9 +21,7 @@ public class PlusMinusButtons : MonoBehaviour, IPointerDownHandler, IPointerUpHa
         else if (_purpose[2])
             FieldSizeMenu.ChangeSize("both", true);
         else if (_purpose[3])
-        {
             onBombSizeChange?.Invoke(true);
-        }
     }
     private IEnumerator PlusTimer()
     {
@@ -61,9 +58,7 @@ public class PlusMinusButtons : MonoBehaviour, IPointerDownHandler, IPointerUpHa
         else if (_purpose[2])
             FieldSizeMenu.ChangeSize("both", false);
         else if (_purpose[3])
-        {
             onBombSizeChange?.Invoke(false);
-        }
     }
     private void ShoutOutAction()
     {

@@ -2700,6 +2700,7 @@ struct Cell_t88832599049D1ADACE41CE1CF9C147304CF76D5A  : public MonoBehaviour_t5
 	MeshRenderer_t4B7747212F0B88244BB7790C61AE124BFC15BAAE* ____meshRenderer;
 	Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* ____mainCamera;
 	float ____surroundingCellsOpenTime;
+	WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3* ____surroundingCellsWait;
 	Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B* ____trailRoutine;
 };
 struct ClickRegister_t072C4EAE8ECFE073765DCF8456D3E0B3266F3ECE  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
@@ -4551,6 +4552,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float YandexLB_CountScore_m807A28C0C634A92A4E
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t Convert_ToInt32_m2DD4FF5B07C196D209F4ED8EA8E86CD19207AABE (float ___0_value, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void YandexGame_SaveProgress_m3A9BCE3DCA54FC5CE43C0F6A69DE4B22C403255E (const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void YandexGame_NewLeaderboardScores_m0FEB3AB3DA3AF0D14FCD8E3304B9F3512392E09F (String_t* ___0_nameLB, int32_t ___1_score, const RuntimeMethod* method) ;
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Application_set_targetFrameRate_mB90EEA60DAE55CD71C38D4B7DFDBE2B34EA6B46F (int32_t ___0_value, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* JsonUtility_ToJson_m28CC6843B9D3723D88AD13EA3829B71FDE7826BA (RuntimeObject* ___0_obj, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Application_ExternalCall_m889620366C01F54E44728C96A761701668DB9B8C (String_t* ___0_functionName, ObjectU5BU5D_t8061030B0A12A55D5AD8652A20C922FE99450918* ___1_args, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* YGRewardedAd_CloseAdRoutine_m76D80AADF03BCEC5B10B6C0E28F7C0906B434459 (YGRewardedAd_t1D94D94E3C05B53533681327F358733ED8E6873E* __this, const RuntimeMethod* method) ;
@@ -7891,6 +7893,20 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void YandexLB__ctor_m0FF2C102F043181F6B214AD9
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void YGMetrics_Awake_mAEC131B837A0845EA76A17BFB67347A35725A4B9 (YGMetrics_t12687582C8AED187729E754B76863AB5DD81E9DD* __this, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Application_tDB03BE91CDF0ACA614A5E0B67CFB77C44EB19B21_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		il2cpp_codegen_runtime_class_init_inline(Application_tDB03BE91CDF0ACA614A5E0B67CFB77C44EB19B21_il2cpp_TypeInfo_var);
+		Application_set_targetFrameRate_mB90EEA60DAE55CD71C38D4B7DFDBE2B34EA6B46F(((int32_t)60), NULL);
+		return;
+	}
+}
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void YGMetrics_OnEnable_mAC7F954E33634C1F10F8E8D211CC14B19168F970 (YGMetrics_t12687582C8AED187729E754B76863AB5DD81E9DD* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
