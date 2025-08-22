@@ -6,6 +6,11 @@ public class YGMetrics : MonoBehaviour
 {
     [SerializeField] private GameObject _movingBombsHandler;
 
+    private void Awake()
+    {
+        Application.targetFrameRate = 60;
+    }
+
     private void OnEnable()
     {
         ApplyMines.onAllBombsApply += SendLevelMetrics;

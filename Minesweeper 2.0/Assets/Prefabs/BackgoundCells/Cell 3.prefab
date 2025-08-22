@@ -56,7 +56,7 @@ MonoBehaviour:
   _torqueForce: 10
   _minPushForce: 2.5
   _maxPushForce: 4.5
-  _lifeTime: 25
+  _lifeTime: 30
   _horizontalMinPositionChange: 30
   _horizontalMaxPositionChange: 40
   _verticalMinPositionChange: 20

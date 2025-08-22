@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using YG;
 
 public class VictoryHandler : MonoBehaviour
 {
@@ -29,6 +28,7 @@ public class VictoryHandler : MonoBehaviour
     private void NewCellClicked()
     {
         ClickedCellsCount++;
+
         if (ClickedCellsCount == EmptyCellsCount)
             Victory();
     }

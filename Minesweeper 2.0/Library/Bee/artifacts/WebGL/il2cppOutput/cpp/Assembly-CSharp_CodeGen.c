@@ -95,6 +95,11 @@ extern void FieldGeneration_GenerateAField_mA5F78FA6232DB9F19CA06459F4D727C35693
 extern void FieldGeneration_CreateBariers_mF838941AA4B4B7419BD3D589CD306045B4BFB11F (void);
 extern void FieldGeneration__ctor_mF2C7676658F03669DDCC5E4CABC42AF8540165A3 (void);
 extern void FieldGeneration__cctor_m9C2542008289F0BB9E2E42769327E1C3694D5E8D (void);
+extern void GameplayTutorialWindow_OnEnable_m02BB612C6EAAE5EC64068DBA7EA2973470401381 (void);
+extern void GameplayTutorialWindow_SetText_m13D778E4AD1AAB462BC9BA90AC0EC45AC841F223 (void);
+extern void GameplayTutorialWindow_ChangeTutorial_m7042F27378AF2B04AB1CACE141CD1F9973E68F89 (void);
+extern void GameplayTutorialWindow_SetLanguage_m96C05ED76C651613775193E92964E200AADE3345 (void);
+extern void GameplayTutorialWindow__ctor_mD53175FBF9D9584F1D35A9C95E110EBEF13B0DB6 (void);
 extern void HighLightCells_Awake_m1DCF9EDD5E7968DF98E0EC44A2FF4C292E27822C (void);
 extern void HighLightCells_Update_mAC28CE4F1E8122F0C73A4694B5F8A91200F99D53 (void);
 extern void HighLightCells_HighLightCube_mDC685A139D21A48B00AAFA2C873FDADC79385360 (void);
@@ -162,7 +167,7 @@ extern void BombsAmountMenu_ConstrainInt_mE80896CC04F599A42AC9CF42D90D2F44988595
 extern void BombsAmountMenu__ctor_m1CE2C879A8878AF98CF84FEBCBABC8BE0117721E (void);
 extern void ButtonsInMenu_Start_mF516373E9465EEA42A3B948674169EFADDF55608 (void);
 extern void ButtonsInMenu_OnOpenTutorialButton_mFF757EEA812619523CDECED4C17232B298A460B0 (void);
-extern void ButtonsInMenu_OpenTutorial_mF03BDB4CFE10AA4C0C11438EA0D99F730B33E0C7 (void);
+extern void ButtonsInMenu_OpenMenuTutorial_m87473FCA751051D07DF19783C1AB940A856EA5F1 (void);
 extern void ButtonsInMenu_OnEnable_mCBBF82CE3C3297668633850BC034C9A3F37CDFCB (void);
 extern void ButtonsInMenu_OnDisable_m7C285406649729F8400EB607E675EEAA1D6BBD1F (void);
 extern void ButtonsInMenu_SetInputsAfterSwap_mB3C686275E5E1DB80CF3CFBCC92755B0608B9828 (void);
@@ -794,8 +799,37 @@ extern void LangMethods__ctor_mFEFF437DEB8D0F2887D275B6FE6F00E741F5915B (void);
 extern void ConfigYG__ctor_m91A63B8DB334084D846DCD76A89E24949ECD7F6E (void);
 extern void JsonUtils_ToJson_m3E3F70313FB40E96BD8EDE934F5F4FA593F5C622 (void);
 extern void JsonUtils_GetValueString_mF521F4DCA88CE04855E0AB8FD2C4643C3E402FB8 (void);
+extern void ScrollingUIBackground_get_ScrollSpeed_mAAA4B9CE150E9747D2BCBD735131FFC73829F28A (void);
+extern void ScrollingUIBackground_set_ScrollSpeed_mE3E22CE7C065A264E6B81D354B86F847B3938CAE (void);
+extern void ScrollingUIBackground_get_VerticalScroll_m881CBC2B8C8F21E5C8057A235DF18374B526C255 (void);
+extern void ScrollingUIBackground_set_VerticalScroll_m55A0D077A372585EDA4A6A9DB197E5193676D2E4 (void);
+extern void ScrollingUIBackground_get_HorizontalScroll_m61909580F88E73A9D4CA4D5A85DD2C3E8B4DE732 (void);
+extern void ScrollingUIBackground_set_HorizontalScroll_m25C50C3E5F4E10488311DFCF79F3E581EFB6D9FD (void);
+extern void ScrollingUIBackground_get_ScrollToStart_m4B630652DCDEEE6B354712DE188BF3852912E5B0 (void);
+extern void ScrollingUIBackground_set_ScrollToStart_m5F305CCAD576EC367719A76EE732C466374AAA5B (void);
+extern void ScrollingUIBackground_get_AffectsTimeScale_mF92742B1DEFECB8C2742C240591FB21814FEF0F6 (void);
+extern void ScrollingUIBackground_set_AffectsTimeScale_mD6E1978A8DFE1181534905ADB555B97A177C68D9 (void);
+extern void ScrollingUIBackground_Awake_m2530715CE2C8FD515755057152B81142D49A4B44 (void);
+extern void ScrollingUIBackground_Start_m5C1F901C3AAA49A147709DF0D5691B36DF432FC9 (void);
+extern void ScrollingUIBackground_DefineScrollDirection_m190DB5CD6A38C4012954C5D4121569A8C91521D1 (void);
+extern void ScrollingUIBackground_DefineVerticalScrollDirection_m1F21CC0B63693B5D1E2D9A4DA6F7D6CF24845C0B (void);
+extern void ScrollingUIBackground_DefineHorizontalScrollDirection_m5057240403DD0B068CD15A5FD9D97BB492C32C61 (void);
+extern void ScrollingUIBackground_ScrollTexture_m410CAF16C5B54DAD080D89AF4355E53D5A764595 (void);
+extern void ScrollingUIBackground_StartScrolling_mF3E2B2B162AAA0C86A6E76F74A8E52D77E864CF5 (void);
+extern void ScrollingUIBackground_StopScrolling_m7F056B2F63D7467B907F50B3A6E8BB25116E0200 (void);
+extern void ScrollingUIBackground__ctor_m405770064A43DDD361AC422027D52400D856C252 (void);
+extern void U3CScrollTextureU3Ed__32__ctor_m451EB3AC82537C6388BE14419208F50FD50DA399 (void);
+extern void U3CScrollTextureU3Ed__32_System_IDisposable_Dispose_mD53339EA9F77DEB5A0900A2EEAF3B4A90180F328 (void);
+extern void U3CScrollTextureU3Ed__32_MoveNext_mB404E9E7422BE8238FEF011424CE937FB829EF4A (void);
+extern void U3CScrollTextureU3Ed__32_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m4947AC40D3CC2F5991CEB3F6E9840381111883C2 (void);
+extern void U3CScrollTextureU3Ed__32_System_Collections_IEnumerator_Reset_mF4AE42363F44D10ED0A0DFD8DD779007CE4425E3 (void);
+extern void U3CScrollTextureU3Ed__32_System_Collections_IEnumerator_get_Current_m7E629F78D5B5315E8F60EB4202D282C693B24ED4 (void);
+extern void DemoUIController_ShowScrollingBackground1_m1F3F53F45B8394AAEEC70FDC1F720055E351C689 (void);
+extern void DemoUIController_ShowScrollingBackground2_m534B13AC992F82B1AA2B0E892F01ECAAE7754C8D (void);
+extern void DemoUIController_ShowScrollingBackground3_m2FDCD9486E5BDCFA34DD6DD86A088539FCDB339B (void);
+extern void DemoUIController__ctor_m7870409236AA31F7BE24D56D3F466FC4B7979004 (void);
 extern void U3CPrivateImplementationDetailsU3E_ComputeStringHash_m6EA1F233618497AEFF8902A5EDFA24C74E2F2876 (void);
-static Il2CppMethodPointer s_methodPointers[791] = 
+static Il2CppMethodPointer s_methodPointers[825] = 
 {
 	ApplyMines_OnEnable_mB065872CE67F3F61F252A8F54784B1A00C81DC21,
 	ApplyMines_OnDisable_m6C705E2025BC990800EFE76CEA44DAB66458DD81,
@@ -880,6 +914,11 @@ static Il2CppMethodPointer s_methodPointers[791] =
 	FieldGeneration_CreateBariers_mF838941AA4B4B7419BD3D589CD306045B4BFB11F,
 	FieldGeneration__ctor_mF2C7676658F03669DDCC5E4CABC42AF8540165A3,
 	FieldGeneration__cctor_m9C2542008289F0BB9E2E42769327E1C3694D5E8D,
+	GameplayTutorialWindow_OnEnable_m02BB612C6EAAE5EC64068DBA7EA2973470401381,
+	GameplayTutorialWindow_SetText_m13D778E4AD1AAB462BC9BA90AC0EC45AC841F223,
+	GameplayTutorialWindow_ChangeTutorial_m7042F27378AF2B04AB1CACE141CD1F9973E68F89,
+	GameplayTutorialWindow_SetLanguage_m96C05ED76C651613775193E92964E200AADE3345,
+	GameplayTutorialWindow__ctor_mD53175FBF9D9584F1D35A9C95E110EBEF13B0DB6,
 	HighLightCells_Awake_m1DCF9EDD5E7968DF98E0EC44A2FF4C292E27822C,
 	HighLightCells_Update_mAC28CE4F1E8122F0C73A4694B5F8A91200F99D53,
 	HighLightCells_HighLightCube_mDC685A139D21A48B00AAFA2C873FDADC79385360,
@@ -947,7 +986,7 @@ static Il2CppMethodPointer s_methodPointers[791] =
 	BombsAmountMenu__ctor_m1CE2C879A8878AF98CF84FEBCBABC8BE0117721E,
 	ButtonsInMenu_Start_mF516373E9465EEA42A3B948674169EFADDF55608,
 	ButtonsInMenu_OnOpenTutorialButton_mFF757EEA812619523CDECED4C17232B298A460B0,
-	ButtonsInMenu_OpenTutorial_mF03BDB4CFE10AA4C0C11438EA0D99F730B33E0C7,
+	ButtonsInMenu_OpenMenuTutorial_m87473FCA751051D07DF19783C1AB940A856EA5F1,
 	ButtonsInMenu_OnEnable_mCBBF82CE3C3297668633850BC034C9A3F37CDFCB,
 	ButtonsInMenu_OnDisable_m7C285406649729F8400EB607E675EEAA1D6BBD1F,
 	ButtonsInMenu_SetInputsAfterSwap_mB3C686275E5E1DB80CF3CFBCC92755B0608B9828,
@@ -1587,9 +1626,38 @@ static Il2CppMethodPointer s_methodPointers[791] =
 	ConfigYG__ctor_m91A63B8DB334084D846DCD76A89E24949ECD7F6E,
 	JsonUtils_ToJson_m3E3F70313FB40E96BD8EDE934F5F4FA593F5C622,
 	JsonUtils_GetValueString_mF521F4DCA88CE04855E0AB8FD2C4643C3E402FB8,
+	ScrollingUIBackground_get_ScrollSpeed_mAAA4B9CE150E9747D2BCBD735131FFC73829F28A,
+	ScrollingUIBackground_set_ScrollSpeed_mE3E22CE7C065A264E6B81D354B86F847B3938CAE,
+	ScrollingUIBackground_get_VerticalScroll_m881CBC2B8C8F21E5C8057A235DF18374B526C255,
+	ScrollingUIBackground_set_VerticalScroll_m55A0D077A372585EDA4A6A9DB197E5193676D2E4,
+	ScrollingUIBackground_get_HorizontalScroll_m61909580F88E73A9D4CA4D5A85DD2C3E8B4DE732,
+	ScrollingUIBackground_set_HorizontalScroll_m25C50C3E5F4E10488311DFCF79F3E581EFB6D9FD,
+	ScrollingUIBackground_get_ScrollToStart_m4B630652DCDEEE6B354712DE188BF3852912E5B0,
+	ScrollingUIBackground_set_ScrollToStart_m5F305CCAD576EC367719A76EE732C466374AAA5B,
+	ScrollingUIBackground_get_AffectsTimeScale_mF92742B1DEFECB8C2742C240591FB21814FEF0F6,
+	ScrollingUIBackground_set_AffectsTimeScale_mD6E1978A8DFE1181534905ADB555B97A177C68D9,
+	ScrollingUIBackground_Awake_m2530715CE2C8FD515755057152B81142D49A4B44,
+	ScrollingUIBackground_Start_m5C1F901C3AAA49A147709DF0D5691B36DF432FC9,
+	ScrollingUIBackground_DefineScrollDirection_m190DB5CD6A38C4012954C5D4121569A8C91521D1,
+	ScrollingUIBackground_DefineVerticalScrollDirection_m1F21CC0B63693B5D1E2D9A4DA6F7D6CF24845C0B,
+	ScrollingUIBackground_DefineHorizontalScrollDirection_m5057240403DD0B068CD15A5FD9D97BB492C32C61,
+	ScrollingUIBackground_ScrollTexture_m410CAF16C5B54DAD080D89AF4355E53D5A764595,
+	ScrollingUIBackground_StartScrolling_mF3E2B2B162AAA0C86A6E76F74A8E52D77E864CF5,
+	ScrollingUIBackground_StopScrolling_m7F056B2F63D7467B907F50B3A6E8BB25116E0200,
+	ScrollingUIBackground__ctor_m405770064A43DDD361AC422027D52400D856C252,
+	U3CScrollTextureU3Ed__32__ctor_m451EB3AC82537C6388BE14419208F50FD50DA399,
+	U3CScrollTextureU3Ed__32_System_IDisposable_Dispose_mD53339EA9F77DEB5A0900A2EEAF3B4A90180F328,
+	U3CScrollTextureU3Ed__32_MoveNext_mB404E9E7422BE8238FEF011424CE937FB829EF4A,
+	U3CScrollTextureU3Ed__32_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m4947AC40D3CC2F5991CEB3F6E9840381111883C2,
+	U3CScrollTextureU3Ed__32_System_Collections_IEnumerator_Reset_mF4AE42363F44D10ED0A0DFD8DD779007CE4425E3,
+	U3CScrollTextureU3Ed__32_System_Collections_IEnumerator_get_Current_m7E629F78D5B5315E8F60EB4202D282C693B24ED4,
+	DemoUIController_ShowScrollingBackground1_m1F3F53F45B8394AAEEC70FDC1F720055E351C689,
+	DemoUIController_ShowScrollingBackground2_m534B13AC992F82B1AA2B0E892F01ECAAE7754C8D,
+	DemoUIController_ShowScrollingBackground3_m2FDCD9486E5BDCFA34DD6DD86A088539FCDB339B,
+	DemoUIController__ctor_m7870409236AA31F7BE24D56D3F466FC4B7979004,
 	U3CPrivateImplementationDetailsU3E_ComputeStringHash_m6EA1F233618497AEFF8902A5EDFA24C74E2F2876,
 };
-static const int32_t s_InvokerIndices[791] = 
+static const int32_t s_InvokerIndices[825] = 
 {
 	4658,
 	4658,
@@ -1674,6 +1742,11 @@ static const int32_t s_InvokerIndices[791] =
 	4658,
 	4658,
 	6856,
+	4658,
+	4658,
+	4658,
+	4658,
+	4658,
 	4658,
 	4658,
 	3797,
@@ -2381,13 +2454,42 @@ static const int32_t s_InvokerIndices[791] =
 	4658,
 	6581,
 	6581,
+	4597,
+	3816,
+	4531,
+	3759,
+	4531,
+	3759,
+	4479,
+	3703,
+	4479,
+	3703,
+	4658,
+	4658,
+	4658,
+	4658,
+	4658,
+	4558,
+	4658,
+	4658,
+	4658,
+	3759,
+	4658,
+	4479,
+	4558,
+	4658,
+	4558,
+	4658,
+	4658,
+	4658,
+	4658,
 	6684,
 };
 static const Il2CppTokenRangePair s_rgctxIndices[3] = 
 {
-	{ 0x02000024, { 0, 4 } },
-	{ 0x02000028, { 8, 4 } },
-	{ 0x06000118, { 4, 4 } },
+	{ 0x02000026, { 0, 4 } },
+	{ 0x0200002A, { 8, 4 } },
+	{ 0x0600011D, { 4, 4 } },
 };
 extern const uint32_t g_rgctx_Singleton_1_tEB10BC7581192E8DC4004CC6A80E88A3E42C3444;
 extern const uint32_t g_rgctx_T_t2337B8A22C295A41D129CA0B4B104663AAC37B94;
@@ -2420,7 +2522,7 @@ IL2CPP_EXTERN_C const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule;
 const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule = 
 {
 	"Assembly-CSharp.dll",
-	791,
+	825,
 	s_methodPointers,
 	0,
 	NULL,

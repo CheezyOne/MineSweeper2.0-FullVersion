@@ -31,6 +31,7 @@ public class Cell : MonoBehaviour
     public static bool CubesAreOpened;
     private Transform _mainCamera;
     [SerializeField] private float _surroundingCellsOpenTime = 0.1f;
+    private WaitForSeconds _surroundingCellsWait = new(0.1f);
     private Coroutine _trailRoutine;
     private bool CanHaveTwoBombs => ApplyMines.ApplyBlueBombs;
 
@@ -382,7 +383,7 @@ public class Cell : MonoBehaviour
         if (MainOpeningCube == gameObject)
             CubesAreOpened = true;
         Click();
-        yield return new WaitForSeconds(_surroundingCellsOpenTime);
+        yield return _surroundingCellsWait;
         RevealAllSurroundingNonBombs();
     }
     private void Click()

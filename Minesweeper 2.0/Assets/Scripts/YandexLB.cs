@@ -21,7 +21,7 @@ public class YandexLB : MonoBehaviour
 
     private void Start()
     {
-        HighScore =YandexGame.savesData.highScore;
+        HighScore = YandexGame.savesData.highScore;
     }
 
     private float CountScore()
@@ -30,10 +30,13 @@ public class YandexLB : MonoBehaviour
         HighScore = YandexGame.savesData.highScore;
         ApplyMines APComponent = MinesApplier.GetComponent<ApplyMines>();
         double BombRercentage = (Convert.ToDouble(APComponent.BlueBombCount) + Convert.ToDouble(APComponent.RedBombCount)) / Convert.ToDouble(APComponent.FieldSize);
+
         if (BombRercentage <= 0.09)
             return 0;
+
         if (BombRercentage > 0.5)
             BombRercentage = 0.5;
+
         float AddScore = APComponent.FieldSize;
         if (ApplyMines.ApplyBlueBombs)
         {
@@ -60,6 +63,7 @@ public class YandexLB : MonoBehaviour
             ChallengeCount++;
             AddScore *= 4;
         }
+
         AddScore = (float)(AddScore * BombRercentage);
         if (ChallengeCount > 0)
             AddScore /= ChallengeCount;

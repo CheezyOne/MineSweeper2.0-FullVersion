@@ -12,6 +12,7 @@ public class ButtonsInMenu : MonoBehaviour
     [SerializeField] private GameObject MapNameChangeRight, MapNameChangeLeft, InGameMenu, SmileyPosition, TwoInput, FullInput;
     [SerializeField] private TMP_Text _mapNameText;
     [SerializeField] private TutorialWindow _tutorialWindow;
+    [SerializeField] private GameplayTutorialWindow _gameplayTutorialWindow;
     private static int MapNameNumber=0;
     private void Start()
     {
@@ -19,16 +20,15 @@ public class ButtonsInMenu : MonoBehaviour
         ChangeLanguage();
 
         if(!YandexGame.savesData.hasSeenTutorial)
-            OpenTutorial();
+            OpenMenuTutorial();
     }
 
     public void OnOpenTutorialButton()
     {
-        EventBus.OnButtonClick?.Invoke();
-        OpenTutorial();
+        WindowsManager.Instance.OpenWindow(_gameplayTutorialWindow);
     }
 
-    private void OpenTutorial()
+    private void OpenMenuTutorial()
     {
         WindowsManager.Instance.OpenWindow(_tutorialWindow);
     }

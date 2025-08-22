@@ -1,5 +1,7 @@
 ScriptsOnlyBuild:
   usedScripts:
+    Assembly-CSharp:
+    - ShigeDev.ScrollingUIBackground.ScrollingUIBackground
     Assembly-CSharp.dll:
     - ApplyMines
     - BombsAmountMenu
@@ -11,6 +13,7 @@ ScriptsOnlyBuild:
     - FieldGeneration
     - FieldSizeMenu
     - GameModesSystem
+    - GameplayTutorialWindow
     - HighLightCells
     - InGameBombsCounter
     - InGameButtons
@@ -26,12 +29,12 @@ ScriptsOnlyBuild:
     - OptionsCanvas
     - OptionsHandler
     - PlusMinusButtons
+    - ShigeDev.ScrollingUIBackground.ScrollingUIBackground
     - ShowTrails
     - SmileyFlip
     - SoundButtons
     - Sounds
     - StartingSequence
-    - Test
     - TextLocalization
     - TutorialHand
     - TutorialWindow
@@ -45,8 +48,6 @@ ScriptsOnlyBuild:
     - YandexLB
     DOTween.dll:
     - DG.Tweening.Core.DOTweenSettings
-    Unity.Recorder.Editor.dll:
-    - UnityEditor.Recorder.RecorderPreferencesSettings
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     Unity.TextMeshPro:
@@ -57,12 +58,19 @@ ScriptsOnlyBuild:
     Unity.TextMeshPro.dll:
     - TMPro.TMP_FontAsset
     - TMPro.TMP_InputField
+    - TMPro.TMP_Settings
+    - TMPro.TMP_SpriteAsset
+    - TMPro.TMP_StyleSheet
     - TMPro.TextMeshPro
     - TMPro.TextMeshProUGUI
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
     - UnityEditor.TestTools.TestRunner.TestRun.TestJobDataHolder
+    UnityEngine.UI:
+    - UnityEngine.UI.CanvasScaler
+    - UnityEngine.UI.GraphicRaycaster
+    - UnityEngine.UI.Image
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.EventTrigger
@@ -153,6 +161,9 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: TutorialWindow
     methodName: NextTutorial
+  - assembly: Assembly-CSharp
+    fullTypeName: GameplayTutorialWindow
+    methodName: ChangeTutorial
   - assembly: Assembly-CSharp
     fullTypeName: TutorialWindow
     methodName: NextTutorial
@@ -463,15 +474,6 @@ ScriptsOnlyBuild:
     fullTypeName: InfoAboutModes
     methodName: OnQuestionExit
   - assembly: Assembly-CSharp
-    fullTypeName: FieldSizeMenu
-    methodName: EditEndBoth
-  - assembly: Assembly-CSharp
-    fullTypeName: FieldSizeMenu
-    methodName: EditEndBoth
-  - assembly: Assembly-CSharp
-    fullTypeName: FieldSizeMenu
-    methodName: ChangeBoth
-  - assembly: Assembly-CSharp
     fullTypeName: OptionsHandler
     methodName: OpenOptions
   - assembly: Assembly-CSharp
@@ -601,7 +603,7 @@ ScriptsOnlyBuild:
     fullTypeName: FieldSizeMenu
     methodName: ChangeColomnsSize
   sceneClasses:
-    Assets/Scenes/SampleScene.unity:
+    Assets/Scenes/Main.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -653,133 +655,135 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 16672}
-    - Class: 114
-      Script: {instanceID: 16674}
-    - Class: 114
       Script: {instanceID: 16676}
     - Class: 114
-      Script: {instanceID: 16702}
+      Script: {instanceID: 16678}
     - Class: 114
-      Script: {instanceID: 16744}
+      Script: {instanceID: 16680}
     - Class: 114
-      Script: {instanceID: 16774}
+      Script: {instanceID: 16706}
     - Class: 114
-      Script: {instanceID: 16910}
+      Script: {instanceID: 16748}
     - Class: 114
-      Script: {instanceID: 16956}
+      Script: {instanceID: 16778}
     - Class: 114
-      Script: {instanceID: 16992}
+      Script: {instanceID: 16914}
     - Class: 114
-      Script: {instanceID: 17016}
+      Script: {instanceID: 16960}
     - Class: 114
-      Script: {instanceID: 17022}
+      Script: {instanceID: 16996}
     - Class: 114
-      Script: {instanceID: 17140}
+      Script: {instanceID: 17020}
     - Class: 114
-      Script: {instanceID: 17154}
+      Script: {instanceID: 17026}
     - Class: 114
-      Script: {instanceID: 17504}
+      Script: {instanceID: 17144}
     - Class: 114
-      Script: {instanceID: 17512}
+      Script: {instanceID: 17158}
     - Class: 114
-      Script: {instanceID: 17524}
+      Script: {instanceID: 17508}
     - Class: 114
-      Script: {instanceID: 18038}
+      Script: {instanceID: 17516}
     - Class: 114
-      Script: {instanceID: 18202}
+      Script: {instanceID: 17528}
     - Class: 114
-      Script: {instanceID: 18302}
+      Script: {instanceID: 18042}
     - Class: 114
-      Script: {instanceID: 18318}
+      Script: {instanceID: 18206}
     - Class: 114
-      Script: {instanceID: 18358}
+      Script: {instanceID: 18306}
     - Class: 114
-      Script: {instanceID: 18562}
+      Script: {instanceID: 18322}
     - Class: 114
-      Script: {instanceID: 18568}
+      Script: {instanceID: 18362}
     - Class: 114
-      Script: {instanceID: 18588}
+      Script: {instanceID: 18566}
     - Class: 114
-      Script: {instanceID: 18802}
+      Script: {instanceID: 18572}
     - Class: 114
-      Script: {instanceID: 19120}
+      Script: {instanceID: 18592}
     - Class: 114
-      Script: {instanceID: 19220}
+      Script: {instanceID: 18806}
     - Class: 114
-      Script: {instanceID: 19254}
+      Script: {instanceID: 19124}
     - Class: 114
-      Script: {instanceID: 19260}
+      Script: {instanceID: 19224}
     - Class: 114
-      Script: {instanceID: 19416}
+      Script: {instanceID: 19258}
     - Class: 114
-      Script: {instanceID: 19696}
+      Script: {instanceID: 19420}
     - Class: 114
-      Script: {instanceID: 19932}
+      Script: {instanceID: 19700}
     - Class: 114
-      Script: {instanceID: 19968}
+      Script: {instanceID: 19936}
     - Class: 114
-      Script: {instanceID: 19988}
+      Script: {instanceID: 19972}
     - Class: 114
-      Script: {instanceID: 20306}
+      Script: {instanceID: 19992}
     - Class: 114
-      Script: {instanceID: 20690}
+      Script: {instanceID: 20244}
     - Class: 114
-      Script: {instanceID: 20860}
+      Script: {instanceID: 20312}
     - Class: 114
-      Script: {instanceID: 20958}
+      Script: {instanceID: 20696}
     - Class: 114
-      Script: {instanceID: 21038}
+      Script: {instanceID: 20866}
     - Class: 114
-      Script: {instanceID: 21062}
+      Script: {instanceID: 20964}
     - Class: 114
-      Script: {instanceID: 21142}
+      Script: {instanceID: 21044}
     - Class: 114
-      Script: {instanceID: 21202}
+      Script: {instanceID: 21068}
     - Class: 114
-      Script: {instanceID: 21224}
+      Script: {instanceID: 21148}
     - Class: 114
-      Script: {instanceID: 21272}
+      Script: {instanceID: 21208}
     - Class: 114
-      Script: {instanceID: 21308}
+      Script: {instanceID: 21230}
     - Class: 114
-      Script: {instanceID: 21486}
+      Script: {instanceID: 21278}
     - Class: 114
-      Script: {instanceID: 21546}
+      Script: {instanceID: 21314}
     - Class: 114
-      Script: {instanceID: 21698}
+      Script: {instanceID: 21492}
     - Class: 114
-      Script: {instanceID: 21922}
+      Script: {instanceID: 21538}
     - Class: 114
-      Script: {instanceID: 22116}
+      Script: {instanceID: 21554}
     - Class: 114
-      Script: {instanceID: 22134}
+      Script: {instanceID: 21706}
     - Class: 114
-      Script: {instanceID: 22398}
+      Script: {instanceID: 21930}
     - Class: 114
-      Script: {instanceID: 22516}
+      Script: {instanceID: 22126}
     - Class: 114
-      Script: {instanceID: 22556}
+      Script: {instanceID: 22144}
     - Class: 114
-      Script: {instanceID: 22798}
+      Script: {instanceID: 22408}
     - Class: 114
-      Script: {instanceID: 22870}
+      Script: {instanceID: 22526}
     - Class: 114
-      Script: {instanceID: 22906}
+      Script: {instanceID: 22566}
     - Class: 114
-      Script: {instanceID: 23074}
+      Script: {instanceID: 22808}
     - Class: 114
-      Script: {instanceID: 23196}
+      Script: {instanceID: 22880}
     - Class: 114
-      Script: {instanceID: 23294}
+      Script: {instanceID: 22916}
     - Class: 114
-      Script: {instanceID: 23446}
+      Script: {instanceID: 23086}
     - Class: 114
-      Script: {instanceID: 23998}
+      Script: {instanceID: 23208}
     - Class: 114
-      Script: {instanceID: 24474}
+      Script: {instanceID: 23306}
     - Class: 114
-      Script: {instanceID: 24678}
+      Script: {instanceID: 23458}
+    - Class: 114
+      Script: {instanceID: 24010}
+    - Class: 114
+      Script: {instanceID: 24486}
+    - Class: 114
+      Script: {instanceID: 24690}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -923,7 +927,7 @@ ScriptsOnlyBuild:
     className: Shadow
   - hash:
       serializedVersion: 2
-      Hash: e1d1b6be0ed49468d764de8f660bf017
+      Hash: d3fff16c1f192d83da1ad2bbbc31f49b
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: ButtonsInMenu
@@ -1403,6 +1407,12 @@ ScriptsOnlyBuild:
     className: TMP_SubMeshUI
   - hash:
       serializedVersion: 2
+      Hash: 9a88ad81a20e429938158c7711044226
+    assemblyName: Assembly-CSharp
+    namespaceName: ShigeDev.ScrollingUIBackground
+    className: ScrollingUIBackground
+  - hash:
+      serializedVersion: 2
       Hash: 9078325c2a6f6a2d9612ade897511860
     assemblyName: Unity.TextMeshPro
     namespaceName: TMPro
@@ -1643,6 +1653,12 @@ ScriptsOnlyBuild:
     className: UnityOnDeselectMessageListener
   - hash:
       serializedVersion: 2
+      Hash: 87857843838dfbed0e049e2a30e73788
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: GameplayTutorialWindow
+  - hash:
+      serializedVersion: 2
       Hash: b5007673bbbdb9d12597a1d8201370f5
     assemblyName: UnityEngine.UI
     namespaceName: UnityEngine.UI
@@ -1671,6 +1687,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp
     namespaceName: YG
     className: YandexGame
+  - hash:
+      serializedVersion: 2
+      Hash: ece35d8f3584aac6073a5e580cdcc5f2
+    assemblyName: Assembly-CSharp
+    namespaceName: ShigeDev.ScrollingUIBackground
+    className: MenuItemScrollingUIBackground
   - hash:
       serializedVersion: 2
       Hash: ef38c1407dba8c1f5d69f5db61a694fe
@@ -1791,6 +1813,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnDragMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: 210639f9d88b7101b65dc831455bf82e
+    assemblyName: Assembly-CSharp
+    namespaceName: ShigeDev.ScrollingUIBackground
+    className: DemoUIController
   - hash:
       serializedVersion: 2
       Hash: 20a120e55ad3ab65556328d5fd8309dd
@@ -2081,5 +2109,5 @@ ScriptsOnlyBuild:
     className: UnityOnSliderValueChangedMessageListener
   platform: 20
   scenePathNames:
-  - Assets/Scenes/SampleScene.unity
+  - Assets/Scenes/Main.unity
   playerPath: B:/MyGames/Test

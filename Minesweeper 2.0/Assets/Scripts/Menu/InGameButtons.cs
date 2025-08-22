@@ -56,6 +56,7 @@ public class InGameButtons : MonoBehaviour
         Cursor.color = Color.white;
         ClickRegister.setBombs = true;
     }
+
     public void ClickOnCells()
     {
         CellsCheck.SetActive(true);
@@ -64,11 +65,14 @@ public class InGameButtons : MonoBehaviour
         Cursor.color = Color.grey;
         ClickRegister.setBombs = false;
     }
+
     public void GameExit()
     {
         PlaySound?.Invoke();
+
         if (ClickRegister.isGameOn)
         {
+            ClickRegister.isGameOn = false;
             AssurenceFrame.SetActive(true);
             return;
         }
@@ -76,6 +80,7 @@ public class InGameButtons : MonoBehaviour
         YandexGame.FullscreenShow();
         Exit();
     }
+
     private void Exit()
     {
         onGameExit?.Invoke();
@@ -86,16 +91,20 @@ public class InGameButtons : MonoBehaviour
         gameObject.SetActive(false);
         AssurenceFrame.SetActive(false);
     }
+
     public void YesButton()
     {
         Exit();
     }
+
     public void NoButton() 
     {
+        ClickRegister.isGameOn = true;
         AssurenceFrame.SetActive(false);
         YandexGame.FullscreenShow();
         PlaySound?.Invoke();
     }
+
     public void RestartButton()
     {
         PlaySound?.Invoke();
@@ -105,6 +114,7 @@ public class InGameButtons : MonoBehaviour
         MovingCamera.isAbleToMove = true;
         YandexGame.FullscreenShow();
     }
+
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape))

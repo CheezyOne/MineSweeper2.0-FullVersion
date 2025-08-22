@@ -300,7 +300,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5039d9694a7f334ca7883f4c4f90ba5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meshRenderer: {fileID: 0}
+  _meshRenderers: []
   _numbers:
   - {fileID: 8817188047221472911}
   - {fileID: 6863075982994843902}
@@ -312,7 +312,7 @@ MonoBehaviour:
   _torqueForce: 3
   _minPushForce: 1
   _maxPushForce: 4
-  _lifeTime: 40
+  _lifeTime: 30
   _horizontalMinPositionChange: 30
   _horizontalMaxPositionChange: 50
   _verticalMinPositionChange: 20
