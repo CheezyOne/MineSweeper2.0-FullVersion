@@ -219,7 +219,7 @@ GameObject:
   - component: {fileID: 6848933114756799970}
   m_Layer: 0
   m_Name: Cell
-  m_TagString: Untagged
+  m_TagString: Cell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -345,6 +345,7 @@ MonoBehaviour:
   AllMaterials:
   - {fileID: 2100000, guid: 2bf143053f1c23248abed3799777c391, type: 2}
   - {fileID: 2100000, guid: 47199bde0f0dcaf41a54f3634cf9c1ef, type: 2}
+  - {fileID: 2100000, guid: 1b199ddc12fc6ca4d8fd534add3e2ddf, type: 2}
   ExplosionEffect: {fileID: 7300390215380364495, guid: 7d2d047723aabff43979c8b63972dc8a, type: 3}
   TrailingSphere: {fileID: 7422256345674717143, guid: 86ea28903ba6858479b2ec51f7650574, type: 3}
   Test: 0

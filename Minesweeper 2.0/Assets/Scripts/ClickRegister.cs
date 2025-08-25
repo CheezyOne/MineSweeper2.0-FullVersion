@@ -104,7 +104,9 @@ public class ClickRegister : MonoBehaviour
                                     ApplyMines.CantBeBomb = hit.transform.gameObject;
                                     onFirstCubeTouch?.Invoke();
                                 }
+
                                 PlaySound?.Invoke();
+
                                 if (CellComponent.HasBeenTouched)
                                     CellComponent.RevealAllSurroundingNonBombs();
                                 if (!CellComponent.Flag.activeSelf)

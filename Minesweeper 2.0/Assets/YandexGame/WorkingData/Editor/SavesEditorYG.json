@@ -1,5 +1,5 @@
 {
-    "idSave": 249,
+    "idSave": 572,
     "isFirstSession": false,
     "language": "ru",
     "promptDone": false,
@@ -10,8 +10,8 @@
         true,
         false
     ],
-    "highScore": 642,
+    "highScore": 1162,
     "startedFirstGame": true,
-    "playTimes": 225,
+    "playTimes": 528,
     "hasSeenTutorial": true
 }

@@ -27,6 +27,7 @@ public class BombsInGameChanger : MonoBehaviour
         for (int i=0;i<MineField.transform.childCount;i++)
         {
             Transform Cell = MineField.transform.GetChild(i);
+
             if (Cell.TryGetComponent<Cell>(out Cell CellComponent))
             {
                 if (CellComponent.HasRedBomb)

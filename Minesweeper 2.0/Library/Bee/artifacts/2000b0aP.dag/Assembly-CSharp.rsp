@@ -336,6 +336,7 @@
 "Assets/Scripts/Menu/WindowsManager.cs"
 "Assets/Scripts/MovingCamera.cs"
 "Assets/Scripts/OptionsCanvas.cs"
+"Assets/Scripts/PoolManager.cs"
 "Assets/Scripts/ShowTrails.cs"
 "Assets/Scripts/SmileyFlip.cs"
 "Assets/Scripts/SoundMusic/SoundButtons.cs"

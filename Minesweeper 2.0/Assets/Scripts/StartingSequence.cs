@@ -8,14 +8,15 @@ public class StartingSequence : MonoBehaviour
 {
     [SerializeField] private GameObject Field;
     private List<GameObject> AllCubes = new List<GameObject>(), FallingCubes = new List<GameObject>();
-    private List<Vector3> AllStartingPositions = new List<Vector3>(), AllEndPositions = new List<Vector3>();
+    private Dictionary<GameObject, Vector3> CubeTargetPositions = new Dictionary<GameObject, Vector3>();
     private bool CubesShouldFall = false;
-    private float FallSpeed=15f;
+    private float FallSpeed = 15f;
     private int HowManyCubesFallSimultaneously = 1;
     private Coroutine _waitForBariersToDetect;
 
     public static Action getBariersToWork;
     public static Action<int> onCubesFallSmiley;
+
     private void Awake()
     {
         FieldGeneration.onFieldGenerated += NullAllVariables;
@@ -26,22 +27,38 @@ public class StartingSequence : MonoBehaviour
         InGameButtons.onGameExit += StopFallingCoroutine;
         InGameButtons.onGameExit += NullAllVariables;
     }
+
+    private void OnDestroy()
+    {
+        FieldGeneration.onFieldGenerated -= NullAllVariables;
+        FieldGeneration.onFieldGenerated -= ApplyCubes;
+        FieldGeneration.onFieldGenerated -= CubesShouldFallTrue;
+        FieldGeneration.onFieldGenerated -= StartFallingCoroutine;
+        InGameButtons.onGameExit -= CubesShouldFallFalse;
+        InGameButtons.onGameExit -= StopFallingCoroutine;
+        InGameButtons.onGameExit -= NullAllVariables;
+    }
+
     private void CubesShouldFallTrue()
     {
         CubesShouldFall = true;
     }
+
     private void CubesShouldFallFalse()
     {
         CubesShouldFall = false;
     }
+
     private void StopFallingCoroutine()
     {
         StopAllCoroutines();
     }
+
     private void StartFallingCoroutine()
     {
         StartCoroutine(AddNewCubesFalling());
     }
+
     private void ApplyCubes()
     {
         AllCubes = FieldGeneration.AllCubes.Concat(FieldGeneration.AllBariers).ToList();
@@ -49,74 +66,100 @@ public class StartingSequence : MonoBehaviour
         if (HowManyCubesFallSimultaneously < 1)
             HowManyCubesFallSimultaneously = 1;
     }
-    private void DecideStartAndEndPositions(GameObject Cube)
+
+    private Vector3 CalculateEndPosition(GameObject cube)
     {
-        if(Cube == null)
-        {
-            return;
-        }
-            AllStartingPositions.Add(Cube.transform.position);
-            AllEndPositions.Add
-                (new Vector3
-                (Cube.transform.position.x,
-                Cube.transform.position.y-11f,
-                Cube.transform.position.z)
-                );
+        if (cube == null) return Vector3.zero;
+
+        return new Vector3(
+            cube.transform.position.x,
+            cube.transform.position.y - 11f,
+            cube.transform.position.z
+        );
     }
+
     private GameObject PickRandomCube()
     {
-        int Randomnumber = UnityEngine.Random.Range(0, AllCubes.Count-1);
-        GameObject RandomCube = AllCubes[Randomnumber];
-        AllCubes.RemoveAt(Randomnumber);
-        return RandomCube;
+        if (AllCubes.Count == 0)
+            return null;
+
+        int randomNumber = UnityEngine.Random.Range(0, AllCubes.Count);
+        GameObject randomCube = AllCubes[randomNumber];
+        AllCubes.RemoveAt(randomNumber);
+
+        return randomCube;
     }
+
     private IEnumerator AddNewCubesFalling()
     {
-        yield return new WaitForSeconds(0.075f);
-        for (int i = 0; i < HowManyCubesFallSimultaneously; i++)
+        while (AllCubes.Count > 0)
         {
-            GameObject RandomCube = PickRandomCube();
-            DecideStartAndEndPositions(RandomCube);
-            FallingCubes.Add(RandomCube);
-            if (AllCubes.Count == 0)
+            yield return new WaitForSeconds(0.075f);
+
+            for (int i = 0; i < HowManyCubesFallSimultaneously; i++)
             {
-                StopAllCoroutines();
-                yield return null;
+                if (AllCubes.Count == 0) break;
+
+                GameObject randomCube = PickRandomCube();
+                if (randomCube == null) continue;
+
+                Vector3 endPosition = CalculateEndPosition(randomCube);
+                CubeTargetPositions[randomCube] = endPosition;
+
+                if (!FallingCubes.Contains(randomCube))
+                {
+                    FallingCubes.Add(randomCube);
+                }
             }
         }
-        yield return AddNewCubesFalling();
+
+        yield break;
     }
+
     private void FallCubes()
     {
-        for (int i = 0; i < FallingCubes.Count; i++) 
+        for (int i = FallingCubes.Count - 1; i >= 0; i--)
         {
-            if (FallingCubes[i] == null)
+            GameObject cube = FallingCubes[i];
+            if (cube == null || !CubeTargetPositions.ContainsKey(cube))
+            {
+                FallingCubes.RemoveAt(i);
                 continue;
-            FallingCubes[i].transform.position = Vector3.MoveTowards(FallingCubes[i].transform.position, AllEndPositions[i], Time.deltaTime* FallSpeed);
+            }
+
+            Vector3 targetPosition = CubeTargetPositions[cube];
+            cube.transform.position = Vector3.MoveTowards(cube.transform.position, targetPosition, Time.deltaTime * FallSpeed);
+
+            // ѕровер€ем, достиг ли куб целевой позиции
+            if (cube.transform.position == targetPosition)
+            {
+                CubeTargetPositions.Remove(cube);
+                FallingCubes.RemoveAt(i);
+            }
         }
     }
+
     private void NullAllVariables()
     {
         AllCubes = new List<GameObject>();
         FallingCubes = new List<GameObject>();
-        AllStartingPositions = new List<Vector3>();
-        AllEndPositions = new List<Vector3>();
-}    
+        CubeTargetPositions = new Dictionary<GameObject, Vector3>();
+    }
+
     private void Update()
     {
         if (CubesShouldFall)
         {
             FallCubes();
-            if (FallingCubes.Count > 0)
+
+            if (FallingCubes.Count == 0 && AllCubes.Count == 0)
             {
-                if (FallingCubes[FallingCubes.Count - 1].transform.position == AllEndPositions[FallingCubes.Count - 1])
-                {
-                    if(_waitForBariersToDetect==null)
-                        _waitForBariersToDetect = StartCoroutine(WaitForBariersToDetect());
-                }
-            } 
+                if (_waitForBariersToDetect == null)
+                    _waitForBariersToDetect = StartCoroutine(WaitForBariersToDetect());
+            }
         }
     }
+
     private IEnumerator WaitForBariersToDetect()
     {
         getBariersToWork?.Invoke();
@@ -130,6 +173,7 @@ public class StartingSequence : MonoBehaviour
         NullAllVariables();
         yield break;
     }
+
     private IEnumerator SmileyCor()
     {
         yield return new WaitForSeconds(1f);

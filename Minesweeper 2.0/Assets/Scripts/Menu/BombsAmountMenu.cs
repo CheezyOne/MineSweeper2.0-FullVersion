@@ -184,8 +184,8 @@ public class BombsAmountMenu : MonoBehaviour
             {
                 ConstraintNumber = Convert.ToInt32(Convert.ToDouble(_fieldSize) * 0.99f)-2;
             }
-
         }
+
         return ConstraintNumber;
     }
 }

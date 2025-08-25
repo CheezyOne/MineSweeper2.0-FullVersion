@@ -39,10 +39,10 @@ public class ApplyMines : MonoBehaviour//Red bombs and blue bombs are vise-versa
 
     private void NullAllVariables()
     {
-        RedBombCells = new List<int>();
-        BlueBombCells = new List<int>();
-        AllCellsForRed = new List<int>();
-        AllCellsForBlue = new List<int>();
+        RedBombCells.Clear();
+        BlueBombCells.Clear();
+        AllCellsForRed.Clear();
+        AllCellsForBlue.Clear();
         BlueBombCount = 0;
         RedBombCount = 0;
         NonBombsCounter = 0;
@@ -53,7 +53,9 @@ public class ApplyMines : MonoBehaviour//Red bombs and blue bombs are vise-versa
     {
         for (int i = 0; i < MineField.childCount; i++)
         {
-            if (MineField.GetChild(i).name == "Cell(Clone)")
+            Transform cell = MineField.GetChild(i);
+
+            if (cell.name == "Cell(Clone)" && cell.gameObject.activeSelf)
             {
                 AllCellsForRed.Add(i);
                 AllCellsForBlue.Add(i);
@@ -126,6 +128,7 @@ public class ApplyMines : MonoBehaviour//Red bombs and blue bombs are vise-versa
             VictoryHandler.EmptyCellsCount = FieldSize - RedBombCount - BlueBombCount + BothBlueAndRed();//Присваивается дважды, но это фиксит баг
         else
             VictoryHandler.EmptyCellsCount = FieldSize - RedBombCount;
+
         InGameBombsCounter.BombsCount = FieldSize - VictoryHandler.EmptyCellsCount;
     }
 
@@ -134,7 +137,8 @@ public class ApplyMines : MonoBehaviour//Red bombs and blue bombs are vise-versa
         int BlueRedBombs = 0;
         for(int i=0;i< MineField.transform.childCount;i++)
         {
-            if (!MineField.transform.GetChild(i).TryGetComponent<Cell>(out Cell cellComponent))
+            Transform cell = MineField.transform.GetChild(i);
+            if (!MineField.transform.GetChild(i).TryGetComponent<Cell>(out Cell cellComponent) || !cell.gameObject.activeSelf)
                 continue;
             if (cellComponent.HasBlueBomb && cellComponent.HasRedBomb)
                 BlueRedBombs++;
@@ -167,12 +171,12 @@ public class ApplyMines : MonoBehaviour//Red bombs and blue bombs are vise-versa
 
         for (int i=0;i< RedBombCount; i++)
         {
-            MineField.transform.GetChild(RedBombCells[i]).GetComponent<Cell>().HasRedBomb = true;
+            MineField.GetChild(RedBombCells[i]).GetComponent<Cell>().HasRedBomb = true;
         }
 
         for (int i = 0; i < BlueBombCount; i++)
         {
-            MineField.transform.GetChild(BlueBombCells[i]).GetComponent<Cell>().HasBlueBomb = true;
+            MineField.GetChild(BlueBombCells[i]).GetComponent<Cell>().HasBlueBomb = true;
         }
 
         ApplyBombsCount();

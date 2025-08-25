@@ -31,7 +31,7 @@ public class FieldGeneration : MonoBehaviour
     {
         for(int i=0;i< Field.transform.childCount;i++)
         {
-            Destroy(Field.transform.GetChild(i).gameObject);
+            PoolManager.ReturnObjectToPool(Field.transform.GetChild(i).gameObject);
         }
     }
     private void Update()
@@ -41,7 +41,7 @@ public class FieldGeneration : MonoBehaviour
     }
     private void GenerateAField()
     {
-        AllCubes = new List<GameObject>();
+        AllCubes.Clear();
         PositionFromField = Vector3.zero;
         Counter = 0;
         SpecialFormsCounter = 0;
@@ -54,8 +54,7 @@ public class FieldGeneration : MonoBehaviour
                     {
                         for(float j=0;j< StringsSize; j++)
                         {
-                            GameObject NewCell = Instantiate(Cell, Field.transform.position + PositionFromField, Quaternion.identity);
-                            NewCell.transform.SetParent(Field.transform);
+                            GameObject NewCell = PoolManager.SpawnObject(Cell, Field.transform.position + PositionFromField, Quaternion.identity, Field.transform);
                             AllCubes.Add(NewCell);
                             PositionFromField += new Vector3(1.1f, 0, 0);
                             Counter++;
@@ -79,8 +78,7 @@ public class FieldGeneration : MonoBehaviour
                         {
                             if (Counter > StringsCutter-1 && Counter < StringsSize-StringsCutter || (SpecialFormsCounter> ColomnsCutter -1 && SpecialFormsCounter< ColomnsSize - ColomnsCutter))
                             {
-                                GameObject NewCell = Instantiate(Cell, Field.transform.position + PositionFromField, Quaternion.identity);
-                                NewCell.transform.SetParent(Field.transform);
+                                GameObject NewCell = PoolManager.SpawnObject(Cell, Field.transform.position + PositionFromField, Quaternion.identity, Field.transform);
                                 AllCubes.Add(NewCell);
                             }
                             PositionFromField += new Vector3(1.1f, 0, 0);
@@ -114,8 +112,7 @@ public class FieldGeneration : MonoBehaviour
                         {
                             if (!(AnglesCutter - SpecialFormsCounter > Counter || (ColomnsSize-AnglesCutter) + SpecialFormsCounter <= Counter))
                             {
-                                GameObject NewCell = Instantiate(Cell, Field.transform.position + PositionFromField, Quaternion.identity);
-                                NewCell.transform.SetParent(Field.transform);
+                                GameObject NewCell = PoolManager.SpawnObject(Cell, Field.transform.position + PositionFromField, Quaternion.identity, Field.transform);
                                 AllCubes.Add(NewCell);
                                 Counter++;
                                 PositionFromField += new Vector3(1.1f, 0, 0);
@@ -138,8 +135,7 @@ public class FieldGeneration : MonoBehaviour
                         {
                             if (!(AnglesCutter - SpecialFormsCounter > Counter || (ColomnsSize - AnglesCutter) + SpecialFormsCounter <= Counter))
                             {
-                                GameObject NewCell = Instantiate(Cell, Field.transform.position + PositionFromField, Quaternion.identity);
-                                NewCell.transform.SetParent(Field.transform);
+                                GameObject NewCell = PoolManager.SpawnObject(Cell, Field.transform.position + PositionFromField, Quaternion.identity, Field.transform);
                                 AllCubes.Add(NewCell);
                                 Counter++;
                                 PositionFromField += new Vector3(1.1f, 0, 0);
@@ -193,8 +189,7 @@ public class FieldGeneration : MonoBehaviour
                                 Counter++;
                                 continue;
                             }
-                            GameObject NewCell = Instantiate(Cell, Field.transform.position + PositionFromField, Quaternion.identity);
-                            NewCell.transform.SetParent(Field.transform);
+                            GameObject NewCell = PoolManager.SpawnObject(Cell, Field.transform.position + PositionFromField, Quaternion.identity, Field.transform);
                             AllCubes.Add(NewCell);
                             PositionFromField += new Vector3(1.1f, 0, 0);
                             Counter++;
@@ -227,8 +222,7 @@ public class FieldGeneration : MonoBehaviour
                                 Counter++;
                                 continue;
                             }
-                            GameObject NewCell = Instantiate(Cell, Field.transform.position + PositionFromField, Quaternion.identity);
-                            NewCell.transform.SetParent(Field.transform);
+                            GameObject NewCell = PoolManager.SpawnObject(Cell, Field.transform.position + PositionFromField, Quaternion.identity, Field.transform);
                             AllCubes.Add(NewCell);
                             PositionFromField += new Vector3(1.1f, 0, 0);
                             Counter++;
@@ -246,10 +240,10 @@ public class FieldGeneration : MonoBehaviour
                     break;
                 }
         }
-        AllBariers.Clear();
         
         if (ApplyBariers)
         {
+            AllBariers.Clear();
             CreateBariers();
         }
 
@@ -320,13 +314,14 @@ public class FieldGeneration : MonoBehaviour
                 }
 
             }
+
             if (ShallNotProceed)
             {
                 ShallNotProceed = false;
                 continue;
             }
-            GameObject NewBarier = Instantiate(Barier, BarierPosition,Quaternion.identity);//Rotate if on the left and right
-            NewBarier.transform.SetParent(Field.transform);
+
+            GameObject NewBarier = PoolManager.SpawnObject(Barier, BarierPosition,Quaternion.identity, Field.transform);//Rotate if on the left and right
             AllBariers.Add(NewBarier);
             AllBariersPositions.Add(BarierPosition);
             if (ShouldRotate)

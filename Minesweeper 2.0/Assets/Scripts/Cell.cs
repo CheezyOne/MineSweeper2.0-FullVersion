@@ -32,7 +32,13 @@ public class Cell : MonoBehaviour
     private Transform _mainCamera;
     [SerializeField] private float _surroundingCellsOpenTime = 0.1f;
     private WaitForSeconds _surroundingCellsWait = new(0.1f);
+    private List<GameObject> _cachedNeighbors;
+    private bool _neighborsCacheValid = false;
     private Coroutine _trailRoutine;
+    private Sequence MoveToOpen;
+    private static readonly string[] NumberStrings = new string[10] {
+    "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"
+};
     private bool CanHaveTwoBombs => ApplyMines.ApplyBlueBombs;
 
     private static bool _hasLostOnce;
@@ -43,7 +49,6 @@ public class Cell : MonoBehaviour
     private void Awake()
     {
         _mainCamera = Camera.main.transform;
-        _hasLostOnce = false;
     }
 
     private void OnEnable()
@@ -56,6 +61,7 @@ public class Cell : MonoBehaviour
         OneColoredString = transform.GetChild(2).GetChild(0).gameObject;
         TwoColoredString = transform.GetChild(2).GetChild(1).gameObject;
     }
+
     private void OnDisable()
     {
         BombsInGameChanger.onBombsMove -= GetSurroundingCubesInfo;
@@ -63,6 +69,39 @@ public class Cell : MonoBehaviour
         ApplyMines.onAllBombsApply -= GetSurroundingCubesInfo;
         EventBus.OnGameLose -= ShowIfTheBombTextureIsRight;
         EventBus.OnGameLose -= SpawnExplosion;
+        ReturnToPool();
+    }
+
+    private void ReturnToPool()
+    {
+        MoveToOpen.Kill();
+        StopAllCoroutines();
+        HasBlueBomb = false;
+        HasRedBomb = false;
+        HasBeenTouched = false;
+        HasBarierUp = false;
+        HasBarierDown = false; 
+        HasBarierRight = false;
+        HasBarierLeft = false;
+        Flag.SetActive(false);
+        DoubleNumberAboutBombs.SetActive(false);
+        Bomb.SetActive(false);
+        NumberAboutBombs.gameObject.SetActive(false);
+        NumberOfRedBombsAround = 0;
+        NumberOfBlueBombsAround = 0;
+        HasLiedOnceRed = false;
+        IsToLieHighRed = false;
+        HasLiedOnceBlue = false;
+        IsToLieHighBlue = false;
+        OneColoredString.SetActive(false);
+        TwoColoredString.SetActive(false);
+        OnceWasMainOpeningCube = false;
+        _meshRenderer.material = AllMaterials[0];
+        _meshRenderer.enabled = true;
+        _hasLostOnce = false;
+        transform.position = Vector3.zero;
+        MainOpeningCube = null;
+        ExcludeCubes.Clear();
     }
 
     public void ApplyMaterial(Material material)
@@ -101,24 +140,30 @@ public class Cell : MonoBehaviour
         }
         Flag.SetActive(false);
     }
+
     public List<GameObject> GetAllNeighbours()
     {
-        List<GameObject> Neighbours = new();
+        if (_neighborsCacheValid) return _cachedNeighbors;
+
+        _cachedNeighbors = new List<GameObject>();
         Physics.OverlapSphereNonAlloc(transform.position, 1f, hitColliders);
-        //hitColliders = Physics.OverlapSphere(transform.position, 1f);
-        for (int i = 0;i<hitColliders.Length;i++)
+
+        for (int i = 0; i < hitColliders.Length; i++)
         {
-            if (hitColliders[i] != gameObject && hitColliders[i].transform.name=="Cell(Clone)")
-                Neighbours.Add(hitColliders[i].gameObject);
+            if (hitColliders[i] != gameObject && hitColliders[i].CompareTag("Cell"))
+                _cachedNeighbors.Add(hitColliders[i].gameObject);
         }
-        return Neighbours;
+
+        _neighborsCacheValid = true;
+        return _cachedNeighbors;
     }
+
     public GameObject GetRandomNeighbour()
     {
         hitColliders = Physics.OverlapSphere(transform.position, 1f);
         int RN = UnityEngine.Random.Range(0, hitColliders.Length);
         GameObject RandomNeighbour = hitColliders[RN].gameObject;
-        if (RandomNeighbour.transform.name != "Cell(Clone)"|| RandomNeighbour == gameObject)
+        if (!RandomNeighbour.CompareTag("Cell") || RandomNeighbour == gameObject)
             return null;
         return RandomNeighbour;
     } 
@@ -135,50 +180,80 @@ public class Cell : MonoBehaviour
         else if (BarierZ < TransformZ && Math.Abs(BarierX - TransformX) < 0.1f)
             HasBarierDown = true;
     }
-    private bool IsBehindABarier(Collider Object)
-    {
-        float ObjectX = Object.transform.position.x, ObjectZ = Object.transform.position.z;
-        float TransformX = transform.position.x, TransformZ = transform.position.z;
-        Cell ObjectCell = Object.GetComponent<Cell>();
-        if (ObjectX - TransformX > 0.1f && (HasBarierRight || ObjectCell.HasBarierLeft))
-        {
-            return true;
-        }
-        if (TransformX - ObjectX > 0.1f && (HasBarierLeft || ObjectCell.HasBarierRight))
-        {
-            return true;
-        }
-        if (ObjectZ - TransformZ >0.1f && (HasBarierUp || ObjectCell.HasBarierDown))
-        {
-            return true;
-        }
-        if (TransformZ - ObjectZ >0.1f && (HasBarierDown || ObjectCell.HasBarierUp))
-        {
-            return true;
-        }
-        return false;
-    }
+
     private bool IsBehindABarier(GameObject Object)
     {
         float ObjectX = Object.transform.position.x, ObjectZ = Object.transform.position.z;
         float TransformX = transform.position.x, TransformZ = transform.position.z;
         Cell ObjectCell = Object.GetComponent<Cell>();
-        if (ObjectX - TransformX > 0.1f && (HasBarierRight || ObjectCell.HasBarierLeft))
+
+        // Проверяем разницу по осям с учетом погрешности
+        float diffX = ObjectX - TransformX;
+        float diffZ = ObjectZ - TransformZ;
+
+        // Определяем направление соседа
+        bool isRight = diffX > 0.1f;
+        bool isLeft = diffX < -0.1f;
+        bool isUp = diffZ > 0.1f;
+        bool isDown = diffZ < -0.1f;
+
+        // Прямой сосед справа
+        if (isRight && Mathf.Abs(diffZ) < 0.1f && (HasBarierRight || ObjectCell.HasBarierLeft))
         {
             return true;
         }
-        if (TransformX - ObjectX > 0.1f && (HasBarierLeft || ObjectCell.HasBarierRight))
+
+        // Прямой сосед слева
+        if (isLeft && Mathf.Abs(diffZ) < 0.1f && (HasBarierLeft || ObjectCell.HasBarierRight))
         {
             return true;
         }
-        if (ObjectZ - TransformZ > 0.1f && (HasBarierUp || ObjectCell.HasBarierDown))
+
+        // Прямой сосед сверху
+        if (isUp && Mathf.Abs(diffX) < 0.1f && (HasBarierUp || ObjectCell.HasBarierDown))
         {
             return true;
         }
-        if (TransformZ - ObjectZ > 0.1f && (HasBarierDown || ObjectCell.HasBarierUp))
+
+        // Прямой сосед снизу
+        if (isDown && Mathf.Abs(diffX) < 0.1f && (HasBarierDown || ObjectCell.HasBarierUp))
         {
             return true;
         }
+
+        // Диагональный сосед справа-сверху
+        if (isRight && isUp)
+        {
+            // Нужны оба барьера: справа И сверху
+            bool hasHorizontalBarrier = HasBarierRight || ObjectCell.HasBarierLeft;
+            bool hasVerticalBarrier = HasBarierUp || ObjectCell.HasBarierDown;
+            return hasHorizontalBarrier && hasVerticalBarrier;
+        }
+
+        // Диагональный сосед справа-снизу
+        if (isRight && isDown)
+        {
+            bool hasHorizontalBarrier = HasBarierRight || ObjectCell.HasBarierLeft;
+            bool hasVerticalBarrier = HasBarierDown || ObjectCell.HasBarierUp;
+            return hasHorizontalBarrier && hasVerticalBarrier;
+        }
+
+        // Диагональный сосед слева-сверху
+        if (isLeft && isUp)
+        {
+            bool hasHorizontalBarrier = HasBarierLeft || ObjectCell.HasBarierRight;
+            bool hasVerticalBarrier = HasBarierUp || ObjectCell.HasBarierDown;
+            return hasHorizontalBarrier && hasVerticalBarrier;
+        }
+
+        // Диагональный сосед слева-снизу
+        if (isLeft && isDown)
+        {
+            bool hasHorizontalBarrier = HasBarierLeft || ObjectCell.HasBarierRight;
+            bool hasVerticalBarrier = HasBarierDown || ObjectCell.HasBarierUp;
+            return hasHorizontalBarrier && hasVerticalBarrier;
+        }
+
         return false;
     }
     private void FindBariers()
@@ -189,7 +264,7 @@ public class Cell : MonoBehaviour
         {
             if (collider.gameObject == gameObject)
                 continue;
-            if (collider.transform.name == "Barier(Clone)")
+            if (collider.CompareTag("Barier"))
             {
                 DecideBarierPosition(collider);
             }
@@ -204,7 +279,7 @@ public class Cell : MonoBehaviour
             Cell CellComponent = collider.GetComponent<Cell>();
             if (CellComponent != null)
             {
-                if (IsBehindABarier(collider))
+                if (IsBehindABarier(collider.gameObject))
                 {
                     ExcludeCube(collider.gameObject);
                     CellComponent.ExcludeCube(gameObject);
@@ -220,27 +295,26 @@ public class Cell : MonoBehaviour
     public void GetSurroundingCubesInfo()
     {
         Physics.OverlapSphereNonAlloc(transform.position, 1f, hitColliders);
-        //FindBariers();
         ExcludeCubes.Clear();
         FunExcludeCubes();
         NumberOfRedBombsAround = 0;
         NumberOfBlueBombsAround = 0;
-        foreach (Collider collider in hitColliders)
+        for (int i = 0; i < hitColliders.Length; i++)
         {
-            if (collider.gameObject == gameObject)
+            if (hitColliders[i].gameObject == gameObject)
                 continue;
-            Cell CellComponent = collider.GetComponent<Cell>();
+            Cell CellComponent = hitColliders[i].GetComponent<Cell>();
             if (CellComponent != null)
             {
                 if (CellComponent.HasRedBomb)
                 {
-                    if (ExcludeCubes.Contains(collider.gameObject))
+                    if (ExcludeCubes.Contains(hitColliders[i].gameObject))
                         continue;
                     NumberOfRedBombsAround++;
                 }
                 if(CellComponent.HasBlueBomb)
                 {
-                    if (ExcludeCubes.Contains(collider.gameObject))
+                    if (ExcludeCubes.Contains(hitColliders[i].gameObject))
                         continue;
                     NumberOfBlueBombsAround++;
                 }
@@ -297,7 +371,7 @@ public class Cell : MonoBehaviour
             if (NumberAboutBombs.gameObject.activeSelf || DoubleNumberAboutBombs.activeSelf)
             {
                 NumberAboutBombs.color = Color.blue;//I dont like red numbers, so red bombs are blue
-                NumberAboutBombs.text = Convert.ToString(LyingNumber(NumberOfRedBombsAround, true));
+                NumberAboutBombs.text = NumberStrings[LyingNumber(NumberOfRedBombsAround, true)];
                 NumberAboutBombs.gameObject.SetActive(true);
                 DoubleNumberAboutBombs.SetActive(false);
             }
@@ -307,8 +381,8 @@ public class Cell : MonoBehaviour
         {
             NumberAboutBombs.gameObject.gameObject.SetActive(false);
             DoubleNumberAboutBombs.SetActive(true);
-            _secondDoubleNumber.text = Convert.ToString(LyingNumber(NumberOfBlueBombsAround, false));
-            _firstDoubleNumber.text = Convert.ToString(LyingNumber(NumberOfRedBombsAround, true));
+            _secondDoubleNumber.text = NumberStrings[LyingNumber(NumberOfBlueBombsAround, true)];
+            _firstDoubleNumber.text = NumberStrings[LyingNumber(NumberOfRedBombsAround, true)];
         }
         else
         {
@@ -317,12 +391,14 @@ public class Cell : MonoBehaviour
             if (NumberOfRedBombsAround > 0)
             {
                 NumberAboutBombs.color = Color.blue;//I dont like red numbers, so red bombs are blue
-                NumberAboutBombs.text = Convert.ToString(LyingNumber(NumberOfRedBombsAround, true));
+                NumberAboutBombs.text = NumberStrings[LyingNumber(NumberOfRedBombsAround, true)];
+
             }
             else if (NumberOfBlueBombsAround > 0)
             {
                 NumberAboutBombs.color = Color.red;
-                NumberAboutBombs.text = Convert.ToString(LyingNumber(NumberOfBlueBombsAround, false));
+                NumberAboutBombs.text = NumberStrings[LyingNumber(NumberOfBlueBombsAround, true)];
+
             }
         }
     }
@@ -337,7 +413,7 @@ public class Cell : MonoBehaviour
 
         foreach (Collider collider in SurroundingColliders)
         {
-            if (collider.gameObject == gameObject || collider.transform.name != "Cell(Clone)"|| IsBehindABarier(collider))
+            if (collider.gameObject == gameObject || !collider.CompareTag("Cell") || IsBehindABarier(collider.gameObject))
                 continue;
 
             GameObject Flag = collider.transform.GetChild(2).gameObject;
@@ -370,7 +446,7 @@ public class Cell : MonoBehaviour
 
             foreach (Collider collider in NonBombs)
             {
-                if (!IsBehindABarier(collider))
+                if (!IsBehindABarier(collider.gameObject))
                     collider.GetComponent<Cell>().WasClicked(0f);
             }
         }
@@ -414,7 +490,7 @@ public class Cell : MonoBehaviour
         }
 
         HasBeenTouched = true;
-        Sequence MoveToOpen = DOTween.Sequence();
+        MoveToOpen = DOTween.Sequence();
         MoveToOpen.Append(transform.DOMoveY(transform.position.y + 0.3f, 0.2f));
         MoveToOpen.Append(transform.DOMoveY(transform.position.y, 0.2f));
 
@@ -431,13 +507,13 @@ public class Cell : MonoBehaviour
                 Cell CellComponent = collider.GetComponent<Cell>();
                 if (CellComponent != null)
                 {
-                    if (IsBehindABarier(collider))
+                    if (IsBehindABarier(collider.gameObject))
                         continue;
                     CellComponent.WasClicked(_surroundingCellsOpenTime); 
                 }
             }
         }
-        if (_meshRenderer.material.name == "Normal cube (Instance)" || _meshRenderer.material.name == "Pointed cube (Instance)")
+        if (_meshRenderer.material == AllMaterials[0] || _meshRenderer.material == AllMaterials[2])
         {
             onEmptyCellClicked?.Invoke();
         }
@@ -459,7 +535,7 @@ public class Cell : MonoBehaviour
     }
     public void WasRightClicked()
     {
-        if (_meshRenderer.material.name == "Touched cube (Instance)")
+        if (_meshRenderer.material == AllMaterials[1])
             return;
         if (CanHaveTwoBombs)
         {
