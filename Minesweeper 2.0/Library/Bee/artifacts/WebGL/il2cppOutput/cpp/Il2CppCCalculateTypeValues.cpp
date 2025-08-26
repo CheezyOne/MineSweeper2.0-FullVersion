@@ -1271,6 +1271,7 @@ struct MethodReturnDictionary_tF3CD5C775DD6387855EE335AC9646050BE34AF0F;
 struct MobileButtonsSet_tD005905FC0A9BCB7A552D36715E4A377FB232EEA;
 struct MonoMethodMessage_t0A062C5351332ED078EDDF6FA38A87B0A7B5A601;
 struct MonoTypeInfo_t90D5999A69AC524474FDEAC50F55B6CE868AB501;
+struct MovingCamera_tDA3D1483537F2863832FCC058E9EBFB6C2DC1EE5;
 struct MultiColumnCollectionHeader_t0B041BD57A14950E8C33DCD854F3A3C2C3DA706D;
 struct MultiColumnController_t25BFE9B50BC0D69925EC7EEE090F256FFE1244B6;
 struct MultiColumnHeaderColumn_t6F44266EE1B6EEB83465A7FE3BA6A6C7CBF8F9B4;
@@ -6121,7 +6122,7 @@ struct U3COnFinishSubmitU3Ed__9_t55620C8613B09E9D27E197A064B9C249B6F13164  : pub
 struct U3CU3Ec_tC91356F4CB32E0A0C2FFCB36B7E2C51A6CFAC05F  : public RuntimeObject
 {
 };
-struct U3CClickWaitU3Ed__66_tD86395C4D6D4D4EE15722FF36E11FB8B0EC1BC38  : public RuntimeObject
+struct U3CClickWaitU3Ed__67_t34C1E3307C7D7A55DFE1597AF99875A6E84B01EB  : public RuntimeObject
 {
 	int32_t ___U3CU3E1__state;
 	RuntimeObject* ___U3CU3E2__current;
@@ -20986,7 +20987,7 @@ struct Unit_tAE478BD661DB092BBD04163BD94D5868EB99666F
 {
 	int32_t ___value__;
 };
-struct U3CSpawnTrailsToNearbyCellU3Ed__72_tE4827FA62AC23E1DD342853E6F94C64D687A0372  : public RuntimeObject
+struct U3CSpawnTrailsToNearbyCellU3Ed__73_t92C51AA21CC08D67D22DD0B956811605775137A5  : public RuntimeObject
 {
 	int32_t ___U3CU3E1__state;
 	RuntimeObject* ___U3CU3E2__current;
@@ -32006,6 +32007,9 @@ struct MouseCaptureEventBase_1_t5537F73E5A70BC010C316B6AAA9C566B72A90C68  : publ
 struct MouseCaptureEventBase_1_t5FC05EBFDD52596A249D1186F4DBBF8AC0BB96AC  : public PointerCaptureEventBase_1_t19C92EDCA213A9395CF90DC2022EF67F080FBB55
 {
 };
+struct Singleton_1_tE6EDFB1946AAC111B2FA73EC92C86DE20B9527A3  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
+{
+};
 struct Singleton_1_t4AF62B466367E9630CFDEE39E6632B78AA26F578  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
 {
 };
@@ -32275,6 +32279,7 @@ struct Cell_t88832599049D1ADACE41CE1CF9C147304CF76D5A  : public MonoBehaviour_t5
 	bool ____neighborsCacheValid;
 	Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B* ____trailRoutine;
 	Sequence_tEADBE56D6ED2E9EE8FB2E5459C3E57131EC0545C* ___MoveToOpen;
+	Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* ____currentBaseMaterial;
 };
 struct ClickEvent_t30651949F0BA68E61187B63F5D325323E92CC318  : public PointerEventBase_1_tE7FD0B460EEC808CA9256F0071D67C920B0E1124
 {
@@ -32496,10 +32501,11 @@ struct HelpBox_tCD0D219C36AE01380F2C8B6C9DF9F27C4A1C15C1  : public VisualElement
 };
 struct HighLightCells_t83418742A77E2CBF232FD0E30643253622E7D22D  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
 {
-	Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* ___PointedMaterial;
-	Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* ___NormalMaterial;
-	Cell_t88832599049D1ADACE41CE1CF9C147304CF76D5A* ___PointedCube;
+	Cell_t88832599049D1ADACE41CE1CF9C147304CF76D5A* ____pointedCell;
+	Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* ____pointedCellTransform;
 	Camera_tA92CC927D7439999BC82DBEDC0AA45B470F9E184* ____mainCamera;
+	Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* ____normalMaterial;
+	Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* ____pointedMaterial;
 };
 struct IMGUIContainer_t2BB1312DCDFA8AC98E9ADA9EA696F2328A598A26  : public VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115
 {
@@ -32778,20 +32784,6 @@ struct MouseOverEvent_t7B8F0B26E77632F3A33FDCBD26B39FF74A8558C2  : public MouseE
 };
 struct MouseUpEvent_t3AC6C6A7A9CDB075A5FFE0C0F5E9B7C5D561A811  : public MouseEventBase_1_t46809EA36A0565CF67A1688881999B3118F91E83
 {
-};
-struct MovingCamera_tDA3D1483537F2863832FCC058E9EBFB6C2DC1EE5  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
-{
-	float ___MouseSpeed;
-	bool ___isAbleToBackScrollCamera;
-	bool ___GetBorderPositionOnce;
-	float ___RightBorder;
-	float ___UpperBorder;
-	float ___Timer;
-	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___DragStartPosition;
-	float ___movementSpeed;
-	Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___previousTouchPosition2;
-	Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___previousTouchPosition1;
-	Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* ___MainCamTransform;
 };
 struct MultiColumnCollectionHeader_t0B041BD57A14950E8C33DCD854F3A3C2C3DA706D  : public VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115
 {
@@ -34020,6 +34012,21 @@ struct MouseCaptureEvent_tC9F3C2595ADCE4F88D2553F8F697F00BA797B014  : public Mou
 };
 struct MouseCaptureOutEvent_t55FDD6FD486DDB02F1878EEF2716F444E7A94AF5  : public MouseCaptureEventBase_1_t5FC05EBFDD52596A249D1186F4DBBF8AC0BB96AC
 {
+};
+struct MovingCamera_tDA3D1483537F2863832FCC058E9EBFB6C2DC1EE5  : public Singleton_1_tE6EDFB1946AAC111B2FA73EC92C86DE20B9527A3
+{
+	float ___MouseSpeed;
+	bool ___isAbleToBackScrollCamera;
+	bool ___GetBorderPositionOnce;
+	float ___RightBorder;
+	float ___UpperBorder;
+	float ___Timer;
+	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___DragStartPosition;
+	Camera_tA92CC927D7439999BC82DBEDC0AA45B470F9E184* ___MainCamera;
+	float ___movementSpeed;
+	Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___previousTouchPosition2;
+	Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___previousTouchPosition1;
+	Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* ___MainCamTransform;
 };
 struct MultiColumnHeaderColumnIcon_tC4C958B7F3CE0D71B5A032DF3B7C81E6C707EF88  : public Image_tAEB35FD00A2200BF406AE5EDD15B4CB24DBBB8E3
 {
@@ -39308,11 +39315,6 @@ struct MobileCanvasSwapper_t351196F20BFA8F2E076E12E71ADAB130DA65414D_StaticField
 	Action_tD00B0A84D7945E50C2DFFC28EFEE6ED44ED2AD07* ___onCanvasSwap;
 	bool ___IsNowDesktop;
 };
-struct MovingCamera_tDA3D1483537F2863832FCC058E9EBFB6C2DC1EE5_StaticFields
-{
-	bool ___isAbleToMove;
-	bool ___isMobileMovement;
-};
 struct MultiColumnCollectionHeader_t0B041BD57A14950E8C33DCD854F3A3C2C3DA706D_StaticFields
 {
 	String_t* ___ussClassName;
@@ -39571,6 +39573,11 @@ struct GroupBox_t0AD80A2EA4AB0B8E5C5AD37A1CDDEA9572494813_StaticFields
 {
 	String_t* ___ussClassName;
 	String_t* ___labelUssClassName;
+};
+struct MovingCamera_tDA3D1483537F2863832FCC058E9EBFB6C2DC1EE5_StaticFields
+{
+	bool ___isAbleToMove;
+	bool ___isMobileMovement;
 };
 struct MultiColumnHeaderColumnIcon_tC4C958B7F3CE0D71B5A032DF3B7C81E6C707EF88_StaticFields
 {
@@ -47611,9 +47618,9 @@ const Il2CppTypeDefinitionSizes g_typeDefinitionSize3841 = { sizeof(ApplyMines_t
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize3842;
 const Il2CppTypeDefinitionSizes g_typeDefinitionSize3842 = { sizeof(BombsInGameChanger_tAC2193E7AE0559F6DEFE330151EA6D8F7529512E), -1, sizeof(BombsInGameChanger_tAC2193E7AE0559F6DEFE330151EA6D8F7529512E_StaticFields), 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize3843;
-const Il2CppTypeDefinitionSizes g_typeDefinitionSize3843 = { sizeof(U3CClickWaitU3Ed__66_tD86395C4D6D4D4EE15722FF36E11FB8B0EC1BC38), -1, 0, 0 };
+const Il2CppTypeDefinitionSizes g_typeDefinitionSize3843 = { sizeof(U3CClickWaitU3Ed__67_t34C1E3307C7D7A55DFE1597AF99875A6E84B01EB), -1, 0, 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize3844;
-const Il2CppTypeDefinitionSizes g_typeDefinitionSize3844 = { sizeof(U3CSpawnTrailsToNearbyCellU3Ed__72_tE4827FA62AC23E1DD342853E6F94C64D687A0372), -1, 0, 0 };
+const Il2CppTypeDefinitionSizes g_typeDefinitionSize3844 = { sizeof(U3CSpawnTrailsToNearbyCellU3Ed__73_t92C51AA21CC08D67D22DD0B956811605775137A5), -1, 0, 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize3845;
 const Il2CppTypeDefinitionSizes g_typeDefinitionSize3845 = { sizeof(Cell_t88832599049D1ADACE41CE1CF9C147304CF76D5A), -1, sizeof(Cell_t88832599049D1ADACE41CE1CF9C147304CF76D5A_StaticFields), 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize3846;

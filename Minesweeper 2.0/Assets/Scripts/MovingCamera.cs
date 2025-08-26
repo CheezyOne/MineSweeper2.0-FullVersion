@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class MovingCamera : MonoBehaviour
+public class MovingCamera : Singleton<MovingCamera>
 {
     private float MouseSpeed=8f;
     public static bool isAbleToMove = false, isMobileMovement = false;
@@ -8,7 +8,7 @@ public class MovingCamera : MonoBehaviour
     private float RightBorder, UpperBorder, Timer=0.5f;
     private const float LeftBorder=-5.5f, LowerBorder=-2.2f;
     private Vector3 DragStartPosition;
-
+    public Camera MainCamera;
 
     public float movementSpeed = 0.1f; // Скорость движения камеры
 
@@ -19,7 +19,7 @@ public class MovingCamera : MonoBehaviour
 
     private void OnEnable()
     {
-        MainCamTransform = Camera.main.transform;
+        MainCamTransform = MainCamera.transform;
         InGameButtons.onGameExit += LockTheCamera;
         EventBus.OnAllCubesFall += LetTheScroll;
     }

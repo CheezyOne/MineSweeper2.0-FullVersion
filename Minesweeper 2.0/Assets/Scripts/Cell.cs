@@ -19,7 +19,7 @@ public class Cell : MonoBehaviour
     [SerializeField] private ContinueWindow _continueWindow;
     public int NumberOfRedBombsAround = 0, NumberOfBlueBombsAround = 0;
     private Collider[] hitColliders;
-    [SerializeField] private Material[] AllMaterials;
+    public Material[] AllMaterials;
     [SerializeField] private GameObject ExplosionEffect, TrailingSphere;
     private List<GameObject> ExcludeCubes = new ();
     private bool HasLiedOnceRed = false, IsToLieHighRed = false, HasLiedOnceBlue = false, IsToLieHighBlue = false;
@@ -36,6 +36,8 @@ public class Cell : MonoBehaviour
     private bool _neighborsCacheValid = false;
     private Coroutine _trailRoutine;
     private Sequence MoveToOpen;
+    private Material _currentBaseMaterial;
+
     private static readonly string[] NumberStrings = new string[10] {
     "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"
 };
@@ -48,7 +50,8 @@ public class Cell : MonoBehaviour
 
     private void Awake()
     {
-        _mainCamera = Camera.main.transform;
+        _mainCamera = MovingCamera.Instance.MainCamera.transform;
+        _currentBaseMaterial = AllMaterials[0];
     }
 
     private void OnEnable()
@@ -97,6 +100,7 @@ public class Cell : MonoBehaviour
         TwoColoredString.SetActive(false);
         OnceWasMainOpeningCube = false;
         _meshRenderer.material = AllMaterials[0];
+        _currentBaseMaterial = AllMaterials[0];
         _meshRenderer.enabled = true;
         _hasLostOnce = false;
         transform.position = Vector3.zero;
@@ -107,6 +111,7 @@ public class Cell : MonoBehaviour
     public void ApplyMaterial(Material material)
     {
         _meshRenderer.material = material;
+        _currentBaseMaterial = material;
     }
 
     private void SpawnExplosion()
@@ -509,15 +514,17 @@ public class Cell : MonoBehaviour
                 {
                     if (IsBehindABarier(collider.gameObject))
                         continue;
-                    CellComponent.WasClicked(_surroundingCellsOpenTime); 
+                    CellComponent.WasClicked(_surroundingCellsOpenTime);
                 }
             }
         }
-        if (_meshRenderer.material == AllMaterials[0] || _meshRenderer.material == AllMaterials[2])
+
+        if (_currentBaseMaterial == AllMaterials[0] || _currentBaseMaterial == AllMaterials[2])
         {
             onEmptyCellClicked?.Invoke();
         }
-        _meshRenderer.material = AllMaterials[1];
+
+        ApplyMaterial(AllMaterials[1]);
     }    
     public void WasClicked(float Delay)
     {
@@ -535,8 +542,9 @@ public class Cell : MonoBehaviour
     }
     public void WasRightClicked()
     {
-        if (_meshRenderer.material == AllMaterials[1])
+        if (_currentBaseMaterial == AllMaterials[1])
             return;
+
         if (CanHaveTwoBombs)
         {
             OneColoredString.SetActive(true);
@@ -575,20 +583,24 @@ public class Cell : MonoBehaviour
             }
         }
     }
+
     public void ShowTrails()
     {
         _trailRoutine = StartCoroutine(SpawnTrailsToNearbyCell());
     }
+
     public void StopTheTrails()
     {
         StopCoroutine(_trailRoutine);
     }
+
     private IEnumerator SpawnTrailsToNearbyCell()
     {
-        Vector3 CameraAdjast = (_mainCamera.position- transform.position);
+        Vector3 CameraAdjast = _mainCamera.position- transform.position;
         CameraAdjast.Normalize();
         CameraAdjast /= 1.3f;
         yield return new WaitForSeconds(0.3f);
+
         for(int i= 0;i < GetAllNeighbours().Count;i++)
         {
             if (IsBehindABarier(GetAllNeighbours()[i]))
@@ -598,6 +610,7 @@ public class Cell : MonoBehaviour
                 Destroy(Sphere, 0.8f);
             }
         }
+
         yield return SpawnTrailsToNearbyCell();
     }
 }
